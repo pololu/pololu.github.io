@@ -18,6 +18,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="wixel_64.png"></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">Wixel SDK</div>
   </td>
@@ -61,21 +62,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <a href="radio__com_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
-<a name="l00006"></a>00006 <span class="preprocessor">#ifndef _RADIO_COM_H_</span>
-<a name="l00007"></a>00007 <span class="preprocessor"></span><span class="preprocessor">#define _RADIO_COM_H_</span>
-<a name="l00008"></a>00008 <span class="preprocessor"></span>
-<a name="l00009"></a>00009 <span class="keywordtype">void</span> radioComInit();
-<a name="l00010"></a>00010 
-<a name="l00011"></a>00011 <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> radioComRxAvailable(<span class="keywordtype">void</span>);
-<a name="l00012"></a>00012 <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> radioComRxReceiveByte(<span class="keywordtype">void</span>);
-<a name="l00013"></a>00013 
-<a name="l00014"></a>00014 <span class="keywordtype">void</span> radioComTxService(<span class="keywordtype">void</span>);  <span class="comment">// This must be called regularly if you are sending data.</span>
-<a name="l00015"></a>00015 
-<a name="l00016"></a>00016 <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> radioComTxAvailable(<span class="keywordtype">void</span>);
-<a name="l00017"></a>00017 <span class="keywordtype">void</span> radioComTxSendByte(<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> byte);
-<a name="l00018"></a>00018 <span class="keywordtype">void</span> radioComTxSend(<span class="keyword">const</span> <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> * buffer, <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> size);
-<a name="l00019"></a>00019 
-<a name="l00020"></a>00020 <span class="preprocessor">#endif </span><span class="comment">/* RADIO_COM_H_ */</span>
+<a name="l00008"></a>00008 <span class="preprocessor">#ifndef _RADIO_COM_H_</span>
+<a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor">#define _RADIO_COM_H_</span>
+<a name="l00010"></a>00010 <span class="preprocessor"></span>
+<a name="l00011"></a>00011 <span class="keywordtype">void</span> radioComInit();
+<a name="l00012"></a>00012 
+<a name="l00030"></a>00030 <span class="keyword">extern</span> <a class="code" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> <a class="code" href="radio__com_8h.html#a37d39a1b11c22b8b3392f3bee84416af">radioComRxEnforceOrdering</a>;
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> radioComRxAvailable(<span class="keywordtype">void</span>);
+<a name="l00033"></a>00033 <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> radioComRxReceiveByte(<span class="keywordtype">void</span>);
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035 <span class="keywordtype">void</span> radioComTxService(<span class="keywordtype">void</span>);  <span class="comment">// This must be called regularly if you are sending data.</span>
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037 <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> radioComTxAvailable(<span class="keywordtype">void</span>);
+<a name="l00038"></a>00038 <span class="keywordtype">void</span> radioComTxSendByte(<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> byte);
+<a name="l00039"></a>00039 <span class="keywordtype">void</span> radioComTxSend(<span class="keyword">const</span> <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> * buffer, <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> size);
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041 <span class="keywordtype">void</span> radioComTxControlSignals(<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> controlSignals);
+<a name="l00042"></a>00042 <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> radioComRxControlSignals();
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044 <span class="preprocessor">#endif </span><span class="comment">/* RADIO_COM_H_ */</span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -92,7 +98,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Mar 22 2011 17:36:09 for Wixel SDK by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Apr 7 2011 15:42:52 for Wixel SDK by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

@@ -18,6 +18,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="wixel_64.png"></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">Wixel SDK</div>
   </td>
@@ -55,14 +56,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h1>Wixel SDK Documentation </h1>  </div>
 </div>
 <div class="contents">
-<div class="textblock"><p>The <a href="http://www.pololu.com/catalog/product/1336">Wixel</a> is a general-pupose programmable module made by <a href="http://www.pololu.com/">Pololu</a> featuring a 2.4 GHz radio and USB. The Wixel is based around the <a href="http://focus.ti.com/docs/prod/folders/print/cc2511f32.html">CC2511F32</a> chip from Texas Instruments. The Pololu Wixel Software Development Kit (SDK) contains code, utilities, and Makefiles which will help you build your own applications for the Wixel.</p>
+<div class="textblock"><p>The <a href="http://www.pololu.com/catalog/product/1336">Pololu Wixel</a> is a general-purpose programmable module featuring a 2.4 GHz radio and USB. The Wixel is based on the <a href="http://focus.ti.com/docs/prod/folders/print/cc2511f32.html">CC2511F32</a> microcontroller from Texas Instruments, which has an integrated radio transceiver, 32 KB of flash memory, 4 KB of RAM, and a full-speed USB interface. The Pololu Wixel Software Development Kit (SDK) contains code, utilities, and Makefiles which will help you build your own applications for the Wixel.</p>
 <h2><a class="anchor" id="starting"></a>
 Getting Started</h2>
 <p>You will need to have a copy of the Wixel SDK, <a href="http://sdcc.sourceforge.net/">SDCC</a> version 3.0.0 or later, and you will need to have certain GNU utililties available on your path: cat, cp, echo, grep, make, mv, and rm. For Windows users, we recommend that you install all of these components by downloading the Wixel Development Bundle, available from the <a href="http://www.pololu.com/docs/0J46">Pololu Wixel User's Guide</a>.</p>
-<p>The Wixel SDK is also available as a <a href="http://github.com/pololu/wixel-sdk">git repository hosted on GitHub</a>, so you can get it by <a href="http://help.github.com/set-up-git-redirect">installing git</a> and running: </p>
+<p>The Wixel SDK is also available as a <a href="http://github.com/pololu/wixel-sdk">git repository hosted on GitHub</a>, so you can get it by installing <a href="http://git-scm.com/">git</a> and running: </p>
 <pre>
 git clone -o pololu git://github.com/pololu/wixel-sdk.git
-</pre><h2><a class="anchor" id="building_app"></a>
+</pre><p>If you need help, see GitHub's instructions on how to <a href="http://help.github.com/set-up-git-redirect">Set Up Git</a>. For Windows users, we also recommend installing <a href="http://code.google.com/p/tortoisegit/">TortoiseGit</a> because it provides a good graphical user interface for git.</p>
+<h2><a class="anchor" id="building_app"></a>
 Building Your App</h2>
 <p>Open a command-line terminal, navigate to the top level directory of the SDK, and type "make". This will build all of the apps in the apps folder and all of the libraries that they depend on.</p>
 <p>To load your app on to all the Wixels connected to the computer, type "make load_APPNAME" where APPNAME is the name of your app's folder in the apps directory.</p>
@@ -70,13 +72,14 @@ Building Your App</h2>
 <p>Running any of the commands above will rebuild your app if it is out of date.</p>
 <h2><a class="anchor" id="sdk_docs"></a>
 Documentation of Wixel SDK Libraries (incomplete!)</h2>
-<p>To generate this documentation, type "make docs" (requires <a href="http://www.doxygen.org/">Doxygen</a>).</p>
-<p>The <a href="./modules.html">Modules</a> section contains an overview of all the libraries available in this SDK.</p>
-<p>The <a href="./files.html">Files</a> section contains specific documentation for all the functions, grouped by header file. This section is auto-generated from the .c and .h files in the SDK.</p>
+<p>The <a href="./group__libraries.html">Libraries</a> page contains an overview of all the libraries available in this SDK.</p>
+<p>The <a href="./files.html">File List</a> page links to the documentation for all the library functions, grouped by header file. This documentation is auto-generated from the .c and .h files in the SDK.</p>
+<p>The <a href="./globals.html">Globals</a> page contains an index of all the global functions variables, typedefs, and defines in this SDK.</p>
+<p>To generate this documentation yourself, type "make docs" (requires <a href="http://www.doxygen.org/">Doxygen</a>).</p>
 <h2><a class="anchor" id="other_docs"></a>
 Other Documentation</h2>
-<p>Documentation for the Wixel itself is available in the <a href="http://www.pololu.com/docs/0J46">Pololu Wixel User's Guide</a> provided by Pololu.</p>
-<p>Documentation for the CC2511F32 (the microcontroller on the Wixel) is available in the <a href="http://focus.ti.com/docs/prod/folders/print/cc2511f32.html">CC2511F32 datasheet</a> provided by Texas Instruments.</p>
+<p>Documentation for the Wixel itself is available in the <a href="http://www.pololu.com/docs/0J46">Pololu Wixel User's Guide</a> provided by Pololu. The user's guide contains schematic diagrams, pinout diagrams, documentation for the apps, example wiring, and more.</p>
+<p>Documentation for the CC2511F32 (the microcontroller on the Wixel) is available in the <a href="http://focus.ti.com/docs/prod/folders/print/cc2511f32.html">CC2511F32 datasheet</a> provided by Texas Instruments. The datasheet provides detailed technical information about the hardware peripherals and how to control them, as well as electrical specifications, and more. Texas Instruments also provides many app notes and design notes on the <a href="http://focus.ti.com/docs/prod/folders/print/cc2511f32.html">CC2511F32</a> page.</p>
 <p>Documentation for SDCC is available on the <a href="http://sdcc.sourceforge.net/">SDCC website</a>.</p>
 <h2><a class="anchor" id="help"></a>
 Getting Help</h2>
@@ -96,7 +99,7 @@ Getting Help</h2>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Mar 22 2011 17:36:09 for Wixel SDK by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Apr 7 2011 15:42:52 for Wixel SDK by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

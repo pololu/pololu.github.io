@@ -18,6 +18,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="wixel_64.png"></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">Wixel SDK</div>
   </td>
@@ -81,8 +82,7 @@ Defines</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>SFR16</b>(addressH, addressL, name)&#160;&#160;&#160;static __sfr16 __at (((addressH) &lt;&lt; 8) + (addressL)) name;</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac1b6fb70d0a533e871f9682a5cd87e35"></a><!-- doxytag: member="cc2511_map.h::SFRX" ref="ac1b6fb70d0a533e871f9682a5cd87e35" args="(address, name)" -->
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>SFRX</b>(address, name)&#160;&#160;&#160;static volatile unsigned char __xdata __at(address) name;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a671201fd0e77ec576f30610b276acd11"></a><!-- doxytag: member="cc2511_map.h::ISR" ref="a671201fd0e77ec576f30610b276acd11" args="(source, bank)" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>ISR</b>(source, bank)&#160;&#160;&#160;void ISR_##source() __interrupt(source##_VECTOR) __using(bank)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cc2511__map_8h.html#a671201fd0e77ec576f30610b276acd11">ISR</a>(source, bank)&#160;&#160;&#160;void ISR_##source() __interrupt(source##_VECTOR) __using(bank)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aec9c2381254c8c5fd1db35cdd5cca0e8"></a><!-- doxytag: member="cc2511_map.h::RFTXRX_VECTOR" ref="aec9c2381254c8c5fd1db35cdd5cca0e8" args="" -->
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>RFTXRX_VECTOR</b>&#160;&#160;&#160;0</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab7a7c125c849c965748564ca65220013"></a><!-- doxytag: member="cc2511_map.h::ADC_VECTOR" ref="ab7a7c125c849c965748564ca65220013" args="" -->
@@ -131,10 +131,56 @@ Defines</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>XDATA_SFR_ADDRESS</b>(sfr)&#160;&#160;&#160;(0xDF00 + ((unsigned int)&amp;(sfr)))</td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>This header file allows your program to access special registers on the CC251xFxx. The USB-related registers will only work on the CC2511Fxx. This file is based on the CC2510Fx/CC2511Fx datasheet (SWRS055F). </p>
+<div class="textblock"><p>This header file provides access to the special registers on the CC2511F32, which allow direct manipulation of the chip's hardware.</p>
+<p>This file also provides macros for defining Interrupt Service Routines (ISRs).</p>
+<p>For documentation, see the <a href="http://focus.ti.com/docs/prod/folders/print/cc2511f32.html">CC2511F32 datasheet</a>. </p>
 
 <p>Definition in file <a class="el" href="cc2511__map_8h_source.html">cc2511_map.h</a>.</p>
 </div><hr/><h2>Define Documentation</h2>
+<a class="anchor" id="a671201fd0e77ec576f30610b276acd11"></a><!-- doxytag: member="cc2511_map.h::ISR" ref="a671201fd0e77ec576f30610b276acd11" args="(source, bank)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ISR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">source, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bank&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;void ISR_##source() __interrupt(source##_VECTOR) __using(bank)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Defines or declares an interrupt service routine (ISR). <b>For the interrupt to work, SDCC requires that the declaration must be present in the file that defines main().</b></p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>The source of the interrupt. Must be either the first word of one of the *_VECTOR macros defined in this file (e.g. "P1INT").</td></tr>
+    <tr><td class="paramname">bank</td><td>The register back to use. Must be a number from 0 to 3, inclusive.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Example ISR declaration (in a .h file): </p>
+<div class="fragment"><pre class="fragment"><a class="code" href="cc2511__map_8h.html#a671201fd0e77ec576f30610b276acd11">ISR</a>(UTX1, 1);
+</pre></div><p>Example ISR definition (in a .c file): </p>
+<div class="fragment"><pre class="fragment"><a class="code" href="cc2511__map_8h.html#a671201fd0e77ec576f30610b276acd11">ISR</a>(UTX1, 1)
+{
+    <span class="comment">// code for handling event and clearing interrupt flag</span>
+}
+</pre></div> 
+<p>Definition at line <a class="el" href="cc2511__map_8h_source.html#l00063">63</a> of file <a class="el" href="cc2511__map_8h_source.html">cc2511_map.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a5724353315876734cc7b0138a6c91552"></a><!-- doxytag: member="cc2511_map.h::SFRBIT" ref="a5724353315876734cc7b0138a6c91552" args="(address, name, bit7, bit6, bit5, bit4, bit3, bit2, bit1, bit0)" -->
 <div class="memitem">
 <div class="memproto">
@@ -217,7 +263,7 @@ Defines</h2></td></tr>
   SBIT(address+6, bit6) \
   SBIT(address+7, bit7)
 </pre></div>
-<p>Definition at line <a class="el" href="cc2511__map_8h_source.html#l00022">22</a> of file <a class="el" href="cc2511__map_8h_source.html">cc2511_map.h</a>.</p>
+<p>Definition at line <a class="el" href="cc2511__map_8h_source.html#l00026">26</a> of file <a class="el" href="cc2511__map_8h_source.html">cc2511_map.h</a>.</p>
 
 </div>
 </div>
@@ -236,7 +282,7 @@ Defines</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Mar 22 2011 17:36:09 for Wixel SDK by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Apr 7 2011 15:42:52 for Wixel SDK by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

@@ -18,6 +18,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="wixel_64.png"></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">Wixel SDK</div>
   </td>
@@ -83,12 +84,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00021"></a>00021 <span class="comment"> *  than a hardcoded constant, but makes this MAC layer much more reusable.</span>
 <a name="l00022"></a>00022 <span class="comment"> */</span>
 <a name="l00023"></a>00023 
-<a name="l00024"></a>00024 <span class="preprocessor">#include &quot;radio_mac.h&quot;</span>
+<a name="l00024"></a>00024 <span class="preprocessor">#include &lt;radio_mac.h&gt;</span>
 <a name="l00025"></a>00025 <span class="preprocessor">#include &lt;cc2511_map.h&gt;</span>
 <a name="l00026"></a>00026 <span class="preprocessor">#include &lt;dma.h&gt;</span>
 <a name="l00027"></a>00027 <span class="preprocessor">#include &lt;radio_registers.h&gt;</span>
 <a name="l00028"></a>00028 
-<a name="l00029"></a>00029 <span class="preprocessor">#include &quot;random.h&quot;</span>
+<a name="l00029"></a>00029 <span class="preprocessor">#include &lt;random.h&gt;</span>
 <a name="l00030"></a>00030 
 <a name="l00031"></a>00031 <span class="preprocessor">#define MAX_LATENCY_OF_STROBE  10</span>
 <a name="l00032"></a>00032 <span class="preprocessor"></span>
@@ -100,230 +101,222 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00038"></a>00038 <span class="preprocessor"></span><span class="preprocessor">#define STX     3</span>
 <a name="l00039"></a>00039 <span class="preprocessor"></span><span class="preprocessor">#define SIDLE   4</span>
 <a name="l00040"></a>00040 <span class="preprocessor"></span>
-<a name="l00041"></a>00041 <span class="keywordtype">void</span> radioPhyInit();
-<a name="l00042"></a>00042 <span class="keyword">static</span> <span class="keywordtype">void</span> radioMacEvent(<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> event);
-<a name="l00043"></a>00043 
-<a name="l00044"></a>00044 <span class="comment">// Bits for sending commands to the MAC in an interrupt safe way.</span>
-<a name="l00045"></a>00045 <span class="keyword">static</span> <span class="keyword">volatile</span> <a class="code" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> strobe = 0;
-<a name="l00046"></a>00046 
-<a name="l00047"></a>00047 <span class="comment">// Error reporting</span>
-<a name="l00048"></a>00048 <span class="keyword">volatile</span> <a class="code" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> radioRxOverflowOccurred = 0;
-<a name="l00049"></a>00049 <span class="keyword">volatile</span> <a class="code" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> radioTxUnderflowOccurred = 0;
-<a name="l00050"></a>00050 <span class="keyword">volatile</span> <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#aad9ae913bdfab20dd94ad04ee2d5b045">DATA</a> radioBadMarcState = 0xFF;
+<a name="l00041"></a>00041 <span class="keyword">static</span> <span class="keywordtype">void</span> radioMacEvent(<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> event);
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043 <span class="comment">// Bits for sending commands to the MAC in an interrupt safe way.</span>
+<a name="l00044"></a>00044 <span class="keyword">static</span> <span class="keyword">volatile</span> <a class="code" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> strobe = 0;
+<a name="l00045"></a>00045 
+<a name="l00046"></a>00046 <span class="comment">// Error reporting</span>
+<a name="l00047"></a>00047 <span class="keyword">volatile</span> <a class="code" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> radioRxOverflowOccurred = 0;
+<a name="l00048"></a>00048 <span class="keyword">volatile</span> <a class="code" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> radioTxUnderflowOccurred = 0;
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050 <span class="keyword">volatile</span> <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#aad9ae913bdfab20dd94ad04ee2d5b045">DATA</a> radioMacState = RADIO_MAC_STATE_OFF;
 <a name="l00051"></a>00051 
-<a name="l00052"></a>00052 <span class="keyword">volatile</span> <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#aad9ae913bdfab20dd94ad04ee2d5b045">DATA</a> radioMacState = RADIO_MAC_STATE_OFF;
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054 ISR(RF, 1)
-<a name="l00055"></a>00055 {
-<a name="l00056"></a>00056     S1CON = 0; <span class="comment">// Clear the general RFIF interrupt registers</span>
-<a name="l00057"></a>00057 
-<a name="l00058"></a>00058     <span class="keywordflow">if</span> (RFIF &amp; 0x10) <span class="comment">// Check IRQ_DONE</span>
-<a name="l00059"></a>00059     {
-<a name="l00060"></a>00060         <span class="keywordflow">if</span> (radioMacState == RADIO_MAC_STATE_TX)
-<a name="l00061"></a>00061         {
-<a name="l00062"></a>00062             <span class="comment">// We just sent a packet.</span>
-<a name="l00063"></a>00063             radioMacEvent(RADIO_MAC_EVENT_TX);
-<a name="l00064"></a>00064         }
-<a name="l00065"></a>00065         <span class="keywordflow">else</span> <span class="keywordflow">if</span> (radioMacState == RADIO_MAC_STATE_RX)
-<a name="l00066"></a>00066         {
-<a name="l00067"></a>00067             <span class="comment">// We just received a packet, but it might have an invalid CRC or be irrelevant</span>
-<a name="l00068"></a>00068             <span class="comment">// for other reasons.</span>
-<a name="l00069"></a>00069             radioMacEvent(RADIO_MAC_EVENT_RX);
-<a name="l00070"></a>00070         }
-<a name="l00071"></a>00071     }
-<a name="l00072"></a>00072 
-<a name="l00073"></a>00073     <span class="keywordflow">if</span> (RFIF &amp; 0x20)  <span class="comment">// Check IRQ_TIMEOUT</span>
-<a name="l00074"></a>00074     {
-<a name="l00075"></a>00075         <span class="comment">// We were listening for packets but we didn&#39;t receive anything</span>
-<a name="l00076"></a>00076         <span class="comment">// and the timeout period expired.</span>
-<a name="l00077"></a>00077         radioMacEvent(RADIO_MAC_EVENT_RX_TIMEOUT);
-<a name="l00078"></a>00078     }
-<a name="l00079"></a>00079 
-<a name="l00080"></a>00080     <span class="keywordflow">if</span> (strobe)
-<a name="l00081"></a>00081     {
-<a name="l00082"></a>00082         <span class="comment">// Some other code has set the strobe bit, which means he wants the radioMacEventHandler to</span>
-<a name="l00083"></a>00083         <span class="comment">// run soon, typically because new data is available for it to send.</span>
-<a name="l00084"></a>00084         <span class="keywordflow">if</span> (radioMacState == RADIO_MAC_STATE_TX)
-<a name="l00085"></a>00085         {
-<a name="l00086"></a>00086             <span class="comment">// We are currently transmitting, so we will wait for the end of that packet.</span>
-<a name="l00087"></a>00087             <span class="comment">// Then, we will issue a RADIO_MAC_EVENT_TX.</span>
-<a name="l00088"></a>00088             <span class="keywordflow">return</span>;
-<a name="l00089"></a>00089         }
-<a name="l00090"></a>00090 
-<a name="l00091"></a>00091         <span class="keywordflow">if</span> (radioMacState == RADIO_MAC_STATE_RX &amp;&amp; MARCSTATE == 0x0D)
-<a name="l00092"></a>00092         {
-<a name="l00093"></a>00093             <span class="keywordflow">if</span> (PKTSTATUS &amp; (1&lt;&lt;3))  <span class="comment">// Check SFD bit (Start of Frame Delimiter)</span>
-<a name="l00094"></a>00094             {
-<a name="l00095"></a>00095                 <span class="comment">// We are currently receiving a packet, so we will wait for the end of that</span>
-<a name="l00096"></a>00096                 <span class="comment">// packet and then issue a RADIO_MAC_EVENT_RX.</span>
-<a name="l00097"></a>00097                 <span class="comment">// ASSUMPTION: There is no automatic address filtering, and packets with</span>
-<a name="l00098"></a>00098                 <span class="comment">// bad CRCs still result in a RAIDO_MAC_EVENT_RX.</span>
-<a name="l00099"></a>00099                 <span class="keywordflow">return</span>;
-<a name="l00100"></a>00100             }
-<a name="l00101"></a>00101             <span class="keywordflow">if</span> ((MCSM2&amp;7) != 7 &amp;&amp; WOREVT1 &lt; MAX_LATENCY_OF_STROBE)
-<a name="l00102"></a>00102             {
-<a name="l00103"></a>00103                 <span class="comment">// We are currently listening for a packet and the timeout is going to happen</span>
-<a name="l00104"></a>00104                 <span class="comment">// soon (within 10 ms if MSCM2==1 or 20 ms if MCSMS2==0), so we will not actually issue a RADIO_MAC_EVENT_STROBE</span>
-<a name="l00105"></a>00105                 <span class="comment">// right now.</span>
-<a name="l00106"></a>00106                 <span class="keywordflow">return</span>;
-<a name="l00107"></a>00107             }
-<a name="l00108"></a>00108         }
-<a name="l00109"></a>00109 
-<a name="l00110"></a>00110 
-<a name="l00111"></a>00111         <span class="comment">/* The code below is necessary because we found that if the radio is in the</span>
-<a name="l00112"></a>00112 <span class="comment">           process of calibrating itself to go in to RX mode, it won&#39;t respond</span>
-<a name="l00113"></a>00113 <span class="comment">           correctly to an STX strobe (it goes in to RX mode instead of TX).</span>
-<a name="l00114"></a>00114 <span class="comment">           We only need to worry about that here, and not in the other events,</span>
-<a name="l00115"></a>00115 <span class="comment">           because those other events only happen at times when the radio should not</span>
-<a name="l00116"></a>00116 <span class="comment">           be in the middle of calibrating itself. */</span>
-<a name="l00117"></a>00117         <span class="keywordflow">if</span> (MARCSTATE != 0x0D)
-<a name="l00118"></a>00118         {
-<a name="l00119"></a>00119             RFST = SIDLE;
-<a name="l00120"></a>00120         }
-<a name="l00121"></a>00121 
-<a name="l00122"></a>00122         <span class="comment">// We are not currently transmitting and nothing is being received at the</span>
-<a name="l00123"></a>00123         <span class="comment">// moment, so we should stop and issue a RADIO_MAC_EVENT_STROBE now.</span>
-<a name="l00124"></a>00124         radioMacEvent(RADIO_MAC_EVENT_STROBE);
-<a name="l00125"></a>00125     }
-<a name="l00126"></a>00126 
-<a name="l00127"></a>00127     <span class="keywordflow">if</span> (RFIF &amp; 0x80)   <span class="comment">// Check IRQ_TXUNF</span>
-<a name="l00128"></a>00128     {
-<a name="l00129"></a>00129         <span class="comment">// We were not sending data to the radio fast enough, so there was a</span>
-<a name="l00130"></a>00130         <span class="comment">// TX underflow.  This should not happen because we use DMA to send</span>
-<a name="l00131"></a>00131         <span class="comment">// the data.  Report it as an error.</span>
-<a name="l00132"></a>00132         radioTxUnderflowOccurred = 1;
-<a name="l00133"></a>00133         RFIF = ~0x80;
-<a name="l00134"></a>00134     }
-<a name="l00135"></a>00135 
-<a name="l00136"></a>00136     <span class="keywordflow">if</span> (RFIF &amp; 0x40)   <span class="comment">// Check IRQ_RXOVF</span>
-<a name="l00137"></a>00137     {
-<a name="l00138"></a>00138 
-<a name="l00139"></a>00139         <span class="comment">// We were not reading data from the radio fast enough, so there was</span>
-<a name="l00140"></a>00140         <span class="comment">// a RX overflow.  This should not happen.  Report it as an error.</span>
-<a name="l00141"></a>00141         radioRxOverflowOccurred = 1;
-<a name="l00142"></a>00142         RFIF = ~0x40;
-<a name="l00143"></a>00143 
-<a name="l00144"></a>00144         <span class="comment">// The radio module is probably now in the RX_OVERFLOW state where it can not</span>
-<a name="l00145"></a>00145         <span class="comment">// receive packets.  The way to get out of this state is:</span>
-<a name="l00146"></a>00146         <span class="comment">//RFST = SIDLE;  (and you probably should put NOPs here, though in my tests it was not necessary)</span>
-<a name="l00147"></a>00147         <span class="comment">//RFST = SRX;</span>
-<a name="l00148"></a>00148         <span class="comment">// We never expect an RX overflow to happen though, so we won&#39;t do that.</span>
-<a name="l00149"></a>00149     }
-<a name="l00150"></a>00150 }
-<a name="l00151"></a>00151 
-<a name="l00152"></a>00152 <span class="keywordtype">void</span> radioMacEvent(<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> event)
-<a name="l00153"></a>00153 {
-<a name="l00155"></a>00155     <span class="comment">/* This is necessary because David has observed that sometimes (maybe every</span>
-<a name="l00156"></a>00156 <span class="comment">     * time?) when a packet with a bad CRC is received, the radio stays in RX</span>
-<a name="l00157"></a>00157 <span class="comment">     * instead of going to FSTXON mode the way it should (RXOFF_MODE=01).</span>
-<a name="l00158"></a>00158 <span class="comment">     * If we allow the radio to stay in RX mode then an RX overflow error could</span>
-<a name="l00159"></a>00159 <span class="comment">     * happen later after we disarm the DMA channel. */</span>
-<a name="l00160"></a>00160     <span class="keywordflow">if</span> (MARCSTATE != 0x12 &amp;&amp; MARCSTATE != 0x01 &amp;&amp; MARCSTATE != 0x00 &amp;&amp; MARCSTATE != 0x15)
-<a name="l00161"></a>00161     {
-<a name="l00162"></a>00162         <span class="comment">// Report the bad state to the main loop for debugging purposes.</span>
-<a name="l00163"></a>00163         <span class="keywordflow">if</span> (radioBadMarcState == 0xFF &amp;&amp; MARCSTATE != 0x0D)
-<a name="l00164"></a>00164         {
-<a name="l00165"></a>00165             radioBadMarcState = MARCSTATE;
-<a name="l00166"></a>00166         }
+<a name="l00052"></a>00052 <a class="code" href="cc2511__map_8h.html#a671201fd0e77ec576f30610b276acd11">ISR</a>(RF, 1)
+<a name="l00053"></a>00053 {
+<a name="l00054"></a>00054     S1CON = 0; <span class="comment">// Clear the general RFIF interrupt registers</span>
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056     <span class="keywordflow">if</span> (RFIF &amp; 0x10) <span class="comment">// Check IRQ_DONE</span>
+<a name="l00057"></a>00057     {
+<a name="l00058"></a>00058         <span class="keywordflow">if</span> (radioMacState == RADIO_MAC_STATE_TX)
+<a name="l00059"></a>00059         {
+<a name="l00060"></a>00060             <span class="comment">// We just sent a packet.</span>
+<a name="l00061"></a>00061             radioMacEvent(RADIO_MAC_EVENT_TX);
+<a name="l00062"></a>00062         }
+<a name="l00063"></a>00063         <span class="keywordflow">else</span> <span class="keywordflow">if</span> (radioMacState == RADIO_MAC_STATE_RX)
+<a name="l00064"></a>00064         {
+<a name="l00065"></a>00065             <span class="comment">// We just received a packet, but it might have an invalid CRC or be irrelevant</span>
+<a name="l00066"></a>00066             <span class="comment">// for other reasons.</span>
+<a name="l00067"></a>00067             radioMacEvent(RADIO_MAC_EVENT_RX);
+<a name="l00068"></a>00068         }
+<a name="l00069"></a>00069     }
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071     <span class="keywordflow">if</span> (RFIF &amp; 0x20)  <span class="comment">// Check IRQ_TIMEOUT</span>
+<a name="l00072"></a>00072     {
+<a name="l00073"></a>00073         <span class="comment">// We were listening for packets but we didn&#39;t receive anything</span>
+<a name="l00074"></a>00074         <span class="comment">// and the timeout period expired.</span>
+<a name="l00075"></a>00075         radioMacEvent(RADIO_MAC_EVENT_RX_TIMEOUT);
+<a name="l00076"></a>00076     }
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078     <span class="keywordflow">if</span> (strobe)
+<a name="l00079"></a>00079     {
+<a name="l00080"></a>00080         <span class="comment">// Some other code has set the strobe bit, which means he wants the radioMacEventHandler to</span>
+<a name="l00081"></a>00081         <span class="comment">// run soon, typically because new data is available for it to send.</span>
+<a name="l00082"></a>00082         <span class="keywordflow">if</span> (radioMacState == RADIO_MAC_STATE_TX)
+<a name="l00083"></a>00083         {
+<a name="l00084"></a>00084             <span class="comment">// We are currently transmitting, so we will wait for the end of that packet.</span>
+<a name="l00085"></a>00085             <span class="comment">// Then, we will issue a RADIO_MAC_EVENT_TX.</span>
+<a name="l00086"></a>00086             <span class="keywordflow">return</span>;
+<a name="l00087"></a>00087         }
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089         <span class="keywordflow">if</span> (radioMacState == RADIO_MAC_STATE_RX &amp;&amp; MARCSTATE == 0x0D)
+<a name="l00090"></a>00090         {
+<a name="l00091"></a>00091             <span class="keywordflow">if</span> (PKTSTATUS &amp; (1&lt;&lt;3))  <span class="comment">// Check SFD bit (Start of Frame Delimiter)</span>
+<a name="l00092"></a>00092             {
+<a name="l00093"></a>00093                 <span class="comment">// We are currently receiving a packet, so we will wait for the end of that</span>
+<a name="l00094"></a>00094                 <span class="comment">// packet and then issue a RADIO_MAC_EVENT_RX.</span>
+<a name="l00095"></a>00095                 <span class="comment">// ASSUMPTION: There is no automatic address filtering, and packets with</span>
+<a name="l00096"></a>00096                 <span class="comment">// bad CRCs still result in a RAIDO_MAC_EVENT_RX.</span>
+<a name="l00097"></a>00097                 <span class="keywordflow">return</span>;
+<a name="l00098"></a>00098             }
+<a name="l00099"></a>00099             <span class="keywordflow">if</span> ((MCSM2&amp;7) != 7 &amp;&amp; WOREVT1 &lt; MAX_LATENCY_OF_STROBE)
+<a name="l00100"></a>00100             {
+<a name="l00101"></a>00101                 <span class="comment">// We are currently listening for a packet and the timeout is going to happen</span>
+<a name="l00102"></a>00102                 <span class="comment">// soon (within 10 ms if MSCM2==1 or 20 ms if MCSMS2==0), so we will not actually issue a RADIO_MAC_EVENT_STROBE</span>
+<a name="l00103"></a>00103                 <span class="comment">// right now.</span>
+<a name="l00104"></a>00104                 <span class="keywordflow">return</span>;
+<a name="l00105"></a>00105             }
+<a name="l00106"></a>00106         }
+<a name="l00107"></a>00107 
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109         <span class="comment">/* The code below is necessary because we found that if the radio is in the</span>
+<a name="l00110"></a>00110 <span class="comment">           process of calibrating itself to go in to RX mode, it won&#39;t respond</span>
+<a name="l00111"></a>00111 <span class="comment">           correctly to an STX strobe (it goes in to RX mode instead of TX).</span>
+<a name="l00112"></a>00112 <span class="comment">           We only need to worry about that here, and not in the other events,</span>
+<a name="l00113"></a>00113 <span class="comment">           because those other events only happen at times when the radio should not</span>
+<a name="l00114"></a>00114 <span class="comment">           be in the middle of calibrating itself. */</span>
+<a name="l00115"></a>00115         <span class="keywordflow">if</span> (MARCSTATE != 0x0D)
+<a name="l00116"></a>00116         {
+<a name="l00117"></a>00117             RFST = SIDLE;
+<a name="l00118"></a>00118         }
+<a name="l00119"></a>00119 
+<a name="l00120"></a>00120         <span class="comment">// We are not currently transmitting and nothing is being received at the</span>
+<a name="l00121"></a>00121         <span class="comment">// moment, so we should stop and issue a RADIO_MAC_EVENT_STROBE now.</span>
+<a name="l00122"></a>00122         radioMacEvent(RADIO_MAC_EVENT_STROBE);
+<a name="l00123"></a>00123     }
+<a name="l00124"></a>00124 
+<a name="l00125"></a>00125     <span class="keywordflow">if</span> (RFIF &amp; 0x80)   <span class="comment">// Check IRQ_TXUNF</span>
+<a name="l00126"></a>00126     {
+<a name="l00127"></a>00127         <span class="comment">// We were not sending data to the radio fast enough, so there was a</span>
+<a name="l00128"></a>00128         <span class="comment">// TX underflow.  This should not happen because we use DMA to send</span>
+<a name="l00129"></a>00129         <span class="comment">// the data.  Report it as an error.</span>
+<a name="l00130"></a>00130         radioTxUnderflowOccurred = 1;
+<a name="l00131"></a>00131         RFIF = ~0x80;
+<a name="l00132"></a>00132     }
+<a name="l00133"></a>00133 
+<a name="l00134"></a>00134     <span class="keywordflow">if</span> (RFIF &amp; 0x40)   <span class="comment">// Check IRQ_RXOVF</span>
+<a name="l00135"></a>00135     {
+<a name="l00136"></a>00136 
+<a name="l00137"></a>00137         <span class="comment">// We were not reading data from the radio fast enough, so there was</span>
+<a name="l00138"></a>00138         <span class="comment">// a RX overflow.  This should not happen.  Report it as an error.</span>
+<a name="l00139"></a>00139         radioRxOverflowOccurred = 1;
+<a name="l00140"></a>00140         RFIF = ~0x40;
+<a name="l00141"></a>00141 
+<a name="l00142"></a>00142         <span class="comment">// The radio module is probably now in the RX_OVERFLOW state where it can not</span>
+<a name="l00143"></a>00143         <span class="comment">// receive packets.  The way to get out of this state is:</span>
+<a name="l00144"></a>00144         <span class="comment">//RFST = SIDLE;  (and you probably should put NOPs here, though in my tests it was not necessary)</span>
+<a name="l00145"></a>00145         <span class="comment">//RFST = SRX;</span>
+<a name="l00146"></a>00146         <span class="comment">// We never expect an RX overflow to happen though, so we won&#39;t do that.</span>
+<a name="l00147"></a>00147     }
+<a name="l00148"></a>00148 }
+<a name="l00149"></a>00149 
+<a name="l00150"></a>00150 <span class="keywordtype">void</span> radioMacEvent(<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> event)
+<a name="l00151"></a>00151 {
+<a name="l00153"></a>00153     <span class="comment">/* This is necessary because David has observed that sometimes (maybe every</span>
+<a name="l00154"></a>00154 <span class="comment">     * time?) when a packet with a bad CRC is received, the radio stays in RX</span>
+<a name="l00155"></a>00155 <span class="comment">     * instead of going to FSTXON mode the way it should (RXOFF_MODE=01).</span>
+<a name="l00156"></a>00156 <span class="comment">     * If we allow the radio to stay in RX mode then an RX overflow error could</span>
+<a name="l00157"></a>00157 <span class="comment">     * happen later after we disarm the DMA channel. */</span>
+<a name="l00158"></a>00158     <span class="keywordflow">if</span> (MARCSTATE != 0x12 &amp;&amp; MARCSTATE != 0x01 &amp;&amp; MARCSTATE != 0x00 &amp;&amp; MARCSTATE != 0x15)
+<a name="l00159"></a>00159     {
+<a name="l00160"></a>00160         <span class="comment">// Fix the bad state by telling the radio to go to the SFSTXON state.</span>
+<a name="l00161"></a>00161         RFST = SFSTXON;
+<a name="l00162"></a>00162     }
+<a name="l00163"></a>00163 
+<a name="l00165"></a>00165     DMAARM = 0x80 | (1&lt;&lt;<a class="code" href="dma_8h.html#ac0cfebe6c8eb3c8e1fdd4c497a3799e9">DMA_CHANNEL_RADIO</a>); <span class="comment">// Abort any ongoing radio DMA transfer.</span>
+<a name="l00166"></a>00166     DMAIRQ &amp;= ~(1&lt;&lt;<a class="code" href="dma_8h.html#ac0cfebe6c8eb3c8e1fdd4c497a3799e9">DMA_CHANNEL_RADIO</a>);      <span class="comment">// Clear any pending radio DMA interrupt</span>
 <a name="l00167"></a>00167 
-<a name="l00168"></a>00168         <span class="comment">// Fix the bad state by telling the radio to go to the SFSTXON state.</span>
-<a name="l00169"></a>00169         RFST = SFSTXON;
-<a name="l00170"></a>00170     }
-<a name="l00171"></a>00171 
-<a name="l00173"></a>00173     DMAARM = 0x80 | (1&lt;&lt;<a class="code" href="dma_8h.html#ac0cfebe6c8eb3c8e1fdd4c497a3799e9">DMA_CHANNEL_RADIO</a>); <span class="comment">// Abort any ongoing radio DMA transfer.</span>
-<a name="l00174"></a>00174     DMAIRQ &amp;= ~(1&lt;&lt;<a class="code" href="dma_8h.html#ac0cfebe6c8eb3c8e1fdd4c497a3799e9">DMA_CHANNEL_RADIO</a>);      <span class="comment">// Clear any pending radio DMA interrupt</span>
-<a name="l00175"></a>00175 
-<a name="l00177"></a>00177     radioMacState = RADIO_MAC_STATE_RX;    <span class="comment">// Default next state: RX</span>
-<a name="l00178"></a>00178     MCSM2 = 0x07;                          <span class="comment">// Default next timeout: infinite.</span>
-<a name="l00179"></a>00179     <a class="code" href="radio__mac_8h.html#ac8e1adc28c503c2ac86740b30285f4ac">radioMacEventHandler</a>(event);
-<a name="l00180"></a>00180 
-<a name="l00182"></a>00182     <span class="comment">// We want to do it before restarting the radio (to avoid accidentally missing</span>
-<a name="l00183"></a>00183     <span class="comment">// an event) but we want to do it as long as possible AFTER turning off the</span>
-<a name="l00184"></a>00184     <span class="comment">// radio.</span>
-<a name="l00185"></a>00185     RFIF = ~0x30;  <span class="comment">// Clear IRQ_DONE and IRQ_TIMEOUT if they are set.</span>
-<a name="l00186"></a>00186 
-<a name="l00188"></a>00188     <span class="keywordflow">switch</span>(radioMacState)
-<a name="l00189"></a>00189     {
-<a name="l00190"></a>00190     <span class="keywordflow">case</span> RADIO_MAC_STATE_RX:
-<a name="l00191"></a>00191         DMAARM |= (1&lt;&lt;<a class="code" href="dma_8h.html#ac0cfebe6c8eb3c8e1fdd4c497a3799e9">DMA_CHANNEL_RADIO</a>);   <span class="comment">// Arm DMA channel.</span>
-<a name="l00192"></a>00192         RFST = SRX;                         <span class="comment">// Switch radio to RX.</span>
-<a name="l00193"></a>00193         <span class="keywordflow">break</span>;
-<a name="l00194"></a>00194     <span class="keywordflow">case</span> RADIO_MAC_STATE_TX:
-<a name="l00195"></a>00195         DMAARM |= (1&lt;&lt;<a class="code" href="dma_8h.html#ac0cfebe6c8eb3c8e1fdd4c497a3799e9">DMA_CHANNEL_RADIO</a>);   <span class="comment">// Arm DMA channel.</span>
-<a name="l00196"></a>00196         RFST = STX;                         <span class="comment">// Switch radio to TX.</span>
-<a name="l00197"></a>00197         <span class="keywordflow">break</span>;
-<a name="l00198"></a>00198     }
-<a name="l00199"></a>00199 
-<a name="l00200"></a>00200     <span class="comment">// Clear the strobe bit because we just ran the radioMacEventHandler.</span>
-<a name="l00201"></a>00201     strobe = 0;
-<a name="l00202"></a>00202 }
-<a name="l00203"></a>00203 
-<a name="l00204"></a>00204 <span class="keywordtype">void</span> radioMacStrobe()
+<a name="l00169"></a>00169     radioMacState = RADIO_MAC_STATE_RX;    <span class="comment">// Default next state: RX</span>
+<a name="l00170"></a>00170     MCSM2 = 0x07;                          <span class="comment">// Default next timeout: infinite.</span>
+<a name="l00171"></a>00171     <a class="code" href="radio__mac_8h.html#ac8e1adc28c503c2ac86740b30285f4ac">radioMacEventHandler</a>(event);
+<a name="l00172"></a>00172 
+<a name="l00174"></a>00174     <span class="comment">// We want to do it before restarting the radio (to avoid accidentally missing</span>
+<a name="l00175"></a>00175     <span class="comment">// an event) but we want to do it as long as possible AFTER turning off the</span>
+<a name="l00176"></a>00176     <span class="comment">// radio.</span>
+<a name="l00177"></a>00177     RFIF = ~0x30;  <span class="comment">// Clear IRQ_DONE and IRQ_TIMEOUT if they are set.</span>
+<a name="l00178"></a>00178 
+<a name="l00180"></a>00180     <span class="keywordflow">switch</span>(radioMacState)
+<a name="l00181"></a>00181     {
+<a name="l00182"></a>00182     <span class="keywordflow">case</span> RADIO_MAC_STATE_RX:
+<a name="l00183"></a>00183         DMAARM |= (1&lt;&lt;<a class="code" href="dma_8h.html#ac0cfebe6c8eb3c8e1fdd4c497a3799e9">DMA_CHANNEL_RADIO</a>);   <span class="comment">// Arm DMA channel.</span>
+<a name="l00184"></a>00184         RFST = SRX;                         <span class="comment">// Switch radio to RX.</span>
+<a name="l00185"></a>00185         <span class="keywordflow">break</span>;
+<a name="l00186"></a>00186     <span class="keywordflow">case</span> RADIO_MAC_STATE_TX:
+<a name="l00187"></a>00187         DMAARM |= (1&lt;&lt;<a class="code" href="dma_8h.html#ac0cfebe6c8eb3c8e1fdd4c497a3799e9">DMA_CHANNEL_RADIO</a>);   <span class="comment">// Arm DMA channel.</span>
+<a name="l00188"></a>00188         RFST = STX;                         <span class="comment">// Switch radio to TX.</span>
+<a name="l00189"></a>00189         <span class="keywordflow">break</span>;
+<a name="l00190"></a>00190     }
+<a name="l00191"></a>00191 
+<a name="l00192"></a>00192     <span class="comment">// Clear the strobe bit because we just ran the radioMacEventHandler.</span>
+<a name="l00193"></a>00193     strobe = 0;
+<a name="l00194"></a>00194 }
+<a name="l00195"></a>00195 
+<a name="l00196"></a>00196 <span class="keywordtype">void</span> radioMacStrobe()
+<a name="l00197"></a>00197 {
+<a name="l00198"></a>00198     strobe = 1;
+<a name="l00199"></a>00199     S1CON |= 3;
+<a name="l00200"></a>00200 }
+<a name="l00201"></a>00201 
+<a name="l00204"></a><a class="code" href="radio__mac_8h.html#a879bd8b24ebb8cd8ccada717913955fa">00204</a> <span class="keywordtype">void</span> <a class="code" href="radio__mac_8h.html#a879bd8b24ebb8cd8ccada717913955fa">radioMacInit</a>()
 <a name="l00205"></a>00205 {
-<a name="l00206"></a>00206     strobe = 1;
-<a name="l00207"></a>00207     S1CON |= 3;
-<a name="l00208"></a>00208 }
-<a name="l00209"></a>00209 
-<a name="l00212"></a><a class="code" href="radio__mac_8h.html#a879bd8b24ebb8cd8ccada717913955fa">00212</a> <span class="keywordtype">void</span> <a class="code" href="radio__mac_8h.html#a879bd8b24ebb8cd8ccada717913955fa">radioMacInit</a>()
-<a name="l00213"></a>00213 {
-<a name="l00214"></a>00214     <a class="code" href="radio__registers_8h.html#a9814b4471ceeee504b93a56a643c2b33">radioRegistersInit</a>();
+<a name="l00206"></a>00206     <a class="code" href="radio__registers_8h.html#a9814b4471ceeee504b93a56a643c2b33">radioRegistersInit</a>();
+<a name="l00207"></a>00207 
+<a name="l00208"></a>00208     <span class="comment">// MCSM.FS_AUTOCAL = 1: Calibrate freq when going from IDLE to RX or TX (or FSTXON).</span>
+<a name="l00209"></a>00209     MCSM0 = 0x14;    <span class="comment">// Main Radio Control State Machine Configuration</span>
+<a name="l00210"></a>00210     MCSM1 = 0x05;    <span class="comment">// Disable CCA.  After RX, go to FSTXON.  After TX, go to FSTXON.</span>
+<a name="l00211"></a>00211     MCSM2 = 0x07;    <span class="comment">// NOTE: MCSM2 also gets set every time we go in to RX mode.</span>
+<a name="l00212"></a>00212 
+<a name="l00213"></a>00213     IEN2 |= 0x01;    <span class="comment">// Enable RF general interrupt</span>
+<a name="l00214"></a>00214     RFIM = 0xF0;     <span class="comment">// Enable these interrupts: DONE, RXOVF, TXUNF, TIMEOUT</span>
 <a name="l00215"></a>00215 
-<a name="l00216"></a>00216     <span class="comment">// MCSM.FS_AUTOCAL = 1: Calibrate freq when going from IDLE to RX or TX (or FSTXON).</span>
-<a name="l00217"></a>00217     MCSM0 = 0x14;    <span class="comment">// Main Radio Control State Machine Configuration</span>
-<a name="l00218"></a>00218     MCSM1 = 0x05;    <span class="comment">// Disable CCA.  After RX, go to FSTXON.  After TX, go to FSTXON.</span>
-<a name="l00219"></a>00219     MCSM2 = 0x07;    <span class="comment">// NOTE: MCSM2 also gets set every time we go in to RX mode.</span>
+<a name="l00216"></a>00216     EA = 1;          <span class="comment">// Enable interrupts in general</span>
+<a name="l00217"></a>00217 
+<a name="l00218"></a>00218     <a class="code" href="dma_8h.html#a76aa30a9bb0f26207818ce120593ad72">dmaConfig</a>.<a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">radio</a>.DC6 = 19; <span class="comment">// WORDSIZE = 0, TMODE = 0, TRIG = 19</span>
+<a name="l00219"></a>00219 }
 <a name="l00220"></a>00220 
-<a name="l00221"></a>00221     IEN2 |= 0x01;    <span class="comment">// Enable RF general interrupt</span>
-<a name="l00222"></a>00222     RFIM = 0xF0;     <span class="comment">// Enable these interrupts: DONE, RXOVF, TXUNF, TIMEOUT</span>
-<a name="l00223"></a>00223 
-<a name="l00224"></a>00224     EA = 1;          <span class="comment">// Enable interrupts in general</span>
-<a name="l00225"></a>00225 
-<a name="l00226"></a>00226     <a class="code" href="dma_8h.html#a76aa30a9bb0f26207818ce120593ad72">dmaConfig</a>.<a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">radio</a>.DC6 = 19; <span class="comment">// WORDSIZE = 0, TMODE = 0, TRIG = 19</span>
-<a name="l00227"></a>00227 }
-<a name="l00228"></a>00228 
-<a name="l00229"></a>00229 <span class="comment">// Called by the user from radioMacEventHandler to tell the Mac that it should</span>
-<a name="l00230"></a>00230 <span class="comment">// start trying to receive a packet.  The timeout is in units of .922 ms.</span>
-<a name="l00231"></a>00231 <span class="keywordtype">void</span> radioMacRx(<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> * packet, <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> timeout)
-<a name="l00232"></a>00232 {
-<a name="l00233"></a>00233     <span class="keywordflow">if</span> (timeout)
-<a name="l00234"></a>00234     {
-<a name="l00235"></a>00235         MCSM2 = 0x00;   <span class="comment">// RX_TIME = 1.  Helps determine the units of the RX timeout period.</span>
-<a name="l00236"></a>00236         WORCTRL = 0;    <span class="comment">// WOR_RES = 0.  Helps determine the units of the RX timeout period.</span>
-<a name="l00237"></a>00237         WOREVT1 = timeout;
-<a name="l00238"></a>00238         WOREVT0 = 0;
-<a name="l00239"></a>00239     }
-<a name="l00240"></a>00240     <span class="keywordflow">else</span>
-<a name="l00241"></a>00241     {
-<a name="l00242"></a>00242         MCSM2 = 0x07;  <span class="comment">// RX_TIME = 7: No timeout.</span>
-<a name="l00243"></a>00243     }
-<a name="l00244"></a>00244 
-<a name="l00245"></a>00245     <a class="code" href="dma_8h.html#a76aa30a9bb0f26207818ce120593ad72">dmaConfig</a>.<a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">radio</a>.SRCADDRH = XDATA_SFR_ADDRESS(RFD) &gt;&gt; 8;
-<a name="l00246"></a>00246     <a class="code" href="dma_8h.html#a76aa30a9bb0f26207818ce120593ad72">dmaConfig</a>.<a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">radio</a>.SRCADDRL = XDATA_SFR_ADDRESS(RFD);
-<a name="l00247"></a>00247     <a class="code" href="dma_8h.html#a76aa30a9bb0f26207818ce120593ad72">dmaConfig</a>.<a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">radio</a>.DESTADDRH = (<span class="keywordtype">unsigned</span> int)packet &gt;&gt; 8;
-<a name="l00248"></a>00248     <a class="code" href="dma_8h.html#a76aa30a9bb0f26207818ce120593ad72">dmaConfig</a>.<a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">radio</a>.DESTADDRL = (<span class="keywordtype">unsigned</span> int)packet;
-<a name="l00249"></a>00249     <a class="code" href="dma_8h.html#a76aa30a9bb0f26207818ce120593ad72">dmaConfig</a>.<a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">radio</a>.LENL = 1 + PKTLEN + 2;
-<a name="l00250"></a>00250     <a class="code" href="dma_8h.html#a76aa30a9bb0f26207818ce120593ad72">dmaConfig</a>.<a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">radio</a>.VLEN_LENH = 0b10000000; <span class="comment">// Transfer length is FirstByte+3</span>
-<a name="l00251"></a>00251     <span class="comment">// Assumption: DC6 is set correctly</span>
-<a name="l00252"></a>00252     <a class="code" href="dma_8h.html#a76aa30a9bb0f26207818ce120593ad72">dmaConfig</a>.<a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">radio</a>.DC7 = 0x10; <span class="comment">// SRCINC = 0, DESTINC = 1, IRQMASK = 0, M8 = 0, PRIORITY = 0</span>
-<a name="l00253"></a>00253 
-<a name="l00254"></a>00254     radioMacState = RADIO_MAC_STATE_RX;
-<a name="l00255"></a>00255 }
-<a name="l00256"></a>00256 
-<a name="l00257"></a>00257 <span class="comment">// Called by the user during RADIO_MAC_STATE_IDLE or RADIO_MAC_STATE_RX to tell the Mac</span>
-<a name="l00258"></a>00258 <span class="comment">// that it should start trying to send a packet.</span>
-<a name="l00259"></a>00259 <span class="keywordtype">void</span> radioMacTx(<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> * packet)
-<a name="l00260"></a>00260 {
-<a name="l00261"></a>00261     <a class="code" href="dma_8h.html#a76aa30a9bb0f26207818ce120593ad72">dmaConfig</a>.<a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">radio</a>.SRCADDRH = (<span class="keywordtype">unsigned</span> int)packet &gt;&gt; 8;
-<a name="l00262"></a>00262     <a class="code" href="dma_8h.html#a76aa30a9bb0f26207818ce120593ad72">dmaConfig</a>.<a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">radio</a>.SRCADDRL = (<span class="keywordtype">unsigned</span> int)packet;
-<a name="l00263"></a>00263     <a class="code" href="dma_8h.html#a76aa30a9bb0f26207818ce120593ad72">dmaConfig</a>.<a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">radio</a>.DESTADDRH = XDATA_SFR_ADDRESS(RFD) &gt;&gt; 8;
-<a name="l00264"></a>00264     <a class="code" href="dma_8h.html#a76aa30a9bb0f26207818ce120593ad72">dmaConfig</a>.<a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">radio</a>.DESTADDRL = XDATA_SFR_ADDRESS(RFD);
-<a name="l00265"></a>00265     <a class="code" href="dma_8h.html#a76aa30a9bb0f26207818ce120593ad72">dmaConfig</a>.<a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">radio</a>.LENL = 1 + PKTLEN;
-<a name="l00266"></a>00266     <a class="code" href="dma_8h.html#a76aa30a9bb0f26207818ce120593ad72">dmaConfig</a>.<a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">radio</a>.VLEN_LENH = 0b00100000; <span class="comment">// Transfer length is FirstByte+1</span>
-<a name="l00267"></a>00267     <span class="comment">// Assumption: DC6 is set correctly</span>
-<a name="l00268"></a>00268     <a class="code" href="dma_8h.html#a76aa30a9bb0f26207818ce120593ad72">dmaConfig</a>.<a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">radio</a>.DC7 = 0x40; <span class="comment">// SRCINC = 1, DESTINC = 0, IRQMASK = 0, M8 = 0, PRIORITY = 0</span>
-<a name="l00269"></a>00269 
-<a name="l00270"></a>00270     radioMacState = RADIO_MAC_STATE_TX;
-<a name="l00271"></a>00271 }
+<a name="l00221"></a>00221 <span class="comment">// Called by the user from radioMacEventHandler to tell the Mac that it should</span>
+<a name="l00222"></a>00222 <span class="comment">// start trying to receive a packet.  The timeout is in units of .922 ms.</span>
+<a name="l00223"></a>00223 <span class="keywordtype">void</span> radioMacRx(<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> * packet, <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> timeout)
+<a name="l00224"></a>00224 {
+<a name="l00225"></a>00225     <span class="keywordflow">if</span> (timeout)
+<a name="l00226"></a>00226     {
+<a name="l00227"></a>00227         MCSM2 = 0x00;   <span class="comment">// RX_TIME = 1.  Helps determine the units of the RX timeout period.</span>
+<a name="l00228"></a>00228         WORCTRL = 0;    <span class="comment">// WOR_RES = 0.  Helps determine the units of the RX timeout period.</span>
+<a name="l00229"></a>00229         WOREVT1 = timeout;
+<a name="l00230"></a>00230         WOREVT0 = 0;
+<a name="l00231"></a>00231     }
+<a name="l00232"></a>00232     <span class="keywordflow">else</span>
+<a name="l00233"></a>00233     {
+<a name="l00234"></a>00234         MCSM2 = 0x07;  <span class="comment">// RX_TIME = 7: No timeout.</span>
+<a name="l00235"></a>00235     }
+<a name="l00236"></a>00236 
+<a name="l00237"></a>00237     <a class="code" href="dma_8h.html#a76aa30a9bb0f26207818ce120593ad72">dmaConfig</a>.<a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">radio</a>.SRCADDRH = XDATA_SFR_ADDRESS(RFD) &gt;&gt; 8;
+<a name="l00238"></a>00238     <a class="code" href="dma_8h.html#a76aa30a9bb0f26207818ce120593ad72">dmaConfig</a>.<a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">radio</a>.SRCADDRL = XDATA_SFR_ADDRESS(RFD);
+<a name="l00239"></a>00239     <a class="code" href="dma_8h.html#a76aa30a9bb0f26207818ce120593ad72">dmaConfig</a>.<a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">radio</a>.DESTADDRH = (<span class="keywordtype">unsigned</span> int)packet &gt;&gt; 8;
+<a name="l00240"></a>00240     <a class="code" href="dma_8h.html#a76aa30a9bb0f26207818ce120593ad72">dmaConfig</a>.<a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">radio</a>.DESTADDRL = (<span class="keywordtype">unsigned</span> int)packet;
+<a name="l00241"></a>00241     <a class="code" href="dma_8h.html#a76aa30a9bb0f26207818ce120593ad72">dmaConfig</a>.<a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">radio</a>.LENL = 1 + PKTLEN + 2;
+<a name="l00242"></a>00242     <a class="code" href="dma_8h.html#a76aa30a9bb0f26207818ce120593ad72">dmaConfig</a>.<a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">radio</a>.VLEN_LENH = 0b10000000; <span class="comment">// Transfer length is FirstByte+3</span>
+<a name="l00243"></a>00243     <span class="comment">// Assumption: DC6 is set correctly</span>
+<a name="l00244"></a>00244     <a class="code" href="dma_8h.html#a76aa30a9bb0f26207818ce120593ad72">dmaConfig</a>.<a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">radio</a>.DC7 = 0x10; <span class="comment">// SRCINC = 0, DESTINC = 1, IRQMASK = 0, M8 = 0, PRIORITY = 0</span>
+<a name="l00245"></a>00245 
+<a name="l00246"></a>00246     radioMacState = RADIO_MAC_STATE_RX;
+<a name="l00247"></a>00247 }
+<a name="l00248"></a>00248 
+<a name="l00249"></a>00249 <span class="comment">// Called by the user during RADIO_MAC_STATE_IDLE or RADIO_MAC_STATE_RX to tell the Mac</span>
+<a name="l00250"></a>00250 <span class="comment">// that it should start trying to send a packet.</span>
+<a name="l00251"></a>00251 <span class="keywordtype">void</span> radioMacTx(<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> * packet)
+<a name="l00252"></a>00252 {
+<a name="l00253"></a>00253     <a class="code" href="dma_8h.html#a76aa30a9bb0f26207818ce120593ad72">dmaConfig</a>.<a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">radio</a>.SRCADDRH = (<span class="keywordtype">unsigned</span> int)packet &gt;&gt; 8;
+<a name="l00254"></a>00254     <a class="code" href="dma_8h.html#a76aa30a9bb0f26207818ce120593ad72">dmaConfig</a>.<a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">radio</a>.SRCADDRL = (<span class="keywordtype">unsigned</span> int)packet;
+<a name="l00255"></a>00255     <a class="code" href="dma_8h.html#a76aa30a9bb0f26207818ce120593ad72">dmaConfig</a>.<a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">radio</a>.DESTADDRH = XDATA_SFR_ADDRESS(RFD) &gt;&gt; 8;
+<a name="l00256"></a>00256     <a class="code" href="dma_8h.html#a76aa30a9bb0f26207818ce120593ad72">dmaConfig</a>.<a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">radio</a>.DESTADDRL = XDATA_SFR_ADDRESS(RFD);
+<a name="l00257"></a>00257     <a class="code" href="dma_8h.html#a76aa30a9bb0f26207818ce120593ad72">dmaConfig</a>.<a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">radio</a>.LENL = 1 + PKTLEN;
+<a name="l00258"></a>00258     <a class="code" href="dma_8h.html#a76aa30a9bb0f26207818ce120593ad72">dmaConfig</a>.<a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">radio</a>.VLEN_LENH = 0b00100000; <span class="comment">// Transfer length is FirstByte+1</span>
+<a name="l00259"></a>00259     <span class="comment">// Assumption: DC6 is set correctly</span>
+<a name="l00260"></a>00260     <a class="code" href="dma_8h.html#a76aa30a9bb0f26207818ce120593ad72">dmaConfig</a>.<a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">radio</a>.DC7 = 0x40; <span class="comment">// SRCINC = 1, DESTINC = 0, IRQMASK = 0, M8 = 0, PRIORITY = 0</span>
+<a name="l00261"></a>00261 
+<a name="l00262"></a>00262     radioMacState = RADIO_MAC_STATE_TX;
+<a name="l00263"></a>00263 }
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -340,7 +333,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Mar 22 2011 17:36:09 for Wixel SDK by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Apr 7 2011 15:42:52 for Wixel SDK by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>
