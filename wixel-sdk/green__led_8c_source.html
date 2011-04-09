@@ -73,7 +73,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00010"></a>00010 <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> usbLastActivity;
 <a name="l00011"></a>00011 <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> usbBlinkStart;
 <a name="l00012"></a>00012 
-<a name="l00013"></a><a class="code" href="usb_8h.html#a054a54f372621a7c338a34f0ed55da40">00013</a> <span class="keywordtype">void</span> <a class="code" href="usb_8h.html#a054a54f372621a7c338a34f0ed55da40">usbShowStatusWithGreenLed</a>()
+<a name="l00013"></a><a class="code" href="usb_8h.html#ae58b278af4c427c8cf4a06e87ed09a2f">00013</a> <span class="keywordtype">void</span> <a class="code" href="usb_8h.html#ae58b278af4c427c8cf4a06e87ed09a2f">usbShowStatusWithGreenLed</a>()
 <a name="l00014"></a>00014 {
 <a name="l00015"></a>00015     <span class="keywordflow">if</span> (<a class="code" href="usb_8h.html#a017195b8bf77f2bb510323d87eb9b0b4">usbActivityFlag</a>)
 <a name="l00016"></a>00016     {
@@ -92,7 +92,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00029"></a>00029         }
 <a name="l00030"></a>00030     }
 <a name="l00031"></a>00031 
-<a name="l00032"></a>00032     <span class="keywordflow">if</span> (<a class="code" href="usb_8h.html#a2e1e157649e202ff93e57682dcca6e25">usbSuspended</a>() || usbDeviceState == USB_STATE_DETACHED)
+<a name="l00032"></a>00032     <span class="keywordflow">if</span> (<a class="code" href="usb_8h.html#af73cf84963ab2b2f8e462783d0fe20cb">usbSuspended</a>() || usbDeviceState == USB_STATE_DETACHED)
 <a name="l00033"></a>00033     {
 <a name="l00034"></a>00034         <a class="code" href="board_8h.html#a4c2ae8ec082dea793648ffcfa5012576">LED_GREEN</a>(0);                         <span class="comment">// We aren&#39;t connected to USB, or we are in suspend</span>
 <a name="l00035"></a>00035                                               <span class="comment">// mode, so turn off the LED.</span>
@@ -136,7 +136,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Apr 7 2011 15:42:52 for Wixel SDK by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Fri Apr 8 2011 18:20:32 for Wixel SDK by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>
