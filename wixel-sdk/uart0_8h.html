@@ -86,19 +86,17 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uart0_8h.html#a8d95f9a62499c3163bf085c95d23f172">ISR</a> (URX0, 1)</td></tr>
 <tr><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3c84237d1800d93b7c520a27a651f0d3"></a><!-- doxytag: member="uart0.h::uart0RxParityErrorOccurred" ref="a3c84237d1800d93b7c520a27a651f0d3" args="" -->
-volatile <a class="el" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a>&#160;</td><td class="memItemRight" valign="bottom"><b>uart0RxParityErrorOccurred</b></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a92d6fcea931c2d92aa6a8653ff7692fc"></a><!-- doxytag: member="uart0.h::uart0RxFramingErrorOccurred" ref="a92d6fcea931c2d92aa6a8653ff7692fc" args="" -->
-volatile <a class="el" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a>&#160;</td><td class="memItemRight" valign="bottom"><b>uart0RxFramingErrorOccurred</b></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af41edb294375a7ea11d931958f8458a2"></a><!-- doxytag: member="uart0.h::uart0RxBufferFullOccurred" ref="af41edb294375a7ea11d931958f8458a2" args="" -->
-volatile <a class="el" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a>&#160;</td><td class="memItemRight" valign="bottom"><b>uart0RxBufferFullOccurred</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uart0_8h.html#a3c84237d1800d93b7c520a27a651f0d3">uart0RxParityErrorOccurred</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uart0_8h.html#a92d6fcea931c2d92aa6a8653ff7692fc">uart0RxFramingErrorOccurred</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uart0_8h.html#af41edb294375a7ea11d931958f8458a2">uart0RxBufferFullOccurred</a></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>The <code>uart.lib</code> library allows you to send and receive a stream of asynchronous serial bytes on USART0 and/or USART1 in UART mode. This library uses a circular buffer and an interrupt for RX, and a circular buffer and an interrupt for TX, so it is capable of sending and receiving a continuous stream of bytes with no gaps.</p>
+<div class="textblock"><p>The <code>uart.lib</code> library allows you to send and receive a stream of asynchronous serial bytes on USART0 and/or USART1 in UART mode. This library uses circular buffers and interrupts for both RX and TX so it is capable of sending and receiving a continuous stream of bytes with no gaps.</p>
 <p>To use this library, you must include <a class="el" href="uart0_8h.html">uart0.h</a> or <a class="el" href="uart1_8h.html">uart1.h</a> in your app: </p>
-<pre>#include &lt;<a class="el" href="uart0_8h.html">uart0.h</a>&gt;
-  #include &lt;<a class="el" href="uart1_8h.html">uart1.h</a>&gt;
-  </pre><p>Since this library uses interrupts, the </p>
+<div class="fragment"><pre class="fragment"><span class="preprocessor">#include &lt;<a class="code" href="uart0_8h.html">uart0.h</a>&gt;</span>  <span class="comment">// for UART 0</span>
+<span class="preprocessor">#include &lt;<a class="code" href="uart1_8h.html">uart1.h</a>&gt;</span>  <span class="comment">// for UART 1</span>
+</pre></div><p>Since this library uses interrupts, the include statement must be present in the file that contains main().</p>
+<p>The API for using UART 1 is the same as the API for using UART 0 that is documented here, except all the function and variable names begin with "uart1" instead of "uart0". </p>
 
 <p>Definition in file <a class="el" href="uart0_8h_source.html">uart0.h</a>.</p>
 </div><hr/><h2>Function Documentation</h2>
@@ -191,7 +189,7 @@ volatile <a class="el" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104
 </div>
 <div class="memdoc">
 <dl class="return"><dt><b>Returns:</b></dt><dd>The number of bytes in the RX buffer.</dd></dl>
-<p>You can use this function to see if any bytes have been received, and then use uart0RxReceiveByte to actually get the byte and process it. </p>
+<p>You can use this function to see if any bytes have been received, and then use <a class="el" href="uart0_8h.html#a126c50898a4743c035d64e4df9fc349c">uart0RxReceiveByte()</a> to actually get the byte and process it. </p>
 
 </div>
 </div>
@@ -210,7 +208,8 @@ volatile <a class="el" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104
 </div>
 <div class="memdoc">
 <dl class="return"><dt><b>Returns:</b></dt><dd>A byte from the RX buffer.</dd></dl>
-<p>Bytes are returned in the order they were received on the RX line. This is a non-blocking function: you must call uart0RxAvailable before calling this function and be sure not to read too many bytes to the buffer (the number of times you call this should not exceed the last value returned by uart0RxAvailable). </p>
+<p>This is a non-blocking function: you must call <a class="el" href="uart0_8h.html#a13648a620b9779d445fb46afce716345">uart0RxAvailable()</a> before calling this function and be sure not to read too many bytes. The number of times you call this should not exceed the last value returned by <a class="el" href="uart0_8h.html#a13648a620b9779d445fb46afce716345">uart0RxAvailable()</a>.</p>
+<p>Bytes are returned in the order they were received on the RX line. </p>
 
 </div>
 </div>
@@ -256,10 +255,11 @@ volatile <a class="el" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104
 <p>Sets the parity type of the serial port.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">parity</td><td>Should be either PARITY_NONE, PARITY_ODD, PARITY_EVEN, PARITY_MARK, or PARITY_SPACE. These values are consistent with USB CDC ACM protocol (see CDC PSTN Subclass Specification, Table 17). </td></tr>
+    <tr><td class="paramname">parity</td><td>Should be either <a class="el" href="com_8h.html#a8342f22c7fd72713629efcf411a0d04b">PARITY_NONE</a>, <a class="el" href="com_8h.html#a25e17ce6ba7124885e170c47bcd833e5">PARITY_ODD</a>, <a class="el" href="com_8h.html#a64de75e13d62a653f2a2b5c41e0374c2">PARITY_EVEN</a>, <a class="el" href="com_8h.html#a353bef4d7f4ae79b9ed63bb11e6698f5">PARITY_MARK</a>, or <a class="el" href="com_8h.html#ad0779dd5ef36d2f843baec71e8661ed6">PARITY_SPACE</a>.</td></tr>
   </table>
   </dd>
 </dl>
+<p>The default is <a class="el" href="com_8h.html#a8342f22c7fd72713629efcf411a0d04b">PARITY_NONE</a>. </p>
 
 </div>
 </div>
@@ -280,12 +280,13 @@ volatile <a class="el" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104
 <p>Sets the number of stop bits to be transmitted and checked for during reception.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">stopBits</td><td>Should be either STOP_BITS_1 or STOP_BITS_2. These values are consistent with the USB CDC ACM protocol (see CDC PSTN Subclass Specification, Table 17).</td></tr>
+    <tr><td class="paramname">stopBits</td><td>Should be either <a class="el" href="com_8h.html#a33fc07920aa0109f30e77b49faeaf1bd">STOP_BITS_1</a> or <a class="el" href="com_8h.html#a0b0ddb41f741fcffa6bc7840a10f3ba2">STOP_BITS_2</a>.</td></tr>
   </table>
   </dd>
 </dl>
-<p>The CC2511's UARTs do not actually support 1.5 stop bits, so if the argument to this function is STOP_BITS_1_5, the UART will be set to 1 stop bit instead.</p>
-<p>The CC2511's UARTs do not support having 2 stop bits very well, because the the framing error bit (UxCSR.FE) is set 1 bit duration *after* the interrupt is triggered. Therefore, if stopBits is set to 2, this library may fail to detect framing errors from the second stop bit. Also, the next byte received after the framing error occurred may be thrown out even if that byte is valid. </p>
+<p>The CC2511's UARTs do not actually support 1.5 stop bits, so if the argument to this function is <a class="el" href="com_8h.html#a6f9a12d97050e470e1c417bec63ede83">STOP_BITS_1_5</a>, the UART will be set to 1 stop bit instead.</p>
+<p>The CC2511's UARTs do not support having 2 stop bits very well, because the the framing error bit (UxCSR.FE) is set 1 bit duration <b>after</b> the interrupt is triggered. Therefore, if stopBits is <a class="el" href="com_8h.html#a0b0ddb41f741fcffa6bc7840a10f3ba2">STOP_BITS_2</a>, this library may fail to detect framing errors from the second stop bit. Also, the next byte received after the framing error occurred may be thrown out even if that byte is valid.</p>
+<p>The default is <a class="el" href="com_8h.html#a33fc07920aa0109f30e77b49faeaf1bd">STOP_BITS_1</a>. </p>
 
 </div>
 </div>
@@ -331,7 +332,7 @@ volatile <a class="el" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104
       </table>
 </div>
 <div class="memdoc">
-<p>Adds bytes to the TX buffer, which means they will be sent on UART0's TX line later. This is a non-blocking function: you must call uart0TxAvailable before calling this function be sure not to add too many bytes to the buffer (the size param should not exceed the last value returned by uart0TxAvailable).</p>
+<p>Adds bytes to the TX buffer, which means they will be sent on UART0's TX line later. This is a non-blocking function: you must call <a class="el" href="uart0_8h.html#a842b02b6a267c6a72a8817e22ffe319e">uart0TxAvailable()</a> before calling this function be sure not to add too many bytes to the buffer. The <code>size</code> param should not exceed the last value returned by <a class="el" href="uart0_8h.html#a842b02b6a267c6a72a8817e22ffe319e">uart0TxAvailable()</a>.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">buffer</td><td>A pointer to the bytes to send. </td></tr>
@@ -363,7 +364,50 @@ volatile <a class="el" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104
   </table>
   </dd>
 </dl>
-<p>This is a non-blocking function: you must call uart0TxAvailable before calling this function and be sure not to add too many bytes to the buffer (the number of times you call this should not exceed the last value returned by uart0TxAvailable). </p>
+<p>This is a non-blocking function: you must call <a class="el" href="uart0_8h.html#a842b02b6a267c6a72a8817e22ffe319e">uart0TxAvailable()</a> before calling this function and be sure not to add too many bytes to the buffer. The number of times you call this should not exceed the last value returned by <a class="el" href="uart0_8h.html#a842b02b6a267c6a72a8817e22ffe319e">uart0TxAvailable()</a>. </p>
+
+</div>
+</div>
+<hr/><h2>Variable Documentation</h2>
+<a class="anchor" id="af41edb294375a7ea11d931958f8458a2"></a><!-- doxytag: member="uart0.h::uart0RxBufferFullOccurred" ref="af41edb294375a7ea11d931958f8458a2" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile <a class="el" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> <a class="el" href="uart0_8h.html#af41edb294375a7ea11d931958f8458a2">uart0RxBufferFullOccurred</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>The library sets this to 1 whenever a new byte arrives and the RX buffer is full. In that case, the byte will be discarded. </p>
+
+</div>
+</div>
+<a class="anchor" id="a92d6fcea931c2d92aa6a8653ff7692fc"></a><!-- doxytag: member="uart0.h::uart0RxFramingErrorOccurred" ref="a92d6fcea931c2d92aa6a8653ff7692fc" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile <a class="el" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> <a class="el" href="uart0_8h.html#a92d6fcea931c2d92aa6a8653ff7692fc">uart0RxFramingErrorOccurred</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>The library sets this to 1 whenever a framing error occurs. </p>
+
+</div>
+</div>
+<a class="anchor" id="a3c84237d1800d93b7c520a27a651f0d3"></a><!-- doxytag: member="uart0.h::uart0RxParityErrorOccurred" ref="a3c84237d1800d93b7c520a27a651f0d3" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile <a class="el" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> <a class="el" href="uart0_8h.html#a3c84237d1800d93b7c520a27a651f0d3">uart0RxParityErrorOccurred</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>The library sets this to 1 whenever a parity error occurs. </p>
 
 </div>
 </div>
@@ -373,7 +417,7 @@ volatile <a class="el" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Defines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -382,7 +426,7 @@ volatile <a class="el" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Fri Apr 8 2011 18:20:33 for Wixel SDK by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Apr 18 2011 11:50:24 for Wixel SDK by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

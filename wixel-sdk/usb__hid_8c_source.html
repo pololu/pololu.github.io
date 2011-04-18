@@ -72,10 +72,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00009"></a>00009 
 <a name="l00010"></a>00010 <span class="comment">/* HID Library Configuration **************************************************/</span>
 <a name="l00011"></a>00011 
-<a name="l00012"></a>00012 <span class="preprocessor">#define HID_DATA_ENDPOINT             1</span>
-<a name="l00013"></a>00013 <span class="preprocessor"></span><span class="preprocessor">#define HID_IN_PACKET_SIZE            8</span>
-<a name="l00014"></a>00014 <span class="preprocessor"></span><span class="preprocessor">#define HID_KEYBOARD_INTERFACE_NUMBER 0</span>
-<a name="l00015"></a>00015 <span class="preprocessor"></span><span class="preprocessor">#define HID_MOUSE_INTERFACE_NUMBER    1</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#define HID_IN_PACKET_SIZE            8</span>
+<a name="l00013"></a>00013 <span class="preprocessor"></span><span class="preprocessor">#define HID_KEYBOARD_INTERFACE_NUMBER 0</span>
+<a name="l00014"></a>00014 <span class="preprocessor"></span><span class="preprocessor">#define HID_MOUSE_INTERFACE_NUMBER    1</span>
+<a name="l00015"></a>00015 <span class="preprocessor"></span><span class="preprocessor">#define HID_JOYSTICK_INTERFACE_NUMBER 2</span>
 <a name="l00016"></a>00016 <span class="preprocessor"></span>
 <a name="l00017"></a>00017 <span class="preprocessor">#define HID_KEYBOARD_ENDPOINT         1</span>
 <a name="l00018"></a>00018 <span class="preprocessor"></span><span class="preprocessor">#define HID_KEYBOARD_FIFO             USBF1   // This must match HID_KEYBOARD_ENDPOINT!</span>
@@ -83,613 +83,715 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00020"></a>00020 <span class="preprocessor">#define HID_MOUSE_ENDPOINT            2</span>
 <a name="l00021"></a>00021 <span class="preprocessor"></span><span class="preprocessor">#define HID_MOUSE_FIFO                USBF2   // This must match HID_MOUSE_ENDPOINT!</span>
 <a name="l00022"></a>00022 <span class="preprocessor"></span>
-<a name="l00023"></a>00023 <span class="comment">/* HID Constants **************************************************************/</span>
-<a name="l00024"></a>00024 
-<a name="l00025"></a>00025 <span class="comment">// USB Class Code from HID 1.11 Section 4.1: The HID Class</span>
-<a name="l00026"></a>00026 <span class="preprocessor">#define HID_CLASS    3</span>
-<a name="l00027"></a>00027 <span class="preprocessor"></span>
-<a name="l00028"></a>00028 <span class="comment">// USB Subclass Code from HID 1.11 Section 4.2: Subclass</span>
-<a name="l00029"></a>00029 <span class="preprocessor">#define HID_SUBCLASS_BOOT 1</span>
+<a name="l00023"></a>00023 <span class="preprocessor">#define HID_JOYSTICK_ENDPOINT         3</span>
+<a name="l00024"></a>00024 <span class="preprocessor"></span><span class="preprocessor">#define HID_JOYSTICK_FIFO             USBF3   // This must match HID_JOYSTICK_ENDPOINT!</span>
+<a name="l00025"></a>00025 <span class="preprocessor"></span>
+<a name="l00026"></a>00026 <span class="comment">/* HID Constants **************************************************************/</span>
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028 <span class="comment">// USB Class Code from HID 1.11 Section 4.1: The HID Class</span>
+<a name="l00029"></a>00029 <span class="preprocessor">#define HID_CLASS    3</span>
 <a name="l00030"></a>00030 <span class="preprocessor"></span>
-<a name="l00031"></a>00031 <span class="comment">// USB Protocol Codes from HID 1.11 Section 4.3: Protocols</span>
-<a name="l00032"></a>00032 <span class="preprocessor">#define HID_PROTOCOL_KEYBOARD 1</span>
-<a name="l00033"></a>00033 <span class="preprocessor"></span><span class="preprocessor">#define HID_PROTOCOL_MOUSE    2</span>
-<a name="l00034"></a>00034 <span class="preprocessor"></span>
-<a name="l00035"></a>00035 <span class="comment">// USB Descriptor types from HID 1.11 Section 7.1</span>
-<a name="l00036"></a>00036 <span class="preprocessor">#define HID_DESCRIPTOR_TYPE_HID    0x21</span>
-<a name="l00037"></a>00037 <span class="preprocessor"></span><span class="preprocessor">#define HID_DESCRIPTOR_TYPE_REPORT 0x22</span>
-<a name="l00038"></a>00038 <span class="preprocessor"></span>
-<a name="l00039"></a>00039 <span class="comment">// Country Codes from HID 1.11 Section 6.2.1</span>
-<a name="l00040"></a>00040 <span class="preprocessor">#define HID_COUNTRY_NOT_LOCALIZED 0</span>
+<a name="l00031"></a>00031 <span class="comment">// USB Subclass Code from HID 1.11 Section 4.2: Subclass</span>
+<a name="l00032"></a>00032 <span class="preprocessor">#define HID_SUBCLASS_BOOT 1</span>
+<a name="l00033"></a>00033 <span class="preprocessor"></span>
+<a name="l00034"></a>00034 <span class="comment">// USB Protocol Codes from HID 1.11 Section 4.3: Protocols</span>
+<a name="l00035"></a>00035 <span class="preprocessor">#define HID_PROTOCOL_KEYBOARD 1</span>
+<a name="l00036"></a>00036 <span class="preprocessor"></span><span class="preprocessor">#define HID_PROTOCOL_MOUSE    2</span>
+<a name="l00037"></a>00037 <span class="preprocessor"></span>
+<a name="l00038"></a>00038 <span class="comment">// USB Descriptor types from HID 1.11 Section 7.1</span>
+<a name="l00039"></a>00039 <span class="preprocessor">#define HID_DESCRIPTOR_TYPE_HID    0x21</span>
+<a name="l00040"></a>00040 <span class="preprocessor"></span><span class="preprocessor">#define HID_DESCRIPTOR_TYPE_REPORT 0x22</span>
 <a name="l00041"></a>00041 <span class="preprocessor"></span>
-<a name="l00042"></a>00042 <span class="comment">// HID Report Items from HID 1.11 Section 6.2.2</span>
-<a name="l00043"></a>00043 <span class="preprocessor">#define HID_USAGE_PAGE      0x05</span>
-<a name="l00044"></a>00044 <span class="preprocessor"></span><span class="preprocessor">#define HID_USAGE           0x09</span>
-<a name="l00045"></a>00045 <span class="preprocessor"></span><span class="preprocessor">#define HID_COLLECTION      0xA1</span>
-<a name="l00046"></a>00046 <span class="preprocessor"></span><span class="preprocessor">#define HID_END_COLLECTION  0xC0</span>
-<a name="l00047"></a>00047 <span class="preprocessor"></span><span class="preprocessor">#define HID_REPORT_COUNT    0x95</span>
-<a name="l00048"></a>00048 <span class="preprocessor"></span><span class="preprocessor">#define HID_REPORT_SIZE     0x75</span>
-<a name="l00049"></a>00049 <span class="preprocessor"></span><span class="preprocessor">#define HID_USAGE_MIN       0x19</span>
-<a name="l00050"></a>00050 <span class="preprocessor"></span><span class="preprocessor">#define HID_USAGE_MAX       0x29</span>
-<a name="l00051"></a>00051 <span class="preprocessor"></span><span class="preprocessor">#define HID_LOGICAL_MIN     0x15</span>
-<a name="l00052"></a>00052 <span class="preprocessor"></span><span class="preprocessor">#define HID_LOGICAL_MAX     0x25</span>
-<a name="l00053"></a>00053 <span class="preprocessor"></span><span class="preprocessor">#define HID_LOGICAL_MAX_2   0x26 // 2-byte data</span>
-<a name="l00054"></a>00054 <span class="preprocessor"></span><span class="preprocessor">#define HID_INPUT           0x81</span>
-<a name="l00055"></a>00055 <span class="preprocessor"></span><span class="preprocessor">#define HID_OUTPUT          0x91</span>
-<a name="l00056"></a>00056 <span class="preprocessor"></span>
-<a name="l00057"></a>00057 <span class="comment">// HID Report Usage Pages from HID Usage Tables 1.12 Section 3, Table 1</span>
-<a name="l00058"></a>00058 <span class="preprocessor">#define HID_USAGE_PAGE_GENERIC_DESKTOP 0x01</span>
-<a name="l00059"></a>00059 <span class="preprocessor"></span><span class="preprocessor">#define HID_USAGE_PAGE_KEY_CODES       0x07</span>
-<a name="l00060"></a>00060 <span class="preprocessor"></span><span class="preprocessor">#define HID_USAGE_PAGE_LEDS            0x08</span>
-<a name="l00061"></a>00061 <span class="preprocessor"></span><span class="preprocessor">#define HID_USAGE_PAGE_BUTTONS         0x09</span>
-<a name="l00062"></a>00062 <span class="preprocessor"></span>
-<a name="l00063"></a>00063 <span class="comment">// HID Report Usages from HID Usage Tables 1.12 Section 4, Table 6</span>
-<a name="l00064"></a>00064 <span class="preprocessor">#define HID_USAGE_POINTER  0x01</span>
-<a name="l00065"></a>00065 <span class="preprocessor"></span><span class="preprocessor">#define HID_USAGE_MOUSE    0x02</span>
-<a name="l00066"></a>00066 <span class="preprocessor"></span><span class="preprocessor">#define HID_USAGE_KEYBOARD 0x06</span>
-<a name="l00067"></a>00067 <span class="preprocessor"></span><span class="preprocessor">#define HID_USAGE_X        0x30</span>
-<a name="l00068"></a>00068 <span class="preprocessor"></span><span class="preprocessor">#define HID_USAGE_Y        0x31</span>
-<a name="l00069"></a>00069 <span class="preprocessor"></span><span class="preprocessor">#define HID_USAGE_WHEEL    0x38</span>
-<a name="l00070"></a>00070 <span class="preprocessor"></span>
-<a name="l00071"></a>00071 <span class="comment">// HID Report Collection Types from HID 1.12 6.2.2.6</span>
-<a name="l00072"></a>00072 <span class="preprocessor">#define HID_COLLECTION_PHYSICAL    0</span>
-<a name="l00073"></a>00073 <span class="preprocessor"></span><span class="preprocessor">#define HID_COLLECTION_APPLICATION 1</span>
-<a name="l00074"></a>00074 <span class="preprocessor"></span>
-<a name="l00075"></a>00075 <span class="comment">// HID Input/Output/Feature Item Data (attributes) from HID 1.11 6.2.2.5</span>
-<a name="l00076"></a>00076 <span class="preprocessor">#define HID_ITEM_CONSTANT 0x1</span>
-<a name="l00077"></a>00077 <span class="preprocessor"></span><span class="preprocessor">#define HID_ITEM_VARIABLE 0x2</span>
-<a name="l00078"></a>00078 <span class="preprocessor"></span><span class="preprocessor">#define HID_ITEM_RELATIVE 0x4</span>
-<a name="l00079"></a>00079 <span class="preprocessor"></span>
-<a name="l00080"></a>00080 <span class="comment">// Request Codes from HID 1.11 Section 7.2</span>
-<a name="l00081"></a>00081 <span class="preprocessor">#define HID_REQUEST_GET_REPORT   0x1</span>
-<a name="l00082"></a>00082 <span class="preprocessor"></span><span class="preprocessor">#define HID_REQUEST_GET_IDLE     0x2</span>
-<a name="l00083"></a>00083 <span class="preprocessor"></span><span class="preprocessor">#define HID_REQUEST_GET_PROTOCOL 0x3</span>
-<a name="l00084"></a>00084 <span class="preprocessor"></span><span class="preprocessor">#define HID_REQUEST_SET_REPORT   0x9</span>
-<a name="l00085"></a>00085 <span class="preprocessor"></span><span class="preprocessor">#define HID_REQUEST_SET_IDLE     0xA</span>
-<a name="l00086"></a>00086 <span class="preprocessor"></span><span class="preprocessor">#define HID_REQUEST_SET_PROTOCOL 0xB</span>
+<a name="l00042"></a>00042 <span class="comment">// Country Codes from HID 1.11 Section 6.2.1</span>
+<a name="l00043"></a>00043 <span class="preprocessor">#define HID_COUNTRY_NOT_LOCALIZED 0</span>
+<a name="l00044"></a>00044 <span class="preprocessor"></span>
+<a name="l00045"></a>00045 <span class="comment">// HID Report Items from HID 1.11 Section 6.2.2</span>
+<a name="l00046"></a>00046 <span class="preprocessor">#define HID_USAGE_PAGE      0x05</span>
+<a name="l00047"></a>00047 <span class="preprocessor"></span><span class="preprocessor">#define HID_USAGE           0x09</span>
+<a name="l00048"></a>00048 <span class="preprocessor"></span><span class="preprocessor">#define HID_COLLECTION      0xA1</span>
+<a name="l00049"></a>00049 <span class="preprocessor"></span><span class="preprocessor">#define HID_END_COLLECTION  0xC0</span>
+<a name="l00050"></a>00050 <span class="preprocessor"></span><span class="preprocessor">#define HID_REPORT_COUNT    0x95</span>
+<a name="l00051"></a>00051 <span class="preprocessor"></span><span class="preprocessor">#define HID_REPORT_SIZE     0x75</span>
+<a name="l00052"></a>00052 <span class="preprocessor"></span><span class="preprocessor">#define HID_USAGE_MIN       0x19</span>
+<a name="l00053"></a>00053 <span class="preprocessor"></span><span class="preprocessor">#define HID_USAGE_MAX       0x29</span>
+<a name="l00054"></a>00054 <span class="preprocessor"></span><span class="preprocessor">#define HID_LOGICAL_MIN     0x15</span>
+<a name="l00055"></a>00055 <span class="preprocessor"></span><span class="preprocessor">#define HID_LOGICAL_MAX     0x25</span>
+<a name="l00056"></a>00056 <span class="preprocessor"></span><span class="preprocessor">#define HID_LOGICAL_MAX_2   0x26 // 2-byte data</span>
+<a name="l00057"></a>00057 <span class="preprocessor"></span><span class="preprocessor">#define HID_INPUT           0x81</span>
+<a name="l00058"></a>00058 <span class="preprocessor"></span><span class="preprocessor">#define HID_OUTPUT          0x91</span>
+<a name="l00059"></a>00059 <span class="preprocessor"></span>
+<a name="l00060"></a>00060 <span class="comment">// HID Report Usage Pages from HID Usage Tables 1.12 Section 3, Table 1</span>
+<a name="l00061"></a>00061 <span class="preprocessor">#define HID_USAGE_PAGE_GENERIC_DESKTOP 0x01</span>
+<a name="l00062"></a>00062 <span class="preprocessor"></span><span class="preprocessor">#define HID_USAGE_PAGE_KEY_CODES       0x07</span>
+<a name="l00063"></a>00063 <span class="preprocessor"></span><span class="preprocessor">#define HID_USAGE_PAGE_LEDS            0x08</span>
+<a name="l00064"></a>00064 <span class="preprocessor"></span><span class="preprocessor">#define HID_USAGE_PAGE_BUTTONS         0x09</span>
+<a name="l00065"></a>00065 <span class="preprocessor"></span>
+<a name="l00066"></a>00066 <span class="comment">// HID Report Usages from HID Usage Tables 1.12 Section 4, Table 6</span>
+<a name="l00067"></a>00067 <span class="preprocessor">#define HID_USAGE_POINTER  0x01</span>
+<a name="l00068"></a>00068 <span class="preprocessor"></span><span class="preprocessor">#define HID_USAGE_MOUSE    0x02</span>
+<a name="l00069"></a>00069 <span class="preprocessor"></span><span class="preprocessor">#define HID_USAGE_JOYSTICK 0x04</span>
+<a name="l00070"></a>00070 <span class="preprocessor"></span><span class="preprocessor">#define HID_USAGE_KEYBOARD 0x06</span>
+<a name="l00071"></a>00071 <span class="preprocessor"></span><span class="preprocessor">#define HID_USAGE_X        0x30</span>
+<a name="l00072"></a>00072 <span class="preprocessor"></span><span class="preprocessor">#define HID_USAGE_Y        0x31</span>
+<a name="l00073"></a>00073 <span class="preprocessor"></span><span class="preprocessor">#define HID_USAGE_Z        0x32</span>
+<a name="l00074"></a>00074 <span class="preprocessor"></span><span class="preprocessor">#define HID_USAGE_RX       0x33</span>
+<a name="l00075"></a>00075 <span class="preprocessor"></span><span class="preprocessor">#define HID_USAGE_RY       0x34</span>
+<a name="l00076"></a>00076 <span class="preprocessor"></span><span class="preprocessor">#define HID_USAGE_RZ       0x35</span>
+<a name="l00077"></a>00077 <span class="preprocessor"></span><span class="preprocessor">#define HID_USAGE_WHEEL    0x38</span>
+<a name="l00078"></a>00078 <span class="preprocessor"></span>
+<a name="l00079"></a>00079 <span class="comment">// HID Report Collection Types from HID 1.12 6.2.2.6</span>
+<a name="l00080"></a>00080 <span class="preprocessor">#define HID_COLLECTION_PHYSICAL    0</span>
+<a name="l00081"></a>00081 <span class="preprocessor"></span><span class="preprocessor">#define HID_COLLECTION_APPLICATION 1</span>
+<a name="l00082"></a>00082 <span class="preprocessor"></span>
+<a name="l00083"></a>00083 <span class="comment">// HID Input/Output/Feature Item Data (attributes) from HID 1.11 6.2.2.5</span>
+<a name="l00084"></a>00084 <span class="preprocessor">#define HID_ITEM_CONSTANT 0x1</span>
+<a name="l00085"></a>00085 <span class="preprocessor"></span><span class="preprocessor">#define HID_ITEM_VARIABLE 0x2</span>
+<a name="l00086"></a>00086 <span class="preprocessor"></span><span class="preprocessor">#define HID_ITEM_RELATIVE 0x4</span>
 <a name="l00087"></a>00087 <span class="preprocessor"></span>
-<a name="l00088"></a>00088 <span class="comment">// Report Types from HID 1.11 Section 7.2.1</span>
-<a name="l00089"></a>00089 <span class="preprocessor">#define HID_REPORT_TYPE_INPUT   1</span>
-<a name="l00090"></a>00090 <span class="preprocessor"></span><span class="preprocessor">#define HID_REPORT_TYPE_OUTPUT  2</span>
-<a name="l00091"></a>00091 <span class="preprocessor"></span><span class="preprocessor">#define HID_REPORT_TYPE_FEATURE 3</span>
-<a name="l00092"></a>00092 <span class="preprocessor"></span>
-<a name="l00093"></a>00093 <span class="comment">// Protocols from HID 1.11 Section 7.2.5</span>
-<a name="l00094"></a>00094 <span class="preprocessor">#define HID_PROTOCOL_BOOT   0</span>
-<a name="l00095"></a>00095 <span class="preprocessor"></span><span class="preprocessor">#define HID_PROTOCOL_REPORT 1</span>
-<a name="l00096"></a>00096 <span class="preprocessor"></span>
-<a name="l00097"></a>00097 <span class="comment">/* HID USB Descriptors ****************************************************/</span>
-<a name="l00098"></a>00098 
-<a name="l00099"></a>00099 <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html">USB_DESCRIPTOR_DEVICE</a> <a class="code" href="cc2511__types_8h.html#ae6527c8381eb3f23b7fd6d6efec6ffc7">CODE</a> usbDeviceDescriptor =
-<a name="l00100"></a>00100 {
-<a name="l00101"></a>00101     <span class="keyword">sizeof</span>(<a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html">USB_DESCRIPTOR_DEVICE</a>),
-<a name="l00102"></a>00102     USB_DESCRIPTOR_TYPE_DEVICE,
-<a name="l00103"></a>00103     0x0200,                 <span class="comment">// USB Spec Release Number in BCD format</span>
-<a name="l00104"></a>00104     0,                      <span class="comment">// Class Code: undefined (use class code info from Interface Descriptors)</span>
-<a name="l00105"></a>00105     0,                      <span class="comment">// Subclass code</span>
-<a name="l00106"></a>00106     0,                      <span class="comment">// Protocol</span>
-<a name="l00107"></a>00107     USB_EP0_PACKET_SIZE,    <span class="comment">// Max packet size for Endpoint 0</span>
-<a name="l00108"></a>00108     USB_VENDOR_ID_POLOLU,   <span class="comment">// Vendor ID</span>
-<a name="l00109"></a>00109     0x2201,                 <span class="comment">// Product ID</span>
-<a name="l00110"></a>00110     0x0000,                 <span class="comment">// Device release number in BCD format</span>
-<a name="l00111"></a>00111     1,                      <span class="comment">// Index of Manufacturer String Descriptor</span>
-<a name="l00112"></a>00112     2,                      <span class="comment">// Index of Product String Descriptor</span>
-<a name="l00113"></a>00113     3,                      <span class="comment">// Index of Serial Number String Descriptor</span>
-<a name="l00114"></a>00114     1                       <span class="comment">// Number of possible configurations.</span>
-<a name="l00115"></a>00115 };
-<a name="l00116"></a>00116 
-<a name="l00117"></a>00117 <span class="comment">// keyboard report descriptor</span>
-<a name="l00118"></a>00118 <span class="comment">// HID 1.11 Section 6.2.2: Report Descriptor</span>
-<a name="l00119"></a>00119 <span class="comment">// Uses format compatible with keyboard boot interface report descriptor - see HID 1.11 Appendix B.1</span>
-<a name="l00120"></a>00120 <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#ae6527c8381eb3f23b7fd6d6efec6ffc7">CODE</a> keyboardReportDescriptor[]
-<a name="l00121"></a>00121 =
-<a name="l00122"></a>00122 {
-<a name="l00123"></a>00123     HID_USAGE_PAGE, HID_USAGE_PAGE_GENERIC_DESKTOP,
-<a name="l00124"></a>00124     HID_USAGE, HID_USAGE_KEYBOARD,
-<a name="l00125"></a>00125     HID_COLLECTION, HID_COLLECTION_APPLICATION,
-<a name="l00126"></a>00126 
-<a name="l00127"></a>00127         HID_REPORT_COUNT, 8,                        <span class="comment">// 8 Modifier Keys</span>
-<a name="l00128"></a>00128         HID_REPORT_SIZE, 1,
-<a name="l00129"></a>00129         HID_USAGE_PAGE, HID_USAGE_PAGE_KEY_CODES,
-<a name="l00130"></a>00130         HID_USAGE_MIN, 0xE0,                        <span class="comment">// Left Control</span>
-<a name="l00131"></a>00131         HID_USAGE_MAX, 0xE7,                        <span class="comment">// Right GUI (Windows key) (highest defined usage ID)</span>
-<a name="l00132"></a>00132         HID_LOGICAL_MIN, 0,
-<a name="l00133"></a>00133         HID_LOGICAL_MAX, 1,
-<a name="l00134"></a>00134         HID_INPUT, HID_ITEM_VARIABLE,
-<a name="l00135"></a>00135 
-<a name="l00136"></a>00136         HID_REPORT_COUNT, 1,                        <span class="comment">// Reserved (1 byte)</span>
-<a name="l00137"></a>00137         HID_REPORT_SIZE, 8,
-<a name="l00138"></a>00138         HID_INPUT, HID_ITEM_CONSTANT,
-<a name="l00139"></a>00139 
-<a name="l00140"></a>00140         HID_REPORT_COUNT, 8,                        <span class="comment">// 8 LEDs</span>
-<a name="l00141"></a>00141         HID_REPORT_SIZE, 1,
-<a name="l00142"></a>00142         HID_USAGE_PAGE, HID_USAGE_PAGE_LEDS,
-<a name="l00143"></a>00143         HID_USAGE_MIN, 0x1,                         <span class="comment">// Num Lock</span>
-<a name="l00144"></a>00144         HID_USAGE_MAX, 0x8,                         <span class="comment">// Do Not Disturb (TODO: use this as a bootloader signal?)</span>
-<a name="l00145"></a>00145         HID_OUTPUT, HID_ITEM_VARIABLE,
-<a name="l00146"></a>00146 
-<a name="l00147"></a>00147         HID_REPORT_COUNT, 6,                        <span class="comment">// 6 Key Codes</span>
-<a name="l00148"></a>00148         HID_REPORT_SIZE, 8,
-<a name="l00149"></a>00149         HID_USAGE_PAGE, HID_USAGE_PAGE_KEY_CODES,
-<a name="l00150"></a>00150         HID_USAGE_MIN, 0,
-<a name="l00151"></a>00151         HID_USAGE_MAX, 231,
-<a name="l00152"></a>00152         HID_LOGICAL_MIN, 0,
-<a name="l00153"></a>00153         HID_LOGICAL_MAX_2, 231, 0,                  <span class="comment">// Logical Maximum is signed, so we need to use an extra byte to make sure the highest bit is 0</span>
-<a name="l00154"></a>00154         HID_INPUT, 0,
-<a name="l00155"></a>00155 
-<a name="l00156"></a>00156     HID_END_COLLECTION,
-<a name="l00157"></a>00157 };
-<a name="l00158"></a>00158 
-<a name="l00159"></a>00159 <span class="comment">// mouse report descriptor</span>
-<a name="l00160"></a>00160 <span class="comment">// HID 1.11 Section 6.2.2: Report Descriptor</span>
-<a name="l00161"></a>00161 <span class="comment">// Uses format compatible with mouse boot interface report descriptor - see HID 1.11 Appendix B.2</span>
-<a name="l00162"></a>00162 <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#ae6527c8381eb3f23b7fd6d6efec6ffc7">CODE</a> mouseReportDescriptor[]
-<a name="l00163"></a>00163 =
-<a name="l00164"></a>00164 {
-<a name="l00165"></a>00165     HID_USAGE_PAGE, HID_USAGE_PAGE_GENERIC_DESKTOP,
-<a name="l00166"></a>00166     HID_USAGE, HID_USAGE_MOUSE,
-<a name="l00167"></a>00167     HID_COLLECTION, HID_COLLECTION_APPLICATION,
-<a name="l00168"></a>00168 
-<a name="l00169"></a>00169         HID_USAGE, HID_USAGE_POINTER,
-<a name="l00170"></a>00170         HID_COLLECTION, HID_COLLECTION_PHYSICAL,
-<a name="l00171"></a>00171 
-<a name="l00172"></a>00172             HID_REPORT_COUNT, 8,                            <span class="comment">// 8 Mouse Buttons</span>
-<a name="l00173"></a>00173             HID_REPORT_SIZE, 1,
-<a name="l00174"></a>00174             HID_USAGE_PAGE, HID_USAGE_PAGE_BUTTONS,
-<a name="l00175"></a>00175             HID_USAGE_MIN, 1,
-<a name="l00176"></a>00176             HID_USAGE_MAX, 8,
-<a name="l00177"></a>00177             HID_LOGICAL_MIN, 0,
-<a name="l00178"></a>00178             HID_LOGICAL_MAX, 1,
-<a name="l00179"></a>00179             HID_INPUT, HID_ITEM_VARIABLE,
-<a name="l00180"></a>00180 
-<a name="l00181"></a>00181             HID_REPORT_COUNT, 3,                            <span class="comment">// 3 Axes (X, Y, wheel)</span>
-<a name="l00182"></a>00182             HID_REPORT_SIZE, 8,
-<a name="l00183"></a>00183             HID_USAGE_PAGE, HID_USAGE_PAGE_GENERIC_DESKTOP,
-<a name="l00184"></a>00184             HID_USAGE, HID_USAGE_X,
-<a name="l00185"></a>00185             HID_USAGE, HID_USAGE_Y,
-<a name="l00186"></a>00186             HID_USAGE, HID_USAGE_WHEEL,
-<a name="l00187"></a>00187             HID_LOGICAL_MIN, -127,
-<a name="l00188"></a>00188             HID_LOGICAL_MAX, 127,
-<a name="l00189"></a>00189             HID_INPUT, (HID_ITEM_VARIABLE | HID_ITEM_RELATIVE),
-<a name="l00190"></a>00190 
-<a name="l00191"></a>00191         HID_END_COLLECTION,
-<a name="l00192"></a>00192 
-<a name="l00193"></a>00193     HID_END_COLLECTION,
-<a name="l00194"></a>00194 };
-<a name="l00195"></a>00195 
-<a name="l00196"></a>00196 <a class="code" href="cc2511__types_8h.html#ae6527c8381eb3f23b7fd6d6efec6ffc7">CODE</a> <span class="keyword">struct </span><a class="code" href="struct_c_o_n_f_i_g1.html">CONFIG1</a> {
-<a name="l00197"></a>00197     <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___c_o_n_f_i_g_u_r_a_t_i_o_n.html">USB_DESCRIPTOR_CONFIGURATION</a> configuration;
+<a name="l00088"></a>00088 <span class="comment">// Request Codes from HID 1.11 Section 7.2</span>
+<a name="l00089"></a>00089 <span class="preprocessor">#define HID_REQUEST_GET_REPORT   0x1</span>
+<a name="l00090"></a>00090 <span class="preprocessor"></span><span class="preprocessor">#define HID_REQUEST_GET_IDLE     0x2</span>
+<a name="l00091"></a>00091 <span class="preprocessor"></span><span class="preprocessor">#define HID_REQUEST_GET_PROTOCOL 0x3</span>
+<a name="l00092"></a>00092 <span class="preprocessor"></span><span class="preprocessor">#define HID_REQUEST_SET_REPORT   0x9</span>
+<a name="l00093"></a>00093 <span class="preprocessor"></span><span class="preprocessor">#define HID_REQUEST_SET_IDLE     0xA</span>
+<a name="l00094"></a>00094 <span class="preprocessor"></span><span class="preprocessor">#define HID_REQUEST_SET_PROTOCOL 0xB</span>
+<a name="l00095"></a>00095 <span class="preprocessor"></span>
+<a name="l00096"></a>00096 <span class="comment">// Report Types from HID 1.11 Section 7.2.1</span>
+<a name="l00097"></a>00097 <span class="preprocessor">#define HID_REPORT_TYPE_INPUT   1</span>
+<a name="l00098"></a>00098 <span class="preprocessor"></span><span class="preprocessor">#define HID_REPORT_TYPE_OUTPUT  2</span>
+<a name="l00099"></a>00099 <span class="preprocessor"></span><span class="preprocessor">#define HID_REPORT_TYPE_FEATURE 3</span>
+<a name="l00100"></a>00100 <span class="preprocessor"></span>
+<a name="l00101"></a>00101 <span class="comment">// Protocols from HID 1.11 Section 7.2.5</span>
+<a name="l00102"></a>00102 <span class="preprocessor">#define HID_PROTOCOL_BOOT   0</span>
+<a name="l00103"></a>00103 <span class="preprocessor"></span><span class="preprocessor">#define HID_PROTOCOL_REPORT 1</span>
+<a name="l00104"></a>00104 <span class="preprocessor"></span>
+<a name="l00105"></a>00105 <span class="comment">/* HID USB Descriptors ****************************************************/</span>
+<a name="l00106"></a>00106 
+<a name="l00107"></a>00107 <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html">USB_DESCRIPTOR_DEVICE</a> <a class="code" href="cc2511__types_8h.html#ae6527c8381eb3f23b7fd6d6efec6ffc7">CODE</a> <a class="code" href="usb_8h.html#ab327812de161d63f6b26886efb3c051c">usbDeviceDescriptor</a> =
+<a name="l00108"></a>00108 {
+<a name="l00109"></a>00109     <span class="keyword">sizeof</span>(<a class="code" href="usb_8h.html#aef556172118c1fa8b504f975ce7e21fb">USB_DESCRIPTOR_DEVICE</a>),
+<a name="l00110"></a>00110     USB_DESCRIPTOR_TYPE_DEVICE,
+<a name="l00111"></a>00111     0x0200,                 <span class="comment">// USB Spec Release Number in BCD format</span>
+<a name="l00112"></a>00112     0,                      <span class="comment">// Class Code: undefined (use class code info from Interface Descriptors)</span>
+<a name="l00113"></a>00113     0,                      <span class="comment">// Subclass code</span>
+<a name="l00114"></a>00114     0,                      <span class="comment">// Protocol</span>
+<a name="l00115"></a>00115     <a class="code" href="usb_8h.html#a75ea200f227f8f25545643ce1efc4841">USB_EP0_PACKET_SIZE</a>,    <span class="comment">// Max packet size for Endpoint 0</span>
+<a name="l00116"></a>00116     <a class="code" href="usb_8h.html#ac2142aa49fc00f489cd4fbf2aba23fae">USB_VENDOR_ID_POLOLU</a>,   <span class="comment">// Vendor ID</span>
+<a name="l00117"></a>00117     0x2201,                 <span class="comment">// Product ID</span>
+<a name="l00118"></a>00118     0x0000,                 <span class="comment">// Device release number in BCD format</span>
+<a name="l00119"></a>00119     1,                      <span class="comment">// Index of Manufacturer String Descriptor</span>
+<a name="l00120"></a>00120     2,                      <span class="comment">// Index of Product String Descriptor</span>
+<a name="l00121"></a>00121     3,                      <span class="comment">// Index of Serial Number String Descriptor</span>
+<a name="l00122"></a>00122     1                       <span class="comment">// Number of possible configurations.</span>
+<a name="l00123"></a>00123 };
+<a name="l00124"></a>00124 
+<a name="l00125"></a>00125 <span class="comment">// keyboard report descriptor</span>
+<a name="l00126"></a>00126 <span class="comment">// HID 1.11 Section 6.2.2: Report Descriptor</span>
+<a name="l00127"></a>00127 <span class="comment">// Uses format compatible with keyboard boot interface report descriptor - see HID 1.11 Appendix B.1</span>
+<a name="l00128"></a>00128 <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#ae6527c8381eb3f23b7fd6d6efec6ffc7">CODE</a> keyboardReportDescriptor[]
+<a name="l00129"></a>00129 =
+<a name="l00130"></a>00130 {
+<a name="l00131"></a>00131     HID_USAGE_PAGE, HID_USAGE_PAGE_GENERIC_DESKTOP,
+<a name="l00132"></a>00132     HID_USAGE, HID_USAGE_KEYBOARD,
+<a name="l00133"></a>00133     HID_COLLECTION, HID_COLLECTION_APPLICATION,
+<a name="l00134"></a>00134 
+<a name="l00135"></a>00135         HID_REPORT_COUNT, 8,                        <span class="comment">// 8 Modifier Keys</span>
+<a name="l00136"></a>00136         HID_REPORT_SIZE, 1,
+<a name="l00137"></a>00137         HID_USAGE_PAGE, HID_USAGE_PAGE_KEY_CODES,
+<a name="l00138"></a>00138         HID_USAGE_MIN, 0xE0,                        <span class="comment">// Left Control</span>
+<a name="l00139"></a>00139         HID_USAGE_MAX, 0xE7,                        <span class="comment">// Right GUI (Windows key) (highest defined usage ID)</span>
+<a name="l00140"></a>00140         HID_LOGICAL_MIN, 0,
+<a name="l00141"></a>00141         HID_LOGICAL_MAX, 1,
+<a name="l00142"></a>00142         HID_INPUT, HID_ITEM_VARIABLE,
+<a name="l00143"></a>00143 
+<a name="l00144"></a>00144         HID_REPORT_COUNT, 1,                        <span class="comment">// Reserved (1 byte)</span>
+<a name="l00145"></a>00145         HID_REPORT_SIZE, 8,
+<a name="l00146"></a>00146         HID_INPUT, HID_ITEM_CONSTANT,
+<a name="l00147"></a>00147 
+<a name="l00148"></a>00148         HID_REPORT_COUNT, 8,                        <span class="comment">// 8 LEDs</span>
+<a name="l00149"></a>00149         HID_REPORT_SIZE, 1,
+<a name="l00150"></a>00150         HID_USAGE_PAGE, HID_USAGE_PAGE_LEDS,
+<a name="l00151"></a>00151         HID_USAGE_MIN, 0x1,                         <span class="comment">// Num Lock</span>
+<a name="l00152"></a>00152         HID_USAGE_MAX, 0x8,                         <span class="comment">// Do Not Disturb (TODO: use this as a bootloader signal?)</span>
+<a name="l00153"></a>00153         HID_OUTPUT, HID_ITEM_VARIABLE,
+<a name="l00154"></a>00154 
+<a name="l00155"></a>00155         HID_REPORT_COUNT, 6,                        <span class="comment">// 6 Key Codes</span>
+<a name="l00156"></a>00156         HID_REPORT_SIZE, 8,
+<a name="l00157"></a>00157         HID_USAGE_PAGE, HID_USAGE_PAGE_KEY_CODES,
+<a name="l00158"></a>00158         HID_USAGE_MIN, 0,
+<a name="l00159"></a>00159         HID_USAGE_MAX, 231,
+<a name="l00160"></a>00160         HID_LOGICAL_MIN, 0,
+<a name="l00161"></a>00161         HID_LOGICAL_MAX_2, 231, 0,                  <span class="comment">// Logical Maximum is signed, so we need to use an extra byte to make sure the highest bit is 0</span>
+<a name="l00162"></a>00162         HID_INPUT, 0,
+<a name="l00163"></a>00163 
+<a name="l00164"></a>00164     HID_END_COLLECTION,
+<a name="l00165"></a>00165 };
+<a name="l00166"></a>00166 
+<a name="l00167"></a>00167 <span class="comment">// mouse report descriptor</span>
+<a name="l00168"></a>00168 <span class="comment">// HID 1.11 Section 6.2.2: Report Descriptor</span>
+<a name="l00169"></a>00169 <span class="comment">// Uses format compatible with mouse boot interface report descriptor - see HID 1.11 Appendix B.2</span>
+<a name="l00170"></a>00170 <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#ae6527c8381eb3f23b7fd6d6efec6ffc7">CODE</a> mouseReportDescriptor[]
+<a name="l00171"></a>00171 =
+<a name="l00172"></a>00172 {
+<a name="l00173"></a>00173     HID_USAGE_PAGE, HID_USAGE_PAGE_GENERIC_DESKTOP,
+<a name="l00174"></a>00174     HID_USAGE, HID_USAGE_MOUSE,
+<a name="l00175"></a>00175     HID_COLLECTION, HID_COLLECTION_APPLICATION,
+<a name="l00176"></a>00176 
+<a name="l00177"></a>00177         HID_USAGE, HID_USAGE_POINTER,
+<a name="l00178"></a>00178         HID_COLLECTION, HID_COLLECTION_PHYSICAL,
+<a name="l00179"></a>00179 
+<a name="l00180"></a>00180             HID_REPORT_COUNT, 8,                            <span class="comment">// 8 Mouse Buttons</span>
+<a name="l00181"></a>00181             HID_REPORT_SIZE, 1,
+<a name="l00182"></a>00182             HID_USAGE_PAGE, HID_USAGE_PAGE_BUTTONS,
+<a name="l00183"></a>00183             HID_USAGE_MIN, 1,
+<a name="l00184"></a>00184             HID_USAGE_MAX, 8,
+<a name="l00185"></a>00185             HID_LOGICAL_MIN, 0,
+<a name="l00186"></a>00186             HID_LOGICAL_MAX, 1,
+<a name="l00187"></a>00187             HID_INPUT, HID_ITEM_VARIABLE,
+<a name="l00188"></a>00188 
+<a name="l00189"></a>00189             HID_REPORT_COUNT, 3,                            <span class="comment">// 3 Axes (X, Y, wheel)</span>
+<a name="l00190"></a>00190             HID_REPORT_SIZE, 8,
+<a name="l00191"></a>00191             HID_USAGE_PAGE, HID_USAGE_PAGE_GENERIC_DESKTOP,
+<a name="l00192"></a>00192             HID_USAGE, HID_USAGE_X,
+<a name="l00193"></a>00193             HID_USAGE, HID_USAGE_Y,
+<a name="l00194"></a>00194             HID_USAGE, HID_USAGE_WHEEL,
+<a name="l00195"></a>00195             HID_LOGICAL_MIN, -127,
+<a name="l00196"></a>00196             HID_LOGICAL_MAX, 127,
+<a name="l00197"></a>00197             HID_INPUT, (HID_ITEM_VARIABLE | HID_ITEM_RELATIVE),
 <a name="l00198"></a>00198 
-<a name="l00199"></a>00199     <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html">USB_DESCRIPTOR_INTERFACE</a> keyboard_interface;
-<a name="l00200"></a>00200     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> keyboard_hid[9]; <span class="comment">// HID Descriptor</span>
-<a name="l00201"></a>00201     <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___e_n_d_p_o_i_n_t.html">USB_DESCRIPTOR_ENDPOINT</a> keyboard_in;
-<a name="l00202"></a>00202 
-<a name="l00203"></a>00203     <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html">USB_DESCRIPTOR_INTERFACE</a> mouse_interface;
-<a name="l00204"></a>00204     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> mouse_hid[9]; <span class="comment">// HID Descriptor</span>
-<a name="l00205"></a>00205     <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___e_n_d_p_o_i_n_t.html">USB_DESCRIPTOR_ENDPOINT</a> mouse_in;
-<a name="l00206"></a>00206 } usbConfigurationDescriptor
+<a name="l00199"></a>00199         HID_END_COLLECTION,
+<a name="l00200"></a>00200 
+<a name="l00201"></a>00201     HID_END_COLLECTION,
+<a name="l00202"></a>00202 };
+<a name="l00203"></a>00203 
+<a name="l00204"></a>00204 <span class="comment">// joystick report descriptor</span>
+<a name="l00205"></a>00205 <span class="comment">// HID 1.11 Section 6.2.2: Report Descriptor</span>
+<a name="l00206"></a>00206 <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#ae6527c8381eb3f23b7fd6d6efec6ffc7">CODE</a> joystickReportDescriptor[]
 <a name="l00207"></a>00207 =
 <a name="l00208"></a>00208 {
-<a name="l00209"></a>00209     {                                                    <span class="comment">// Configuration Descriptor</span>
-<a name="l00210"></a>00210         <span class="keyword">sizeof</span>(<a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___c_o_n_f_i_g_u_r_a_t_i_o_n.html">USB_DESCRIPTOR_CONFIGURATION</a>),
-<a name="l00211"></a>00211         USB_DESCRIPTOR_TYPE_CONFIGURATION,
-<a name="l00212"></a>00212         <span class="keyword">sizeof</span>(<span class="keyword">struct</span> <a class="code" href="struct_c_o_n_f_i_g1.html">CONFIG1</a>),                          <span class="comment">// wTotalLength</span>
-<a name="l00213"></a>00213         2,                                               <span class="comment">// bNumInterfaces</span>
-<a name="l00214"></a>00214         1,                                               <span class="comment">// bConfigurationValue</span>
-<a name="l00215"></a>00215         0,                                               <span class="comment">// iConfiguration</span>
-<a name="l00216"></a>00216         0xC0,                                            <span class="comment">// bmAttributes: self powered (but may use bus power)</span>
-<a name="l00217"></a>00217         50,                                              <span class="comment">// bMaxPower</span>
-<a name="l00218"></a>00218     },
-<a name="l00219"></a>00219     {                                                    <span class="comment">// Keyboard Interface</span>
-<a name="l00220"></a>00220         <span class="keyword">sizeof</span>(<a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html">USB_DESCRIPTOR_INTERFACE</a>),
-<a name="l00221"></a>00221         USB_DESCRIPTOR_TYPE_INTERFACE,
-<a name="l00222"></a>00222         HID_KEYBOARD_INTERFACE_NUMBER,                   <span class="comment">// bInterfaceNumber</span>
-<a name="l00223"></a>00223         0,                                               <span class="comment">// bAlternateSetting</span>
-<a name="l00224"></a>00224         1,                                               <span class="comment">// bNumEndpoints</span>
-<a name="l00225"></a>00225         HID_CLASS,                                       <span class="comment">// bInterfaceClass</span>
-<a name="l00226"></a>00226         HID_SUBCLASS_BOOT,                               <span class="comment">// bInterfaceSubClass</span>
-<a name="l00227"></a>00227         HID_PROTOCOL_KEYBOARD,                           <span class="comment">// bInterfaceProtocol</span>
-<a name="l00228"></a>00228         4                                                <span class="comment">// iInterface</span>
-<a name="l00229"></a>00229     },
-<a name="l00230"></a>00230     {
-<a name="l00231"></a>00231         <span class="keyword">sizeof</span>(usbConfigurationDescriptor.keyboard_hid), <span class="comment">// 9-byte HID Descriptor for keyboard (HID 1.11 Section 6.2.1)</span>
-<a name="l00232"></a>00232         HID_DESCRIPTOR_TYPE_HID,
-<a name="l00233"></a>00233         0x11, 0x01,                                      <span class="comment">// bcdHID.  We conform to HID 1.11.</span>
-<a name="l00234"></a>00234         HID_COUNTRY_NOT_LOCALIZED,                       <span class="comment">// bCountryCode</span>
-<a name="l00235"></a>00235         1,                                               <span class="comment">// bNumDescriptors</span>
-<a name="l00236"></a>00236         HID_DESCRIPTOR_TYPE_REPORT,                      <span class="comment">// bDescriptorType</span>
-<a name="l00237"></a>00237         <span class="keyword">sizeof</span>(keyboardReportDescriptor), 0              <span class="comment">// wDescriptorLength</span>
-<a name="l00238"></a>00238     },
-<a name="l00239"></a>00239     {                                                    <span class="comment">// Keyboard IN Endpoint</span>
-<a name="l00240"></a>00240         <span class="keyword">sizeof</span>(<a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___e_n_d_p_o_i_n_t.html">USB_DESCRIPTOR_ENDPOINT</a>),
-<a name="l00241"></a>00241         USB_DESCRIPTOR_TYPE_ENDPOINT,
-<a name="l00242"></a>00242         USB_ENDPOINT_ADDRESS_IN | HID_KEYBOARD_ENDPOINT, <span class="comment">// bEndpointAddress</span>
-<a name="l00243"></a>00243         USB_TRANSFER_TYPE_INTERRUPT,                     <span class="comment">// bmAttributes</span>
-<a name="l00244"></a>00244         HID_IN_PACKET_SIZE,                              <span class="comment">// wMaxPacketSize</span>
-<a name="l00245"></a>00245         10,                                              <span class="comment">// bInterval</span>
-<a name="l00246"></a>00246     },
-<a name="l00247"></a>00247     {                                                    <span class="comment">// Mouse Interface</span>
-<a name="l00248"></a>00248         <span class="keyword">sizeof</span>(<a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html">USB_DESCRIPTOR_INTERFACE</a>),
-<a name="l00249"></a>00249         USB_DESCRIPTOR_TYPE_INTERFACE,
-<a name="l00250"></a>00250         HID_MOUSE_INTERFACE_NUMBER,                      <span class="comment">// bInterfaceNumber</span>
-<a name="l00251"></a>00251         0,                                               <span class="comment">// bAlternateSetting</span>
-<a name="l00252"></a>00252         1,                                               <span class="comment">// bNumEndpoints</span>
-<a name="l00253"></a>00253         HID_CLASS,                                       <span class="comment">// bInterfaceClass</span>
-<a name="l00254"></a>00254         HID_SUBCLASS_BOOT,                               <span class="comment">// bInterfaceSubClass</span>
-<a name="l00255"></a>00255         HID_PROTOCOL_MOUSE,                              <span class="comment">// bInterfaceProtocol</span>
-<a name="l00256"></a>00256         5                                                <span class="comment">// iInterface</span>
-<a name="l00257"></a>00257     },
-<a name="l00258"></a>00258     {
-<a name="l00259"></a>00259         <span class="keyword">sizeof</span>(usbConfigurationDescriptor.mouse_hid),    <span class="comment">// 9-byte HID Descriptor for mouse (HID 1.11 Section 6.2.1)</span>
-<a name="l00260"></a>00260         HID_DESCRIPTOR_TYPE_HID,
-<a name="l00261"></a>00261         0x11, 0x01,                                      <span class="comment">// bcdHID.  We conform to HID 1.11.</span>
-<a name="l00262"></a>00262         HID_COUNTRY_NOT_LOCALIZED,                       <span class="comment">// bCountryCode</span>
-<a name="l00263"></a>00263         1,                                               <span class="comment">// bNumDescriptors</span>
-<a name="l00264"></a>00264         HID_DESCRIPTOR_TYPE_REPORT,                      <span class="comment">// bDescriptorType</span>
-<a name="l00265"></a>00265         <span class="keyword">sizeof</span>(mouseReportDescriptor), 0                 <span class="comment">// wDescriptorLength</span>
-<a name="l00266"></a>00266     },
-<a name="l00267"></a>00267     {                                                    <span class="comment">// Mouse IN Endpoint</span>
-<a name="l00268"></a>00268         <span class="keyword">sizeof</span>(<a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___e_n_d_p_o_i_n_t.html">USB_DESCRIPTOR_ENDPOINT</a>),
-<a name="l00269"></a>00269         USB_DESCRIPTOR_TYPE_ENDPOINT,
-<a name="l00270"></a>00270         USB_ENDPOINT_ADDRESS_IN | HID_MOUSE_ENDPOINT,    <span class="comment">// bEndpointAddress</span>
-<a name="l00271"></a>00271         USB_TRANSFER_TYPE_INTERRUPT,                     <span class="comment">// bmAttributes</span>
-<a name="l00272"></a>00272         HID_IN_PACKET_SIZE,                              <span class="comment">// wMaxPacketSize</span>
-<a name="l00273"></a>00273         10,                                              <span class="comment">// bInterval</span>
-<a name="l00274"></a>00274     },
-<a name="l00275"></a>00275 };
-<a name="l00276"></a>00276 
-<a name="l00277"></a>00277 <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#ae6527c8381eb3f23b7fd6d6efec6ffc7">CODE</a> usbStringDescriptorCount = 6;
-<a name="l00278"></a>00278 DEFINE_STRING_DESCRIPTOR(languages, 1, USB_LANGUAGE_EN_US)
-<a name="l00279"></a>00279 DEFINE_STRING_DESCRIPTOR(manufacturer, 18, &#39;P&#39;,&#39;o&#39;,&#39;l&#39;,&#39;o&#39;,&#39;l&#39;,&#39;u&#39;,&#39; &#39;,&#39;C&#39;,&#39;o&#39;,&#39;r&#39;,&#39;p&#39;,&#39;o&#39;,&#39;r&#39;,&#39;a&#39;,&#39;t&#39;,&#39;i&#39;,&#39;o&#39;,&#39;n&#39;)
-<a name="l00280"></a>00280 DEFINE_STRING_DESCRIPTOR(product, 5, &#39;W&#39;,&#39;i&#39;,&#39;x&#39;,&#39;e&#39;,&#39;l&#39;)
-<a name="l00281"></a>00281 DEFINE_STRING_DESCRIPTOR(keyboardName, 14, &#39;W&#39;,&#39;i&#39;,&#39;x&#39;,&#39;e&#39;,&#39;l&#39;,&#39; &#39;,&#39;K&#39;,&#39;e&#39;,&#39;y&#39;,&#39;b&#39;,&#39;o&#39;,&#39;a&#39;,&#39;r&#39;,&#39;d&#39;)
-<a name="l00282"></a>00282 DEFINE_STRING_DESCRIPTOR(mouseName, 11, &#39;W&#39;,&#39;i&#39;,&#39;x&#39;,&#39;e&#39;,&#39;l&#39;,&#39; &#39;,&#39;M&#39;,&#39;o&#39;,&#39;u&#39;,&#39;s&#39;,&#39;e&#39;)
-<a name="l00283"></a>00283 <a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> <a class="code" href="cc2511__types_8h.html#ae6527c8381eb3f23b7fd6d6efec6ffc7">CODE</a> * <a class="code" href="cc2511__types_8h.html#ae6527c8381eb3f23b7fd6d6efec6ffc7">CODE</a> usbStringDescriptors[] = { languages, manufacturer, product, <a class="code" href="board_8h.html#ae48bea08309da1277eed8ef6bc8a9141">serialNumberStringDescriptor</a>, keyboardName, mouseName };
-<a name="l00284"></a>00284 
-<a name="l00285"></a>00285 <span class="comment">/* HID structs and global variables *******************************************/</span>
-<a name="l00286"></a>00286 
-<a name="l00287"></a><a class="code" href="usb__hid_8h.html#a5f687280c1b312a0a1b0daf6518175c6">00287</a> <a class="code" href="struct_h_i_d___k_e_y_b_o_a_r_d___o_u_t___r_e_p_o_r_t.html">HID_KEYBOARD_OUT_REPORT</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> <a class="code" href="usb__hid_8h.html#a5f687280c1b312a0a1b0daf6518175c6">usbHidKeyboardOutput</a> = {0};
-<a name="l00288"></a><a class="code" href="usb__hid_8h.html#a1db3b61b8096710373a0cce967922b11">00288</a> <a class="code" href="struct_h_i_d___k_e_y_b_o_a_r_d___i_n___r_e_p_o_r_t.html">HID_KEYBOARD_IN_REPORT</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> <a class="code" href="usb__hid_8h.html#a1db3b61b8096710373a0cce967922b11">usbHidKeyboardInput</a> = {0, 0, {0}};
-<a name="l00289"></a><a class="code" href="usb__hid_8h.html#aeaadfa1df9a625575e65bc07fbc0f746">00289</a> <a class="code" href="struct_h_i_d___m_o_u_s_e___i_n___r_e_p_o_r_t.html">HID_MOUSE_IN_REPORT</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> <a class="code" href="usb__hid_8h.html#aeaadfa1df9a625575e65bc07fbc0f746">usbHidMouseInput</a> = {0, 0, 0, 0};
-<a name="l00290"></a>00290 
-<a name="l00291"></a><a class="code" href="usb__hid_8h.html#a80c00242b4b066911315abbaeecf6afe">00291</a> <a class="code" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> <a class="code" href="usb__hid_8h.html#a80c00242b4b066911315abbaeecf6afe">usbHidKeyboardInputUpdated</a> = 0;
-<a name="l00292"></a><a class="code" href="usb__hid_8h.html#ae4f83d3f860ac2143ebda914185238b1">00292</a> <a class="code" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> <a class="code" href="usb__hid_8h.html#ae4f83d3f860ac2143ebda914185238b1">usbHidMouseInputUpdated</a>    = 0;
-<a name="l00293"></a>00293 
-<a name="l00294"></a>00294 <a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> hidKeyboardIdleDuration = 500; <span class="comment">// 0 to 1020 ms</span>
-<a name="l00295"></a>00295 
-<a name="l00296"></a>00296 <a class="code" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> hidKeyboardProtocol = HID_PROTOCOL_REPORT;
-<a name="l00297"></a>00297 <a class="code" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> hidMouseProtocol    = HID_PROTOCOL_REPORT;
-<a name="l00298"></a>00298 
-<a name="l00299"></a>00299 <span class="comment">/* HID USB callbacks **********************************************************/</span>
-<a name="l00300"></a>00300 <span class="comment">// These functions are called by the low-level USB module (usb.c) when a USB</span>
-<a name="l00301"></a>00301 <span class="comment">// event happens that requires higher-level code to make a decision.</span>
-<a name="l00302"></a>00302 
-<a name="l00303"></a>00303 <span class="keywordtype">void</span> usbCallbackInitEndpoints(<span class="keywordtype">void</span>)
-<a name="l00304"></a>00304 {
-<a name="l00305"></a>00305     usbInitEndpointIn(HID_KEYBOARD_ENDPOINT, HID_IN_PACKET_SIZE);
-<a name="l00306"></a>00306     usbInitEndpointIn(HID_MOUSE_ENDPOINT, HID_IN_PACKET_SIZE);
-<a name="l00307"></a>00307 }
-<a name="l00308"></a>00308 
-<a name="l00309"></a>00309 <span class="comment">// Implements all the control transfers that are required by Appendix G of HID 1.11.</span>
-<a name="l00310"></a>00310 <span class="keywordtype">void</span> usbCallbackSetupHandler(<span class="keywordtype">void</span>)
-<a name="l00311"></a>00311 {
-<a name="l00312"></a>00312     <span class="keyword">static</span> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> response;
-<a name="l00313"></a>00313 
-<a name="l00314"></a>00314     <span class="keywordflow">if</span> ((usbSetupPacket.bmRequestType &amp; 0x7F) != 0x21)   <span class="comment">// Require Type==Class and Recipient==Interface.</span>
-<a name="l00315"></a>00315         <span class="keywordflow">return</span>;
-<a name="l00316"></a>00316 
-<a name="l00317"></a>00317     <span class="keywordflow">switch</span>(usbSetupPacket.bRequest)
-<a name="l00318"></a>00318     {
-<a name="l00319"></a>00319     <span class="comment">// required</span>
-<a name="l00320"></a>00320     <span class="keywordflow">case</span> HID_REQUEST_GET_REPORT:
-<a name="l00321"></a>00321         <span class="keywordflow">if</span> ((usbSetupPacket.wValue &gt;&gt; 8) != HID_REPORT_TYPE_INPUT)
-<a name="l00322"></a>00322             <span class="keywordflow">return</span>;
-<a name="l00323"></a>00323 
-<a name="l00324"></a>00324         <span class="keywordflow">switch</span> (usbSetupPacket.wIndex)
-<a name="l00325"></a>00325         {
-<a name="l00326"></a>00326         <span class="keywordflow">case</span> HID_KEYBOARD_INTERFACE_NUMBER:
-<a name="l00327"></a>00327             usbControlRead(<span class="keyword">sizeof</span>(usbHidKeyboardInput), (<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> *)&amp;usbHidKeyboardInput);
-<a name="l00328"></a>00328             <span class="keywordflow">return</span>;
-<a name="l00329"></a>00329 
-<a name="l00330"></a>00330         <span class="keywordflow">case</span> HID_MOUSE_INTERFACE_NUMBER:
-<a name="l00331"></a>00331             usbControlRead(<span class="keyword">sizeof</span>(usbHidMouseInput), (<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> *)&amp;usbHidMouseInput);
-<a name="l00332"></a>00332             <span class="keywordflow">return</span>;
-<a name="l00333"></a>00333 
-<a name="l00334"></a>00334         <span class="keywordflow">default</span>:
-<a name="l00335"></a>00335             <span class="comment">// unrecognized interface - stall</span>
-<a name="l00336"></a>00336             <span class="keywordflow">return</span>;
-<a name="l00337"></a>00337         }
-<a name="l00338"></a>00338 
-<a name="l00339"></a>00339     <span class="comment">// required for devices with Output reports</span>
-<a name="l00340"></a>00340     <span class="keywordflow">case</span> HID_REQUEST_SET_REPORT:
-<a name="l00341"></a>00341         <span class="keywordflow">if</span> (usbSetupPacket.wIndex == HID_KEYBOARD_INTERFACE_NUMBER)
-<a name="l00342"></a>00342         {
-<a name="l00343"></a>00343             usbControlWrite(<span class="keyword">sizeof</span>(usbHidKeyboardOutput), (<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> *)&amp;usbHidKeyboardOutput);
-<a name="l00344"></a>00344         }
-<a name="l00345"></a>00345         <span class="keywordflow">return</span>;
-<a name="l00346"></a>00346 
-<a name="l00347"></a>00347     <span class="comment">// required for keyboards</span>
-<a name="l00348"></a>00348     <span class="keywordflow">case</span> HID_REQUEST_GET_IDLE:
-<a name="l00349"></a>00349         <span class="keywordflow">if</span> (usbSetupPacket.wIndex == HID_KEYBOARD_INTERFACE_NUMBER)
-<a name="l00350"></a>00350         {
-<a name="l00351"></a>00351             response = hidKeyboardIdleDuration / 4; <span class="comment">// value in request is in units of 4 ms</span>
-<a name="l00352"></a>00352             usbControlRead(1, (<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> *)&amp;response);
-<a name="l00353"></a>00353         }
-<a name="l00354"></a>00354         <span class="keywordflow">return</span>;
-<a name="l00355"></a>00355 
-<a name="l00356"></a>00356     <span class="comment">// required for keyboards</span>
-<a name="l00357"></a>00357     <span class="keywordflow">case</span> HID_REQUEST_SET_IDLE:
-<a name="l00358"></a>00358         <span class="keywordflow">if</span> (usbSetupPacket.wIndex == HID_KEYBOARD_INTERFACE_NUMBER)
-<a name="l00359"></a>00359         {
-<a name="l00360"></a>00360             hidKeyboardIdleDuration = (usbSetupPacket.wValue &gt;&gt; 8) * 4; <span class="comment">// value in request is in units of 4 ms</span>
-<a name="l00361"></a>00361             usbControlAcknowledge();
-<a name="l00362"></a>00362         }
-<a name="l00363"></a>00363         <span class="keywordflow">return</span>;
-<a name="l00364"></a>00364 
+<a name="l00209"></a>00209     HID_USAGE_PAGE, HID_USAGE_PAGE_GENERIC_DESKTOP,
+<a name="l00210"></a>00210     HID_USAGE, HID_USAGE_JOYSTICK,
+<a name="l00211"></a>00211     HID_COLLECTION, HID_COLLECTION_APPLICATION,
+<a name="l00212"></a>00212 
+<a name="l00213"></a>00213         HID_USAGE, HID_USAGE_POINTER,
+<a name="l00214"></a>00214         HID_COLLECTION, HID_COLLECTION_PHYSICAL,
+<a name="l00215"></a>00215 
+<a name="l00216"></a>00216             HID_REPORT_COUNT, 6, <span class="comment">// 6 Axes (X, Y, Z, Rx, Ry, Rz)</span>
+<a name="l00217"></a>00217             HID_REPORT_SIZE, 8,
+<a name="l00218"></a>00218             HID_USAGE, HID_USAGE_X,
+<a name="l00219"></a>00219             HID_USAGE, HID_USAGE_Y,
+<a name="l00220"></a>00220             HID_USAGE, HID_USAGE_Z,
+<a name="l00221"></a>00221             HID_USAGE, HID_USAGE_RX,
+<a name="l00222"></a>00222             HID_USAGE, HID_USAGE_RY,
+<a name="l00223"></a>00223             HID_USAGE, HID_USAGE_RZ,
+<a name="l00224"></a>00224             HID_LOGICAL_MIN, -127,
+<a name="l00225"></a>00225             HID_LOGICAL_MAX, 127,
+<a name="l00226"></a>00226             HID_INPUT, HID_ITEM_VARIABLE,
+<a name="l00227"></a>00227 
+<a name="l00228"></a>00228         HID_END_COLLECTION,
+<a name="l00229"></a>00229 
+<a name="l00230"></a>00230         HID_REPORT_COUNT, 16, <span class="comment">// 16 Joystick Buttons</span>
+<a name="l00231"></a>00231         HID_REPORT_SIZE, 1,
+<a name="l00232"></a>00232         HID_USAGE_PAGE, HID_USAGE_PAGE_BUTTONS,
+<a name="l00233"></a>00233         HID_USAGE_MIN, 1,
+<a name="l00234"></a>00234         HID_USAGE_MAX, 16,
+<a name="l00235"></a>00235         HID_LOGICAL_MIN, 0,
+<a name="l00236"></a>00236         HID_LOGICAL_MAX, 1,
+<a name="l00237"></a>00237         HID_INPUT, HID_ITEM_VARIABLE,
+<a name="l00238"></a>00238 
+<a name="l00239"></a>00239     HID_END_COLLECTION,
+<a name="l00240"></a>00240 };
+<a name="l00241"></a>00241 
+<a name="l00242"></a>00242 <a class="code" href="cc2511__types_8h.html#ae6527c8381eb3f23b7fd6d6efec6ffc7">CODE</a> <span class="keyword">struct </span><a class="code" href="struct_c_o_n_f_i_g1.html">CONFIG1</a> {
+<a name="l00243"></a>00243     <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___c_o_n_f_i_g_u_r_a_t_i_o_n.html">USB_DESCRIPTOR_CONFIGURATION</a> configuration;
+<a name="l00244"></a>00244 
+<a name="l00245"></a>00245     <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html">USB_DESCRIPTOR_INTERFACE</a> keyboard_interface;
+<a name="l00246"></a>00246     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> keyboard_hid[9]; <span class="comment">// HID Descriptor</span>
+<a name="l00247"></a>00247     <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___e_n_d_p_o_i_n_t.html">USB_DESCRIPTOR_ENDPOINT</a> keyboard_in;
+<a name="l00248"></a>00248 
+<a name="l00249"></a>00249     <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html">USB_DESCRIPTOR_INTERFACE</a> mouse_interface;
+<a name="l00250"></a>00250     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> mouse_hid[9]; <span class="comment">// HID Descriptor</span>
+<a name="l00251"></a>00251     <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___e_n_d_p_o_i_n_t.html">USB_DESCRIPTOR_ENDPOINT</a> mouse_in;
+<a name="l00252"></a>00252 
+<a name="l00253"></a>00253     <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html">USB_DESCRIPTOR_INTERFACE</a> joystick_interface;
+<a name="l00254"></a>00254     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> joystick_hid[9]; <span class="comment">// HID Descriptor</span>
+<a name="l00255"></a>00255     <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___e_n_d_p_o_i_n_t.html">USB_DESCRIPTOR_ENDPOINT</a> joystick_in;
+<a name="l00256"></a>00256 } usbConfigurationDescriptor
+<a name="l00257"></a>00257 =
+<a name="l00258"></a>00258 {
+<a name="l00259"></a>00259     {                                                    <span class="comment">// Configuration Descriptor</span>
+<a name="l00260"></a>00260         <span class="keyword">sizeof</span>(<a class="code" href="usb_8h.html#a4ea3917c1161437221e7e7f87386c1f6">USB_DESCRIPTOR_CONFIGURATION</a>),
+<a name="l00261"></a>00261         USB_DESCRIPTOR_TYPE_CONFIGURATION,
+<a name="l00262"></a>00262         <span class="keyword">sizeof</span>(<span class="keyword">struct</span> <a class="code" href="struct_c_o_n_f_i_g1.html">CONFIG1</a>),                          <span class="comment">// wTotalLength</span>
+<a name="l00263"></a>00263         3,                                               <span class="comment">// bNumInterfaces</span>
+<a name="l00264"></a>00264         1,                                               <span class="comment">// bConfigurationValue</span>
+<a name="l00265"></a>00265         0,                                               <span class="comment">// iConfiguration</span>
+<a name="l00266"></a>00266         0xC0,                                            <span class="comment">// bmAttributes: self powered (but may use bus power)</span>
+<a name="l00267"></a>00267         50,                                              <span class="comment">// bMaxPower</span>
+<a name="l00268"></a>00268     },
+<a name="l00269"></a>00269     {                                                    <span class="comment">// Keyboard Interface</span>
+<a name="l00270"></a>00270         <span class="keyword">sizeof</span>(<a class="code" href="usb_8h.html#ae84b624b44c4e66f09fe093354830fe4">USB_DESCRIPTOR_INTERFACE</a>),
+<a name="l00271"></a>00271         USB_DESCRIPTOR_TYPE_INTERFACE,
+<a name="l00272"></a>00272         HID_KEYBOARD_INTERFACE_NUMBER,                   <span class="comment">// bInterfaceNumber</span>
+<a name="l00273"></a>00273         0,                                               <span class="comment">// bAlternateSetting</span>
+<a name="l00274"></a>00274         1,                                               <span class="comment">// bNumEndpoints</span>
+<a name="l00275"></a>00275         HID_CLASS,                                       <span class="comment">// bInterfaceClass</span>
+<a name="l00276"></a>00276         HID_SUBCLASS_BOOT,                               <span class="comment">// bInterfaceSubClass</span>
+<a name="l00277"></a>00277         HID_PROTOCOL_KEYBOARD,                           <span class="comment">// bInterfaceProtocol</span>
+<a name="l00278"></a>00278         4                                                <span class="comment">// iInterface</span>
+<a name="l00279"></a>00279     },
+<a name="l00280"></a>00280     {
+<a name="l00281"></a>00281         <span class="keyword">sizeof</span>(usbConfigurationDescriptor.keyboard_hid), <span class="comment">// 9-byte HID Descriptor for keyboard (HID 1.11 Section 6.2.1)</span>
+<a name="l00282"></a>00282         HID_DESCRIPTOR_TYPE_HID,
+<a name="l00283"></a>00283         0x11, 0x01,                                      <span class="comment">// bcdHID.  We conform to HID 1.11.</span>
+<a name="l00284"></a>00284         HID_COUNTRY_NOT_LOCALIZED,                       <span class="comment">// bCountryCode</span>
+<a name="l00285"></a>00285         1,                                               <span class="comment">// bNumDescriptors</span>
+<a name="l00286"></a>00286         HID_DESCRIPTOR_TYPE_REPORT,                      <span class="comment">// bDescriptorType</span>
+<a name="l00287"></a>00287         <span class="keyword">sizeof</span>(keyboardReportDescriptor), 0              <span class="comment">// wDescriptorLength</span>
+<a name="l00288"></a>00288     },
+<a name="l00289"></a>00289     {                                                    <span class="comment">// Keyboard IN Endpoint</span>
+<a name="l00290"></a>00290         <span class="keyword">sizeof</span>(<a class="code" href="usb_8h.html#a724561b028227cc0018d561ba072b2a6">USB_DESCRIPTOR_ENDPOINT</a>),
+<a name="l00291"></a>00291         USB_DESCRIPTOR_TYPE_ENDPOINT,
+<a name="l00292"></a>00292         USB_ENDPOINT_ADDRESS_IN | HID_KEYBOARD_ENDPOINT, <span class="comment">// bEndpointAddress</span>
+<a name="l00293"></a>00293         USB_TRANSFER_TYPE_INTERRUPT,                     <span class="comment">// bmAttributes</span>
+<a name="l00294"></a>00294         HID_IN_PACKET_SIZE,                              <span class="comment">// wMaxPacketSize</span>
+<a name="l00295"></a>00295         10,                                              <span class="comment">// bInterval</span>
+<a name="l00296"></a>00296     },
+<a name="l00297"></a>00297     {                                                    <span class="comment">// Mouse Interface</span>
+<a name="l00298"></a>00298         <span class="keyword">sizeof</span>(<a class="code" href="usb_8h.html#ae84b624b44c4e66f09fe093354830fe4">USB_DESCRIPTOR_INTERFACE</a>),
+<a name="l00299"></a>00299         USB_DESCRIPTOR_TYPE_INTERFACE,
+<a name="l00300"></a>00300         HID_MOUSE_INTERFACE_NUMBER,                      <span class="comment">// bInterfaceNumber</span>
+<a name="l00301"></a>00301         0,                                               <span class="comment">// bAlternateSetting</span>
+<a name="l00302"></a>00302         1,                                               <span class="comment">// bNumEndpoints</span>
+<a name="l00303"></a>00303         HID_CLASS,                                       <span class="comment">// bInterfaceClass</span>
+<a name="l00304"></a>00304         HID_SUBCLASS_BOOT,                               <span class="comment">// bInterfaceSubClass</span>
+<a name="l00305"></a>00305         HID_PROTOCOL_MOUSE,                              <span class="comment">// bInterfaceProtocol</span>
+<a name="l00306"></a>00306         5                                                <span class="comment">// iInterface</span>
+<a name="l00307"></a>00307     },
+<a name="l00308"></a>00308     {
+<a name="l00309"></a>00309         <span class="keyword">sizeof</span>(usbConfigurationDescriptor.mouse_hid),    <span class="comment">// 9-byte HID Descriptor for mouse (HID 1.11 Section 6.2.1)</span>
+<a name="l00310"></a>00310         HID_DESCRIPTOR_TYPE_HID,
+<a name="l00311"></a>00311         0x11, 0x01,                                      <span class="comment">// bcdHID.  We conform to HID 1.11.</span>
+<a name="l00312"></a>00312         HID_COUNTRY_NOT_LOCALIZED,                       <span class="comment">// bCountryCode</span>
+<a name="l00313"></a>00313         1,                                               <span class="comment">// bNumDescriptors</span>
+<a name="l00314"></a>00314         HID_DESCRIPTOR_TYPE_REPORT,                      <span class="comment">// bDescriptorType</span>
+<a name="l00315"></a>00315         <span class="keyword">sizeof</span>(mouseReportDescriptor), 0                 <span class="comment">// wDescriptorLength</span>
+<a name="l00316"></a>00316     },
+<a name="l00317"></a>00317     {                                                    <span class="comment">// Mouse IN Endpoint</span>
+<a name="l00318"></a>00318         <span class="keyword">sizeof</span>(<a class="code" href="usb_8h.html#a724561b028227cc0018d561ba072b2a6">USB_DESCRIPTOR_ENDPOINT</a>),
+<a name="l00319"></a>00319         USB_DESCRIPTOR_TYPE_ENDPOINT,
+<a name="l00320"></a>00320         USB_ENDPOINT_ADDRESS_IN | HID_MOUSE_ENDPOINT,    <span class="comment">// bEndpointAddress</span>
+<a name="l00321"></a>00321         USB_TRANSFER_TYPE_INTERRUPT,                     <span class="comment">// bmAttributes</span>
+<a name="l00322"></a>00322         HID_IN_PACKET_SIZE,                              <span class="comment">// wMaxPacketSize</span>
+<a name="l00323"></a>00323         10,                                              <span class="comment">// bInterval</span>
+<a name="l00324"></a>00324     },
+<a name="l00325"></a>00325     {                                                    <span class="comment">// Joystick Interface</span>
+<a name="l00326"></a>00326         <span class="keyword">sizeof</span>(<a class="code" href="usb_8h.html#ae84b624b44c4e66f09fe093354830fe4">USB_DESCRIPTOR_INTERFACE</a>),
+<a name="l00327"></a>00327         USB_DESCRIPTOR_TYPE_INTERFACE,
+<a name="l00328"></a>00328         HID_JOYSTICK_INTERFACE_NUMBER,                   <span class="comment">// bInterfaceNumber</span>
+<a name="l00329"></a>00329         0,                                               <span class="comment">// bAlternateSetting</span>
+<a name="l00330"></a>00330         1,                                               <span class="comment">// bNumEndpoints</span>
+<a name="l00331"></a>00331         HID_CLASS,                                       <span class="comment">// bInterfaceClass</span>
+<a name="l00332"></a>00332         0,                                               <span class="comment">// bInterfaceSubClass</span>
+<a name="l00333"></a>00333         0,                                               <span class="comment">// bInterfaceProtocol</span>
+<a name="l00334"></a>00334         6                                                <span class="comment">// iInterface</span>
+<a name="l00335"></a>00335     },
+<a name="l00336"></a>00336     {
+<a name="l00337"></a>00337         <span class="keyword">sizeof</span>(usbConfigurationDescriptor.joystick_hid), <span class="comment">// 9-byte HID Descriptor for joystick (HID 1.11 Section 6.2.1)</span>
+<a name="l00338"></a>00338         HID_DESCRIPTOR_TYPE_HID,
+<a name="l00339"></a>00339         0x11, 0x01,                                      <span class="comment">// bcdHID.  We conform to HID 1.11.</span>
+<a name="l00340"></a>00340         HID_COUNTRY_NOT_LOCALIZED,                       <span class="comment">// bCountryCode</span>
+<a name="l00341"></a>00341         1,                                               <span class="comment">// bNumDescriptors</span>
+<a name="l00342"></a>00342         HID_DESCRIPTOR_TYPE_REPORT,                      <span class="comment">// bDescriptorType</span>
+<a name="l00343"></a>00343         <span class="keyword">sizeof</span>(joystickReportDescriptor), 0              <span class="comment">// wDescriptorLength</span>
+<a name="l00344"></a>00344     },
+<a name="l00345"></a>00345     {                                                    <span class="comment">// Joystick IN Endpoint</span>
+<a name="l00346"></a>00346         <span class="keyword">sizeof</span>(<a class="code" href="usb_8h.html#a724561b028227cc0018d561ba072b2a6">USB_DESCRIPTOR_ENDPOINT</a>),
+<a name="l00347"></a>00347         USB_DESCRIPTOR_TYPE_ENDPOINT,
+<a name="l00348"></a>00348         USB_ENDPOINT_ADDRESS_IN | HID_JOYSTICK_ENDPOINT, <span class="comment">// bEndpointAddress</span>
+<a name="l00349"></a>00349         USB_TRANSFER_TYPE_INTERRUPT,                     <span class="comment">// bmAttributes</span>
+<a name="l00350"></a>00350         HID_IN_PACKET_SIZE,                              <span class="comment">// wMaxPacketSize</span>
+<a name="l00351"></a>00351         10,                                              <span class="comment">// bInterval</span>
+<a name="l00352"></a>00352     },
+<a name="l00353"></a>00353 };
+<a name="l00354"></a>00354 
+<a name="l00355"></a>00355 <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#ae6527c8381eb3f23b7fd6d6efec6ffc7">CODE</a> <a class="code" href="usb_8h.html#ae9730cd53885f72bdeff39b053e6042a">usbStringDescriptorCount</a> = 7;
+<a name="l00356"></a>00356 <a class="code" href="usb_8h.html#a1e25f42717064bbd1612092a893291dc">DEFINE_STRING_DESCRIPTOR</a>(languages, 1, <a class="code" href="usb_8h.html#a1c9e637f3a06eb4cf6ddddaa646d6eaa">USB_LANGUAGE_EN_US</a>)
+<a name="l00357"></a>00357 <a class="code" href="usb_8h.html#a1e25f42717064bbd1612092a893291dc">DEFINE_STRING_DESCRIPTOR</a>(manufacturer, 18, &#39;P&#39;,&#39;o&#39;,&#39;l&#39;,&#39;o&#39;,&#39;l&#39;,&#39;u&#39;,&#39; &#39;,&#39;C&#39;,&#39;o&#39;,&#39;r&#39;,&#39;p&#39;,&#39;o&#39;,&#39;r&#39;,&#39;a&#39;,&#39;t&#39;,&#39;i&#39;,&#39;o&#39;,&#39;n&#39;)
+<a name="l00358"></a>00358 <a class="code" href="usb_8h.html#a1e25f42717064bbd1612092a893291dc">DEFINE_STRING_DESCRIPTOR</a>(product, 5, &#39;W&#39;,&#39;i&#39;,&#39;x&#39;,&#39;e&#39;,&#39;l&#39;)
+<a name="l00359"></a>00359 <a class="code" href="usb_8h.html#a1e25f42717064bbd1612092a893291dc">DEFINE_STRING_DESCRIPTOR</a>(keyboardName, 14, &#39;W&#39;,&#39;i&#39;,&#39;x&#39;,&#39;e&#39;,&#39;l&#39;,&#39; &#39;,&#39;K&#39;,&#39;e&#39;,&#39;y&#39;,&#39;b&#39;,&#39;o&#39;,&#39;a&#39;,&#39;r&#39;,&#39;d&#39;)
+<a name="l00360"></a>00360 <a class="code" href="usb_8h.html#a1e25f42717064bbd1612092a893291dc">DEFINE_STRING_DESCRIPTOR</a>(mouseName, 11, &#39;W&#39;,&#39;i&#39;,&#39;x&#39;,&#39;e&#39;,&#39;l&#39;,&#39; &#39;,&#39;M&#39;,&#39;o&#39;,&#39;u&#39;,&#39;s&#39;,&#39;e&#39;)
+<a name="l00361"></a>00361 <a class="code" href="usb_8h.html#a1e25f42717064bbd1612092a893291dc">DEFINE_STRING_DESCRIPTOR</a>(joystickName, 14, &#39;W&#39;,&#39;i&#39;,&#39;x&#39;,&#39;e&#39;,&#39;l&#39;,&#39; &#39;,&#39;J&#39;,&#39;o&#39;,&#39;y&#39;,&#39;s&#39;,&#39;t&#39;,&#39;i&#39;,&#39;c&#39;,&#39;k&#39;)
+<a name="l00362"></a>00362 <a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> <a class="code" href="cc2511__types_8h.html#ae6527c8381eb3f23b7fd6d6efec6ffc7">CODE</a> * <a class="code" href="cc2511__types_8h.html#ae6527c8381eb3f23b7fd6d6efec6ffc7">CODE</a> usbStringDescriptors[] = { languages, manufacturer, product, <a class="code" href="board_8h.html#ae48bea08309da1277eed8ef6bc8a9141">serialNumberStringDescriptor</a>, keyboardName, mouseName, joystickName };
+<a name="l00363"></a>00363 
+<a name="l00364"></a>00364 <span class="comment">/* HID structs and global variables *******************************************/</span>
 <a name="l00365"></a>00365 
-<a name="l00366"></a>00366     <span class="comment">// required for boot devices</span>
-<a name="l00367"></a>00367     <span class="keywordflow">case</span> HID_REQUEST_GET_PROTOCOL:
-<a name="l00368"></a>00368         <span class="keywordflow">switch</span> (usbSetupPacket.wIndex)
-<a name="l00369"></a>00369         {
-<a name="l00370"></a>00370         <span class="keywordflow">case</span> HID_KEYBOARD_INTERFACE_NUMBER:
-<a name="l00371"></a>00371             response = hidKeyboardProtocol;
-<a name="l00372"></a>00372             usbControlRead(1, (<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> *)&amp;response);
-<a name="l00373"></a>00373             <span class="keywordflow">return</span>;
+<a name="l00366"></a><a class="code" href="usb__hid_8h.html#a5f687280c1b312a0a1b0daf6518175c6">00366</a> <a class="code" href="struct_h_i_d___k_e_y_b_o_a_r_d___o_u_t___r_e_p_o_r_t.html">HID_KEYBOARD_OUT_REPORT</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> <a class="code" href="usb__hid_8h.html#a5f687280c1b312a0a1b0daf6518175c6">usbHidKeyboardOutput</a> = {0};
+<a name="l00367"></a><a class="code" href="usb__hid_8h.html#a1db3b61b8096710373a0cce967922b11">00367</a> <a class="code" href="struct_h_i_d___k_e_y_b_o_a_r_d___i_n___r_e_p_o_r_t.html">HID_KEYBOARD_IN_REPORT</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> <a class="code" href="usb__hid_8h.html#a1db3b61b8096710373a0cce967922b11">usbHidKeyboardInput</a> = {0, 0, {0}};
+<a name="l00368"></a><a class="code" href="usb__hid_8h.html#aeaadfa1df9a625575e65bc07fbc0f746">00368</a> <a class="code" href="struct_h_i_d___m_o_u_s_e___i_n___r_e_p_o_r_t.html">HID_MOUSE_IN_REPORT</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> <a class="code" href="usb__hid_8h.html#aeaadfa1df9a625575e65bc07fbc0f746">usbHidMouseInput</a> = {0, 0, 0, 0};
+<a name="l00369"></a><a class="code" href="usb__hid_8h.html#aceb0c89d510c880906c57fac602de1d7">00369</a> <a class="code" href="struct_h_i_d___j_o_y_s_t_i_c_k___i_n___r_e_p_o_r_t.html">HID_JOYSTICK_IN_REPORT</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> <a class="code" href="usb__hid_8h.html#aceb0c89d510c880906c57fac602de1d7">usbHidJoystickInput</a> = {0, 0, 0, 0, 0, 0, 0};
+<a name="l00370"></a>00370 
+<a name="l00371"></a><a class="code" href="usb__hid_8h.html#a80c00242b4b066911315abbaeecf6afe">00371</a> <a class="code" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> <a class="code" href="usb__hid_8h.html#a80c00242b4b066911315abbaeecf6afe">usbHidKeyboardInputUpdated</a> = 0;
+<a name="l00372"></a><a class="code" href="usb__hid_8h.html#ae4f83d3f860ac2143ebda914185238b1">00372</a> <a class="code" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> <a class="code" href="usb__hid_8h.html#ae4f83d3f860ac2143ebda914185238b1">usbHidMouseInputUpdated</a>    = 0;
+<a name="l00373"></a><a class="code" href="usb__hid_8h.html#ac317eb5ecf383ba5cf8a4f818fd4f107">00373</a> <a class="code" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> <a class="code" href="usb__hid_8h.html#ac317eb5ecf383ba5cf8a4f818fd4f107">usbHidJoystickInputUpdated</a>    = 0;
 <a name="l00374"></a>00374 
-<a name="l00375"></a>00375         <span class="keywordflow">case</span> HID_MOUSE_INTERFACE_NUMBER:
-<a name="l00376"></a>00376             response = hidMouseProtocol;
-<a name="l00377"></a>00377             usbControlRead(1, (<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> *)&amp;response);
-<a name="l00378"></a>00378             <span class="keywordflow">return</span>;
+<a name="l00375"></a>00375 <a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> hidKeyboardIdleDuration = 500; <span class="comment">// 0 to 1020 ms</span>
+<a name="l00376"></a>00376 
+<a name="l00377"></a>00377 <a class="code" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> hidKeyboardProtocol = HID_PROTOCOL_REPORT;
+<a name="l00378"></a>00378 <a class="code" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> hidMouseProtocol    = HID_PROTOCOL_REPORT;
 <a name="l00379"></a>00379 
-<a name="l00380"></a>00380         <span class="keywordflow">default</span>:
-<a name="l00381"></a>00381             <span class="comment">// unrecognized interface - stall</span>
-<a name="l00382"></a>00382             <span class="keywordflow">return</span>;
-<a name="l00383"></a>00383         }
-<a name="l00384"></a>00384 
-<a name="l00385"></a>00385     <span class="comment">// required for boot devices</span>
-<a name="l00386"></a>00386     <span class="keywordflow">case</span> HID_REQUEST_SET_PROTOCOL:
-<a name="l00387"></a>00387         <span class="keywordflow">switch</span> (usbSetupPacket.wIndex)
-<a name="l00388"></a>00388         {
-<a name="l00389"></a>00389         <span class="keywordflow">case</span> HID_KEYBOARD_INTERFACE_NUMBER:
-<a name="l00390"></a>00390             hidKeyboardProtocol = usbSetupPacket.wValue;
-<a name="l00391"></a>00391             <span class="keywordflow">break</span>;
-<a name="l00392"></a>00392 
-<a name="l00393"></a>00393         <span class="keywordflow">case</span> HID_MOUSE_INTERFACE_NUMBER:
-<a name="l00394"></a>00394             hidMouseProtocol = usbSetupPacket.wValue;
-<a name="l00395"></a>00395             <span class="keywordflow">break</span>;
-<a name="l00396"></a>00396 
-<a name="l00397"></a>00397         <span class="keywordflow">default</span>:
-<a name="l00398"></a>00398             <span class="comment">// unrecognized interface - stall</span>
-<a name="l00399"></a>00399             <span class="keywordflow">return</span>;
-<a name="l00400"></a>00400         }
-<a name="l00401"></a>00401         usbControlAcknowledge();
-<a name="l00402"></a>00402         <span class="keywordflow">return</span>;
-<a name="l00403"></a>00403 
-<a name="l00404"></a>00404     <span class="keywordflow">default</span>:
-<a name="l00405"></a>00405         <span class="comment">// unrecognized request - stall</span>
-<a name="l00406"></a>00406         <span class="keywordflow">return</span>;
-<a name="l00407"></a>00407     }
-<a name="l00408"></a>00408 }
-<a name="l00409"></a>00409 
-<a name="l00410"></a>00410 <span class="keywordtype">void</span> usbCallbackClassDescriptorHandler(<span class="keywordtype">void</span>)
-<a name="l00411"></a>00411 {
-<a name="l00412"></a>00412     <span class="comment">// Require Direction==Device-to-Host, Type==Standard, and Recipient==Interface. (HID 1.11 Section 7.1.1)</span>
-<a name="l00413"></a>00413     <span class="keywordflow">if</span> (usbSetupPacket.bmRequestType != 0x81)
-<a name="l00414"></a>00414     {
-<a name="l00415"></a>00415         <span class="keywordflow">return</span>;
-<a name="l00416"></a>00416     }
-<a name="l00417"></a>00417 
-<a name="l00418"></a>00418     <span class="keywordflow">switch</span> (usbSetupPacket.wValue &gt;&gt; 8)
-<a name="l00419"></a>00419     {
-<a name="l00420"></a>00420     <span class="keywordflow">case</span> HID_DESCRIPTOR_TYPE_HID:
-<a name="l00421"></a>00421         <span class="comment">// The host has requested the HID descriptor of a particular interface.</span>
-<a name="l00422"></a>00422         <span class="keywordflow">switch</span> (usbSetupPacket.wIndex)
-<a name="l00423"></a>00423         {
-<a name="l00424"></a>00424         <span class="keywordflow">case</span> HID_KEYBOARD_INTERFACE_NUMBER:
-<a name="l00425"></a>00425             usbControlRead(<span class="keyword">sizeof</span>(usbConfigurationDescriptor.keyboard_hid), (<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> *)&amp;usbConfigurationDescriptor.keyboard_hid);
-<a name="l00426"></a>00426             <span class="keywordflow">return</span>;
-<a name="l00427"></a>00427 
-<a name="l00428"></a>00428         <span class="keywordflow">case</span> HID_MOUSE_INTERFACE_NUMBER:
-<a name="l00429"></a>00429             usbControlRead(<span class="keyword">sizeof</span>(usbConfigurationDescriptor.mouse_hid), (<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> *)&amp;usbConfigurationDescriptor.mouse_hid);
-<a name="l00430"></a>00430             <span class="keywordflow">return</span>;
-<a name="l00431"></a>00431         }
-<a name="l00432"></a>00432         <span class="keywordflow">return</span>;
-<a name="l00433"></a>00433 
-<a name="l00434"></a>00434     <span class="keywordflow">case</span> HID_DESCRIPTOR_TYPE_REPORT:
-<a name="l00435"></a>00435         <span class="comment">// The host has requested the Report Descriptor of a particular interface.</span>
-<a name="l00436"></a>00436         <span class="keywordflow">switch</span> (usbSetupPacket.wIndex)
-<a name="l00437"></a>00437         {
-<a name="l00438"></a>00438         <span class="keywordflow">case</span> HID_KEYBOARD_INTERFACE_NUMBER:
-<a name="l00439"></a>00439             usbControlRead(<span class="keyword">sizeof</span>(keyboardReportDescriptor), (<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> *)&amp;keyboardReportDescriptor);
-<a name="l00440"></a>00440             <span class="keywordflow">return</span>;
+<a name="l00380"></a>00380 <span class="comment">/* HID USB callbacks **********************************************************/</span>
+<a name="l00381"></a>00381 <span class="comment">// These functions are called by the low-level USB module (usb.c) when a USB</span>
+<a name="l00382"></a>00382 <span class="comment">// event happens that requires higher-level code to make a decision.</span>
+<a name="l00383"></a>00383 
+<a name="l00384"></a>00384 <span class="keywordtype">void</span> <a class="code" href="usb_8h.html#a1cdb15c072fb6d16d1ff81da7c79502e">usbCallbackInitEndpoints</a>(<span class="keywordtype">void</span>)
+<a name="l00385"></a>00385 {
+<a name="l00386"></a>00386     <a class="code" href="usb_8h.html#a193c213f751a094371b6048cce3a7b36">usbInitEndpointIn</a>(HID_KEYBOARD_ENDPOINT, HID_IN_PACKET_SIZE);
+<a name="l00387"></a>00387     <a class="code" href="usb_8h.html#a193c213f751a094371b6048cce3a7b36">usbInitEndpointIn</a>(HID_MOUSE_ENDPOINT, HID_IN_PACKET_SIZE);
+<a name="l00388"></a>00388     <a class="code" href="usb_8h.html#a193c213f751a094371b6048cce3a7b36">usbInitEndpointIn</a>(HID_JOYSTICK_ENDPOINT, HID_IN_PACKET_SIZE);
+<a name="l00389"></a>00389 }
+<a name="l00390"></a>00390 
+<a name="l00391"></a>00391 <span class="comment">// Implements all the control transfers that are required by Appendix G of HID 1.11.</span>
+<a name="l00392"></a>00392 <span class="keywordtype">void</span> <a class="code" href="usb_8h.html#a299ecafa8420ea308e744b9bcca4c36e">usbCallbackSetupHandler</a>(<span class="keywordtype">void</span>)
+<a name="l00393"></a>00393 {
+<a name="l00394"></a>00394     <span class="keyword">static</span> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> response;
+<a name="l00395"></a>00395 
+<a name="l00396"></a>00396     <span class="keywordflow">if</span> ((<a class="code" href="usb_8h.html#a596e8781d200458f546c292a45f6115f">usbSetupPacket</a>.bmRequestType &amp; 0x7F) != 0x21)   <span class="comment">// Require Type==Class and Recipient==Interface.</span>
+<a name="l00397"></a>00397         <span class="keywordflow">return</span>;
+<a name="l00398"></a>00398 
+<a name="l00399"></a>00399     <span class="keywordflow">switch</span>(<a class="code" href="usb_8h.html#a596e8781d200458f546c292a45f6115f">usbSetupPacket</a>.bRequest)
+<a name="l00400"></a>00400     {
+<a name="l00401"></a>00401     <span class="comment">// required</span>
+<a name="l00402"></a>00402     <span class="keywordflow">case</span> HID_REQUEST_GET_REPORT:
+<a name="l00403"></a>00403         <span class="keywordflow">if</span> ((<a class="code" href="usb_8h.html#a596e8781d200458f546c292a45f6115f">usbSetupPacket</a>.wValue &gt;&gt; 8) != HID_REPORT_TYPE_INPUT)
+<a name="l00404"></a>00404             <span class="keywordflow">return</span>;
+<a name="l00405"></a>00405 
+<a name="l00406"></a>00406         <span class="keywordflow">switch</span> (<a class="code" href="usb_8h.html#a596e8781d200458f546c292a45f6115f">usbSetupPacket</a>.wIndex)
+<a name="l00407"></a>00407         {
+<a name="l00408"></a>00408         <span class="keywordflow">case</span> HID_KEYBOARD_INTERFACE_NUMBER:
+<a name="l00409"></a>00409             <a class="code" href="usb_8h.html#a2263ce15754643f4ac6772c60acaef9f">usbControlRead</a>(<span class="keyword">sizeof</span>(usbHidKeyboardInput), (<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> *)&amp;usbHidKeyboardInput);
+<a name="l00410"></a>00410             <span class="keywordflow">return</span>;
+<a name="l00411"></a>00411 
+<a name="l00412"></a>00412         <span class="keywordflow">case</span> HID_MOUSE_INTERFACE_NUMBER:
+<a name="l00413"></a>00413             <a class="code" href="usb_8h.html#a2263ce15754643f4ac6772c60acaef9f">usbControlRead</a>(<span class="keyword">sizeof</span>(usbHidMouseInput), (<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> *)&amp;usbHidMouseInput);
+<a name="l00414"></a>00414             <span class="keywordflow">return</span>;
+<a name="l00415"></a>00415 
+<a name="l00416"></a>00416         <span class="keywordflow">case</span> HID_JOYSTICK_INTERFACE_NUMBER:
+<a name="l00417"></a>00417             <a class="code" href="usb_8h.html#a2263ce15754643f4ac6772c60acaef9f">usbControlRead</a>(<span class="keyword">sizeof</span>(usbHidJoystickInput), (<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> *)&amp;usbHidJoystickInput);
+<a name="l00418"></a>00418             <span class="keywordflow">return</span>;
+<a name="l00419"></a>00419 
+<a name="l00420"></a>00420         <span class="keywordflow">default</span>:
+<a name="l00421"></a>00421             <span class="comment">// unrecognized interface - stall</span>
+<a name="l00422"></a>00422             <span class="keywordflow">return</span>;
+<a name="l00423"></a>00423         }
+<a name="l00424"></a>00424 
+<a name="l00425"></a>00425     <span class="comment">// required for devices with Output reports</span>
+<a name="l00426"></a>00426     <span class="keywordflow">case</span> HID_REQUEST_SET_REPORT:
+<a name="l00427"></a>00427         <span class="keywordflow">if</span> (<a class="code" href="usb_8h.html#a596e8781d200458f546c292a45f6115f">usbSetupPacket</a>.wIndex == HID_KEYBOARD_INTERFACE_NUMBER)
+<a name="l00428"></a>00428         {
+<a name="l00429"></a>00429             <a class="code" href="usb_8h.html#a75f27ba6c870382e476511cd7f282131">usbControlWrite</a>(<span class="keyword">sizeof</span>(usbHidKeyboardOutput), (<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> *)&amp;usbHidKeyboardOutput);
+<a name="l00430"></a>00430         }
+<a name="l00431"></a>00431         <span class="keywordflow">return</span>;
+<a name="l00432"></a>00432 
+<a name="l00433"></a>00433     <span class="comment">// required for keyboards</span>
+<a name="l00434"></a>00434     <span class="keywordflow">case</span> HID_REQUEST_GET_IDLE:
+<a name="l00435"></a>00435         <span class="keywordflow">if</span> (<a class="code" href="usb_8h.html#a596e8781d200458f546c292a45f6115f">usbSetupPacket</a>.wIndex == HID_KEYBOARD_INTERFACE_NUMBER)
+<a name="l00436"></a>00436         {
+<a name="l00437"></a>00437             response = hidKeyboardIdleDuration / 4; <span class="comment">// value in request is in units of 4 ms</span>
+<a name="l00438"></a>00438             <a class="code" href="usb_8h.html#a2263ce15754643f4ac6772c60acaef9f">usbControlRead</a>(1, (<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> *)&amp;response);
+<a name="l00439"></a>00439         }
+<a name="l00440"></a>00440         <span class="keywordflow">return</span>;
 <a name="l00441"></a>00441 
-<a name="l00442"></a>00442         <span class="keywordflow">case</span> HID_MOUSE_INTERFACE_NUMBER:
-<a name="l00443"></a>00443             usbControlRead(<span class="keyword">sizeof</span>(mouseReportDescriptor), (<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> *)&amp;mouseReportDescriptor);
-<a name="l00444"></a>00444             <span class="keywordflow">return</span>;
-<a name="l00445"></a>00445         }
-<a name="l00446"></a>00446         <span class="keywordflow">return</span>;
-<a name="l00447"></a>00447     }
-<a name="l00448"></a>00448 }
-<a name="l00449"></a>00449 
-<a name="l00450"></a>00450 <span class="keywordtype">void</span> usbCallbackControlWriteHandler(<span class="keywordtype">void</span>)
-<a name="l00451"></a>00451 {
-<a name="l00452"></a>00452     <span class="comment">// not used by usb_hid</span>
-<a name="l00453"></a>00453 }
-<a name="l00454"></a>00454 
-<a name="l00455"></a>00455 <span class="comment">/* Other HID Functions ********************************************************/</span>
-<a name="l00456"></a>00456 
-<a name="l00457"></a><a class="code" href="usb__hid_8h.html#adbc8f012157a7fa47d00e313a652abc8">00457</a> <span class="keywordtype">void</span> <a class="code" href="usb__hid_8h.html#adbc8f012157a7fa47d00e313a652abc8">usbHidService</a>(<span class="keywordtype">void</span>)
-<a name="l00458"></a>00458 {
-<a name="l00459"></a>00459     <span class="keyword">static</span> <a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> hidKeyboardLastReportTime = 0;
+<a name="l00442"></a>00442     <span class="comment">// required for keyboards</span>
+<a name="l00443"></a>00443     <span class="keywordflow">case</span> HID_REQUEST_SET_IDLE:
+<a name="l00444"></a>00444         <span class="keywordflow">if</span> (<a class="code" href="usb_8h.html#a596e8781d200458f546c292a45f6115f">usbSetupPacket</a>.wIndex == HID_KEYBOARD_INTERFACE_NUMBER)
+<a name="l00445"></a>00445         {
+<a name="l00446"></a>00446             hidKeyboardIdleDuration = (<a class="code" href="usb_8h.html#a596e8781d200458f546c292a45f6115f">usbSetupPacket</a>.wValue &gt;&gt; 8) * 4; <span class="comment">// value in request is in units of 4 ms</span>
+<a name="l00447"></a>00447             <a class="code" href="usb_8h.html#a809ee9dbebaf3bd90ff89fe4133c9c15">usbControlAcknowledge</a>();
+<a name="l00448"></a>00448         }
+<a name="l00449"></a>00449         <span class="keywordflow">return</span>;
+<a name="l00450"></a>00450 
+<a name="l00451"></a>00451 
+<a name="l00452"></a>00452     <span class="comment">// required for boot devices</span>
+<a name="l00453"></a>00453     <span class="keywordflow">case</span> HID_REQUEST_GET_PROTOCOL:
+<a name="l00454"></a>00454         <span class="keywordflow">switch</span> (<a class="code" href="usb_8h.html#a596e8781d200458f546c292a45f6115f">usbSetupPacket</a>.wIndex)
+<a name="l00455"></a>00455         {
+<a name="l00456"></a>00456         <span class="keywordflow">case</span> HID_KEYBOARD_INTERFACE_NUMBER:
+<a name="l00457"></a>00457             response = hidKeyboardProtocol;
+<a name="l00458"></a>00458             <a class="code" href="usb_8h.html#a2263ce15754643f4ac6772c60acaef9f">usbControlRead</a>(1, (<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> *)&amp;response);
+<a name="l00459"></a>00459             <span class="keywordflow">return</span>;
 <a name="l00460"></a>00460 
-<a name="l00461"></a>00461     usbPoll();
-<a name="l00462"></a>00462 
-<a name="l00463"></a>00463     <span class="keywordflow">if</span> (usbDeviceState != USB_STATE_CONFIGURED)
-<a name="l00464"></a>00464     {
-<a name="l00465"></a>00465         <span class="comment">// We have not reached the Configured state yet, so we should not be touching the non-zero endpoints.</span>
-<a name="l00466"></a>00466         <span class="keywordflow">return</span>;
-<a name="l00467"></a>00467     }
-<a name="l00468"></a>00468 
-<a name="l00469"></a>00469     USBINDEX = HID_KEYBOARD_ENDPOINT;
-<a name="l00470"></a>00470     <span class="comment">// Check if keyboard input has been updated OR if the idle period is nonzero and has expired.</span>
-<a name="l00471"></a>00471     <span class="keywordflow">if</span> ((usbHidKeyboardInputUpdated || (hidKeyboardIdleDuration &amp;&amp; ((<a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a>)(<a class="code" href="time_8h.html#a7434f5e33d8b24476cc61ce923cfed94">getMs</a>() - hidKeyboardLastReportTime) &gt; hidKeyboardIdleDuration))) &amp;&amp; !(USBCSIL &amp; USBCSIL_INPKT_RDY))
-<a name="l00472"></a>00472     {
-<a name="l00473"></a>00473         usbWriteFifo(HID_KEYBOARD_ENDPOINT, <span class="keyword">sizeof</span>(usbHidKeyboardInput), (<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> *)&amp;usbHidKeyboardInput);
-<a name="l00474"></a>00474         USBCSIL |= USBCSIL_INPKT_RDY;
-<a name="l00475"></a>00475         usbHidKeyboardInputUpdated = 0; <span class="comment">// reset updated flag</span>
-<a name="l00476"></a>00476         hidKeyboardLastReportTime = <a class="code" href="time_8h.html#a7434f5e33d8b24476cc61ce923cfed94">getMs</a>();
-<a name="l00477"></a>00477     }
+<a name="l00461"></a>00461         <span class="keywordflow">case</span> HID_MOUSE_INTERFACE_NUMBER:
+<a name="l00462"></a>00462             response = hidMouseProtocol;
+<a name="l00463"></a>00463             <a class="code" href="usb_8h.html#a2263ce15754643f4ac6772c60acaef9f">usbControlRead</a>(1, (<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> *)&amp;response);
+<a name="l00464"></a>00464             <span class="keywordflow">return</span>;
+<a name="l00465"></a>00465 
+<a name="l00466"></a>00466         <span class="keywordflow">default</span>:
+<a name="l00467"></a>00467             <span class="comment">// unrecognized interface - stall</span>
+<a name="l00468"></a>00468             <span class="keywordflow">return</span>;
+<a name="l00469"></a>00469         }
+<a name="l00470"></a>00470 
+<a name="l00471"></a>00471     <span class="comment">// required for boot devices</span>
+<a name="l00472"></a>00472     <span class="keywordflow">case</span> HID_REQUEST_SET_PROTOCOL:
+<a name="l00473"></a>00473         <span class="keywordflow">switch</span> (<a class="code" href="usb_8h.html#a596e8781d200458f546c292a45f6115f">usbSetupPacket</a>.wIndex)
+<a name="l00474"></a>00474         {
+<a name="l00475"></a>00475         <span class="keywordflow">case</span> HID_KEYBOARD_INTERFACE_NUMBER:
+<a name="l00476"></a>00476             hidKeyboardProtocol = <a class="code" href="usb_8h.html#a596e8781d200458f546c292a45f6115f">usbSetupPacket</a>.wValue;
+<a name="l00477"></a>00477             <span class="keywordflow">break</span>;
 <a name="l00478"></a>00478 
-<a name="l00479"></a>00479     USBINDEX = HID_MOUSE_ENDPOINT;
-<a name="l00480"></a>00480     <span class="comment">// Check if mouse input has been updated.</span>
-<a name="l00481"></a>00481     <span class="keywordflow">if</span> (usbHidMouseInputUpdated &amp;&amp; !(USBCSIL &amp; USBCSIL_INPKT_RDY)) {
-<a name="l00482"></a>00482         usbWriteFifo(HID_MOUSE_ENDPOINT, <span class="keyword">sizeof</span>(usbHidMouseInput), (<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> *)&amp;usbHidMouseInput);
-<a name="l00483"></a>00483         USBCSIL |= USBCSIL_INPKT_RDY;
-<a name="l00484"></a>00484         usbHidMouseInputUpdated = 0; <span class="comment">// reset updated flag</span>
-<a name="l00485"></a>00485     }
-<a name="l00486"></a>00486 }
-<a name="l00487"></a>00487 
-<a name="l00488"></a>00488 <span class="comment">// Look-up table stored in code memory that we use to convert from ASCII</span>
-<a name="l00489"></a>00489 <span class="comment">// characters to HID key codes.</span>
-<a name="l00490"></a>00490 <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#ae6527c8381eb3f23b7fd6d6efec6ffc7">CODE</a> hidKeyCode[128] =
-<a name="l00491"></a>00491 {
-<a name="l00492"></a>00492     0,                 <span class="comment">// 0x00 Null</span>
-<a name="l00493"></a>00493     0,                 <span class="comment">// 0x01</span>
-<a name="l00494"></a>00494     0,                 <span class="comment">// 0x02</span>
-<a name="l00495"></a>00495     0,                 <span class="comment">// 0x03</span>
-<a name="l00496"></a>00496     0,                 <span class="comment">// 0x04</span>
-<a name="l00497"></a>00497     0,                 <span class="comment">// 0x05</span>
-<a name="l00498"></a>00498     0,                 <span class="comment">// 0x06</span>
-<a name="l00499"></a>00499     0,                 <span class="comment">// 0x07</span>
-<a name="l00500"></a>00500     KEY_BACKSPACE,     <span class="comment">// 0x08 Backspace</span>
-<a name="l00501"></a>00501     KEY_TAB,           <span class="comment">// 0x09 Horizontal Tab</span>
-<a name="l00502"></a>00502     KEY_RETURN,        <span class="comment">// 0x0A Line Feed</span>
-<a name="l00503"></a>00503     0,                 <span class="comment">// 0x0B</span>
-<a name="l00504"></a>00504     0,                 <span class="comment">// 0x0C</span>
-<a name="l00505"></a>00505     KEY_RETURN,        <span class="comment">// 0x0D Carriage return</span>
-<a name="l00506"></a>00506     0,                 <span class="comment">// 0x0E</span>
-<a name="l00507"></a>00507     0,                 <span class="comment">// 0x0F</span>
-<a name="l00508"></a>00508     0,                 <span class="comment">// 0x10</span>
-<a name="l00509"></a>00509     0,                 <span class="comment">// 0x11</span>
-<a name="l00510"></a>00510     0,                 <span class="comment">// 0x12</span>
-<a name="l00511"></a>00511     0,                 <span class="comment">// 0x13</span>
-<a name="l00512"></a>00512     0,                 <span class="comment">// 0x14</span>
-<a name="l00513"></a>00513     0,                 <span class="comment">// 0x15</span>
-<a name="l00514"></a>00514     0,                 <span class="comment">// 0x16</span>
-<a name="l00515"></a>00515     0,                 <span class="comment">// 0x17</span>
-<a name="l00516"></a>00516     0,                 <span class="comment">// 0x18</span>
-<a name="l00517"></a>00517     0,                 <span class="comment">// 0x19</span>
-<a name="l00518"></a>00518     0,                 <span class="comment">// 0x1A</span>
-<a name="l00519"></a>00519     KEY_ESCAPE,        <span class="comment">// 0x1B Escape</span>
-<a name="l00520"></a>00520     0,                 <span class="comment">// 0x1C</span>
-<a name="l00521"></a>00521     0,                 <span class="comment">// 0x1D</span>
-<a name="l00522"></a>00522     0,                 <span class="comment">// 0x1E</span>
-<a name="l00523"></a>00523     0,                 <span class="comment">// 0x1F</span>
-<a name="l00524"></a>00524 
-<a name="l00525"></a>00525     KEY_SPACE,         <span class="comment">// 0x20</span>
-<a name="l00526"></a>00526     KEY_1,             <span class="comment">// 0x21 !</span>
-<a name="l00527"></a>00527     KEY_APOSTROPHE,    <span class="comment">// 0x22 &quot;</span>
-<a name="l00528"></a>00528     KEY_3,             <span class="comment">// 0x23 #</span>
-<a name="l00529"></a>00529     KEY_4,             <span class="comment">// 0x24 $</span>
-<a name="l00530"></a>00530     KEY_5,             <span class="comment">// 0x25 %</span>
-<a name="l00531"></a>00531     KEY_7,             <span class="comment">// 0x26 &amp;</span>
-<a name="l00532"></a>00532     KEY_APOSTROPHE,    <span class="comment">// 0x27 &#39;</span>
-<a name="l00533"></a>00533     KEY_9,             <span class="comment">// 0x28 (</span>
-<a name="l00534"></a>00534     KEY_0,             <span class="comment">// 0x29 )</span>
-<a name="l00535"></a>00535     KEY_8,             <span class="comment">// 0x2A *</span>
-<a name="l00536"></a>00536     KEY_EQUAL,         <span class="comment">// 0x2B +</span>
-<a name="l00537"></a>00537     KEY_COMMA,         <span class="comment">// 0x2C ,</span>
-<a name="l00538"></a>00538     KEY_MINUS,         <span class="comment">// 0x2D -</span>
-<a name="l00539"></a>00539     KEY_PERIOD,        <span class="comment">// 0x2E .</span>
-<a name="l00540"></a>00540     KEY_SLASH,         <span class="comment">// 0x2F /</span>
-<a name="l00541"></a>00541     KEY_0,             <span class="comment">// 0x30 0</span>
-<a name="l00542"></a>00542     KEY_1,             <span class="comment">// 0x31 1</span>
-<a name="l00543"></a>00543     KEY_2,             <span class="comment">// 0x32 2</span>
-<a name="l00544"></a>00544     KEY_3,             <span class="comment">// 0x33 3</span>
-<a name="l00545"></a>00545     KEY_4,             <span class="comment">// 0x34 4</span>
-<a name="l00546"></a>00546     KEY_5,             <span class="comment">// 0x35 5</span>
-<a name="l00547"></a>00547     KEY_6,             <span class="comment">// 0x36 6</span>
-<a name="l00548"></a>00548     KEY_7,             <span class="comment">// 0x37 7</span>
-<a name="l00549"></a>00549     KEY_8,             <span class="comment">// 0x38 8</span>
-<a name="l00550"></a>00550     KEY_9,             <span class="comment">// 0x39 9</span>
-<a name="l00551"></a>00551     KEY_SEMICOLON,     <span class="comment">// 0x3A :</span>
-<a name="l00552"></a>00552     KEY_SEMICOLON,     <span class="comment">// 0x3B ;</span>
-<a name="l00553"></a>00553     KEY_COMMA,         <span class="comment">// 0x3C &lt;</span>
-<a name="l00554"></a>00554     KEY_EQUAL,         <span class="comment">// 0x3D =</span>
-<a name="l00555"></a>00555     KEY_PERIOD,        <span class="comment">// 0x3E &gt;</span>
-<a name="l00556"></a>00556     KEY_SLASH,         <span class="comment">// 0x3F ?</span>
-<a name="l00557"></a>00557 
-<a name="l00558"></a>00558     KEY_3,             <span class="comment">// 0x40 @</span>
-<a name="l00559"></a>00559     KEY_A,             <span class="comment">// 0x41 A</span>
-<a name="l00560"></a>00560     KEY_B,             <span class="comment">// 0x42 B</span>
-<a name="l00561"></a>00561     KEY_C,             <span class="comment">// 0x43 C</span>
-<a name="l00562"></a>00562     KEY_D,             <span class="comment">// 0x44 D</span>
-<a name="l00563"></a>00563     KEY_E,             <span class="comment">// 0x45 E</span>
-<a name="l00564"></a>00564     KEY_F,             <span class="comment">// 0x46 F</span>
-<a name="l00565"></a>00565     KEY_G,             <span class="comment">// 0x47 G</span>
-<a name="l00566"></a>00566     KEY_H,             <span class="comment">// 0x48 H</span>
-<a name="l00567"></a>00567     KEY_I,             <span class="comment">// 0x49 I</span>
-<a name="l00568"></a>00568     KEY_J,             <span class="comment">// 0x4A J</span>
-<a name="l00569"></a>00569     KEY_K,             <span class="comment">// 0x4B K</span>
-<a name="l00570"></a>00570     KEY_L,             <span class="comment">// 0x4C L</span>
-<a name="l00571"></a>00571     KEY_M,             <span class="comment">// 0x4D M</span>
-<a name="l00572"></a>00572     KEY_N,             <span class="comment">// 0x4E N</span>
-<a name="l00573"></a>00573     KEY_O,             <span class="comment">// 0x4F O</span>
-<a name="l00574"></a>00574     KEY_P,             <span class="comment">// 0x50 P</span>
-<a name="l00575"></a>00575     KEY_Q,             <span class="comment">// 0x51 Q</span>
-<a name="l00576"></a>00576     KEY_R,             <span class="comment">// 0x52 R</span>
-<a name="l00577"></a>00577     KEY_S,             <span class="comment">// 0x53 S</span>
-<a name="l00578"></a>00578     KEY_T,             <span class="comment">// 0x55 T</span>
-<a name="l00579"></a>00579     KEY_U,             <span class="comment">// 0x55 U</span>
-<a name="l00580"></a>00580     KEY_V,             <span class="comment">// 0x56 V</span>
-<a name="l00581"></a>00581     KEY_W,             <span class="comment">// 0x57 W</span>
-<a name="l00582"></a>00582     KEY_X,             <span class="comment">// 0x58 X</span>
-<a name="l00583"></a>00583     KEY_Y,             <span class="comment">// 0x59 Y</span>
-<a name="l00584"></a>00584     KEY_Z,             <span class="comment">// 0x5A Z</span>
-<a name="l00585"></a>00585     KEY_BRACKET_LEFT,  <span class="comment">// 0x5B [</span>
-<a name="l00586"></a>00586     KEY_BACKSLASH,     <span class="comment">// 0x5C &#39;\&#39;</span>
-<a name="l00587"></a>00587     KEY_BRACKET_RIGHT, <span class="comment">// 0x5D ]</span>
-<a name="l00588"></a>00588     KEY_6,             <span class="comment">// 0x5E ^</span>
-<a name="l00589"></a>00589     KEY_MINUS,         <span class="comment">// 0x5F _</span>
-<a name="l00590"></a>00590 
-<a name="l00591"></a>00591     KEY_GRAVE,         <span class="comment">// 0x60 `</span>
-<a name="l00592"></a>00592     KEY_A,             <span class="comment">// 0x61 a</span>
-<a name="l00593"></a>00593     KEY_B,             <span class="comment">// 0x62 b</span>
-<a name="l00594"></a>00594     KEY_C,             <span class="comment">// 0x63 c</span>
-<a name="l00595"></a>00595     KEY_D,             <span class="comment">// 0x66 d</span>
-<a name="l00596"></a>00596     KEY_E,             <span class="comment">// 0x65 e</span>
-<a name="l00597"></a>00597     KEY_F,             <span class="comment">// 0x66 f</span>
-<a name="l00598"></a>00598     KEY_G,             <span class="comment">// 0x67 g</span>
-<a name="l00599"></a>00599     KEY_H,             <span class="comment">// 0x68 h</span>
-<a name="l00600"></a>00600     KEY_I,             <span class="comment">// 0x69 i</span>
-<a name="l00601"></a>00601     KEY_J,             <span class="comment">// 0x6A j</span>
-<a name="l00602"></a>00602     KEY_K,             <span class="comment">// 0x6B k</span>
-<a name="l00603"></a>00603     KEY_L,             <span class="comment">// 0x6C l</span>
-<a name="l00604"></a>00604     KEY_M,             <span class="comment">// 0x6D m</span>
-<a name="l00605"></a>00605     KEY_N,             <span class="comment">// 0x6E n</span>
-<a name="l00606"></a>00606     KEY_O,             <span class="comment">// 0x6F o</span>
-<a name="l00607"></a>00607     KEY_P,             <span class="comment">// 0x70 p</span>
-<a name="l00608"></a>00608     KEY_Q,             <span class="comment">// 0x71 q</span>
-<a name="l00609"></a>00609     KEY_R,             <span class="comment">// 0x72 r</span>
-<a name="l00610"></a>00610     KEY_S,             <span class="comment">// 0x73 s</span>
-<a name="l00611"></a>00611     KEY_T,             <span class="comment">// 0x75 t</span>
-<a name="l00612"></a>00612     KEY_U,             <span class="comment">// 0x75 u</span>
-<a name="l00613"></a>00613     KEY_V,             <span class="comment">// 0x76 v</span>
-<a name="l00614"></a>00614     KEY_W,             <span class="comment">// 0x77 w</span>
-<a name="l00615"></a>00615     KEY_X,             <span class="comment">// 0x78 x</span>
-<a name="l00616"></a>00616     KEY_Y,             <span class="comment">// 0x79 y</span>
-<a name="l00617"></a>00617     KEY_Z,             <span class="comment">// 0x7A z</span>
-<a name="l00618"></a>00618     KEY_BRACKET_LEFT,  <span class="comment">// 0x7B {</span>
-<a name="l00619"></a>00619     KEY_BACKSLASH,     <span class="comment">// 0x7C |</span>
-<a name="l00620"></a>00620     KEY_BRACKET_RIGHT, <span class="comment">// 0x7D }</span>
-<a name="l00621"></a>00621     KEY_GRAVE,         <span class="comment">// 0x7E ~</span>
-<a name="l00622"></a>00622     KEY_DELETE         <span class="comment">// 0x7F Delete</span>
-<a name="l00623"></a>00623 };
-<a name="l00624"></a>00624 
-<a name="l00625"></a><a class="code" href="usb__hid_8h.html#affc3e5742ce7f8d238f16765b084d7d0">00625</a> <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="usb__hid_8h.html#affc3e5742ce7f8d238f16765b084d7d0">usbHidKeyCodeFromAsciiChar</a>(<span class="keywordtype">char</span> asciiChar)
-<a name="l00626"></a>00626 {
-<a name="l00627"></a>00627     <span class="keywordflow">if</span> (asciiChar &amp; 0x80){ <span class="keywordflow">return</span> 0; }
-<a name="l00628"></a>00628     <span class="keywordflow">return</span> hidKeyCode[asciiChar];
-<a name="l00629"></a>00629 }
+<a name="l00479"></a>00479         <span class="keywordflow">case</span> HID_MOUSE_INTERFACE_NUMBER:
+<a name="l00480"></a>00480             hidMouseProtocol = <a class="code" href="usb_8h.html#a596e8781d200458f546c292a45f6115f">usbSetupPacket</a>.wValue;
+<a name="l00481"></a>00481             <span class="keywordflow">break</span>;
+<a name="l00482"></a>00482 
+<a name="l00483"></a>00483         <span class="keywordflow">default</span>:
+<a name="l00484"></a>00484             <span class="comment">// unrecognized interface - stall</span>
+<a name="l00485"></a>00485             <span class="keywordflow">return</span>;
+<a name="l00486"></a>00486         }
+<a name="l00487"></a>00487         <a class="code" href="usb_8h.html#a809ee9dbebaf3bd90ff89fe4133c9c15">usbControlAcknowledge</a>();
+<a name="l00488"></a>00488         <span class="keywordflow">return</span>;
+<a name="l00489"></a>00489 
+<a name="l00490"></a>00490     <span class="keywordflow">default</span>:
+<a name="l00491"></a>00491         <span class="comment">// unrecognized request - stall</span>
+<a name="l00492"></a>00492         <span class="keywordflow">return</span>;
+<a name="l00493"></a>00493     }
+<a name="l00494"></a>00494 }
+<a name="l00495"></a>00495 
+<a name="l00496"></a>00496 <span class="keywordtype">void</span> <a class="code" href="usb_8h.html#ab5bc2a431d2d072b8b83758922e433b5">usbCallbackClassDescriptorHandler</a>(<span class="keywordtype">void</span>)
+<a name="l00497"></a>00497 {
+<a name="l00498"></a>00498     <span class="comment">// Require Direction==Device-to-Host, Type==Standard, and Recipient==Interface. (HID 1.11 Section 7.1.1)</span>
+<a name="l00499"></a>00499     <span class="keywordflow">if</span> (<a class="code" href="usb_8h.html#a596e8781d200458f546c292a45f6115f">usbSetupPacket</a>.bmRequestType != 0x81)
+<a name="l00500"></a>00500     {
+<a name="l00501"></a>00501         <span class="keywordflow">return</span>;
+<a name="l00502"></a>00502     }
+<a name="l00503"></a>00503 
+<a name="l00504"></a>00504     <span class="keywordflow">switch</span> (<a class="code" href="usb_8h.html#a596e8781d200458f546c292a45f6115f">usbSetupPacket</a>.wValue &gt;&gt; 8)
+<a name="l00505"></a>00505     {
+<a name="l00506"></a>00506     <span class="keywordflow">case</span> HID_DESCRIPTOR_TYPE_HID:
+<a name="l00507"></a>00507         <span class="comment">// The host has requested the HID descriptor of a particular interface.</span>
+<a name="l00508"></a>00508         <span class="keywordflow">switch</span> (<a class="code" href="usb_8h.html#a596e8781d200458f546c292a45f6115f">usbSetupPacket</a>.wIndex)
+<a name="l00509"></a>00509         {
+<a name="l00510"></a>00510         <span class="keywordflow">case</span> HID_KEYBOARD_INTERFACE_NUMBER:
+<a name="l00511"></a>00511             <a class="code" href="usb_8h.html#a2263ce15754643f4ac6772c60acaef9f">usbControlRead</a>(<span class="keyword">sizeof</span>(usbConfigurationDescriptor.keyboard_hid), (<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> *)&amp;usbConfigurationDescriptor.keyboard_hid);
+<a name="l00512"></a>00512             <span class="keywordflow">return</span>;
+<a name="l00513"></a>00513 
+<a name="l00514"></a>00514         <span class="keywordflow">case</span> HID_MOUSE_INTERFACE_NUMBER:
+<a name="l00515"></a>00515             <a class="code" href="usb_8h.html#a2263ce15754643f4ac6772c60acaef9f">usbControlRead</a>(<span class="keyword">sizeof</span>(usbConfigurationDescriptor.mouse_hid), (<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> *)&amp;usbConfigurationDescriptor.mouse_hid);
+<a name="l00516"></a>00516             <span class="keywordflow">return</span>;
+<a name="l00517"></a>00517 
+<a name="l00518"></a>00518         <span class="keywordflow">case</span> HID_JOYSTICK_INTERFACE_NUMBER:
+<a name="l00519"></a>00519             <a class="code" href="usb_8h.html#a2263ce15754643f4ac6772c60acaef9f">usbControlRead</a>(<span class="keyword">sizeof</span>(usbConfigurationDescriptor.joystick_hid), (<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> *)&amp;usbConfigurationDescriptor.joystick_hid);
+<a name="l00520"></a>00520             <span class="keywordflow">return</span>;
+<a name="l00521"></a>00521         }
+<a name="l00522"></a>00522         <span class="keywordflow">return</span>;
+<a name="l00523"></a>00523 
+<a name="l00524"></a>00524     <span class="keywordflow">case</span> HID_DESCRIPTOR_TYPE_REPORT:
+<a name="l00525"></a>00525         <span class="comment">// The host has requested the Report Descriptor of a particular interface.</span>
+<a name="l00526"></a>00526         <span class="keywordflow">switch</span> (<a class="code" href="usb_8h.html#a596e8781d200458f546c292a45f6115f">usbSetupPacket</a>.wIndex)
+<a name="l00527"></a>00527         {
+<a name="l00528"></a>00528         <span class="keywordflow">case</span> HID_KEYBOARD_INTERFACE_NUMBER:
+<a name="l00529"></a>00529             <a class="code" href="usb_8h.html#a2263ce15754643f4ac6772c60acaef9f">usbControlRead</a>(<span class="keyword">sizeof</span>(keyboardReportDescriptor), (<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> *)&amp;keyboardReportDescriptor);
+<a name="l00530"></a>00530             <span class="keywordflow">return</span>;
+<a name="l00531"></a>00531 
+<a name="l00532"></a>00532         <span class="keywordflow">case</span> HID_MOUSE_INTERFACE_NUMBER:
+<a name="l00533"></a>00533             <a class="code" href="usb_8h.html#a2263ce15754643f4ac6772c60acaef9f">usbControlRead</a>(<span class="keyword">sizeof</span>(mouseReportDescriptor), (<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> *)&amp;mouseReportDescriptor);
+<a name="l00534"></a>00534             <span class="keywordflow">return</span>;
+<a name="l00535"></a>00535 
+<a name="l00536"></a>00536         <span class="keywordflow">case</span> HID_JOYSTICK_INTERFACE_NUMBER:
+<a name="l00537"></a>00537             <a class="code" href="usb_8h.html#a2263ce15754643f4ac6772c60acaef9f">usbControlRead</a>(<span class="keyword">sizeof</span>(joystickReportDescriptor), (<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> *)&amp;joystickReportDescriptor);
+<a name="l00538"></a>00538             <span class="keywordflow">return</span>;
+<a name="l00539"></a>00539         }
+<a name="l00540"></a>00540         <span class="keywordflow">return</span>;
+<a name="l00541"></a>00541     }
+<a name="l00542"></a>00542 }
+<a name="l00543"></a>00543 
+<a name="l00544"></a>00544 <span class="keywordtype">void</span> <a class="code" href="usb_8h.html#acdd38730e9971753fdaccb87d6df5ebb">usbCallbackControlWriteHandler</a>(<span class="keywordtype">void</span>)
+<a name="l00545"></a>00545 {
+<a name="l00546"></a>00546     <span class="comment">// not used by usb_hid</span>
+<a name="l00547"></a>00547 }
+<a name="l00548"></a>00548 
+<a name="l00549"></a>00549 <span class="comment">/* Other HID Functions ********************************************************/</span>
+<a name="l00550"></a>00550 
+<a name="l00551"></a><a class="code" href="usb__hid_8h.html#adbc8f012157a7fa47d00e313a652abc8">00551</a> <span class="keywordtype">void</span> <a class="code" href="usb__hid_8h.html#adbc8f012157a7fa47d00e313a652abc8">usbHidService</a>(<span class="keywordtype">void</span>)
+<a name="l00552"></a>00552 {
+<a name="l00553"></a>00553     <span class="keyword">static</span> <a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> hidKeyboardLastReportTime = 0;
+<a name="l00554"></a>00554 
+<a name="l00555"></a>00555     <a class="code" href="usb_8h.html#a602c14b8f268adeae6896014c9a79909">usbPoll</a>();
+<a name="l00556"></a>00556 
+<a name="l00557"></a>00557     <span class="keywordflow">if</span> (<a class="code" href="usb_8h.html#a2dcb8664a97f5d44ad2f57acbb8bc47b">usbDeviceState</a> != USB_STATE_CONFIGURED)
+<a name="l00558"></a>00558     {
+<a name="l00559"></a>00559         <span class="comment">// We have not reached the Configured state yet, so we should not be touching the non-zero endpoints.</span>
+<a name="l00560"></a>00560         <span class="keywordflow">return</span>;
+<a name="l00561"></a>00561     }
+<a name="l00562"></a>00562 
+<a name="l00563"></a>00563     USBINDEX = HID_KEYBOARD_ENDPOINT;
+<a name="l00564"></a>00564     <span class="comment">// Check if keyboard input has been updated OR if the idle period is nonzero and has expired.</span>
+<a name="l00565"></a>00565     <span class="keywordflow">if</span> ((usbHidKeyboardInputUpdated || (hidKeyboardIdleDuration &amp;&amp; ((<a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a>)(<a class="code" href="time_8h.html#a7434f5e33d8b24476cc61ce923cfed94">getMs</a>() - hidKeyboardLastReportTime) &gt; hidKeyboardIdleDuration))) &amp;&amp; !(USBCSIL &amp; USBCSIL_INPKT_RDY))
+<a name="l00566"></a>00566     {
+<a name="l00567"></a>00567         <a class="code" href="usb_8h.html#ada6880ae2c31c48a20f8dd8ca02c41d1">usbWriteFifo</a>(HID_KEYBOARD_ENDPOINT, <span class="keyword">sizeof</span>(usbHidKeyboardInput), (<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> *)&amp;usbHidKeyboardInput);
+<a name="l00568"></a>00568         USBCSIL |= USBCSIL_INPKT_RDY;
+<a name="l00569"></a>00569         usbHidKeyboardInputUpdated = 0; <span class="comment">// reset updated flag</span>
+<a name="l00570"></a>00570         hidKeyboardLastReportTime = <a class="code" href="time_8h.html#a7434f5e33d8b24476cc61ce923cfed94">getMs</a>();
+<a name="l00571"></a>00571     }
+<a name="l00572"></a>00572 
+<a name="l00573"></a>00573     USBINDEX = HID_MOUSE_ENDPOINT;
+<a name="l00574"></a>00574     <span class="comment">// Check if mouse input has been updated.</span>
+<a name="l00575"></a>00575     <span class="keywordflow">if</span> (usbHidMouseInputUpdated &amp;&amp; !(USBCSIL &amp; USBCSIL_INPKT_RDY)) {
+<a name="l00576"></a>00576         <a class="code" href="usb_8h.html#ada6880ae2c31c48a20f8dd8ca02c41d1">usbWriteFifo</a>(HID_MOUSE_ENDPOINT, <span class="keyword">sizeof</span>(usbHidMouseInput), (<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> *)&amp;usbHidMouseInput);
+<a name="l00577"></a>00577         USBCSIL |= USBCSIL_INPKT_RDY;
+<a name="l00578"></a>00578         usbHidMouseInputUpdated = 0; <span class="comment">// reset updated flag</span>
+<a name="l00579"></a>00579     }
+<a name="l00580"></a>00580 
+<a name="l00581"></a>00581     USBINDEX = HID_JOYSTICK_ENDPOINT;
+<a name="l00582"></a>00582     <span class="comment">// Check if joystick input has been updated.</span>
+<a name="l00583"></a>00583     <span class="keywordflow">if</span> (usbHidJoystickInputUpdated &amp;&amp; !(USBCSIL &amp; USBCSIL_INPKT_RDY)) {
+<a name="l00584"></a>00584         <a class="code" href="usb_8h.html#ada6880ae2c31c48a20f8dd8ca02c41d1">usbWriteFifo</a>(HID_JOYSTICK_ENDPOINT, <span class="keyword">sizeof</span>(usbHidJoystickInput), (<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> *)&amp;usbHidJoystickInput);
+<a name="l00585"></a>00585         USBCSIL |= USBCSIL_INPKT_RDY;
+<a name="l00586"></a>00586         usbHidJoystickInputUpdated = 0; <span class="comment">// reset updated flag</span>
+<a name="l00587"></a>00587     }
+<a name="l00588"></a>00588 }
+<a name="l00589"></a>00589 
+<a name="l00590"></a>00590 <span class="comment">// Look-up table stored in code memory that we use to convert from ASCII</span>
+<a name="l00591"></a>00591 <span class="comment">// characters to HID key codes.</span>
+<a name="l00592"></a>00592 <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#ae6527c8381eb3f23b7fd6d6efec6ffc7">CODE</a> hidKeyCode[128] =
+<a name="l00593"></a>00593 {
+<a name="l00594"></a>00594     0,                 <span class="comment">// 0x00 Null</span>
+<a name="l00595"></a>00595     0,                 <span class="comment">// 0x01</span>
+<a name="l00596"></a>00596     0,                 <span class="comment">// 0x02</span>
+<a name="l00597"></a>00597     0,                 <span class="comment">// 0x03</span>
+<a name="l00598"></a>00598     0,                 <span class="comment">// 0x04</span>
+<a name="l00599"></a>00599     0,                 <span class="comment">// 0x05</span>
+<a name="l00600"></a>00600     0,                 <span class="comment">// 0x06</span>
+<a name="l00601"></a>00601     0,                 <span class="comment">// 0x07</span>
+<a name="l00602"></a>00602     KEY_BACKSPACE,     <span class="comment">// 0x08 Backspace</span>
+<a name="l00603"></a>00603     KEY_TAB,           <span class="comment">// 0x09 Horizontal Tab</span>
+<a name="l00604"></a>00604     KEY_RETURN,        <span class="comment">// 0x0A Line Feed</span>
+<a name="l00605"></a>00605     0,                 <span class="comment">// 0x0B</span>
+<a name="l00606"></a>00606     0,                 <span class="comment">// 0x0C</span>
+<a name="l00607"></a>00607     KEY_RETURN,        <span class="comment">// 0x0D Carriage return</span>
+<a name="l00608"></a>00608     0,                 <span class="comment">// 0x0E</span>
+<a name="l00609"></a>00609     0,                 <span class="comment">// 0x0F</span>
+<a name="l00610"></a>00610     0,                 <span class="comment">// 0x10</span>
+<a name="l00611"></a>00611     0,                 <span class="comment">// 0x11</span>
+<a name="l00612"></a>00612     0,                 <span class="comment">// 0x12</span>
+<a name="l00613"></a>00613     0,                 <span class="comment">// 0x13</span>
+<a name="l00614"></a>00614     0,                 <span class="comment">// 0x14</span>
+<a name="l00615"></a>00615     0,                 <span class="comment">// 0x15</span>
+<a name="l00616"></a>00616     0,                 <span class="comment">// 0x16</span>
+<a name="l00617"></a>00617     0,                 <span class="comment">// 0x17</span>
+<a name="l00618"></a>00618     0,                 <span class="comment">// 0x18</span>
+<a name="l00619"></a>00619     0,                 <span class="comment">// 0x19</span>
+<a name="l00620"></a>00620     0,                 <span class="comment">// 0x1A</span>
+<a name="l00621"></a>00621     KEY_ESCAPE,        <span class="comment">// 0x1B Escape</span>
+<a name="l00622"></a>00622     0,                 <span class="comment">// 0x1C</span>
+<a name="l00623"></a>00623     0,                 <span class="comment">// 0x1D</span>
+<a name="l00624"></a>00624     0,                 <span class="comment">// 0x1E</span>
+<a name="l00625"></a>00625     0,                 <span class="comment">// 0x1F</span>
+<a name="l00626"></a>00626 
+<a name="l00627"></a>00627     KEY_SPACE,         <span class="comment">// 0x20</span>
+<a name="l00628"></a>00628     KEY_1,             <span class="comment">// 0x21 !</span>
+<a name="l00629"></a>00629     KEY_APOSTROPHE,    <span class="comment">// 0x22 &quot;</span>
+<a name="l00630"></a>00630     KEY_3,             <span class="comment">// 0x23 #</span>
+<a name="l00631"></a>00631     KEY_4,             <span class="comment">// 0x24 $</span>
+<a name="l00632"></a>00632     KEY_5,             <span class="comment">// 0x25 %</span>
+<a name="l00633"></a>00633     KEY_7,             <span class="comment">// 0x26 &amp;</span>
+<a name="l00634"></a>00634     KEY_APOSTROPHE,    <span class="comment">// 0x27 &#39;</span>
+<a name="l00635"></a>00635     KEY_9,             <span class="comment">// 0x28 (</span>
+<a name="l00636"></a>00636     KEY_0,             <span class="comment">// 0x29 )</span>
+<a name="l00637"></a>00637     KEY_8,             <span class="comment">// 0x2A *</span>
+<a name="l00638"></a>00638     KEY_EQUAL,         <span class="comment">// 0x2B +</span>
+<a name="l00639"></a>00639     KEY_COMMA,         <span class="comment">// 0x2C ,</span>
+<a name="l00640"></a>00640     KEY_MINUS,         <span class="comment">// 0x2D -</span>
+<a name="l00641"></a>00641     KEY_PERIOD,        <span class="comment">// 0x2E .</span>
+<a name="l00642"></a>00642     KEY_SLASH,         <span class="comment">// 0x2F /</span>
+<a name="l00643"></a>00643     KEY_0,             <span class="comment">// 0x30 0</span>
+<a name="l00644"></a>00644     KEY_1,             <span class="comment">// 0x31 1</span>
+<a name="l00645"></a>00645     KEY_2,             <span class="comment">// 0x32 2</span>
+<a name="l00646"></a>00646     KEY_3,             <span class="comment">// 0x33 3</span>
+<a name="l00647"></a>00647     KEY_4,             <span class="comment">// 0x34 4</span>
+<a name="l00648"></a>00648     KEY_5,             <span class="comment">// 0x35 5</span>
+<a name="l00649"></a>00649     KEY_6,             <span class="comment">// 0x36 6</span>
+<a name="l00650"></a>00650     KEY_7,             <span class="comment">// 0x37 7</span>
+<a name="l00651"></a>00651     KEY_8,             <span class="comment">// 0x38 8</span>
+<a name="l00652"></a>00652     KEY_9,             <span class="comment">// 0x39 9</span>
+<a name="l00653"></a>00653     KEY_SEMICOLON,     <span class="comment">// 0x3A :</span>
+<a name="l00654"></a>00654     KEY_SEMICOLON,     <span class="comment">// 0x3B ;</span>
+<a name="l00655"></a>00655     KEY_COMMA,         <span class="comment">// 0x3C &lt;</span>
+<a name="l00656"></a>00656     KEY_EQUAL,         <span class="comment">// 0x3D =</span>
+<a name="l00657"></a>00657     KEY_PERIOD,        <span class="comment">// 0x3E &gt;</span>
+<a name="l00658"></a>00658     KEY_SLASH,         <span class="comment">// 0x3F ?</span>
+<a name="l00659"></a>00659 
+<a name="l00660"></a>00660     KEY_3,             <span class="comment">// 0x40 @</span>
+<a name="l00661"></a>00661     KEY_A,             <span class="comment">// 0x41 A</span>
+<a name="l00662"></a>00662     KEY_B,             <span class="comment">// 0x42 B</span>
+<a name="l00663"></a>00663     KEY_C,             <span class="comment">// 0x43 C</span>
+<a name="l00664"></a>00664     KEY_D,             <span class="comment">// 0x44 D</span>
+<a name="l00665"></a>00665     KEY_E,             <span class="comment">// 0x45 E</span>
+<a name="l00666"></a>00666     KEY_F,             <span class="comment">// 0x46 F</span>
+<a name="l00667"></a>00667     KEY_G,             <span class="comment">// 0x47 G</span>
+<a name="l00668"></a>00668     KEY_H,             <span class="comment">// 0x48 H</span>
+<a name="l00669"></a>00669     KEY_I,             <span class="comment">// 0x49 I</span>
+<a name="l00670"></a>00670     KEY_J,             <span class="comment">// 0x4A J</span>
+<a name="l00671"></a>00671     KEY_K,             <span class="comment">// 0x4B K</span>
+<a name="l00672"></a>00672     KEY_L,             <span class="comment">// 0x4C L</span>
+<a name="l00673"></a>00673     KEY_M,             <span class="comment">// 0x4D M</span>
+<a name="l00674"></a>00674     KEY_N,             <span class="comment">// 0x4E N</span>
+<a name="l00675"></a>00675     KEY_O,             <span class="comment">// 0x4F O</span>
+<a name="l00676"></a>00676     KEY_P,             <span class="comment">// 0x50 P</span>
+<a name="l00677"></a>00677     KEY_Q,             <span class="comment">// 0x51 Q</span>
+<a name="l00678"></a>00678     KEY_R,             <span class="comment">// 0x52 R</span>
+<a name="l00679"></a>00679     KEY_S,             <span class="comment">// 0x53 S</span>
+<a name="l00680"></a>00680     KEY_T,             <span class="comment">// 0x55 T</span>
+<a name="l00681"></a>00681     KEY_U,             <span class="comment">// 0x55 U</span>
+<a name="l00682"></a>00682     KEY_V,             <span class="comment">// 0x56 V</span>
+<a name="l00683"></a>00683     KEY_W,             <span class="comment">// 0x57 W</span>
+<a name="l00684"></a>00684     KEY_X,             <span class="comment">// 0x58 X</span>
+<a name="l00685"></a>00685     KEY_Y,             <span class="comment">// 0x59 Y</span>
+<a name="l00686"></a>00686     KEY_Z,             <span class="comment">// 0x5A Z</span>
+<a name="l00687"></a>00687     KEY_BRACKET_LEFT,  <span class="comment">// 0x5B [</span>
+<a name="l00688"></a>00688     KEY_BACKSLASH,     <span class="comment">// 0x5C &#39;\&#39;</span>
+<a name="l00689"></a>00689     KEY_BRACKET_RIGHT, <span class="comment">// 0x5D ]</span>
+<a name="l00690"></a>00690     KEY_6,             <span class="comment">// 0x5E ^</span>
+<a name="l00691"></a>00691     KEY_MINUS,         <span class="comment">// 0x5F _</span>
+<a name="l00692"></a>00692 
+<a name="l00693"></a>00693     KEY_GRAVE,         <span class="comment">// 0x60 `</span>
+<a name="l00694"></a>00694     KEY_A,             <span class="comment">// 0x61 a</span>
+<a name="l00695"></a>00695     KEY_B,             <span class="comment">// 0x62 b</span>
+<a name="l00696"></a>00696     KEY_C,             <span class="comment">// 0x63 c</span>
+<a name="l00697"></a>00697     KEY_D,             <span class="comment">// 0x66 d</span>
+<a name="l00698"></a>00698     KEY_E,             <span class="comment">// 0x65 e</span>
+<a name="l00699"></a>00699     KEY_F,             <span class="comment">// 0x66 f</span>
+<a name="l00700"></a>00700     KEY_G,             <span class="comment">// 0x67 g</span>
+<a name="l00701"></a>00701     KEY_H,             <span class="comment">// 0x68 h</span>
+<a name="l00702"></a>00702     KEY_I,             <span class="comment">// 0x69 i</span>
+<a name="l00703"></a>00703     KEY_J,             <span class="comment">// 0x6A j</span>
+<a name="l00704"></a>00704     KEY_K,             <span class="comment">// 0x6B k</span>
+<a name="l00705"></a>00705     KEY_L,             <span class="comment">// 0x6C l</span>
+<a name="l00706"></a>00706     KEY_M,             <span class="comment">// 0x6D m</span>
+<a name="l00707"></a>00707     KEY_N,             <span class="comment">// 0x6E n</span>
+<a name="l00708"></a>00708     KEY_O,             <span class="comment">// 0x6F o</span>
+<a name="l00709"></a>00709     KEY_P,             <span class="comment">// 0x70 p</span>
+<a name="l00710"></a>00710     KEY_Q,             <span class="comment">// 0x71 q</span>
+<a name="l00711"></a>00711     KEY_R,             <span class="comment">// 0x72 r</span>
+<a name="l00712"></a>00712     KEY_S,             <span class="comment">// 0x73 s</span>
+<a name="l00713"></a>00713     KEY_T,             <span class="comment">// 0x75 t</span>
+<a name="l00714"></a>00714     KEY_U,             <span class="comment">// 0x75 u</span>
+<a name="l00715"></a>00715     KEY_V,             <span class="comment">// 0x76 v</span>
+<a name="l00716"></a>00716     KEY_W,             <span class="comment">// 0x77 w</span>
+<a name="l00717"></a>00717     KEY_X,             <span class="comment">// 0x78 x</span>
+<a name="l00718"></a>00718     KEY_Y,             <span class="comment">// 0x79 y</span>
+<a name="l00719"></a>00719     KEY_Z,             <span class="comment">// 0x7A z</span>
+<a name="l00720"></a>00720     KEY_BRACKET_LEFT,  <span class="comment">// 0x7B {</span>
+<a name="l00721"></a>00721     KEY_BACKSLASH,     <span class="comment">// 0x7C |</span>
+<a name="l00722"></a>00722     KEY_BRACKET_RIGHT, <span class="comment">// 0x7D }</span>
+<a name="l00723"></a>00723     KEY_GRAVE,         <span class="comment">// 0x7E ~</span>
+<a name="l00724"></a>00724     KEY_DELETE         <span class="comment">// 0x7F Delete</span>
+<a name="l00725"></a>00725 };
+<a name="l00726"></a>00726 
+<a name="l00727"></a><a class="code" href="usb__hid_8h.html#affc3e5742ce7f8d238f16765b084d7d0">00727</a> <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="usb__hid_8h.html#affc3e5742ce7f8d238f16765b084d7d0">usbHidKeyCodeFromAsciiChar</a>(<span class="keywordtype">char</span> asciiChar)
+<a name="l00728"></a>00728 {
+<a name="l00729"></a>00729     <span class="keywordflow">if</span> (asciiChar &amp; 0x80){ <span class="keywordflow">return</span> 0; }
+<a name="l00730"></a>00730     <span class="keywordflow">return</span> hidKeyCode[asciiChar];
+<a name="l00731"></a>00731 }
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -697,7 +799,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Defines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -706,7 +808,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Fri Apr 8 2011 18:20:32 for Wixel SDK by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Apr 18 2011 11:50:24 for Wixel SDK by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

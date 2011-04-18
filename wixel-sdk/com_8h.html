@@ -285,7 +285,7 @@ Typedefs</h2></td></tr>
 <div class="memdoc">
 <p>Even parity. The total number of data bits that are 1 will be even. </p>
 
-<p>Definition at line <a class="el" href="com_8h_source.html#l00077">77</a> of file <a class="el" href="com_8h_source.html">com.h</a>.</p>
+<p>Definition at line <a class="el" href="com_8h_source.html#l00091">91</a> of file <a class="el" href="com_8h_source.html">com.h</a>.</p>
 
 </div>
 </div>
@@ -301,7 +301,7 @@ Typedefs</h2></td></tr>
 <div class="memdoc">
 <p>Mark parity. Ninth bit of each byte will be logical 1. </p>
 
-<p>Definition at line <a class="el" href="com_8h_source.html#l00080">80</a> of file <a class="el" href="com_8h_source.html">com.h</a>.</p>
+<p>Definition at line <a class="el" href="com_8h_source.html#l00094">94</a> of file <a class="el" href="com_8h_source.html">com.h</a>.</p>
 
 </div>
 </div>
@@ -317,7 +317,7 @@ Typedefs</h2></td></tr>
 <div class="memdoc">
 <p>No parity. Each serial byte will only have 8 bits. </p>
 
-<p>Definition at line <a class="el" href="com_8h_source.html#l00071">71</a> of file <a class="el" href="com_8h_source.html">com.h</a>.</p>
+<p>Definition at line <a class="el" href="com_8h_source.html#l00085">85</a> of file <a class="el" href="com_8h_source.html">com.h</a>.</p>
 
 </div>
 </div>
@@ -333,7 +333,7 @@ Typedefs</h2></td></tr>
 <div class="memdoc">
 <p>Odd parity. The total number of data bits that are 1 will be odd. </p>
 
-<p>Definition at line <a class="el" href="com_8h_source.html#l00074">74</a> of file <a class="el" href="com_8h_source.html">com.h</a>.</p>
+<p>Definition at line <a class="el" href="com_8h_source.html#l00088">88</a> of file <a class="el" href="com_8h_source.html">com.h</a>.</p>
 
 </div>
 </div>
@@ -349,7 +349,7 @@ Typedefs</h2></td></tr>
 <div class="memdoc">
 <p>Mark parity. Ninth bit of each byte will be logical 0. </p>
 
-<p>Definition at line <a class="el" href="com_8h_source.html#l00083">83</a> of file <a class="el" href="com_8h_source.html">com.h</a>.</p>
+<p>Definition at line <a class="el" href="com_8h_source.html#l00097">97</a> of file <a class="el" href="com_8h_source.html">com.h</a>.</p>
 
 </div>
 </div>
@@ -365,7 +365,7 @@ Typedefs</h2></td></tr>
 <div class="memdoc">
 <p>The end of each byte will have 1 stop bit. </p>
 
-<p>Definition at line <a class="el" href="com_8h_source.html#l00086">86</a> of file <a class="el" href="com_8h_source.html">com.h</a>.</p>
+<p>Definition at line <a class="el" href="com_8h_source.html#l00100">100</a> of file <a class="el" href="com_8h_source.html">com.h</a>.</p>
 
 </div>
 </div>
@@ -381,7 +381,7 @@ Typedefs</h2></td></tr>
 <div class="memdoc">
 <p>The end of each serial byte will have 1.5 stop bits. The CC2511's UARTs do not actually support this option. </p>
 
-<p>Definition at line <a class="el" href="com_8h_source.html#l00090">90</a> of file <a class="el" href="com_8h_source.html">com.h</a>.</p>
+<p>Definition at line <a class="el" href="com_8h_source.html#l00104">104</a> of file <a class="el" href="com_8h_source.html">com.h</a>.</p>
 
 </div>
 </div>
@@ -395,9 +395,9 @@ Typedefs</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>The end of each serial byte will have 2 stop bits. The CC2511's UARTs do not support this option very well; our the uart library may fail to detect framing errors from the second stop bit when this option is used. </p>
+<p>The end of each serial byte will have 2 stop bits. The CC2511's UARTs do not support this option very well; the UART library may fail to detect framing errors from the second stop bit when this option is used. </p>
 
-<p>Definition at line <a class="el" href="com_8h_source.html#l00097">97</a> of file <a class="el" href="com_8h_source.html">com.h</a>.</p>
+<p>Definition at line <a class="el" href="com_8h_source.html#l00111">111</a> of file <a class="el" href="com_8h_source.html">com.h</a>.</p>
 
 </div>
 </div>
@@ -412,7 +412,8 @@ Typedefs</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>PSTN1.20 Table 17: Line Coding Structure </p>
+<p>Specifies the type of coding to use on an asynchronous serial line.</p>
+<p>This struct is defined in PSTN120.pdf in Table 17: Line Coding Structure. PSTN120.pdf is available for download from USB Implementers Forum at this url: <a href="http://www.usb.org/developers/devclass_docs">http://www.usb.org/developers/devclass_docs</a> </p>
 
 </div>
 </div>
@@ -422,7 +423,7 @@ Typedefs</h2></td></tr>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Defines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -431,7 +432,7 @@ Typedefs</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Fri Apr 8 2011 18:20:33 for Wixel SDK by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Apr 18 2011 11:50:24 for Wixel SDK by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

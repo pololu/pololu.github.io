@@ -62,26 +62,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <a href="radio__com_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
-<a name="l00008"></a>00008 <span class="preprocessor">#ifndef _RADIO_COM_H_</span>
-<a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor">#define _RADIO_COM_H_</span>
-<a name="l00010"></a>00010 <span class="preprocessor"></span>
-<a name="l00011"></a>00011 <span class="keywordtype">void</span> radioComInit();
-<a name="l00012"></a>00012 
-<a name="l00030"></a>00030 <span class="keyword">extern</span> <a class="code" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> <a class="code" href="radio__com_8h.html#a37d39a1b11c22b8b3392f3bee84416af">radioComRxEnforceOrdering</a>;
-<a name="l00031"></a>00031 
-<a name="l00032"></a>00032 <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> radioComRxAvailable(<span class="keywordtype">void</span>);
-<a name="l00033"></a>00033 <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> radioComRxReceiveByte(<span class="keywordtype">void</span>);
-<a name="l00034"></a>00034 
-<a name="l00035"></a>00035 <span class="keywordtype">void</span> radioComTxService(<span class="keywordtype">void</span>);  <span class="comment">// This must be called regularly if you are sending data.</span>
-<a name="l00036"></a>00036 
-<a name="l00037"></a>00037 <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> radioComTxAvailable(<span class="keywordtype">void</span>);
-<a name="l00038"></a>00038 <span class="keywordtype">void</span> radioComTxSendByte(<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> byte);
-<a name="l00039"></a>00039 <span class="keywordtype">void</span> radioComTxSend(<span class="keyword">const</span> <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> * buffer, <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> size);
-<a name="l00040"></a>00040 
-<a name="l00041"></a>00041 <span class="keywordtype">void</span> radioComTxControlSignals(<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> controlSignals);
-<a name="l00042"></a>00042 <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> radioComRxControlSignals();
-<a name="l00043"></a>00043 
-<a name="l00044"></a>00044 <span class="preprocessor">#endif </span><span class="comment">/* RADIO_COM_H_ */</span>
+<a name="l00020"></a>00020 <span class="preprocessor">#ifndef _RADIO_COM_H_</span>
+<a name="l00021"></a>00021 <span class="preprocessor"></span><span class="preprocessor">#define _RADIO_COM_H_</span>
+<a name="l00022"></a>00022 <span class="preprocessor"></span>
+<a name="l00026"></a>00026 <span class="keywordtype">void</span> <a class="code" href="radio__com_8h.html#a11c19df4ab3bd514cc539d22f79cd733">radioComInit</a>(<span class="keywordtype">void</span>);
+<a name="l00027"></a>00027 
+<a name="l00046"></a>00046 <span class="keyword">extern</span> <a class="code" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> <a class="code" href="radio__com_8h.html#a37d39a1b11c22b8b3392f3bee84416af">radioComRxEnforceOrdering</a>;
+<a name="l00047"></a>00047 
+<a name="l00052"></a>00052 <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="radio__com_8h.html#a7009e2583b898907a3e47e0722f9cf44">radioComRxAvailable</a>(<span class="keywordtype">void</span>);
+<a name="l00053"></a>00053 
+<a name="l00062"></a>00062 <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="radio__com_8h.html#a9f194ddafe90e9f14571e5e5bbb7fee6">radioComRxReceiveByte</a>(<span class="keywordtype">void</span>);
+<a name="l00063"></a>00063 
+<a name="l00066"></a>00066 <span class="keywordtype">void</span> <a class="code" href="radio__com_8h.html#a85470e210835a9c8b13f390c2bb22f34">radioComTxService</a>(<span class="keywordtype">void</span>);
+<a name="l00067"></a>00067 
+<a name="l00069"></a>00069 <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="radio__com_8h.html#ab6baad52d12a1da6bd4c7e5223513b87">radioComTxAvailable</a>(<span class="keywordtype">void</span>);
+<a name="l00070"></a>00070 
+<a name="l00081"></a>00081 <span class="keywordtype">void</span> <a class="code" href="radio__com_8h.html#abfaa498e968e4c11d61889c467a8982b">radioComTxSendByte</a>(<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> byte);
+<a name="l00082"></a>00082 
+<a name="l00094"></a>00094 <span class="keywordtype">void</span> <a class="code" href="radio__com_8h.html#afa0c458d9f26ae58af0d1c90cce9d352">radioComTxControlSignals</a>(<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> controlSignals);
+<a name="l00095"></a>00095 
+<a name="l00107"></a>00107 <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="radio__com_8h.html#afe242da634530429fbe8e3cb1d5b0258">radioComRxControlSignals</a>(<span class="keywordtype">void</span>);
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109 <span class="preprocessor">#endif </span><span class="comment">/* RADIO_COM_H_ */</span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -89,7 +91,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Defines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -98,7 +100,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Fri Apr 8 2011 18:20:32 for Wixel SDK by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Apr 18 2011 11:50:23 for Wixel SDK by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

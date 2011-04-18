@@ -127,8 +127,7 @@ Defines</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>USBCS0</b>&#160;&#160;&#160;USBCSIL</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a469aee43757313728925aba9d8064257"></a><!-- doxytag: member="cc2511_map.h::USBCNT0" ref="a469aee43757313728925aba9d8064257" args="" -->
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>USBCNT0</b>&#160;&#160;&#160;USBCNTL</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0ad413eeaa8388157d436c1044fe530f"></a><!-- doxytag: member="cc2511_map.h::XDATA_SFR_ADDRESS" ref="a0ad413eeaa8388157d436c1044fe530f" args="(sfr)" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>XDATA_SFR_ADDRESS</b>(sfr)&#160;&#160;&#160;(0xDF00 + ((unsigned int)&amp;(sfr)))</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cc2511__map_8h.html#a0ad413eeaa8388157d436c1044fe530f">XDATA_SFR_ADDRESS</a>(sfr)&#160;&#160;&#160;(0xDF00 + ((unsigned int)&amp;(sfr)))</td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>This header file provides access to the special registers on the CC2511F32, which allow direct manipulation of the chip's hardware.</p>
@@ -267,13 +266,35 @@ Defines</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a0ad413eeaa8388157d436c1044fe530f"></a><!-- doxytag: member="cc2511_map.h::XDATA_SFR_ADDRESS" ref="a0ad413eeaa8388157d436c1044fe530f" args="(sfr)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define XDATA_SFR_ADDRESS</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">sfr</td><td>)</td>
+          <td>&#160;&#160;&#160;(0xDF00 + ((unsigned int)&amp;(sfr)))</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Evaluates to the XDATA address of an SFR.</p>
+<p>Most of the internal SFRs are also part of the XDATA memory space, which means you can have pointers to them of type <code>uint8 XDATA *</code> and you can read or write to them using DMA transfers.</p>
+<p>This macro does NOT work with the SFRs that are highlighted in gray in Table 30 of the CC2511F32 datasheet (the "SFR Address Overview" table). </p>
+
+<p>Definition at line <a class="el" href="cc2511__map_8h_source.html#l00358">358</a> of file <a class="el" href="cc2511__map_8h_source.html">cc2511_map.h</a>.</p>
+
+</div>
+</div>
 </div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Defines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -282,7 +303,7 @@ Defines</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Fri Apr 8 2011 18:20:33 for Wixel SDK by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Apr 18 2011 11:50:24 for Wixel SDK by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

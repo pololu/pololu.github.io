@@ -92,12 +92,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00029"></a>00029         }
 <a name="l00030"></a>00030     }
 <a name="l00031"></a>00031 
-<a name="l00032"></a>00032     <span class="keywordflow">if</span> (<a class="code" href="usb_8h.html#af73cf84963ab2b2f8e462783d0fe20cb">usbSuspended</a>() || usbDeviceState == USB_STATE_DETACHED)
+<a name="l00032"></a>00032     <span class="keywordflow">if</span> (<a class="code" href="usb_8h.html#af73cf84963ab2b2f8e462783d0fe20cb">usbSuspended</a>() || <a class="code" href="usb_8h.html#a2dcb8664a97f5d44ad2f57acbb8bc47b">usbDeviceState</a> == USB_STATE_DETACHED)
 <a name="l00033"></a>00033     {
 <a name="l00034"></a>00034         <a class="code" href="board_8h.html#a4c2ae8ec082dea793648ffcfa5012576">LED_GREEN</a>(0);                         <span class="comment">// We aren&#39;t connected to USB, or we are in suspend</span>
 <a name="l00035"></a>00035                                               <span class="comment">// mode, so turn off the LED.</span>
 <a name="l00036"></a>00036     }
-<a name="l00037"></a>00037     <span class="keywordflow">else</span> <span class="keywordflow">if</span> (usbDeviceState == USB_STATE_CONFIGURED)
+<a name="l00037"></a>00037     <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="usb_8h.html#a2dcb8664a97f5d44ad2f57acbb8bc47b">usbDeviceState</a> == USB_STATE_CONFIGURED)
 <a name="l00038"></a>00038     {
 <a name="l00039"></a>00039         <span class="keywordflow">if</span> (usbBlinkActive)
 <a name="l00040"></a>00040         {
@@ -127,7 +127,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Defines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -136,7 +136,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Fri Apr 8 2011 18:20:32 for Wixel SDK by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Apr 18 2011 11:50:24 for Wixel SDK by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

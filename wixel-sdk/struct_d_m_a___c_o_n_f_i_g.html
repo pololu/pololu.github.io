@@ -65,7 +65,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h1>DMA_CONFIG Struct Reference</h1>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="DMA_CONFIG" --><table class="memberdecls">
+<!-- doxytag: class="DMA_CONFIG" -->
+<p><code>#include &lt;<a class="el" href="cc2511__map_8h_source.html">cc2511_map.h</a>&gt;</code></p>
+<table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6f90ec9a24bac7310788567e3d4e033d"></a><!-- doxytag: member="DMA_CONFIG::SRCADDRH" ref="a6f90ec9a24bac7310788567e3d4e033d" args="" -->
@@ -76,19 +78,68 @@ unsigned char&#160;</td><td class="memItemRight" valign="bottom"><b>SRCADDRL</b>
 unsigned char&#160;</td><td class="memItemRight" valign="bottom"><b>DESTADDRH</b></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0df15369de48f030ced227e8c36d277e"></a><!-- doxytag: member="DMA_CONFIG::DESTADDRL" ref="a0df15369de48f030ced227e8c36d277e" args="" -->
 unsigned char&#160;</td><td class="memItemRight" valign="bottom"><b>DESTADDRL</b></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab03f3d7f7d77a925277ec67700f65a39"></a><!-- doxytag: member="DMA_CONFIG::VLEN_LENH" ref="ab03f3d7f7d77a925277ec67700f65a39" args="" -->
-unsigned char&#160;</td><td class="memItemRight" valign="bottom"><b>VLEN_LENH</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_m_a___c_o_n_f_i_g.html#ab03f3d7f7d77a925277ec67700f65a39">VLEN_LENH</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa4a66132832d1adc65f0529067985c6c"></a><!-- doxytag: member="DMA_CONFIG::LENL" ref="aa4a66132832d1adc65f0529067985c6c" args="" -->
 unsigned char&#160;</td><td class="memItemRight" valign="bottom"><b>LENL</b></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2dda7f0b73d9a9b2924c723c891091ec"></a><!-- doxytag: member="DMA_CONFIG::DC6" ref="a2dda7f0b73d9a9b2924c723c891091ec" args="" -->
-unsigned char&#160;</td><td class="memItemRight" valign="bottom"><b>DC6</b></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a53915253e768904879bc81d52c0c6bb3"></a><!-- doxytag: member="DMA_CONFIG::DC7" ref="a53915253e768904879bc81d52c0c6bb3" args="" -->
-unsigned char&#160;</td><td class="memItemRight" valign="bottom"><b>DC7</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_m_a___c_o_n_f_i_g.html#a2dda7f0b73d9a9b2924c723c891091ec">DC6</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_m_a___c_o_n_f_i_g.html#a53915253e768904879bc81d52c0c6bb3">DC7</a></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="cc2511__map_8h_source.html#l00353">353</a> of file <a class="el" href="cc2511__map_8h_source.html">cc2511_map.h</a>.</p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
+<div class="textblock"><p>This struct represents the configuration of a single DMA channel. See the "DMA Controller" section of the CC2511F32 datasheet for information on how to use this struct and DMA in general.</p>
+<p>Also see <a class="el" href="dma_8h.html">dma.h</a>.</p>
+<p>NOTE: You won't find DC6 or DC7 in the datasheet, the names of those bytes were invented for this struct. </p>
+
+<p>Definition at line <a class="el" href="cc2511__map_8h_source.html#l00368">368</a> of file <a class="el" href="cc2511__map_8h_source.html">cc2511_map.h</a>.</p>
+</div><hr/><h2>Field Documentation</h2>
+<a class="anchor" id="a2dda7f0b73d9a9b2924c723c891091ec"></a><!-- doxytag: member="DMA_CONFIG::DC6" ref="a2dda7f0b73d9a9b2924c723c891091ec" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char <a class="el" href="struct_d_m_a___c_o_n_f_i_g.html#a2dda7f0b73d9a9b2924c723c891091ec">DC6</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Bit 7 is WORDSIZE, Bits 6:5 are TMODE, Bits 4:0 are TRIG. </p>
+
+<p>Definition at line <a class="el" href="cc2511__map_8h_source.html#l00380">380</a> of file <a class="el" href="cc2511__map_8h_source.html">cc2511_map.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a53915253e768904879bc81d52c0c6bb3"></a><!-- doxytag: member="DMA_CONFIG::DC7" ref="a53915253e768904879bc81d52c0c6bb3" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char <a class="el" href="struct_d_m_a___c_o_n_f_i_g.html#a53915253e768904879bc81d52c0c6bb3">DC7</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Bits 7:6 are SRCINC, 5:4 are DESTINC, 3 is IRQMASK, 2 is M8, 1:0 are PRIORITY. </p>
+
+<p>Definition at line <a class="el" href="cc2511__map_8h_source.html#l00383">383</a> of file <a class="el" href="cc2511__map_8h_source.html">cc2511_map.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab03f3d7f7d77a925277ec67700f65a39"></a><!-- doxytag: member="DMA_CONFIG::VLEN_LENH" ref="ab03f3d7f7d77a925277ec67700f65a39" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char <a class="el" href="struct_d_m_a___c_o_n_f_i_g.html#ab03f3d7f7d77a925277ec67700f65a39">VLEN_LENH</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Bits 7:5 are VLEN, bits 4:0 are LEN[12:8] </p>
+
+<p>Definition at line <a class="el" href="cc2511__map_8h_source.html#l00376">376</a> of file <a class="el" href="cc2511__map_8h_source.html">cc2511_map.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
 <li>include/<a class="el" href="cc2511__map_8h_source.html">cc2511_map.h</a></li>
 </ul>
 </div>
@@ -97,7 +148,7 @@ unsigned char&#160;</td><td class="memItemRight" valign="bottom"><b>DC7</b></td>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Defines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -106,7 +157,7 @@ unsigned char&#160;</td><td class="memItemRight" valign="bottom"><b>DC7</b></td>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Fri Apr 8 2011 18:20:34 for Wixel SDK by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Apr 18 2011 11:50:25 for Wixel SDK by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

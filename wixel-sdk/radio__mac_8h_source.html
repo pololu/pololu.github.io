@@ -62,49 +62,37 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <a href="radio__mac_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
-<a name="l00009"></a>00009 <span class="preprocessor">#ifndef _RADIO_MAC_H_</span>
-<a name="l00010"></a>00010 <span class="preprocessor"></span><span class="preprocessor">#define _RADIO_MAC_H_</span>
-<a name="l00011"></a>00011 <span class="preprocessor"></span>
-<a name="l00012"></a>00012 <span class="preprocessor">#include &lt;<a class="code" href="cc2511__map_8h.html">cc2511_map.h</a>&gt;</span>
-<a name="l00013"></a>00013 <span class="preprocessor">#include &lt;<a class="code" href="cc2511__types_8h.html">cc2511_types.h</a>&gt;</span>
-<a name="l00014"></a>00014 
-<a name="l00015"></a>00015 <span class="comment">// The units of the &quot;timeout&quot; parameter to radioMacRx, in units of microseconds.</span>
-<a name="l00016"></a>00016 <span class="preprocessor">#define RADIO_TIMEOUT_UNIT 25      // It&#39;s more like 25.3906.  This is determined by RX_TIME and WOR_RES settings.</span>
-<a name="l00017"></a>00017 <span class="preprocessor"></span>
-<a name="l00018"></a>00018 
-<a name="l00019"></a>00019 <span class="comment">// Radio MAC states</span>
-<a name="l00020"></a>00020 <span class="preprocessor">#define RADIO_MAC_STATE_OFF      0</span>
-<a name="l00021"></a>00021 <span class="preprocessor"></span><span class="preprocessor">#define RADIO_MAC_STATE_IDLE     1</span>
-<a name="l00022"></a>00022 <span class="preprocessor"></span><span class="preprocessor">#define RADIO_MAC_STATE_RX       2</span>
-<a name="l00023"></a>00023 <span class="preprocessor"></span><span class="preprocessor">#define RADIO_MAC_STATE_TX       3</span>
-<a name="l00024"></a>00024 <span class="preprocessor"></span>
-<a name="l00025"></a>00025 <span class="comment">// Radio MAC events</span>
-<a name="l00026"></a>00026 <span class="preprocessor">#define RADIO_MAC_EVENT_TX                  30    // We finished transmitting the packet.</span>
-<a name="l00027"></a>00027 <span class="preprocessor"></span><span class="preprocessor">#define RADIO_MAC_EVENT_RX                  31    // We received a packet normally.</span>
-<a name="l00028"></a>00028 <span class="preprocessor"></span><span class="preprocessor">#define RADIO_MAC_EVENT_RX_TIMEOUT          32    // We were trying to receive a packet normally, but the timeout period expired.</span>
-<a name="l00029"></a>00029 <span class="preprocessor"></span><span class="preprocessor">#define RADIO_MAC_EVENT_STROBE              33    // The user set radioMacStrobe=1 in order to get the ISR to run.</span>
+<a name="l00020"></a>00020 <span class="preprocessor">#ifndef _RADIO_MAC_H_</span>
+<a name="l00021"></a>00021 <span class="preprocessor"></span><span class="preprocessor">#define _RADIO_MAC_H_</span>
+<a name="l00022"></a>00022 <span class="preprocessor"></span>
+<a name="l00023"></a>00023 <span class="preprocessor">#include &lt;<a class="code" href="cc2511__map_8h.html">cc2511_map.h</a>&gt;</span>
+<a name="l00024"></a>00024 <span class="preprocessor">#include &lt;<a class="code" href="cc2511__types_8h.html">cc2511_types.h</a>&gt;</span>
+<a name="l00025"></a>00025 
+<a name="l00027"></a><a class="code" href="radio__mac_8h.html#abf714736a56bb91d2a0c5c1f732765cd">00027</a> <span class="preprocessor">#define RADIO_MAC_EVENT_TX                  30</span>
+<a name="l00028"></a>00028 <span class="preprocessor"></span>
+<a name="l00029"></a><a class="code" href="radio__mac_8h.html#a4ea47c7be159362cef4207eeb3f61acd">00029</a> <span class="preprocessor">#define RADIO_MAC_EVENT_RX                  31</span>
 <a name="l00030"></a>00030 <span class="preprocessor"></span>
-<a name="l00031"></a>00031 <span class="keywordtype">void</span> <a class="code" href="radio__mac_8h.html#a879bd8b24ebb8cd8ccada717913955fa">radioMacInit</a>(<span class="keywordtype">void</span>);
-<a name="l00032"></a>00032 
-<a name="l00033"></a>00033 <span class="keywordtype">void</span> radioMacStrobe(<span class="keywordtype">void</span>);        <span class="comment">// Forces radioMacEventHandler to run soon.</span>
-<a name="l00034"></a>00034 
-<a name="l00035"></a>00035 <span class="comment">// Current state of the MAC.</span>
-<a name="l00036"></a>00036 <span class="keyword">extern</span> <span class="keyword">volatile</span> <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#aad9ae913bdfab20dd94ad04ee2d5b045">DATA</a> radioMacState;
-<a name="l00037"></a>00037 
-<a name="l00038"></a>00038 <span class="comment">// State-changing functions.  These should not be called if radioMacState == RADIO_MAC_STATE_TX.</span>
-<a name="l00039"></a>00039 <span class="keywordtype">void</span> radioMacTx(<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> * packet);
-<a name="l00040"></a>00040 <span class="keywordtype">void</span> radioMacRx(<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> * packet, <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> timeout);
-<a name="l00041"></a>00041 
-<a name="l00048"></a>00048 <span class="keywordtype">void</span> <a class="code" href="radio__mac_8h.html#ac8e1adc28c503c2ac86740b30285f4ac">radioMacEventHandler</a>(<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> event);
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050 <span class="comment">// Error reporting variables</span>
-<a name="l00051"></a>00051 <span class="keyword">extern</span> <span class="keyword">volatile</span> <a class="code" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> radioRxOverflowOccurred;
-<a name="l00052"></a>00052 <span class="keyword">extern</span> <span class="keyword">volatile</span> <a class="code" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> radioTxUnderflowOccurred;
-<a name="l00053"></a>00053 <span class="keyword">extern</span> <span class="keyword">volatile</span> <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#aad9ae913bdfab20dd94ad04ee2d5b045">DATA</a> radioBadMarcState;
-<a name="l00054"></a>00054 
-<a name="l00055"></a>00055 <a class="code" href="cc2511__map_8h.html#a671201fd0e77ec576f30610b276acd11">ISR</a>(RF, 1);
-<a name="l00056"></a>00056 
-<a name="l00057"></a>00057 <span class="preprocessor">#endif </span><span class="comment">/* RADIO_H_ */</span>
+<a name="l00031"></a><a class="code" href="radio__mac_8h.html#a370ae580a1917a462c8582a937dc9616">00031</a> <span class="preprocessor">#define RADIO_MAC_EVENT_RX_TIMEOUT          32</span>
+<a name="l00032"></a>00032 <span class="preprocessor"></span>
+<a name="l00033"></a><a class="code" href="radio__mac_8h.html#ac58da9d2d37224c50e8bf1bd1b3c54ea">00033</a> <span class="preprocessor">#define RADIO_MAC_EVENT_STROBE              33</span>
+<a name="l00034"></a>00034 <span class="preprocessor"></span>
+<a name="l00038"></a>00038 <span class="keywordtype">void</span> <a class="code" href="radio__mac_8h.html#a879bd8b24ebb8cd8ccada717913955fa">radioMacInit</a>(<span class="keywordtype">void</span>);
+<a name="l00039"></a>00039 
+<a name="l00054"></a>00054 <span class="keywordtype">void</span> <a class="code" href="radio__mac_8h.html#ae30d4e793b4ff8775d24ae71e4fbe4d8">radioMacStrobe</a>(<span class="keywordtype">void</span>);
+<a name="l00055"></a>00055 
+<a name="l00063"></a>00063 <span class="keywordtype">void</span> <a class="code" href="radio__mac_8h.html#abb527ef985bf94a9aa907cf8baceeb41">radioMacTx</a>(<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> * packet);
+<a name="l00064"></a>00064 
+<a name="l00079"></a>00079 <span class="keywordtype">void</span> <a class="code" href="radio__mac_8h.html#ad210416ac6f7b7a68e1d7ad5ff305744">radioMacRx</a>(<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> * packet, <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> timeout);
+<a name="l00080"></a>00080 
+<a name="l00100"></a>00100 <span class="keywordtype">void</span> <a class="code" href="radio__mac_8h.html#ac8e1adc28c503c2ac86740b30285f4ac">radioMacEventHandler</a>(<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> event);
+<a name="l00101"></a>00101 
+<a name="l00108"></a>00108 <span class="keyword">extern</span> <span class="keyword">volatile</span> <a class="code" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> <a class="code" href="radio__mac_8h.html#a942d09f58d790c827670c1592cb75db5">radioRxOverflowOccurred</a>;
+<a name="l00109"></a>00109 
+<a name="l00115"></a>00115 <span class="keyword">extern</span> <span class="keyword">volatile</span> <a class="code" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> <a class="code" href="radio__mac_8h.html#a2e42d04f19aec585719100fa06e3ed15">radioTxUnderflowOccurred</a>;
+<a name="l00116"></a>00116 
+<a name="l00118"></a>00118 <a class="code" href="cc2511__map_8h.html#a671201fd0e77ec576f30610b276acd11">ISR</a>(RF, 1);
+<a name="l00119"></a>00119 
+<a name="l00120"></a>00120 <span class="preprocessor">#endif </span><span class="comment">/* RADIO_H_ */</span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -112,7 +100,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Defines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -121,7 +109,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Fri Apr 8 2011 18:20:32 for Wixel SDK by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Apr 18 2011 11:50:23 for Wixel SDK by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

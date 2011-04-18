@@ -62,29 +62,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <a href="dma_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
-<a name="l00007"></a>00007 <span class="preprocessor">#ifndef _DMA_H_</span>
-<a name="l00008"></a>00008 <span class="preprocessor"></span><span class="preprocessor">#define _DMA_H_</span>
-<a name="l00009"></a>00009 <span class="preprocessor"></span>
-<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;<a class="code" href="cc2511__map_8h.html">cc2511_map.h</a>&gt;</span>
-<a name="l00011"></a>00011 
-<a name="l00016"></a>00016 <span class="keywordtype">void</span> <a class="code" href="dma_8h.html#a5a6b81e8c7d1d9acf90276d1f51b6f68">dmaInit</a>();
-<a name="l00017"></a>00017 
-<a name="l00020"></a><a class="code" href="dma_8h.html#ac0cfebe6c8eb3c8e1fdd4c497a3799e9">00020</a> <span class="preprocessor">#define DMA_CHANNEL_RADIO  1</span>
-<a name="l00021"></a>00021 <span class="preprocessor"></span>
-<a name="l00024"></a><a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html">00024</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html">DMA14_CONFIG</a>
-<a name="l00025"></a>00025 {
-<a name="l00029"></a><a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">00029</a>     <span class="keyword">volatile</span> <a class="code" href="struct_d_m_a___c_o_n_f_i_g.html">DMA_CONFIG</a> <a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">radio</a>;
-<a name="l00030"></a>00030 
-<a name="l00032"></a><a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#ad78c3f54cc0bfb17d33f247a69f7c89e">00032</a>     <span class="keyword">volatile</span> <a class="code" href="struct_d_m_a___c_o_n_f_i_g.html">DMA_CONFIG</a> <a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#ad78c3f54cc0bfb17d33f247a69f7c89e">_2</a>;
-<a name="l00033"></a>00033 
-<a name="l00035"></a><a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#aa47b13c235e09df264a6cfc1a1ae5cd2">00035</a>     <span class="keyword">volatile</span> <a class="code" href="struct_d_m_a___c_o_n_f_i_g.html">DMA_CONFIG</a> <a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#aa47b13c235e09df264a6cfc1a1ae5cd2">_3</a>;
-<a name="l00036"></a>00036 
-<a name="l00038"></a><a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#aa8b46ac0faaf0401197ad25a0f04acb5">00038</a>     <span class="keyword">volatile</span> <a class="code" href="struct_d_m_a___c_o_n_f_i_g.html">DMA_CONFIG</a> <a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#aa8b46ac0faaf0401197ad25a0f04acb5">_4</a>;
-<a name="l00039"></a>00039 } <a class="code" href="dma_8h.html#a23824ef379cfb90a8fdb193ae104c035">DMA14_CONFIG</a>;
-<a name="l00040"></a>00040 
-<a name="l00047"></a>00047 <span class="keyword">extern</span> <a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html">DMA14_CONFIG</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> <a class="code" href="dma_8h.html#a76aa30a9bb0f26207818ce120593ad72">dmaConfig</a>;
-<a name="l00048"></a>00048 
-<a name="l00049"></a>00049 <span class="preprocessor">#endif</span>
+<a name="l00008"></a>00008 <span class="preprocessor">#ifndef _DMA_H_</span>
+<a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor">#define _DMA_H_</span>
+<a name="l00010"></a>00010 <span class="preprocessor"></span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;<a class="code" href="cc2511__map_8h.html">cc2511_map.h</a>&gt;</span>
+<a name="l00012"></a>00012 
+<a name="l00017"></a>00017 <span class="keywordtype">void</span> <a class="code" href="dma_8h.html#a2efa21dedda1992b5cb10ca9335d17f2">dmaInit</a>(<span class="keywordtype">void</span>);
+<a name="l00018"></a>00018 
+<a name="l00021"></a><a class="code" href="dma_8h.html#ac0cfebe6c8eb3c8e1fdd4c497a3799e9">00021</a> <span class="preprocessor">#define DMA_CHANNEL_RADIO  1</span>
+<a name="l00022"></a>00022 <span class="preprocessor"></span>
+<a name="l00025"></a><a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html">00025</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html">DMA14_CONFIG</a>
+<a name="l00026"></a>00026 {
+<a name="l00030"></a><a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">00030</a>     <span class="keyword">volatile</span> <a class="code" href="struct_d_m_a___c_o_n_f_i_g.html">DMA_CONFIG</a> <a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#af6282bad68649233ab5e589a3fa4825c">radio</a>;
+<a name="l00031"></a>00031 
+<a name="l00033"></a><a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#ad78c3f54cc0bfb17d33f247a69f7c89e">00033</a>     <span class="keyword">volatile</span> <a class="code" href="struct_d_m_a___c_o_n_f_i_g.html">DMA_CONFIG</a> <a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#ad78c3f54cc0bfb17d33f247a69f7c89e">_2</a>;
+<a name="l00034"></a>00034 
+<a name="l00036"></a><a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#aa47b13c235e09df264a6cfc1a1ae5cd2">00036</a>     <span class="keyword">volatile</span> <a class="code" href="struct_d_m_a___c_o_n_f_i_g.html">DMA_CONFIG</a> <a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#aa47b13c235e09df264a6cfc1a1ae5cd2">_3</a>;
+<a name="l00037"></a>00037 
+<a name="l00039"></a><a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#aa8b46ac0faaf0401197ad25a0f04acb5">00039</a>     <span class="keyword">volatile</span> <a class="code" href="struct_d_m_a___c_o_n_f_i_g.html">DMA_CONFIG</a> <a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html#aa8b46ac0faaf0401197ad25a0f04acb5">_4</a>;
+<a name="l00040"></a>00040 } <a class="code" href="dma_8h.html#a23824ef379cfb90a8fdb193ae104c035">DMA14_CONFIG</a>;
+<a name="l00041"></a>00041 
+<a name="l00048"></a>00048 <span class="keyword">extern</span> <a class="code" href="struct_d_m_a14___c_o_n_f_i_g.html">DMA14_CONFIG</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> <a class="code" href="dma_8h.html#a76aa30a9bb0f26207818ce120593ad72">dmaConfig</a>;
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050 <span class="preprocessor">#endif</span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -92,7 +92,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Defines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -101,7 +101,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Fri Apr 8 2011 18:20:32 for Wixel SDK by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Apr 18 2011 11:50:23 for Wixel SDK by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

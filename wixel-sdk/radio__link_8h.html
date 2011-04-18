@@ -91,10 +91,9 @@ Variables</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__link_8h.html#a7c0c7bab2deeb85a8bb24311e761ea55">radioLinkResetPacketReceived</a></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p><code>radio_link.lib</code> is a library that provides reliable, ordered delivery and reception of a series of data packets between two Wixels on the same frequency. This is the layer that takes care of Ping/ACK/NAK packets, and handles the details of timing. This layer defines the RF packet memory buffers used, and controls access to those buffers.</p>
-<p>This layer only supports communication between a pair of Wixels. If you wanted to make a system/network with more than 2 Wixels, you would have to replace this layer.</p>
-<p>Similarly, this layer also restricts us to only having one logical data pipe. If you wanted to send some extra data that doesn't get NAKed, or gets NAKed at different times then the regular data, you would need to replace this layer with something more complicated that keeps track of different streams and schedules them.</p>
-<p>This layer does not correspond cleanly to any of the layers in the OSI Model. It combines portions of the Data Link Layer (#2), Network Layer (#3), and Transport Layer (#4).</p>
+<div class="textblock"><p>The <code>radio_link.lib</code> library provides reliable, ordered delivery and reception of a series of data packets between two Wixels on the same frequency. This is the library that takes care of Ping/ACK/NAK packets and handles the details of timing. This library defines radio packet memory buffers and controls access to those buffers.</p>
+<p>This library does not work if there are more than two Wixels broadcasting on the same channel. For wireless communication between more than two Wixels, you can use <code>radio_queue.lib</code> (see <a class="el" href="radio__queue_8h.html">radio_queue.h</a>).</p>
+<p>Similarly, this library also restricts us to only having one logical data pipe. If you wanted to send some extra data that doesn't get NAKed, or gets NAKed at different times then the regular data, you would need to replace this library with something more complicated that keeps track of different streams and schedules them.</p>
 <p>This library depends on <code>radio_mac.lib</code>. </p>
 
 <p>Definition in file <a class="el" href="radio__link_8h_source.html">radio_link.h</a>.</p>
@@ -109,9 +108,9 @@ Variables</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Each packet can also have a "Payload Type" attached to it, which is a number between 0 and RADIO_LINK_MAX_PAYLOAD_TYPE. </p>
+<p>Each packet has a "Payload Type" attached to it, which is a number between 0 and <a class="el" href="radio__link_8h.html#a123096a89c9d0a95d3f893c583b902b3">RADIO_LINK_MAX_PAYLOAD_TYPE</a>. The meanings of the different payload types can be defined by higher-level code. </p>
 
-<p>Definition at line <a class="el" href="radio__link_8h_source.html#l00036">36</a> of file <a class="el" href="radio__link_8h_source.html">radio_link.h</a>.</p>
+<p>Definition at line <a class="el" href="radio__link_8h_source.html#l00037">37</a> of file <a class="el" href="radio__link_8h_source.html">radio_link.h</a>.</p>
 
 </div>
 </div>
@@ -125,9 +124,9 @@ Variables</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Each packet can contain at most 18 bytes of payload. </p>
+<p>Each packet can contain at most 18 bytes of payload. This limit is imposed by the <code>radio_link.lib</code> library, not the CC2511. </p>
 
-<p>Definition at line <a class="el" href="radio__link_8h_source.html#l00032">32</a> of file <a class="el" href="radio__link_8h_source.html">radio_link.h</a>.</p>
+<p>Definition at line <a class="el" href="radio__link_8h_source.html#l00031">31</a> of file <a class="el" href="radio__link_8h_source.html">radio_link.h</a>.</p>
 
 </div>
 </div>
@@ -146,7 +145,7 @@ Variables</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Initializes the radio_link library and the lower-level libraries that it radio_link depends on. This must be called before any other functions in the library. </p>
+<p>Initializes the <code>radio_link.lib</code> library and the lower-level libraries that it depends on. This must be called before any other functions in the library. </p>
 
 <p>Definition at line <a class="el" href="radio__link_8c_source.html#l00100">100</a> of file <a class="el" href="radio__link_8c_source.html">radio_link.c</a>.</p>
 
@@ -166,9 +165,11 @@ Variables</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Returns a pointer to the current RX packet (the earliest packet received by radio_link which has not been processed yet by higher-level code). Returns 0 if there is no RX packet available. The RX packet has the same format as the TX packet: the length of the payload is at offset 0 and the data starts at offset 1. When you are done reading the packet, you should call <a class="el" href="radio__link_8h.html#ae8acc73b55d0b16510613e0c790138d7">radioLinkRxDoneWithPacket()</a>. This frees the current packet buffer so it can receive another packet. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>A pointer to the current RX packet. This is the earliest packet received from the other Wixel which has not yet been processed yet by higher-level code. Returns 0 if there is no RX packet available.</dd></dl>
+<p>The RX packet has the same format as the TX packet: the length of the payload is at offset 0 and the data starts at offset 1.</p>
+<p>When you are done reading the packet you should call <a class="el" href="radio__link_8h.html#ae8acc73b55d0b16510613e0c790138d7">radioLinkRxDoneWithPacket()</a> to advance to the next packet. </p>
 
-<p>Definition at line <a class="el" href="radio__link_8c_source.html#l00179">179</a> of file <a class="el" href="radio__link_8c_source.html">radio_link.c</a>.</p>
+<p>Definition at line <a class="el" href="radio__link_8c_source.html#l00181">181</a> of file <a class="el" href="radio__link_8c_source.html">radio_link.c</a>.</p>
 
 </div>
 </div>
@@ -186,9 +187,10 @@ Variables</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<dl class="return"><dt><b>Returns:</b></dt><dd>The payload type of the current RX packet. This number was the argument to radioLinkTxsendPacket() on the other Wixel. This should only be called if radioLinkRxCurrentPacket recently returned a non-zero pointer. </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The payload type of the current RX packet. This number was the argument to <a class="el" href="radio__link_8h.html#a86391d706420a54d26cee340def5a337">radioLinkTxSendPacket()</a> on the other Wixel.</dd></dl>
+<p>This should only be called if <a class="el" href="radio__link_8h.html#a3c0fc485a32582696f95d745f4a3d339">radioLinkRxCurrentPacket()</a> recently returned a non-zero pointer. </p>
 
-<p>Definition at line <a class="el" href="radio__link_8c_source.html#l00189">189</a> of file <a class="el" href="radio__link_8c_source.html">radio_link.c</a>.</p>
+<p>Definition at line <a class="el" href="radio__link_8c_source.html#l00191">191</a> of file <a class="el" href="radio__link_8c_source.html">radio_link.c</a>.</p>
 
 </div>
 </div>
@@ -206,9 +208,9 @@ Variables</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Frees the current RX packet buffer so that you can move on to processing the next one. See <a class="el" href="radio__link_8h.html#a3c0fc485a32582696f95d745f4a3d339">radioLinkRxCurrentPacket()</a> for details. </p>
+<p>Frees the current RX packet so that you can advance to processing the next one. See the <a class="el" href="radio__link_8h.html#a3c0fc485a32582696f95d745f4a3d339">radioLinkRxCurrentPacket()</a> documentation for details. </p>
 
-<p>Definition at line <a class="el" href="radio__link_8c_source.html#l00194">194</a> of file <a class="el" href="radio__link_8c_source.html">radio_link.c</a>.</p>
+<p>Definition at line <a class="el" href="radio__link_8c_source.html#l00196">196</a> of file <a class="el" href="radio__link_8c_source.html">radio_link.c</a>.</p>
 
 </div>
 </div>
@@ -226,10 +228,9 @@ Variables</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<dl class="return"><dt><b>Returns:</b></dt><dd>The number of radio packet buffers that are currently free (available to hold data).</dd></dl>
-<p>This function has no side effects. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The number of radio TX packet buffers that are currently free (available to hold data). </dd></dl>
 
-<p>Definition at line <a class="el" href="radio__link_8c_source.html#l00133">133</a> of file <a class="el" href="radio__link_8c_source.html">radio_link.c</a>.</p>
+<p>Definition at line <a class="el" href="radio__link_8c_source.html#l00135">135</a> of file <a class="el" href="radio__link_8c_source.html">radio_link.c</a>.</p>
 
 </div>
 </div>
@@ -247,19 +248,20 @@ Variables</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Returns a pointer to the current packet, or 0 if no packet is available. This function has no side effects. To populate this packet, you should write the length of the payload data (which must not exceed RADIO_LINK_PAYLOAD_SIZE) to offset 0, and write the data starting at offset 1. After you have put this data in the packet, call radioLinkTxSendPacket to actually queue the packet up to be sent on the radio. Example usage: </p>
-<pre>
-   uint8 XDATA * packet = <a class="el" href="radio__link_8h.html#a981ad99a67b230efcd579303031e7646">radioLinkTxCurrentPacket()</a>;
-   if (packet != 0)
-   {
-       packet[0] = 3;   // payload length.  Must not exceed RADIO_LINK_PAYLOAD_SIZE.
-       packet[1] = 'a';
-       packet[2] = 'b';
-       packet[3] = 'c';
-       radioLinkTxSendPacket(0);
-   }
- </pre> 
-<p>Definition at line <a class="el" href="radio__link_8c_source.html#l00144">144</a> of file <a class="el" href="radio__link_8c_source.html">radio_link.c</a>.</p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>A pointer to the current TX packet, or 0 if no packet is available.</dd></dl>
+<p>To populate this packet, you should write the length of the payload data (which must not exceed <a class="el" href="radio__link_8h.html#ae7ce31ad7050a39d9776fa28653b3e5f">RADIO_LINK_PAYLOAD_SIZE</a>) to offset 0, and write the data starting at offset 1. After you have put this data in the packet, call <a class="el" href="radio__link_8h.html#a86391d706420a54d26cee340def5a337">radioLinkTxSendPacket()</a> to actually queue the packet up to be sent on the radio. Example usage: </p>
+<div class="fragment"><pre class="fragment"><a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> * packet = <a class="code" href="radio__link_8h.html#a981ad99a67b230efcd579303031e7646">radioLinkTxCurrentPacket</a>();
+<span class="keywordflow">if</span> (packet != 0)
+{
+    packet[0] = 3;   <span class="comment">// payload length.  Must not exceed RADIO_LINK_PAYLOAD_SIZE.</span>
+    packet[1] = <span class="charliteral">&#39;a&#39;</span>;
+    packet[2] = <span class="charliteral">&#39;b&#39;</span>;
+    packet[3] = <span class="charliteral">&#39;c&#39;</span>;
+    <a class="code" href="radio__link_8h.html#a86391d706420a54d26cee340def5a337">radioLinkTxSendPacket</a>(0);
+}
+</pre></div><p>This function has no side effects. </p>
+
+<p>Definition at line <a class="el" href="radio__link_8c_source.html#l00146">146</a> of file <a class="el" href="radio__link_8c_source.html">radio_link.c</a>.</p>
 
 </div>
 </div>
@@ -277,10 +279,9 @@ Variables</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<dl class="return"><dt><b>Returns:</b></dt><dd>The number of radio packet buffers that are currently busy (holding a data packet that has not been successfully sent yet).</dd></dl>
-<p>This function has no side effects. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The number of radio TX packet buffers that are currently busy (holding a data packet that has not been successfully sent yet). </dd></dl>
 
-<p>Definition at line <a class="el" href="radio__link_8c_source.html#l00139">139</a> of file <a class="el" href="radio__link_8c_source.html">radio_link.c</a>.</p>
+<p>Definition at line <a class="el" href="radio__link_8c_source.html#l00141">141</a> of file <a class="el" href="radio__link_8c_source.html">radio_link.c</a>.</p>
 
 </div>
 </div>
@@ -298,7 +299,7 @@ Variables</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Sends the current TX packet. See <a class="el" href="radio__link_8h.html#a981ad99a67b230efcd579303031e7646">radioLinkTxCurrentPacket()</a> for details.</p>
+<p>Sends the current TX packet. See the documentation of <a class="el" href="radio__link_8h.html#a981ad99a67b230efcd579303031e7646">radioLinkTxCurrentPacket()</a> for details.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">payloadType</td><td>A number between 0 and RADIO_LINK_MAX_PACKET_TYPE that will be attached to the packet. This can be used to specify what type of data the packet contains. </td></tr>
@@ -306,7 +307,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="radio__link_8c_source.html#l00154">154</a> of file <a class="el" href="radio__link_8c_source.html">radio_link.c</a>.</p>
+<p>Definition at line <a class="el" href="radio__link_8c_source.html#l00156">156</a> of file <a class="el" href="radio__link_8c_source.html">radio_link.c</a>.</p>
 
 </div>
 </div>
@@ -337,15 +338,15 @@ Variables</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>This bit allows the higher-level code to detect when a reset packet is received. It is set to 1 in an interrupt by the radio_link library whenever a reset packet is received. The higher-level code should set it to zero when it uses this information.</p>
+<p>This bit allows the higher-level code to detect when a reset packet is received. It is set to 1 in an interrupt by the <code>radio_link.lib</code> library whenever a reset packet is received. The higher-level code should set it to zero when it uses this information.</p>
 <p>A reset packet will be received whenever the other Wixel is reset for any reason. Multiple reset packets can also be received in quick succession if the other device does not receive the acknowledgment packet sent by this device (every radio packet has a chance of being lost). This situation is indistinguishable from the situation where the other party is actually getting reset several times in quick succession.</p>
-<p>If the higher-level code responds to this bit by sending an initialization packet to the other device, then it should clear radioLinkResetPacketReceived BEFORE queueing the packet to be sent. Otherwise, the following scenario could occur:</p>
+<p>If the higher-level code responds to this bit by sending an initialization packet to the other device, then it should clear <a class="el" href="radio__link_8h.html#a7c0c7bab2deeb85a8bb24311e761ea55">radioLinkResetPacketReceived</a> BEFORE queueing the packet to be sent. Otherwise, the following sequence of events could occur:</p>
 <ol type="1">
-<li>Main Loop: This device detects a reset packet (radioLinkResetPacketReceived==1).</li>
+<li>Main Loop: This device detects a reset packet (<a class="el" href="radio__link_8h.html#a7c0c7bab2deeb85a8bb24311e761ea55">radioLinkResetPacketReceived</a>==1).</li>
 <li>Main Loop: This device queues initialization packet to be sent.</li>
 <li>ISR: This device sends an initialization packet.</li>
 <li>ISR: This device receives a reset packet because other device got reset.</li>
-<li>This device clears the radioLinkResetPacketReceived.</li>
+<li>This device clears the <a class="el" href="radio__link_8h.html#a7c0c7bab2deeb85a8bb24311e761ea55">radioLinkResetPacketReceived</a>.</li>
 </ol>
 <p>By clearing the bit first, you guarantee that an initialization packet will be sent AFTER the final reset packet is received.</p>
 <p>Example use: </p>
@@ -376,7 +377,7 @@ Variables</h2></td></tr>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Defines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -385,7 +386,7 @@ Variables</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Fri Apr 8 2011 18:20:33 for Wixel SDK by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Apr 18 2011 11:50:24 for Wixel SDK by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

@@ -83,10 +83,8 @@ Data Structures</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___e_n_d_p_o_i_n_t.html">USB_DESCRIPTOR_ENDPOINT</a></td></tr>
 <tr><td colspan="2"><h2><a name="define-members"></a>
 Defines</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac2142aa49fc00f489cd4fbf2aba23fae"></a><!-- doxytag: member="usb.h::USB_VENDOR_ID_POLOLU" ref="ac2142aa49fc00f489cd4fbf2aba23fae" args="" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>USB_VENDOR_ID_POLOLU</b>&#160;&#160;&#160;0x1FFB</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a75ea200f227f8f25545643ce1efc4841"></a><!-- doxytag: member="usb.h::USB_EP0_PACKET_SIZE" ref="a75ea200f227f8f25545643ce1efc4841" args="" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>USB_EP0_PACKET_SIZE</b>&#160;&#160;&#160;32</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#ac2142aa49fc00f489cd4fbf2aba23fae">USB_VENDOR_ID_POLOLU</a>&#160;&#160;&#160;0x1FFB</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#a75ea200f227f8f25545643ce1efc4841">USB_EP0_PACKET_SIZE</a>&#160;&#160;&#160;32</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a062f3147a1bae954b642b915827b3f3f"></a><!-- doxytag: member="usb.h::USB_REQUEST_GET_STATUS" ref="a062f3147a1bae954b642b915827b3f3f" args="" -->
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>USB_REQUEST_GET_STATUS</b>&#160;&#160;&#160;0u</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab9fe860caa1f21c9410984a24bf57c7c"></a><!-- doxytag: member="usb.h::USB_REQUEST_CLEAR_FEATURE" ref="ab9fe860caa1f21c9410984a24bf57c7c" args="" -->
@@ -171,36 +169,29 @@ Defines</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>USB_TRANSFER_TYPE_BULK</b>&#160;&#160;&#160;2</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac80ae240a4a703b554aa8edee201495f"></a><!-- doxytag: member="usb.h::USB_TRANSFER_TYPE_INTERRUPT" ref="ac80ae240a4a703b554aa8edee201495f" args="" -->
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>USB_TRANSFER_TYPE_INTERRUPT</b>&#160;&#160;&#160;3</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1c9e637f3a06eb4cf6ddddaa646d6eaa"></a><!-- doxytag: member="usb.h::USB_LANGUAGE_EN_US" ref="a1c9e637f3a06eb4cf6ddddaa646d6eaa" args="" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>USB_LANGUAGE_EN_US</b>&#160;&#160;&#160;0x0409</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#a1c9e637f3a06eb4cf6ddddaa646d6eaa">USB_LANGUAGE_EN_US</a>&#160;&#160;&#160;0x0409</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4ee1c60f582eac62fd8b25cac8bd69f3"></a><!-- doxytag: member="usb.h::USBCSOL_OUTPKT_RDY" ref="a4ee1c60f582eac62fd8b25cac8bd69f3" args="" -->
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>USBCSOL_OUTPKT_RDY</b>&#160;&#160;&#160;0x01</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0d2341b9c1a5819c5f44f3c42bd70f66"></a><!-- doxytag: member="usb.h::USBCSIL_INPKT_RDY" ref="a0d2341b9c1a5819c5f44f3c42bd70f66" args="" -->
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>USBCSIL_INPKT_RDY</b>&#160;&#160;&#160;0x01</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adc41764251ec29e9599c7fe25c565ef1"></a><!-- doxytag: member="usb.h::USBCSIL_PKT_PRESENT" ref="adc41764251ec29e9599c7fe25c565ef1" args="" -->
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>USBCSIL_PKT_PRESENT</b>&#160;&#160;&#160;0x02</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b3a3fc9864e9d4504633c913cd18955"></a><!-- doxytag: member="usb.h::DEFINE_STRING_DESCRIPTOR" ref="a0b3a3fc9864e9d4504633c913cd18955" args="(name, letter_count,...)" -->
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>DEFINE_STRING_DESCRIPTOR</b>(name, letter_count,...)&#160;&#160;&#160;static <a class="el" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> CODE name[] = { (2*(letter_count+1)) | (USB_DESCRIPTOR_TYPE_STRING&lt;&lt;8), __VA_ARGS__ };</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#a1e25f42717064bbd1612092a893291dc">DEFINE_STRING_DESCRIPTOR</a>(name, char_count,...)&#160;&#160;&#160;static <a class="el" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> CODE name[] = { (2*(char_count+1)) | (USB_DESCRIPTOR_TYPE_STRING&lt;&lt;8), __VA_ARGS__ };</td></tr>
 <tr><td colspan="2"><h2><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aef556172118c1fa8b504f975ce7e21fb"></a><!-- doxytag: member="usb.h::USB_DESCRIPTOR_DEVICE" ref="aef556172118c1fa8b504f975ce7e21fb" args="" -->
-typedef struct <br class="typebreak"/>
-<a class="el" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html">USB_DESCRIPTOR_DEVICE</a>&#160;</td><td class="memItemRight" valign="bottom"><b>USB_DESCRIPTOR_DEVICE</b></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4ea3917c1161437221e7e7f87386c1f6"></a><!-- doxytag: member="usb.h::USB_DESCRIPTOR_CONFIGURATION" ref="a4ea3917c1161437221e7e7f87386c1f6" args="" -->
-typedef struct <br class="typebreak"/>
-<a class="el" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___c_o_n_f_i_g_u_r_a_t_i_o_n.html">USB_DESCRIPTOR_CONFIGURATION</a>&#160;</td><td class="memItemRight" valign="bottom"><b>USB_DESCRIPTOR_CONFIGURATION</b></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a571369d03163c656dc7cdc7b49b4fb58"></a><!-- doxytag: member="usb.h::USB_DESCRIPTOR_INTERFACE_ASSOCIATION" ref="a571369d03163c656dc7cdc7b49b4fb58" args="" -->
-typedef struct <br class="typebreak"/>
-<a class="el" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e___a_s_s_o_c_i_a_t_i_o_n.html">USB_DESCRIPTOR_INTERFACE_ASSOCIATION</a>&#160;</td><td class="memItemRight" valign="bottom"><b>USB_DESCRIPTOR_INTERFACE_ASSOCIATION</b></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae84b624b44c4e66f09fe093354830fe4"></a><!-- doxytag: member="usb.h::USB_DESCRIPTOR_INTERFACE" ref="ae84b624b44c4e66f09fe093354830fe4" args="" -->
-typedef struct <br class="typebreak"/>
-<a class="el" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html">USB_DESCRIPTOR_INTERFACE</a>&#160;</td><td class="memItemRight" valign="bottom"><b>USB_DESCRIPTOR_INTERFACE</b></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a724561b028227cc0018d561ba072b2a6"></a><!-- doxytag: member="usb.h::USB_DESCRIPTOR_ENDPOINT" ref="a724561b028227cc0018d561ba072b2a6" args="" -->
-typedef struct <br class="typebreak"/>
-<a class="el" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___e_n_d_p_o_i_n_t.html">USB_DESCRIPTOR_ENDPOINT</a>&#160;</td><td class="memItemRight" valign="bottom"><b>USB_DESCRIPTOR_ENDPOINT</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef struct <br class="typebreak"/>
+<a class="el" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html">USB_DESCRIPTOR_DEVICE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#aef556172118c1fa8b504f975ce7e21fb">USB_DESCRIPTOR_DEVICE</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef struct <br class="typebreak"/>
+<a class="el" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___c_o_n_f_i_g_u_r_a_t_i_o_n.html">USB_DESCRIPTOR_CONFIGURATION</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#a4ea3917c1161437221e7e7f87386c1f6">USB_DESCRIPTOR_CONFIGURATION</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef struct <br class="typebreak"/>
+<a class="el" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e___a_s_s_o_c_i_a_t_i_o_n.html">USB_DESCRIPTOR_INTERFACE_ASSOCIATION</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#a571369d03163c656dc7cdc7b49b4fb58">USB_DESCRIPTOR_INTERFACE_ASSOCIATION</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef struct <br class="typebreak"/>
+<a class="el" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html">USB_DESCRIPTOR_INTERFACE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#ae84b624b44c4e66f09fe093354830fe4">USB_DESCRIPTOR_INTERFACE</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef struct <br class="typebreak"/>
+<a class="el" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___e_n_d_p_o_i_n_t.html">USB_DESCRIPTOR_ENDPOINT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#a724561b028227cc0018d561ba072b2a6">USB_DESCRIPTOR_ENDPOINT</a></td></tr>
 <tr><td colspan="2"><h2><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><b>USB_DEVICE_STATES</b> { <br/>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#a01aa12d15a604591277df2d2c5f0dd3a">USB_DEVICE_STATES</a> { <br/>
 &#160;&#160;<b>USB_STATE_DETACHED</b> =  0, 
 <b>USB_STATE_ATTACHED</b> =  1, 
 <b>USB_STATE_POWERED</b> =  2, 
@@ -212,58 +203,576 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4552b1c9fe142a402c84c15444d3d927"></a><!-- doxytag: member="usb.h::usbInit" ref="a4552b1c9fe142a402c84c15444d3d927" args="(void)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>usbInit</b> (void)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a602c14b8f268adeae6896014c9a79909"></a><!-- doxytag: member="usb.h::usbPoll" ref="a602c14b8f268adeae6896014c9a79909" args="(void)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>usbPoll</b> (void)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2263ce15754643f4ac6772c60acaef9f"></a><!-- doxytag: member="usb.h::usbControlRead" ref="a2263ce15754643f4ac6772c60acaef9f" args="(uint16 bytesCount, uint8 XDATA *source)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>usbControlRead</b> (<a class="el" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> bytesCount, <a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> XDATA *source)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a75f27ba6c870382e476511cd7f282131"></a><!-- doxytag: member="usb.h::usbControlWrite" ref="a75f27ba6c870382e476511cd7f282131" args="(uint16 bytesCount, uint8 XDATA *source)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>usbControlWrite</b> (<a class="el" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> bytesCount, <a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> XDATA *source)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a809ee9dbebaf3bd90ff89fe4133c9c15"></a><!-- doxytag: member="usb.h::usbControlAcknowledge" ref="a809ee9dbebaf3bd90ff89fe4133c9c15" args="(void)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>usbControlAcknowledge</b> (void)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a231205da3d1655c2962e76f64fa57d4d"></a><!-- doxytag: member="usb.h::usbControlStall" ref="a231205da3d1655c2962e76f64fa57d4d" args="(void)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>usbControlStall</b> (void)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a193c213f751a094371b6048cce3a7b36"></a><!-- doxytag: member="usb.h::usbInitEndpointIn" ref="a193c213f751a094371b6048cce3a7b36" args="(uint8 endpointNumber, uint8 maxPacketSize)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>usbInitEndpointIn</b> (<a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> endpointNumber, <a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> maxPacketSize)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0669fd5d87e77e2dbc06c8c56869cdb9"></a><!-- doxytag: member="usb.h::usbInitEndpointOut" ref="a0669fd5d87e77e2dbc06c8c56869cdb9" args="(uint8 endpointNumber, uint8 maxPacketSize)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>usbInitEndpointOut</b> (<a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> endpointNumber, <a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> maxPacketSize)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ada6880ae2c31c48a20f8dd8ca02c41d1"></a><!-- doxytag: member="usb.h::usbWriteFifo" ref="ada6880ae2c31c48a20f8dd8ca02c41d1" args="(uint8 endpointNumber, uint8 count, const uint8 XDATA *buffer)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>usbWriteFifo</b> (<a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> endpointNumber, <a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> count, const <a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> XDATA *buffer)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abf7f81cd4e63a01782dbe15fe8a6e837"></a><!-- doxytag: member="usb.h::usbReadFifo" ref="abf7f81cd4e63a01782dbe15fe8a6e837" args="(uint8 endpointNumber, uint8 count, uint8 XDATA *buffer)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>usbReadFifo</b> (<a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> endpointNumber, <a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> count, <a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> XDATA *buffer)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#a4552b1c9fe142a402c84c15444d3d927">usbInit</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#a602c14b8f268adeae6896014c9a79909">usbPoll</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#a2263ce15754643f4ac6772c60acaef9f">usbControlRead</a> (<a class="el" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> bytesCount, <a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> XDATA *source)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#a75f27ba6c870382e476511cd7f282131">usbControlWrite</a> (<a class="el" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> bytesCount, <a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> XDATA *source)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#a809ee9dbebaf3bd90ff89fe4133c9c15">usbControlAcknowledge</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#a231205da3d1655c2962e76f64fa57d4d">usbControlStall</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#a193c213f751a094371b6048cce3a7b36">usbInitEndpointIn</a> (<a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> endpointNumber, <a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> maxPacketSize)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#a0669fd5d87e77e2dbc06c8c56869cdb9">usbInitEndpointOut</a> (<a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> endpointNumber, <a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> maxPacketSize)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#ada6880ae2c31c48a20f8dd8ca02c41d1">usbWriteFifo</a> (<a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> endpointNumber, <a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> count, const <a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> XDATA *buffer)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#abf7f81cd4e63a01782dbe15fe8a6e837">usbReadFifo</a> (<a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> endpointNumber, <a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> count, <a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> XDATA *buffer)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#af73cf84963ab2b2f8e462783d0fe20cb">usbSuspended</a> (void)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad6ab40f0d302005a26461bd8be563a6c"></a><!-- doxytag: member="usb.h::usbSleep" ref="ad6ab40f0d302005a26461bd8be563a6c" args="(void)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>usbSleep</b> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#ad6ab40f0d302005a26461bd8be563a6c">usbSleep</a> (void)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#ae58b278af4c427c8cf4a06e87ed09a2f">usbShowStatusWithGreenLed</a> (void)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a299ecafa8420ea308e744b9bcca4c36e"></a><!-- doxytag: member="usb.h::usbCallbackSetupHandler" ref="a299ecafa8420ea308e744b9bcca4c36e" args="(void)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>usbCallbackSetupHandler</b> (void)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab5bc2a431d2d072b8b83758922e433b5"></a><!-- doxytag: member="usb.h::usbCallbackClassDescriptorHandler" ref="ab5bc2a431d2d072b8b83758922e433b5" args="(void)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>usbCallbackClassDescriptorHandler</b> (void)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1cdb15c072fb6d16d1ff81da7c79502e"></a><!-- doxytag: member="usb.h::usbCallbackInitEndpoints" ref="a1cdb15c072fb6d16d1ff81da7c79502e" args="(void)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>usbCallbackInitEndpoints</b> (void)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acdd38730e9971753fdaccb87d6df5ebb"></a><!-- doxytag: member="usb.h::usbCallbackControlWriteHandler" ref="acdd38730e9971753fdaccb87d6df5ebb" args="(void)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>usbCallbackControlWriteHandler</b> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#a299ecafa8420ea308e744b9bcca4c36e">usbCallbackSetupHandler</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#ab5bc2a431d2d072b8b83758922e433b5">usbCallbackClassDescriptorHandler</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#a1cdb15c072fb6d16d1ff81da7c79502e">usbCallbackInitEndpoints</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#acdd38730e9971753fdaccb87d6df5ebb">usbCallbackControlWriteHandler</a> (void)</td></tr>
 <tr><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2dcb8664a97f5d44ad2f57acbb8bc47b"></a><!-- doxytag: member="usb.h::usbDeviceState" ref="a2dcb8664a97f5d44ad2f57acbb8bc47b" args="" -->
-enum USB_DEVICE_STATES XDATA&#160;</td><td class="memItemRight" valign="bottom"><b>usbDeviceState</b></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a596e8781d200458f546c292a45f6115f"></a><!-- doxytag: member="usb.h::usbSetupPacket" ref="a596e8781d200458f546c292a45f6115f" args="" -->
-<a class="el" href="union_u_s_b___s_e_t_u_p___p_a_c_k_e_t.html">USB_SETUP_PACKET</a> XDATA&#160;</td><td class="memItemRight" valign="bottom"><b>usbSetupPacket</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum <a class="el" href="usb_8h.html#a01aa12d15a604591277df2d2c5f0dd3a">USB_DEVICE_STATES</a> XDATA&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#a2dcb8664a97f5d44ad2f57acbb8bc47b">usbDeviceState</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="union_u_s_b___s_e_t_u_p___p_a_c_k_e_t.html">USB_SETUP_PACKET</a> XDATA&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#a596e8781d200458f546c292a45f6115f">usbSetupPacket</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#a614ac1a06ac6bbdcc1299d4c8b8cdabf">usbSuspendMode</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#a017195b8bf77f2bb510323d87eb9b0b4">usbActivityFlag</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab327812de161d63f6b26886efb3c051c"></a><!-- doxytag: member="usb.h::usbDeviceDescriptor" ref="ab327812de161d63f6b26886efb3c051c" args="" -->
-<a class="el" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html">USB_DESCRIPTOR_DEVICE</a> CODE&#160;</td><td class="memItemRight" valign="bottom"><b>usbDeviceDescriptor</b></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae9730cd53885f72bdeff39b053e6042a"></a><!-- doxytag: member="usb.h::usbStringDescriptorCount" ref="ae9730cd53885f72bdeff39b053e6042a" args="" -->
-<a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> CODE&#160;</td><td class="memItemRight" valign="bottom"><b>usbStringDescriptorCount</b></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab587b46d24bb39c249fc7e17de2eb312"></a><!-- doxytag: member="usb.h::usbStringDescriptors" ref="ab587b46d24bb39c249fc7e17de2eb312" args="[]" -->
-<a class="el" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> CODE *CODE&#160;</td><td class="memItemRight" valign="bottom"><b>usbStringDescriptors</b> []</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html">USB_DESCRIPTOR_DEVICE</a> CODE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#ab327812de161d63f6b26886efb3c051c">usbDeviceDescriptor</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> CODE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#ae9730cd53885f72bdeff39b053e6042a">usbStringDescriptorCount</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> CODE *CODE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="usb_8h.html#ab587b46d24bb39c249fc7e17de2eb312">usbStringDescriptors</a> []</td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>The <code>usb.lib</code> library takes care of setting up the USB module and responding to standard device requests. This is a general purpose library that could be used to implement many different kinds of USB device interfaces. </p>
+<div class="textblock"><p>The <code>usb.lib</code> library takes care of setting up the USB module and responding to standard device requests. This is a general purpose library that can be used to implement many different kinds of USB device interfaces.</p>
+<p>If you are looking for a simple way to send and receive bytes over USB, please see <a class="el" href="usb__com_8h.html">usb_com.h</a>.</p>
+<p>Many of the constants defined here come from the <a href="http://www.usb.org/developers/docs/">USB 2.0 Specification</a>. In particular:</p>
+<ul>
+<li>The USB_RECIPIENT_* defines come from Table 9-2.</li>
+<li>The USB_REQUEST_TYPE_* defines come from Table 9-2.</li>
+<li>The other USB_REQUEST_* defines come from Table 9-4.</li>
+<li>The USB_DESCRIPTOR_TYPE_* defines come from Table 9-5.</li>
+<li>The USB_FEATURE_* defines come from Table 9-6.</li>
+<li>The USB_CONFIG_ATTR_* defines come from Table 9-10.</li>
+<li>The USB_TRANSFER_TYPE_* defines come from Table 9-13. </li>
+</ul>
 
 <p>Definition in file <a class="el" href="usb_8h_source.html">usb.h</a>.</p>
-</div><hr/><h2>Function Documentation</h2>
+</div><hr/><h2>Define Documentation</h2>
+<a class="anchor" id="a1e25f42717064bbd1612092a893291dc"></a><!-- doxytag: member="usb.h::DEFINE_STRING_DESCRIPTOR" ref="a1e25f42717064bbd1612092a893291dc" args="(name, char_count,...)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEFINE_STRING_DESCRIPTOR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">char_count, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;static <a class="el" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> CODE name[] = { (2*(char_count+1)) | (USB_DESCRIPTOR_TYPE_STRING&lt;&lt;8), __VA_ARGS__ };</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Defines a new USB string descriptor.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The variable name to use for the string descriptor. </td></tr>
+    <tr><td class="paramname">char_count</td><td>The number of characters in the string.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This macro evaluates to a line of C code that defines a static <a class="el" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> array in <a class="el" href="cc2511__types_8h.html#ae6527c8381eb3f23b7fd6d6efec6ffc7">CODE</a> space with the specified name.</p>
+<p>See the <a class="el" href="usb__cdc__acm_8c_source.html">usb_cdc_acm.c</a> for an example use. </p>
+
+<p>Definition at line <a class="el" href="usb_8h_source.html#l00230">230</a> of file <a class="el" href="usb_8h_source.html">usb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a75ea200f227f8f25545643ce1efc4841"></a><!-- doxytag: member="usb.h::USB_EP0_PACKET_SIZE" ref="a75ea200f227f8f25545643ce1efc4841" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define USB_EP0_PACKET_SIZE&#160;&#160;&#160;32</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>The maximum size of the data packets sent and received on Endpoint 0 for control transfers. </p>
+
+<p>Definition at line <a class="el" href="usb_8h_source.html#l00034">34</a> of file <a class="el" href="usb_8h_source.html">usb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1c9e637f3a06eb4cf6ddddaa646d6eaa"></a><!-- doxytag: member="usb.h::USB_LANGUAGE_EN_US" ref="a1c9e637f3a06eb4cf6ddddaa646d6eaa" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define USB_LANGUAGE_EN_US&#160;&#160;&#160;0x0409</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>The USB language ID for English (US). It comes from <a href="http://www.usb.org/developers/docs/USB_LANGIDs.pdf">http://www.usb.org/developers/docs/USB_LANGIDs.pdf</a> </p>
+
+<p>Definition at line <a class="el" href="usb_8h_source.html#l00113">113</a> of file <a class="el" href="usb_8h_source.html">usb.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac2142aa49fc00f489cd4fbf2aba23fae"></a><!-- doxytag: member="usb.h::USB_VENDOR_ID_POLOLU" ref="ac2142aa49fc00f489cd4fbf2aba23fae" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define USB_VENDOR_ID_POLOLU&#160;&#160;&#160;0x1FFB</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This is the Vendor ID assigned to Pololu Corporation by the USB Implementers Forum (USB-IF). For information on getting your own Vendor ID, see <a href="http://www.usb.org/developers/vendor/">http://www.usb.org/developers/vendor/</a> </p>
+
+<p>Definition at line <a class="el" href="usb_8h_source.html#l00030">30</a> of file <a class="el" href="usb_8h_source.html">usb.h</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Typedef Documentation</h2>
+<a class="anchor" id="a4ea3917c1161437221e7e7f87386c1f6"></a><!-- doxytag: member="usb.h::USB_DESCRIPTOR_CONFIGURATION" ref="a4ea3917c1161437221e7e7f87386c1f6" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___c_o_n_f_i_g_u_r_a_t_i_o_n.html">USB_DESCRIPTOR_CONFIGURATION</a>  <a class="el" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___c_o_n_f_i_g_u_r_a_t_i_o_n.html">USB_DESCRIPTOR_CONFIGURATION</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Standard Configuration Descriptor from USB Spec Table 9-10 </p>
+
+</div>
+</div>
+<a class="anchor" id="aef556172118c1fa8b504f975ce7e21fb"></a><!-- doxytag: member="usb.h::USB_DESCRIPTOR_DEVICE" ref="aef556172118c1fa8b504f975ce7e21fb" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html">USB_DESCRIPTOR_DEVICE</a>  <a class="el" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html">USB_DESCRIPTOR_DEVICE</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Standard Device Descriptor from USB Spec Table 9-8. </p>
+
+</div>
+</div>
+<a class="anchor" id="a724561b028227cc0018d561ba072b2a6"></a><!-- doxytag: member="usb.h::USB_DESCRIPTOR_ENDPOINT" ref="a724561b028227cc0018d561ba072b2a6" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___e_n_d_p_o_i_n_t.html">USB_DESCRIPTOR_ENDPOINT</a>  <a class="el" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___e_n_d_p_o_i_n_t.html">USB_DESCRIPTOR_ENDPOINT</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Standard Endpoint Descriptor from USB Spec Table 9-13. </p>
+
+</div>
+</div>
+<a class="anchor" id="ae84b624b44c4e66f09fe093354830fe4"></a><!-- doxytag: member="usb.h::USB_DESCRIPTOR_INTERFACE" ref="ae84b624b44c4e66f09fe093354830fe4" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html">USB_DESCRIPTOR_INTERFACE</a>  <a class="el" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html">USB_DESCRIPTOR_INTERFACE</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Standard Interface Descriptor from USB Spec Table 9-12. </p>
+
+</div>
+</div>
+<a class="anchor" id="a571369d03163c656dc7cdc7b49b4fb58"></a><!-- doxytag: member="usb.h::USB_DESCRIPTOR_INTERFACE_ASSOCIATION" ref="a571369d03163c656dc7cdc7b49b4fb58" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e___a_s_s_o_c_i_a_t_i_o_n.html">USB_DESCRIPTOR_INTERFACE_ASSOCIATION</a>  <a class="el" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e___a_s_s_o_c_i_a_t_i_o_n.html">USB_DESCRIPTOR_INTERFACE_ASSOCIATION</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Interface Association Descriptor. This was defined in Engineering Change Notice (ECN) #7, Table 9-Z, not the USB specification. </p>
+
+</div>
+</div>
+<hr/><h2>Enumeration Type Documentation</h2>
+<a class="anchor" id="a01aa12d15a604591277df2d2c5f0dd3a"></a><!-- doxytag: member="usb.h::USB_DEVICE_STATES" ref="a01aa12d15a604591277df2d2c5f0dd3a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="usb_8h.html#a01aa12d15a604591277df2d2c5f0dd3a">USB_DEVICE_STATES</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This enum represents the different USB states defined in Section 9.1 of the USB specification. </p>
+
+<p>Definition at line <a class="el" href="usb_8h_source.html#l00040">40</a> of file <a class="el" href="usb_8h_source.html">usb.h</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Function Documentation</h2>
+<a class="anchor" id="ab5bc2a431d2d072b8b83758922e433b5"></a><!-- doxytag: member="usb.h::usbCallbackClassDescriptorHandler" ref="ab5bc2a431d2d072b8b83758922e433b5" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void usbCallbackClassDescriptorHandler </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This is called by <a class="el" href="usb_8h.html#a602c14b8f268adeae6896014c9a79909">usbPoll()</a> whenever a Get Descriptor request is received by the host that can not be handled by the USB library.</p>
+<p>This function should read <a class="el" href="usb_8h.html#a596e8781d200458f546c292a45f6115f">usbSetupPacket</a>. If it recognizes the Get Descriptor request, it should call <a class="el" href="usb_8h.html#a2263ce15754643f4ac6772c60acaef9f">usbControlRead()</a>. If it does not recognize the request, it should simply return. In this case, the USB library will respond to the host with a STALL packet.</p>
+<p>This function must be defined by higher-level code. See <a class="el" href="usb__hid_8c_source.html">usb_hid.c</a> for an example. </p>
+
+<p>Definition at line <a class="el" href="usb__cdc__acm_8c_source.html#l00271">271</a> of file <a class="el" href="usb__cdc__acm_8c_source.html">usb_cdc_acm.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acdd38730e9971753fdaccb87d6df5ebb"></a><!-- doxytag: member="usb.h::usbCallbackControlWriteHandler" ref="acdd38730e9971753fdaccb87d6df5ebb" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void usbCallbackControlWriteHandler </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This is called by <a class="el" href="usb_8h.html#a602c14b8f268adeae6896014c9a79909">usbPoll()</a> when all the data for a Control Write request has been received.</p>
+<p>This function should look at the data, perform any actions necessary, and decide whether the data was valid. If the data is invaild, this function can call <a class="el" href="usb_8h.html#a231205da3d1655c2962e76f64fa57d4d">usbControlStall()</a> to reject the request. </p>
+
+<p>Definition at line <a class="el" href="usb__cdc__acm_8c_source.html#l00281">281</a> of file <a class="el" href="usb__cdc__acm_8c_source.html">usb_cdc_acm.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1cdb15c072fb6d16d1ff81da7c79502e"></a><!-- doxytag: member="usb.h::usbCallbackInitEndpoints" ref="a1cdb15c072fb6d16d1ff81da7c79502e" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void usbCallbackInitEndpoints </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This is called by <a class="el" href="usb_8h.html#a602c14b8f268adeae6896014c9a79909">usbPoll()</a> when the device enters the Configured state. This function should call <a class="el" href="usb_8h.html#a193c213f751a094371b6048cce3a7b36">usbInitEndpointIn()</a> and <a class="el" href="usb_8h.html#a0669fd5d87e77e2dbc06c8c56869cdb9">usbInitEndpointOut()</a> to initialize all the non-zero endpoints that it uses.</p>
+<p>This function must be defined by higher-level code. See <a class="el" href="usb__cdc__acm_8c_source.html">usb_cdc_acm.c</a> for an example. </p>
+
+<p>Definition at line <a class="el" href="usb__cdc__acm_8c_source.html#l00234">234</a> of file <a class="el" href="usb__cdc__acm_8c_source.html">usb_cdc_acm.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a299ecafa8420ea308e744b9bcca4c36e"></a><!-- doxytag: member="usb.h::usbCallbackSetupHandler" ref="a299ecafa8420ea308e744b9bcca4c36e" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void usbCallbackSetupHandler </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This is called by <a class="el" href="usb_8h.html#a602c14b8f268adeae6896014c9a79909">usbPoll()</a> whenever a new request (SETUP packet) is received from the host that can not be handled by the USB library.</p>
+<p>This function should read <a class="el" href="usb_8h.html#a596e8781d200458f546c292a45f6115f">usbSetupPacket</a>. If it recognizes the request from the host it should call <a class="el" href="usb_8h.html#a2263ce15754643f4ac6772c60acaef9f">usbControlRead()</a>, <a class="el" href="usb_8h.html#a75f27ba6c870382e476511cd7f282131">usbControlWrite()</a>, or <a class="el" href="usb_8h.html#a809ee9dbebaf3bd90ff89fe4133c9c15">usbControlAcknowledge()</a>. If it does not recognize the request, it should simply return. In this case, the USB library will respond to the host with a STALL packet.</p>
+<p>This function must be defined by higher-level code. See <a class="el" href="usb__cdc__acm_8c_source.html">usb_cdc_acm.c</a> for an example. </p>
+
+<p>Definition at line <a class="el" href="usb__cdc__acm_8c_source.html#l00246">246</a> of file <a class="el" href="usb__cdc__acm_8c_source.html">usb_cdc_acm.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a809ee9dbebaf3bd90ff89fe4133c9c15"></a><!-- doxytag: member="usb.h::usbControlAcknowledge" ref="a809ee9dbebaf3bd90ff89fe4133c9c15" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void usbControlAcknowledge </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Tells the USB library to acknowledge the request. This is the right way to handle Control Write transfers with no data.</p>
+<p>This should only be called from <a class="el" href="usb_8h.html#a299ecafa8420ea308e744b9bcca4c36e">usbCallbackSetupHandler()</a> or <a class="el" href="usb_8h.html#ab5bc2a431d2d072b8b83758922e433b5">usbCallbackClassDescriptorHandler()</a>. </p>
+
+<p>Definition at line <a class="el" href="usb_8c_source.html#l00622">622</a> of file <a class="el" href="usb_8c_source.html">usb.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2263ce15754643f4ac6772c60acaef9f"></a><!-- doxytag: member="usb.h::usbControlRead" ref="a2263ce15754643f4ac6772c60acaef9f" args="(uint16 bytesCount, uint8 XDATA *source)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void usbControlRead </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a>&#160;</td>
+          <td class="paramname"><em>bytesCount</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> XDATA *&#160;</td>
+          <td class="paramname"><em>source</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Tells the USB library to start a Control Read (Device-to-Host) transfer.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bytesCount</td><td>The number of bytes to send to the USB Host. </td></tr>
+    <tr><td class="paramname">source</td><td>A pointer to the first byte to send.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This should only be called from <a class="el" href="usb_8h.html#a299ecafa8420ea308e744b9bcca4c36e">usbCallbackSetupHandler()</a> or <a class="el" href="usb_8h.html#ab5bc2a431d2d072b8b83758922e433b5">usbCallbackClassDescriptorHandler()</a>. </p>
+
+<p>Definition at line <a class="el" href="usb_8c_source.html#l00608">608</a> of file <a class="el" href="usb_8c_source.html">usb.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a231205da3d1655c2962e76f64fa57d4d"></a><!-- doxytag: member="usb.h::usbControlStall" ref="a231205da3d1655c2962e76f64fa57d4d" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void usbControlStall </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Tells the USB library that the request was invalid or failed, so it should respond to the host with STALL packet.</p>
+<p>This should only be called from <a class="el" href="usb_8h.html#acdd38730e9971753fdaccb87d6df5ebb">usbCallbackControlWriteHandler()</a> in order to reject a Control Write transfer after the data has been received.</p>
+<p>It can also be used in <a class="el" href="usb_8h.html#a299ecafa8420ea308e744b9bcca4c36e">usbCallbackSetupHandler()</a> or <a class="el" href="usb_8h.html#ab5bc2a431d2d072b8b83758922e433b5">usbCallbackClassDescriptorHandler()</a>, but it is not necessary in those callbacks because the default behavior of the library in that case is to stall. </p>
+
+<p>Definition at line <a class="el" href="usb_8c_source.html#l00628">628</a> of file <a class="el" href="usb_8c_source.html">usb.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a75f27ba6c870382e476511cd7f282131"></a><!-- doxytag: member="usb.h::usbControlWrite" ref="a75f27ba6c870382e476511cd7f282131" args="(uint16 bytesCount, uint8 XDATA *source)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void usbControlWrite </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a>&#160;</td>
+          <td class="paramname"><em>bytesCount</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> XDATA *&#160;</td>
+          <td class="paramname"><em>source</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Tells the USB library to start a Control Write (Host-to-Device) transfer.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bytesCount</td><td>The number of bytes to read from the host. </td></tr>
+    <tr><td class="paramname">source</td><td>A pointer to the location that the bytes will be written to.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This should only be called from <a class="el" href="usb_8h.html#a299ecafa8420ea308e744b9bcca4c36e">usbCallbackSetupHandler()</a> or <a class="el" href="usb_8h.html#ab5bc2a431d2d072b8b83758922e433b5">usbCallbackClassDescriptorHandler()</a>. </p>
+
+<p>Definition at line <a class="el" href="usb_8c_source.html#l00615">615</a> of file <a class="el" href="usb_8c_source.html">usb.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4552b1c9fe142a402c84c15444d3d927"></a><!-- doxytag: member="usb.h::usbInit" ref="a4552b1c9fe142a402c84c15444d3d927" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void usbInit </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Initializes the USB library. This should be called before any other USB functions. </p>
+
+<p>Definition at line <a class="el" href="usb_8c_source.html#l00029">29</a> of file <a class="el" href="usb_8c_source.html">usb.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a193c213f751a094371b6048cce3a7b36"></a><!-- doxytag: member="usb.h::usbInitEndpointIn" ref="a193c213f751a094371b6048cce3a7b36" args="(uint8 endpointNumber, uint8 maxPacketSize)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void usbInitEndpointIn </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>&#160;</td>
+          <td class="paramname"><em>endpointNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>&#160;</td>
+          <td class="paramname"><em>maxPacketSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Configures the specified endpoint to do double-buffered IN (device-to-host) transactions.</p>
+<p>This should only be called from <a class="el" href="usb_8h.html#a1cdb15c072fb6d16d1ff81da7c79502e">usbCallbackInitEndpoints()</a>. </p>
+
+<p>Definition at line <a class="el" href="usb_8c_source.html#l00633">633</a> of file <a class="el" href="usb_8c_source.html">usb.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0669fd5d87e77e2dbc06c8c56869cdb9"></a><!-- doxytag: member="usb.h::usbInitEndpointOut" ref="a0669fd5d87e77e2dbc06c8c56869cdb9" args="(uint8 endpointNumber, uint8 maxPacketSize)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void usbInitEndpointOut </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>&#160;</td>
+          <td class="paramname"><em>endpointNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>&#160;</td>
+          <td class="paramname"><em>maxPacketSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Configures the specified endpoint to do double-buffered OUT (host-to-device) transactions.</p>
+<p>This should only be called from <a class="el" href="usb_8h.html#a1cdb15c072fb6d16d1ff81da7c79502e">usbCallbackInitEndpoints()</a>. </p>
+
+<p>Definition at line <a class="el" href="usb_8c_source.html#l00640">640</a> of file <a class="el" href="usb_8c_source.html">usb.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a602c14b8f268adeae6896014c9a79909"></a><!-- doxytag: member="usb.h::usbPoll" ref="a602c14b8f268adeae6896014c9a79909" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void usbPoll </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Handles any USB events that needs to be handled.</p>
+<p>This function calls the usbCallback* functions when needed.</p>
+<p>This function should be called regularly (more often than every 50&#160;ms). </p>
+
+<p>Definition at line <a class="el" href="usb_8c_source.html#l00073">73</a> of file <a class="el" href="usb_8c_source.html">usb.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abf7f81cd4e63a01782dbe15fe8a6e837"></a><!-- doxytag: member="usb.h::usbReadFifo" ref="abf7f81cd4e63a01782dbe15fe8a6e837" args="(uint8 endpointNumber, uint8 count, uint8 XDATA *buffer)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void usbReadFifo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>&#160;</td>
+          <td class="paramname"><em>endpointNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>&#160;</td>
+          <td class="paramname"><em>count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> XDATA *&#160;</td>
+          <td class="paramname"><em>buffer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Reads data from a USB FIFO and writes to the specified memory buffer. This is equivalent to reading data from the FIFO register (e.g. USBF4) one byte at a time. Please refer to the CC2511 datasheet to understand when you can and can not read data from a USB FIFO. </p>
+
+<p>Definition at line <a class="el" href="usb_8c_source.html#l00034">34</a> of file <a class="el" href="usb_8c_source.html">usb.c</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="ae58b278af4c427c8cf4a06e87ed09a2f"></a><!-- doxytag: member="usb.h::usbShowStatusWithGreenLed" ref="ae58b278af4c427c8cf4a06e87ed09a2f" args="(void)" -->
 <div class="memitem">
 <div class="memproto">
@@ -278,17 +787,47 @@ enum USB_DEVICE_STATES XDATA&#160;</td><td class="memItemRight" valign="bottom">
       </table>
 </div>
 <div class="memdoc">
-<p>usbShowStatusWithGreenLed: This function updates the green LED to reflect the current USB status. If you call this function frequently enough, then the green LED will exhibit these behaviors:</p>
+<p>This function updates the green LED to reflect the current USB status. If you call this function frequently enough, then the green LED will exhibit these behaviors:</p>
 <ul>
 <li>Off when USB is disconnected or if we are in USB suspend mode</li>
 <li>On when we are connected to USB and are in the configured state (which usually means that the drivers are installed correctly), and flickering whenever there is USB activity.</li>
 <li>Blinking with a period of 1024 ms if we are connected to USB but not in the configured state yet.</li>
 </ul>
 <p>In order to make the flickering work properly, any library that directly reads or writes from USB FIFOs</p>
-<p>Note: Calling this function will cause the usb library to have extra dependencies that it normally would not have, because this function accesses the system time and sets the green LED. You might get a linker error if those things are not available.</p>
+<p>Note: Calling this function will cause the USB library to have extra dependencies that it normally would not have, because this function accesses the system time and sets the green LED. You might get a linker error if those things are not available.</p>
 <p>See <a class="el" href="usb_8h.html#a017195b8bf77f2bb510323d87eb9b0b4">usbActivityFlag</a> for more information on the flickering. </p>
 
 <p>Definition at line <a class="el" href="green__led_8c_source.html#l00013">13</a> of file <a class="el" href="green__led_8c_source.html">green_led.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad6ab40f0d302005a26461bd8be563a6c"></a><!-- doxytag: member="usb.h::usbSleep" ref="ad6ab40f0d302005a26461bd8be563a6c" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void usbSleep </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Sleeps until we receive USB resume signaling. Uses PM1.</p>
+<p>Example usage: </p>
+<div class="fragment"><pre class="fragment"><span class="keywordflow">if</span> (<a class="code" href="usb_8h.html#af73cf84963ab2b2f8e462783d0fe20cb">usbSuspended</a>() &amp;&amp; !selfPowered())
+{
+    <span class="comment">// Here you must shut down anything that draws a lot of current</span>
+    <span class="comment">// (except the USB pull-up resistor).  Power consumption during</span>
+    <span class="comment">// suspend mode must be less than 0.5 mA or the device</span>
+    <span class="comment">// will be out of spec (but usually nothing bad happens).</span>
+    <a class="code" href="usb_8h.html#ad6ab40f0d302005a26461bd8be563a6c">usbSleep</a>();
+    <span class="comment">// Here you should re-enable the things that were disabled.</span>
+}
+</pre></div> 
+<p>Definition at line <a class="el" href="usb_8c_source.html#l00554">554</a> of file <a class="el" href="usb_8c_source.html">usb.c</a>.</p>
 
 </div>
 </div>
@@ -313,6 +852,42 @@ enum USB_DEVICE_STATES XDATA&#160;</td><td class="memItemRight" valign="bottom">
 
 </div>
 </div>
+<a class="anchor" id="ada6880ae2c31c48a20f8dd8ca02c41d1"></a><!-- doxytag: member="usb.h::usbWriteFifo" ref="ada6880ae2c31c48a20f8dd8ca02c41d1" args="(uint8 endpointNumber, uint8 count, const uint8 XDATA *buffer)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void usbWriteFifo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>&#160;</td>
+          <td class="paramname"><em>endpointNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>&#160;</td>
+          <td class="paramname"><em>count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> XDATA *&#160;</td>
+          <td class="paramname"><em>buffer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Writes the specified data to a USB FIFO. This is equivalent to writing data to the FIFO register (e.g. USBF4) one byte at a time. Please refer to the CC2511 datasheet to understand when you can and can not write data to a USB FIFO. </p>
+
+<p>Definition at line <a class="el" href="usb_8c_source.html#l00046">46</a> of file <a class="el" href="usb_8c_source.html">usb.c</a>.</p>
+
+</div>
+</div>
 <hr/><h2>Variable Documentation</h2>
 <a class="anchor" id="a017195b8bf77f2bb510323d87eb9b0b4"></a><!-- doxytag: member="usb.h::usbActivityFlag" ref="a017195b8bf77f2bb510323d87eb9b0b4" args="" -->
 <div class="memitem">
@@ -324,9 +899,94 @@ enum USB_DEVICE_STATES XDATA&#160;</td><td class="memItemRight" valign="bottom">
       </table>
 </div>
 <div class="memdoc">
-<p>Libraries that directly access USB registers should set this bit to 1 whenever they read or write data from USB. This allows the USB led to flicker when there is USB activity. See <a class="el" href="usb_8h.html#ae58b278af4c427c8cf4a06e87ed09a2f">usbShowStatusWithGreenLed()</a> for more information. </p>
+<p>Libraries that directly access USB registers should set this bit to 1 whenever they read or write data from USB. This allows the USB led to flicker when there is USB activity. See <a class="el" href="usb_8h.html#ae58b278af4c427c8cf4a06e87ed09a2f">usbShowStatusWithGreenLed()</a> for more information.</p>
+<p>Note: The USB HID library does not set this bit because that would result in constant flickering of the green LED in typical HID applications. </p>
 
 <p>Definition at line <a class="el" href="usb_8c_source.html#l00027">27</a> of file <a class="el" href="usb_8c_source.html">usb.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab327812de161d63f6b26886efb3c051c"></a><!-- doxytag: member="usb.h::usbDeviceDescriptor" ref="ab327812de161d63f6b26886efb3c051c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html">USB_DESCRIPTOR_DEVICE</a> CODE <a class="el" href="usb_8h.html#ab327812de161d63f6b26886efb3c051c">usbDeviceDescriptor</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>The device's Device Descriptor.</p>
+<p>This must be defined by higher-level code. See <a class="el" href="usb__cdc__acm_8c_source.html">usb_cdc_acm.c</a> for an example. </p>
+
+<p>Definition at line <a class="el" href="usb__cdc__acm_8c_source.html#l00109">109</a> of file <a class="el" href="usb__cdc__acm_8c_source.html">usb_cdc_acm.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2dcb8664a97f5d44ad2f57acbb8bc47b"></a><!-- doxytag: member="usb.h::usbDeviceState" ref="a2dcb8664a97f5d44ad2f57acbb8bc47b" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="usb_8h.html#a01aa12d15a604591277df2d2c5f0dd3a">USB_DEVICE_STATES</a> XDATA <a class="el" href="usb_8h.html#a2dcb8664a97f5d44ad2f57acbb8bc47b">usbDeviceState</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>The current USB Device State of this device.</p>
+<p>Higher-level code should avoid reading or writing from non-zero USB endpoints if <a class="el" href="usb_8h.html#a2dcb8664a97f5d44ad2f57acbb8bc47b">usbDeviceState</a> is not USB_STATE_CONFIGURED because the non-zero endpoints are get initialized when the device enters the configured state. </p>
+
+<p>Definition at line <a class="el" href="usb_8c_source.html#l00018">18</a> of file <a class="el" href="usb_8c_source.html">usb.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a596e8781d200458f546c292a45f6115f"></a><!-- doxytag: member="usb.h::usbSetupPacket" ref="a596e8781d200458f546c292a45f6115f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="union_u_s_b___s_e_t_u_p___p_a_c_k_e_t.html">USB_SETUP_PACKET</a> XDATA <a class="el" href="usb_8h.html#a596e8781d200458f546c292a45f6115f">usbSetupPacket</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>The value of the last setup packet received from the host. It is useful to read this in <a class="el" href="usb_8h.html#a299ecafa8420ea308e744b9bcca4c36e">usbCallbackSetupHandler()</a>, <a class="el" href="usb_8h.html#acdd38730e9971753fdaccb87d6df5ebb">usbCallbackControlWriteHandler()</a>, and <a class="el" href="usb_8h.html#ab5bc2a431d2d072b8b83758922e433b5">usbCallbackClassDescriptorHandler()</a>. </p>
+
+<p>Definition at line <a class="el" href="usb_8c_source.html#l00017">17</a> of file <a class="el" href="usb_8c_source.html">usb.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae9730cd53885f72bdeff39b053e6042a"></a><!-- doxytag: member="usb.h::usbStringDescriptorCount" ref="ae9730cd53885f72bdeff39b053e6042a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> CODE <a class="el" href="usb_8h.html#ae9730cd53885f72bdeff39b053e6042a">usbStringDescriptorCount</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>The number of string descriptors on this device.</p>
+<p>This must be defined by higher-level code. See <a class="el" href="usb__cdc__acm_8c_source.html">usb_cdc_acm.c</a> for an example. </p>
+
+<p>Definition at line <a class="el" href="usb__cdc__acm_8c_source.html#l00224">224</a> of file <a class="el" href="usb__cdc__acm_8c_source.html">usb_cdc_acm.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab587b46d24bb39c249fc7e17de2eb312"></a><!-- doxytag: member="usb.h::usbStringDescriptors" ref="ab587b46d24bb39c249fc7e17de2eb312" args="[]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> CODE* CODE <a class="el" href="usb_8h.html#ab587b46d24bb39c249fc7e17de2eb312">usbStringDescriptors</a>[]</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>An array of pointers to the string descriptors. The first entry corresponds to string descriptor 0 (the languages). The second entry corresponds to string descriptor 1, etc.</p>
+<p>This must be defined by higher-level code. See <a class="el" href="usb__cdc__acm_8c_source.html">usb_cdc_acm.c</a> for an example. </p>
+
+<p>Definition at line <a class="el" href="usb__cdc__acm_8c_source.html#l00228">228</a> of file <a class="el" href="usb__cdc__acm_8c_source.html">usb_cdc_acm.c</a>.</p>
 
 </div>
 </div>
@@ -340,7 +1000,7 @@ enum USB_DEVICE_STATES XDATA&#160;</td><td class="memItemRight" valign="bottom">
       </table>
 </div>
 <div class="memdoc">
-<p>usbSuspendMode: Direct access to this bit is provided for applications that need to use the P0 interrupt and want USB suspend mode to work. If you don't fall in to that category, please don't use this bit directly: instead you should call <a class="el" href="usb_8h.html#af73cf84963ab2b2f8e462783d0fe20cb">usbSuspended()</a> because that function is less likely to change in future versions. If you want to have a P0 interrupt AND USB Suspend, you should write your ISR like this: </p>
+<p>Direct access to this bit is provided for applications that need to use the P0 interrupt and want USB suspend mode to work. If you don't fall in to that category, please don't use this bit directly: instead you should call <a class="el" href="usb_8h.html#af73cf84963ab2b2f8e462783d0fe20cb">usbSuspended()</a> because that function is less likely to change in future versions. If you want to have a P0 interrupt AND USB Suspend, you should write your ISR like this: </p>
 <div class="fragment"><pre class="fragment"><a class="code" href="cc2511__map_8h.html#a671201fd0e77ec576f30610b276acd11">ISR</a>(P0INT, 1)
 {
     <span class="comment">// Handle the P0 flags you care about here, but you might want to</span>
@@ -366,7 +1026,7 @@ enum USB_DEVICE_STATES XDATA&#160;</td><td class="memItemRight" valign="bottom">
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Defines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -375,7 +1035,7 @@ enum USB_DEVICE_STATES XDATA&#160;</td><td class="memItemRight" valign="bottom">
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Fri Apr 8 2011 18:20:33 for Wixel SDK by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Apr 18 2011 11:50:24 for Wixel SDK by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

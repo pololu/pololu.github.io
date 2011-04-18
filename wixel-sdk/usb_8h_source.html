@@ -62,246 +62,243 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <a href="usb_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
-<a name="l00006"></a>00006 <span class="preprocessor">#ifndef _USB_H</span>
-<a name="l00007"></a>00007 <span class="preprocessor"></span><span class="preprocessor">#define _USB_H</span>
-<a name="l00008"></a>00008 <span class="preprocessor"></span>
-<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;<a class="code" href="cc2511__types_8h.html">cc2511_types.h</a>&gt;</span>
-<a name="l00010"></a>00010 
-<a name="l00011"></a>00011 <span class="preprocessor">#define USB_VENDOR_ID_POLOLU 0x1FFB</span>
-<a name="l00012"></a>00012 <span class="preprocessor"></span><span class="preprocessor">#define USB_EP0_PACKET_SIZE 32</span>
-<a name="l00013"></a>00013 <span class="preprocessor"></span>
-<a name="l00014"></a>00014 <span class="comment">/* USB CONSTANTS **************************************************************/</span>
-<a name="l00015"></a>00015 
-<a name="l00016"></a>00016 <span class="keyword">enum</span> USB_DEVICE_STATES
-<a name="l00017"></a>00017 {
-<a name="l00018"></a>00018     USB_STATE_DETACHED = 0,
-<a name="l00019"></a>00019     USB_STATE_ATTACHED = 1,
-<a name="l00020"></a>00020     USB_STATE_POWERED = 2,
-<a name="l00021"></a>00021     USB_STATE_DEFAULT = 4,
-<a name="l00022"></a>00022     USB_STATE_ADDRESS = 8,
-<a name="l00023"></a>00023     USB_STATE_CONFIGURED = 16
-<a name="l00024"></a>00024 };
+<a name="l00021"></a>00021 <span class="preprocessor">#ifndef _USB_H</span>
+<a name="l00022"></a>00022 <span class="preprocessor"></span><span class="preprocessor">#define _USB_H</span>
+<a name="l00023"></a>00023 <span class="preprocessor"></span>
+<a name="l00024"></a>00024 <span class="preprocessor">#include &lt;<a class="code" href="cc2511__types_8h.html">cc2511_types.h</a>&gt;</span>
 <a name="l00025"></a>00025 
-<a name="l00026"></a>00026 <span class="comment">// SETUP_PACKET.bRequest values from USB Spec Table 9-4</span>
-<a name="l00027"></a>00027 <span class="preprocessor">#define USB_REQUEST_GET_STATUS 0u</span>
-<a name="l00028"></a>00028 <span class="preprocessor"></span><span class="preprocessor">#define USB_REQUEST_CLEAR_FEATURE 1u</span>
-<a name="l00029"></a>00029 <span class="preprocessor"></span><span class="preprocessor">#define USB_REQUEST_SET_FEATURE 3u</span>
-<a name="l00030"></a>00030 <span class="preprocessor"></span><span class="preprocessor">#define USB_REQUEST_SET_ADDRESS 5u</span>
-<a name="l00031"></a>00031 <span class="preprocessor"></span><span class="preprocessor">#define USB_REQUEST_GET_DESCRIPTOR 6u</span>
-<a name="l00032"></a>00032 <span class="preprocessor"></span><span class="preprocessor">#define USB_REQUEST_SET_DESCRIPTOR 7u</span>
-<a name="l00033"></a>00033 <span class="preprocessor"></span><span class="preprocessor">#define USB_REQUEST_GET_CONFIGURATION 8u</span>
-<a name="l00034"></a>00034 <span class="preprocessor"></span><span class="preprocessor">#define USB_REQUEST_SET_CONFIGURATION 9u</span>
-<a name="l00035"></a>00035 <span class="preprocessor"></span><span class="preprocessor">#define USB_REQUEST_GET_INTERFACE 10u</span>
-<a name="l00036"></a>00036 <span class="preprocessor"></span><span class="preprocessor">#define USB_REQUEST_SET_INTERFACE 11u</span>
-<a name="l00037"></a>00037 <span class="preprocessor"></span><span class="preprocessor">#define USB_REQUEST_SYNCH_FRAME 12u</span>
-<a name="l00038"></a>00038 <span class="preprocessor"></span>
-<a name="l00039"></a>00039 <span class="comment">// SETUP_PACKET.request_type values from USB Spec Table 9-2</span>
-<a name="l00040"></a>00040 <span class="preprocessor">#define USB_REQUEST_TYPE_STANDARD 0u</span>
-<a name="l00041"></a>00041 <span class="preprocessor"></span><span class="preprocessor">#define USB_REQUEST_TYPE_CLASS 1u</span>
-<a name="l00042"></a>00042 <span class="preprocessor"></span><span class="preprocessor">#define USB_REQUEST_TYPE_VENDOR 2u</span>
-<a name="l00043"></a>00043 <span class="preprocessor"></span>
-<a name="l00044"></a>00044 <span class="comment">// SETUP_PACKET.recipient values from USB Spec Table 9-2</span>
-<a name="l00045"></a>00045 <span class="preprocessor">#define USB_RECIPIENT_DEVICE 0u</span>
-<a name="l00046"></a>00046 <span class="preprocessor"></span><span class="preprocessor">#define USB_RECIPIENT_INTERFACE 1u</span>
-<a name="l00047"></a>00047 <span class="preprocessor"></span><span class="preprocessor">#define USB_RECIPIENT_ENDPOINT 2u</span>
-<a name="l00048"></a>00048 <span class="preprocessor"></span><span class="preprocessor">#define USB_RECIPIENT_OTHER 3u</span>
-<a name="l00049"></a>00049 <span class="preprocessor"></span>
-<a name="l00050"></a>00050 <span class="comment">// Descriptor types from USB Spec Table 9-5</span>
-<a name="l00051"></a>00051 <span class="preprocessor">#define USB_DESCRIPTOR_TYPE_DEVICE 1u</span>
-<a name="l00052"></a>00052 <span class="preprocessor"></span><span class="preprocessor">#define USB_DESCRIPTOR_TYPE_CONFIGURATION 2u</span>
-<a name="l00053"></a>00053 <span class="preprocessor"></span><span class="preprocessor">#define USB_DESCRIPTOR_TYPE_STRING 3u</span>
-<a name="l00054"></a>00054 <span class="preprocessor"></span><span class="preprocessor">#define USB_DESCRIPTOR_TYPE_INTERFACE 4u</span>
-<a name="l00055"></a>00055 <span class="preprocessor"></span><span class="preprocessor">#define USB_DESCRIPTOR_TYPE_ENDPOINT 5u</span>
-<a name="l00056"></a>00056 <span class="preprocessor"></span><span class="preprocessor">#define USB_DESCRIPTOR_TYPE_DEVICE_QUALIFIER 6u</span>
-<a name="l00057"></a>00057 <span class="preprocessor"></span><span class="preprocessor">#define USB_DESCRIPTOR_TYPE_OTHER_SPEED_CONFIGURATION 7u</span>
-<a name="l00058"></a>00058 <span class="preprocessor"></span><span class="preprocessor">#define USB_DESCRIPTOR_TYPE_INTERFACE_POWER 8u</span>
-<a name="l00059"></a>00059 <span class="preprocessor"></span><span class="preprocessor">#define USB_DESCRIPTOR_TYPE_ENDPOINT_CLASS_SPECIFIC 0x25u</span>
-<a name="l00060"></a>00060 <span class="preprocessor"></span><span class="preprocessor">#define USB_DESCRIPTOR_TYPE_INTERFACE_ASSOCIATION 0x0Bu</span>
-<a name="l00061"></a>00061 <span class="preprocessor"></span>
-<a name="l00062"></a>00062 <span class="comment">// setup_packet feature selectors, USB Spec Table 9-6, Standard Feature Selectors</span>
-<a name="l00063"></a>00063 <span class="preprocessor">#define USB_FEATURE_DEVICE_REMOTE_WAKEUP 1u</span>
-<a name="l00064"></a>00064 <span class="preprocessor"></span><span class="preprocessor">#define USB_FEATURE_ENDPOINT_HALT 0u</span>
-<a name="l00065"></a>00065 <span class="preprocessor"></span><span class="preprocessor">#define USB_FEATURE_TEST_MODE 2u</span>
-<a name="l00066"></a>00066 <span class="preprocessor"></span>
-<a name="l00067"></a>00067 <span class="comment">// Configuration Decriptor bmAttributes bitmasks (USB Spec Table 9-10)</span>
-<a name="l00068"></a>00068 <span class="preprocessor">#define USB_CONFIG_ATTR_DEFAULT       (1&lt;&lt;7) //Default Value (bit 7 must be set to 1)</span>
-<a name="l00069"></a>00069 <span class="preprocessor"></span><span class="preprocessor">#define USB_CONFIG_ATTR_SELF_POWERED  (1&lt;&lt;6) //Self-powered</span>
-<a name="l00070"></a>00070 <span class="preprocessor"></span><span class="preprocessor">#define USB_CONFIG_ATTR_REMOTE_WAKEUP (1&lt;&lt;5) //Remote Wakeup</span>
-<a name="l00071"></a>00071 <span class="preprocessor"></span>
-<a name="l00072"></a>00072 <span class="comment">// Values for USB_PM_SETUP_PACKET.direction bit.</span>
-<a name="l00073"></a>00073 <span class="preprocessor">#define USB_OUT 0u</span>
-<a name="l00074"></a>00074 <span class="preprocessor"></span><span class="preprocessor">#define USB_IN  1u</span>
-<a name="l00075"></a>00075 <span class="preprocessor"></span>
-<a name="l00076"></a>00076 <span class="comment">// USB Endpoint addresses, to be used in descriptors</span>
-<a name="l00077"></a>00077 <span class="comment">// To get the address of an IN endpoint, do: USB_ENDPOINT_ADDRESS_IN | 1</span>
-<a name="l00078"></a>00078 <span class="preprocessor">#define USB_ENDPOINT_ADDRESS_IN    0x80</span>
-<a name="l00079"></a>00079 <span class="preprocessor"></span><span class="preprocessor">#define USB_ENDPOINT_ADDRESS_OUT   0x00</span>
-<a name="l00080"></a>00080 <span class="preprocessor"></span>
-<a name="l00081"></a>00081 <span class="comment">// Endpoint transfer types, used in endpoint descriptors</span>
-<a name="l00082"></a>00082 <span class="preprocessor">#define USB_TRANSFER_TYPE_CONTROL     0</span>
-<a name="l00083"></a>00083 <span class="preprocessor"></span><span class="preprocessor">#define USB_TRANSFER_TYPE_ISOCHRONOUS 1</span>
-<a name="l00084"></a>00084 <span class="preprocessor"></span><span class="preprocessor">#define USB_TRANSFER_TYPE_BULK        2</span>
-<a name="l00085"></a>00085 <span class="preprocessor"></span><span class="preprocessor">#define USB_TRANSFER_TYPE_INTERRUPT   3</span>
-<a name="l00086"></a>00086 <span class="preprocessor"></span>
-<a name="l00087"></a>00087 <span class="comment">// language ids from http://www.usb.org/developers/docs/USB_LANGIDs.pdf</span>
-<a name="l00088"></a>00088 <span class="preprocessor">#define USB_LANGUAGE_EN_US 0x0409</span>
-<a name="l00089"></a>00089 <span class="preprocessor"></span>
-<a name="l00090"></a>00090 <span class="comment">/* USB STRUCTS ****************************************************************/</span>
-<a name="l00091"></a>00091 
-<a name="l00092"></a><a class="code" href="union_u_s_b___s_e_t_u_p___p_a_c_k_e_t.html">00092</a> <span class="keyword">typedef</span> <span class="keyword">union</span>
-<a name="l00093"></a>00093 {
-<a name="l00094"></a>00094      <span class="comment">// These are the standard field names from Table 9-2 of USB 2.0 spec.</span>
-<a name="l00095"></a>00095     <span class="keyword">struct</span>
-<a name="l00096"></a>00096     {
-<a name="l00097"></a>00097         <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> bmRequestType;
-<a name="l00098"></a>00098         <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> bRequest;
-<a name="l00099"></a>00099         <a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> wValue;
-<a name="l00100"></a>00100         <a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> wIndex;
-<a name="l00101"></a>00101         <a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> wLength;
-<a name="l00102"></a>00102     };
-<a name="l00103"></a>00103 
-<a name="l00104"></a>00104     <span class="comment">// This struct breaks down bmRequestType in to its components.</span>
-<a name="l00105"></a>00105     <span class="keyword">struct</span>
-<a name="l00106"></a>00106     {
-<a name="l00107"></a>00107         <span class="keywordtype">unsigned</span> recipient:5;   <span class="comment">//see REQUEST_RECIPIENT_*</span>
-<a name="l00108"></a>00108         <span class="keywordtype">unsigned</span> requestType:2; <span class="comment">//see REQUEST_TYPE_*</span>
-<a name="l00109"></a>00109         <span class="keywordtype">unsigned</span> direction:1;   <span class="comment">//0=USB_OUT,1=USB_IN</span>
-<a name="l00110"></a>00110     };
-<a name="l00111"></a>00111 } <a class="code" href="union_u_s_b___s_e_t_u_p___p_a_c_k_e_t.html">USB_SETUP_PACKET</a>;
-<a name="l00112"></a>00112 
-<a name="l00113"></a>00113 <span class="comment">// USB2.0 Table 9-8: Standard Device Descriptor</span>
-<a name="l00114"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html">00114</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html">USB_DESCRIPTOR_DEVICE</a>
-<a name="l00115"></a>00115 {
-<a name="l00116"></a>00116     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  bLength;               <span class="comment">// sizeof(USB_DEVICE_DESCRIPTOR)</span>
-<a name="l00117"></a>00117     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  bDescriptorType;       <span class="comment">// DEVICE descriptor type (DESCRIPTOR_DEVICE).</span>
-<a name="l00118"></a>00118     <a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> bcdUSB;                <span class="comment">// USB Spec Release Number (BCD).</span>
-<a name="l00119"></a>00119     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  bDeviceClass;          <span class="comment">// Class code (assigned by the USB-IF). 0xFF-Vendor specific.</span>
-<a name="l00120"></a>00120     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  bDeviceSubClass;       <span class="comment">// Subclass code (assigned by the USB-IF).</span>
-<a name="l00121"></a>00121     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  bDeviceProtocol;       <span class="comment">// Protocol code (assigned by the USB-IF). 0xFF-Vendor specific.</span>
-<a name="l00122"></a>00122     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  bMaxPacketSize0;       <span class="comment">// Maximum packet size for endpoint 0.</span>
-<a name="l00123"></a>00123     <a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> idVendor;              <span class="comment">// Vendor ID (assigned by the USB-IF), use USB_VENDOR_ID_POLOLU</span>
-<a name="l00124"></a>00124     <a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> idProduct;             <span class="comment">// Product ID (assigned by the manufacturer).</span>
-<a name="l00125"></a>00125     <a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> bcdDevice;             <span class="comment">// Device release number (BCD).</span>
-<a name="l00126"></a>00126     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  iManufacturer;         <span class="comment">// Index of String Descriptor describing the manufacturer.</span>
-<a name="l00127"></a>00127     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  iProduct;              <span class="comment">// Index of String Descriptor describing the product.</span>
-<a name="l00128"></a>00128     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  iSerialNumber;         <span class="comment">// Index of String Descriptor with the device&#39;s serial number.</span>
-<a name="l00129"></a>00129     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  bNumConfigurations;    <span class="comment">// Number of possible configurations.</span>
-<a name="l00130"></a>00130 } <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html">USB_DESCRIPTOR_DEVICE</a>;
-<a name="l00131"></a>00131 
-<a name="l00132"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___c_o_n_f_i_g_u_r_a_t_i_o_n.html">00132</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___c_o_n_f_i_g_u_r_a_t_i_o_n.html">USB_DESCRIPTOR_CONFIGURATION</a> <span class="comment">// USB2.0 Table 9-10: Standard Configuration Descriptor</span>
-<a name="l00133"></a>00133 {
-<a name="l00134"></a>00134     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  bLength;               <span class="comment">// sizeof(struct USB_CONFIGURATION_DESCRIPTOR)</span>
-<a name="l00135"></a>00135     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  bDescriptorType;       <span class="comment">// DESCRIPTOR_CONFIGURATION</span>
-<a name="l00136"></a>00136     <a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> wTotalLength;          <span class="comment">// Total length of all the descriptors returned for this configuration.</span>
-<a name="l00137"></a>00137     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  bNumInterfaces;        <span class="comment">// Number of interfaces supported by this configuration.</span>
-<a name="l00138"></a>00138     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  bConfigurationValue;   <span class="comment">// Value to use as an argument to the REQUEST_SET_CONFIGURATION to select this configuration (should be 1 in this library)</span>
-<a name="l00139"></a>00139     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  iConfiguration;        <span class="comment">// Index of String Descriptor describing this configuration.</span>
-<a name="l00140"></a>00140     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  bmAttributes;          <span class="comment">// D7:1, D6:Self-powered, D5:Remote wakeup, D4-0:0</span>
-<a name="l00141"></a>00141     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  bMaxPower;             <span class="comment">// Maximum power consumption from the bus in units of 2 mA (50 = 100 mA)</span>
-<a name="l00142"></a>00142 } <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___c_o_n_f_i_g_u_r_a_t_i_o_n.html">USB_DESCRIPTOR_CONFIGURATION</a>;
-<a name="l00143"></a>00143 
-<a name="l00144"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e___a_s_s_o_c_i_a_t_i_o_n.html">00144</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e___a_s_s_o_c_i_a_t_i_o_n.html">USB_DESCRIPTOR_INTERFACE_ASSOCIATION</a> <span class="comment">// USB ECN: Interface Association Descriptor Table 9-Z</span>
-<a name="l00145"></a>00145 {
-<a name="l00146"></a>00146     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  bLength;               <span class="comment">// sizeof(struct USB_CONFIGURATION_DESCRIPTOR)</span>
-<a name="l00147"></a>00147     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  bDescriptorType;       <span class="comment">// DESCRIPTOR_INTERFACE_ASSOCIATION</span>
-<a name="l00148"></a>00148     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  bFirstInterface;       <span class="comment">// Interface number of first interface</span>
-<a name="l00149"></a>00149     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  bInterfaceCount;       <span class="comment">// Number of contiguous interfaces in this function</span>
-<a name="l00150"></a>00150     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  bFunctionClass;
-<a name="l00151"></a>00151     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  bFunctionSubClass;
-<a name="l00152"></a>00152     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  bFunctionProtocol;
-<a name="l00153"></a>00153     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  iFunction;             <span class="comment">// Index of String Descriptor for this function.</span>
-<a name="l00154"></a>00154 } <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e___a_s_s_o_c_i_a_t_i_o_n.html">USB_DESCRIPTOR_INTERFACE_ASSOCIATION</a>;
-<a name="l00155"></a>00155 
-<a name="l00156"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html">00156</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html">USB_DESCRIPTOR_INTERFACE</a> <span class="comment">// USB2.0 Table 9-12: Standard Interface Descriptor</span>
-<a name="l00157"></a>00157 {
-<a name="l00158"></a>00158     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  bLength;               <span class="comment">// sizeof(struct USB_INTERFACE_DESCRIPTOR)</span>
-<a name="l00159"></a>00159     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  bDescriptorType;       <span class="comment">// DESCRIPTOR_INTERFACE</span>
-<a name="l00160"></a>00160     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  bInterfaceNumber;      <span class="comment">// Number of this interface.  Zero-based value in the array of interfaces supported by this configuration.</span>
-<a name="l00161"></a>00161     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  bAlternateSetting;     <span class="comment">// Value used to select this alternate setting (should be 0 in this library)</span>
-<a name="l00162"></a>00162     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  bNumEndpoints;         <span class="comment">// Number of endpoints used (excluded EP0)</span>
-<a name="l00163"></a>00163     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  bInterfaceClass;       <span class="comment">// Class code (assigned by USB-IF).  Zero is reserved, 0xFF is vendor specific.</span>
-<a name="l00164"></a>00164     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  bInterfaceSubClass;    <span class="comment">// Subclass code</span>
-<a name="l00165"></a>00165     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  bInterfaceProtocol;    <span class="comment">// Protocol code</span>
-<a name="l00166"></a>00166     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  iInterface;            <span class="comment">// Index of String Descriptor for this interface.</span>
-<a name="l00167"></a>00167 } <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html">USB_DESCRIPTOR_INTERFACE</a>;
-<a name="l00168"></a>00168 
-<a name="l00169"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___e_n_d_p_o_i_n_t.html">00169</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___e_n_d_p_o_i_n_t.html">USB_DESCRIPTOR_ENDPOINT</a> <span class="comment">// USB2.0 Table 9-13: Standard Endpoint Descriptor</span>
-<a name="l00170"></a>00170 {
-<a name="l00171"></a>00171     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  bLength;               <span class="comment">// sizeof(USB_ENDPOINT_DESCRIPTOR)</span>
-<a name="l00172"></a>00172     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  bDescriptorType;       <span class="comment">// DESCRIPTOR_ENDPOINT</span>
-<a name="l00173"></a>00173     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  bEndpointAddress;      <span class="comment">// D7: OUT(0) or IN(1).  D6-4: Zero.  D3-0: endpoint number</span>
-<a name="l00174"></a>00174     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  bmAttributes;          <span class="comment">// TRANSFER_TYPE_* (and other stuff for isochronous)</span>
-<a name="l00175"></a>00175     <a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> wMaxPacketSize;        <span class="comment">// bytes</span>
-<a name="l00176"></a>00176     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  bInterval;             <span class="comment">// how often to poll</span>
-<a name="l00177"></a>00177 } <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___e_n_d_p_o_i_n_t.html">USB_DESCRIPTOR_ENDPOINT</a>;
-<a name="l00178"></a>00178 
-<a name="l00179"></a>00179 <span class="comment">/* CC2511 USB CONSTANTS *******************************************************/</span>
-<a name="l00180"></a>00180 
-<a name="l00181"></a>00181 <span class="comment">// USBCSOL register bit values</span>
-<a name="l00182"></a>00182 <span class="preprocessor">#define USBCSOL_OUTPKT_RDY   0x01</span>
-<a name="l00183"></a>00183 <span class="preprocessor"></span>
-<a name="l00184"></a>00184 <span class="comment">// USBCSIL register bit values</span>
-<a name="l00185"></a>00185 <span class="preprocessor">#define USBCSIL_INPKT_RDY    0x01</span>
-<a name="l00186"></a>00186 <span class="preprocessor"></span><span class="preprocessor">#define USBCSIL_PKT_PRESENT  0x02</span>
-<a name="l00187"></a>00187 <span class="preprocessor"></span>
-<a name="l00188"></a>00188 <span class="comment">/* HELPERS ********************************************************************/</span>
-<a name="l00189"></a>00189 
-<a name="l00190"></a>00190 <span class="preprocessor">#define DEFINE_STRING_DESCRIPTOR(name,letter_count,...) static uint16 CODE name[] = { (2*(letter_count+1)) | (USB_DESCRIPTOR_TYPE_STRING&lt;&lt;8), __VA_ARGS__ };</span>
-<a name="l00191"></a>00191 <span class="preprocessor"></span>
-<a name="l00192"></a>00192 <span class="comment">/* PROTOTYPES DEFINED BY LIBUSB ***********************************************/</span>
-<a name="l00193"></a>00193 
-<a name="l00194"></a>00194 <span class="keyword">extern</span> <span class="keyword">enum</span> USB_DEVICE_STATES <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> usbDeviceState;
-<a name="l00195"></a>00195 <span class="keyword">extern</span> <a class="code" href="union_u_s_b___s_e_t_u_p___p_a_c_k_e_t.html">USB_SETUP_PACKET</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> usbSetupPacket;
-<a name="l00196"></a>00196 
-<a name="l00197"></a>00197 <span class="keywordtype">void</span> usbInit(<span class="keywordtype">void</span>);
-<a name="l00198"></a>00198 <span class="keywordtype">void</span> usbPoll(<span class="keywordtype">void</span>);
-<a name="l00199"></a>00199 
-<a name="l00200"></a>00200 <span class="keywordtype">void</span> usbControlRead(<a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> bytesCount, <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> * source);
-<a name="l00201"></a>00201 <span class="keywordtype">void</span> usbControlWrite(<a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> bytesCount, <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> * source);
-<a name="l00202"></a>00202 <span class="keywordtype">void</span> usbControlAcknowledge(<span class="keywordtype">void</span>);
-<a name="l00203"></a>00203 <span class="keywordtype">void</span> usbControlStall(<span class="keywordtype">void</span>);
-<a name="l00204"></a>00204 
-<a name="l00205"></a>00205 <span class="keywordtype">void</span> usbInitEndpointIn(<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> endpointNumber, <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> maxPacketSize);
-<a name="l00206"></a>00206 <span class="keywordtype">void</span> usbInitEndpointOut(<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> endpointNumber, <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> maxPacketSize);
-<a name="l00207"></a>00207 
-<a name="l00208"></a>00208 <span class="keywordtype">void</span> usbWriteFifo(<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> endpointNumber, <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> count, <span class="keyword">const</span> <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> * buffer);
-<a name="l00209"></a>00209 <span class="keywordtype">void</span> usbReadFifo(<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> endpointNumber, <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> count, <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> * buffer);
-<a name="l00210"></a>00210 
-<a name="l00216"></a>00216 <a class="code" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> <a class="code" href="usb_8h.html#af73cf84963ab2b2f8e462783d0fe20cb">usbSuspended</a>(<span class="keywordtype">void</span>);
-<a name="l00217"></a>00217 
-<a name="l00218"></a>00218 <span class="comment">/* TODO: document usbSleep</span>
-<a name="l00219"></a>00219 <span class="comment"> *</span>
-<a name="l00220"></a>00220 <span class="comment"> * Example usage:</span>
-<a name="l00221"></a>00221 <span class="comment"> *      if (usbSuspended() &amp;&amp; !selfPowered())</span>
-<a name="l00222"></a>00222 <span class="comment"> *      {</span>
-<a name="l00223"></a>00223 <span class="comment"> *          // Here you must shut down anything that draws a lot of current</span>
-<a name="l00224"></a>00224 <span class="comment"> *          // (except the USB pull-up resistor).  Power consumption during</span>
-<a name="l00225"></a>00225 <span class="comment"> *          // suspend mode must be less than 0.5 mA or the device</span>
-<a name="l00226"></a>00226 <span class="comment"> *          // will be out of spec (but usually nothing bad happens).</span>
-<a name="l00227"></a>00227 <span class="comment"> *          usbSleep();</span>
-<a name="l00228"></a>00228 <span class="comment"> *          // Here you should re-enable the things that were disabled.</span>
-<a name="l00229"></a>00229 <span class="comment"> *      }</span>
-<a name="l00230"></a>00230 <span class="comment"> */</span>
-<a name="l00231"></a>00231 <span class="keywordtype">void</span> usbSleep(<span class="keywordtype">void</span>);
-<a name="l00232"></a>00232 
-<a name="l00259"></a>00259 <span class="keyword">extern</span> <span class="keyword">volatile</span> <a class="code" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> <a class="code" href="usb_8h.html#a614ac1a06ac6bbdcc1299d4c8b8cdabf">usbSuspendMode</a>;
+<a name="l00030"></a><a class="code" href="usb_8h.html#ac2142aa49fc00f489cd4fbf2aba23fae">00030</a> <span class="preprocessor">#define USB_VENDOR_ID_POLOLU 0x1FFB</span>
+<a name="l00031"></a>00031 <span class="preprocessor"></span>
+<a name="l00034"></a><a class="code" href="usb_8h.html#a75ea200f227f8f25545643ce1efc4841">00034</a> <span class="preprocessor">#define USB_EP0_PACKET_SIZE 32</span>
+<a name="l00035"></a>00035 <span class="preprocessor"></span>
+<a name="l00036"></a>00036 <span class="comment">/* USB CONSTANTS **************************************************************/</span>
+<a name="l00037"></a>00037 
+<a name="l00040"></a><a class="code" href="usb_8h.html#a01aa12d15a604591277df2d2c5f0dd3a">00040</a> <span class="keyword">enum</span> <a class="code" href="usb_8h.html#a01aa12d15a604591277df2d2c5f0dd3a">USB_DEVICE_STATES</a>
+<a name="l00041"></a>00041 {
+<a name="l00042"></a>00042     USB_STATE_DETACHED = 0,
+<a name="l00043"></a>00043     USB_STATE_ATTACHED = 1,
+<a name="l00044"></a>00044     USB_STATE_POWERED = 2,
+<a name="l00045"></a>00045     USB_STATE_DEFAULT = 4,
+<a name="l00046"></a>00046     USB_STATE_ADDRESS = 8,
+<a name="l00047"></a>00047     USB_STATE_CONFIGURED = 16
+<a name="l00048"></a>00048 };
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050 <span class="comment">// SETUP_PACKET.bRequest values from USB Spec Table 9-4</span>
+<a name="l00051"></a>00051 <span class="preprocessor">#define USB_REQUEST_GET_STATUS 0u</span>
+<a name="l00052"></a>00052 <span class="preprocessor"></span><span class="preprocessor">#define USB_REQUEST_CLEAR_FEATURE 1u</span>
+<a name="l00053"></a>00053 <span class="preprocessor"></span><span class="preprocessor">#define USB_REQUEST_SET_FEATURE 3u</span>
+<a name="l00054"></a>00054 <span class="preprocessor"></span><span class="preprocessor">#define USB_REQUEST_SET_ADDRESS 5u</span>
+<a name="l00055"></a>00055 <span class="preprocessor"></span><span class="preprocessor">#define USB_REQUEST_GET_DESCRIPTOR 6u</span>
+<a name="l00056"></a>00056 <span class="preprocessor"></span><span class="preprocessor">#define USB_REQUEST_SET_DESCRIPTOR 7u</span>
+<a name="l00057"></a>00057 <span class="preprocessor"></span><span class="preprocessor">#define USB_REQUEST_GET_CONFIGURATION 8u</span>
+<a name="l00058"></a>00058 <span class="preprocessor"></span><span class="preprocessor">#define USB_REQUEST_SET_CONFIGURATION 9u</span>
+<a name="l00059"></a>00059 <span class="preprocessor"></span><span class="preprocessor">#define USB_REQUEST_GET_INTERFACE 10u</span>
+<a name="l00060"></a>00060 <span class="preprocessor"></span><span class="preprocessor">#define USB_REQUEST_SET_INTERFACE 11u</span>
+<a name="l00061"></a>00061 <span class="preprocessor"></span><span class="preprocessor">#define USB_REQUEST_SYNCH_FRAME 12u</span>
+<a name="l00062"></a>00062 <span class="preprocessor"></span>
+<a name="l00063"></a>00063 <span class="comment">// SETUP_PACKET.request_type values from USB Spec Table 9-2</span>
+<a name="l00064"></a>00064 <span class="preprocessor">#define USB_REQUEST_TYPE_STANDARD 0u</span>
+<a name="l00065"></a>00065 <span class="preprocessor"></span><span class="preprocessor">#define USB_REQUEST_TYPE_CLASS 1u</span>
+<a name="l00066"></a>00066 <span class="preprocessor"></span><span class="preprocessor">#define USB_REQUEST_TYPE_VENDOR 2u</span>
+<a name="l00067"></a>00067 <span class="preprocessor"></span>
+<a name="l00068"></a>00068 <span class="comment">// SETUP_PACKET.recipient values from USB Spec Table 9-2</span>
+<a name="l00069"></a>00069 <span class="preprocessor">#define USB_RECIPIENT_DEVICE 0u</span>
+<a name="l00070"></a>00070 <span class="preprocessor"></span><span class="preprocessor">#define USB_RECIPIENT_INTERFACE 1u</span>
+<a name="l00071"></a>00071 <span class="preprocessor"></span><span class="preprocessor">#define USB_RECIPIENT_ENDPOINT 2u</span>
+<a name="l00072"></a>00072 <span class="preprocessor"></span><span class="preprocessor">#define USB_RECIPIENT_OTHER 3u</span>
+<a name="l00073"></a>00073 <span class="preprocessor"></span>
+<a name="l00074"></a>00074 <span class="comment">// Descriptor types from USB Spec Table 9-5</span>
+<a name="l00075"></a>00075 <span class="preprocessor">#define USB_DESCRIPTOR_TYPE_DEVICE 1u</span>
+<a name="l00076"></a>00076 <span class="preprocessor"></span><span class="preprocessor">#define USB_DESCRIPTOR_TYPE_CONFIGURATION 2u</span>
+<a name="l00077"></a>00077 <span class="preprocessor"></span><span class="preprocessor">#define USB_DESCRIPTOR_TYPE_STRING 3u</span>
+<a name="l00078"></a>00078 <span class="preprocessor"></span><span class="preprocessor">#define USB_DESCRIPTOR_TYPE_INTERFACE 4u</span>
+<a name="l00079"></a>00079 <span class="preprocessor"></span><span class="preprocessor">#define USB_DESCRIPTOR_TYPE_ENDPOINT 5u</span>
+<a name="l00080"></a>00080 <span class="preprocessor"></span><span class="preprocessor">#define USB_DESCRIPTOR_TYPE_DEVICE_QUALIFIER 6u</span>
+<a name="l00081"></a>00081 <span class="preprocessor"></span><span class="preprocessor">#define USB_DESCRIPTOR_TYPE_OTHER_SPEED_CONFIGURATION 7u</span>
+<a name="l00082"></a>00082 <span class="preprocessor"></span><span class="preprocessor">#define USB_DESCRIPTOR_TYPE_INTERFACE_POWER 8u</span>
+<a name="l00083"></a>00083 <span class="preprocessor"></span><span class="preprocessor">#define USB_DESCRIPTOR_TYPE_ENDPOINT_CLASS_SPECIFIC 0x25u</span>
+<a name="l00084"></a>00084 <span class="preprocessor"></span><span class="preprocessor">#define USB_DESCRIPTOR_TYPE_INTERFACE_ASSOCIATION 0x0Bu</span>
+<a name="l00085"></a>00085 <span class="preprocessor"></span>
+<a name="l00086"></a>00086 <span class="comment">// setup_packet feature selectors, USB Spec Table 9-6, Standard Feature Selectors</span>
+<a name="l00087"></a>00087 <span class="preprocessor">#define USB_FEATURE_DEVICE_REMOTE_WAKEUP 1u</span>
+<a name="l00088"></a>00088 <span class="preprocessor"></span><span class="preprocessor">#define USB_FEATURE_ENDPOINT_HALT 0u</span>
+<a name="l00089"></a>00089 <span class="preprocessor"></span><span class="preprocessor">#define USB_FEATURE_TEST_MODE 2u</span>
+<a name="l00090"></a>00090 <span class="preprocessor"></span>
+<a name="l00091"></a>00091 <span class="comment">// Configuration Decriptor bmAttributes bitmasks (USB Spec Table 9-10)</span>
+<a name="l00092"></a>00092 <span class="preprocessor">#define USB_CONFIG_ATTR_DEFAULT       (1&lt;&lt;7) //Default Value (bit 7 must be set to 1)</span>
+<a name="l00093"></a>00093 <span class="preprocessor"></span><span class="preprocessor">#define USB_CONFIG_ATTR_SELF_POWERED  (1&lt;&lt;6) //Self-powered</span>
+<a name="l00094"></a>00094 <span class="preprocessor"></span><span class="preprocessor">#define USB_CONFIG_ATTR_REMOTE_WAKEUP (1&lt;&lt;5) //Remote Wakeup</span>
+<a name="l00095"></a>00095 <span class="preprocessor"></span>
+<a name="l00096"></a>00096 <span class="comment">// Values for usbSetupPacket.direction bit.</span>
+<a name="l00097"></a>00097 <span class="preprocessor">#define USB_OUT 0u</span>
+<a name="l00098"></a>00098 <span class="preprocessor"></span><span class="preprocessor">#define USB_IN  1u</span>
+<a name="l00099"></a>00099 <span class="preprocessor"></span>
+<a name="l00100"></a>00100 <span class="comment">// USB Endpoint addresses, to be used in descriptors</span>
+<a name="l00101"></a>00101 <span class="comment">// To get the address of an IN endpoint, do: USB_ENDPOINT_ADDRESS_IN | 1</span>
+<a name="l00102"></a>00102 <span class="preprocessor">#define USB_ENDPOINT_ADDRESS_IN    0x80</span>
+<a name="l00103"></a>00103 <span class="preprocessor"></span><span class="preprocessor">#define USB_ENDPOINT_ADDRESS_OUT   0x00</span>
+<a name="l00104"></a>00104 <span class="preprocessor"></span>
+<a name="l00105"></a>00105 <span class="comment">// Endpoint transfer types, used in endpoint descriptors (USB Spec Table 9-13)</span>
+<a name="l00106"></a>00106 <span class="preprocessor">#define USB_TRANSFER_TYPE_CONTROL     0</span>
+<a name="l00107"></a>00107 <span class="preprocessor"></span><span class="preprocessor">#define USB_TRANSFER_TYPE_ISOCHRONOUS 1</span>
+<a name="l00108"></a>00108 <span class="preprocessor"></span><span class="preprocessor">#define USB_TRANSFER_TYPE_BULK        2</span>
+<a name="l00109"></a>00109 <span class="preprocessor"></span><span class="preprocessor">#define USB_TRANSFER_TYPE_INTERRUPT   3</span>
+<a name="l00110"></a>00110 <span class="preprocessor"></span>
+<a name="l00113"></a><a class="code" href="usb_8h.html#a1c9e637f3a06eb4cf6ddddaa646d6eaa">00113</a> <span class="preprocessor">#define USB_LANGUAGE_EN_US 0x0409</span>
+<a name="l00114"></a>00114 <span class="preprocessor"></span>
+<a name="l00115"></a>00115 <span class="comment">/* USB STRUCTS ****************************************************************/</span>
+<a name="l00116"></a>00116 
+<a name="l00117"></a><a class="code" href="union_u_s_b___s_e_t_u_p___p_a_c_k_e_t.html">00117</a> <span class="keyword">typedef</span> <span class="keyword">union</span>
+<a name="l00118"></a>00118 {
+<a name="l00120"></a>00120     <span class="keyword">struct</span>
+<a name="l00121"></a>00121     {
+<a name="l00122"></a>00122         <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> bmRequestType;
+<a name="l00123"></a>00123         <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> bRequest;
+<a name="l00124"></a>00124         <a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> wValue;
+<a name="l00125"></a>00125         <a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> wIndex;
+<a name="l00126"></a>00126         <a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> wLength;
+<a name="l00127"></a>00127     };
+<a name="l00128"></a>00128 
+<a name="l00130"></a>00130     <span class="keyword">struct</span>
+<a name="l00131"></a>00131     {
+<a name="l00132"></a>00132         <span class="keywordtype">unsigned</span> recipient:5;   <span class="comment">//see REQUEST_RECIPIENT_*</span>
+<a name="l00133"></a>00133         <span class="keywordtype">unsigned</span> requestType:2; <span class="comment">//see REQUEST_TYPE_*</span>
+<a name="l00134"></a>00134         <span class="keywordtype">unsigned</span> direction:1;   <span class="comment">//0=USB_OUT,1=USB_IN</span>
+<a name="l00135"></a>00135     };
+<a name="l00136"></a>00136 } <a class="code" href="union_u_s_b___s_e_t_u_p___p_a_c_k_e_t.html">USB_SETUP_PACKET</a>;
+<a name="l00137"></a>00137 
+<a name="l00139"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html">00139</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html">USB_DESCRIPTOR_DEVICE</a>
+<a name="l00140"></a>00140 {
+<a name="l00141"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html#a9f8172fb37ded42556b7883e1439f519">00141</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html#a9f8172fb37ded42556b7883e1439f519">bLength</a>;               
+<a name="l00142"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html#a64d16e58fa72a88a37403319b2ab6fe4">00142</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html#a64d16e58fa72a88a37403319b2ab6fe4">bDescriptorType</a>;       
+<a name="l00143"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html#aaa43a35a80a53e2acdfbfebaeaf9cd28">00143</a>     <a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html#aaa43a35a80a53e2acdfbfebaeaf9cd28">bcdUSB</a>;                
+<a name="l00144"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html#a98e6fb67e62e8b40f7cc36a1e8cf3e9a">00144</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html#a98e6fb67e62e8b40f7cc36a1e8cf3e9a">bDeviceClass</a>;          
+<a name="l00145"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html#afd9ea5beef56fb75ac601b07f89f00b5">00145</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html#afd9ea5beef56fb75ac601b07f89f00b5">bDeviceSubClass</a>;       
+<a name="l00146"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html#a1b5c94309e10149601b5347f458efaa9">00146</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html#a1b5c94309e10149601b5347f458efaa9">bDeviceProtocol</a>;       
+<a name="l00147"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html#a372602ad042c2781f83542de7651a871">00147</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html#a372602ad042c2781f83542de7651a871">bMaxPacketSize0</a>;       
+<a name="l00148"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html#ac0b535baa48136f39c9f49fa2338f76e">00148</a>     <a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html#ac0b535baa48136f39c9f49fa2338f76e">idVendor</a>;              
+<a name="l00149"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html#adaa6f8c46c3dfc1258d79aa878f2fe15">00149</a>     <a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html#adaa6f8c46c3dfc1258d79aa878f2fe15">idProduct</a>;             
+<a name="l00150"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html#abaa18b86eb823709a2a6e61e80dda07b">00150</a>     <a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html#abaa18b86eb823709a2a6e61e80dda07b">bcdDevice</a>;             
+<a name="l00151"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html#a3a9e94a6ad5527733ac166228ec57529">00151</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html#a3a9e94a6ad5527733ac166228ec57529">iManufacturer</a>;         
+<a name="l00152"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html#a64d04fd01020824f80955635442bdece">00152</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html#a64d04fd01020824f80955635442bdece">iProduct</a>;              
+<a name="l00153"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html#a17e942178ffd950754ad8ef7d5037953">00153</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html#a17e942178ffd950754ad8ef7d5037953">iSerialNumber</a>;         
+<a name="l00154"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html#a18eab9c7358ed331d657de4ee11d61e4">00154</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html#a18eab9c7358ed331d657de4ee11d61e4">bNumConfigurations</a>;    
+<a name="l00155"></a>00155 } <a class="code" href="usb_8h.html#aef556172118c1fa8b504f975ce7e21fb">USB_DESCRIPTOR_DEVICE</a>;
+<a name="l00156"></a>00156 
+<a name="l00158"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___c_o_n_f_i_g_u_r_a_t_i_o_n.html">00158</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___c_o_n_f_i_g_u_r_a_t_i_o_n.html">USB_DESCRIPTOR_CONFIGURATION</a>
+<a name="l00159"></a>00159 {
+<a name="l00160"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___c_o_n_f_i_g_u_r_a_t_i_o_n.html#a9f8172fb37ded42556b7883e1439f519">00160</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___c_o_n_f_i_g_u_r_a_t_i_o_n.html#a9f8172fb37ded42556b7883e1439f519">bLength</a>;               
+<a name="l00161"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___c_o_n_f_i_g_u_r_a_t_i_o_n.html#a64d16e58fa72a88a37403319b2ab6fe4">00161</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___c_o_n_f_i_g_u_r_a_t_i_o_n.html#a64d16e58fa72a88a37403319b2ab6fe4">bDescriptorType</a>;       
+<a name="l00162"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___c_o_n_f_i_g_u_r_a_t_i_o_n.html#a2874822302e4bd3d43d0f7b006a17930">00162</a>     <a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___c_o_n_f_i_g_u_r_a_t_i_o_n.html#a2874822302e4bd3d43d0f7b006a17930">wTotalLength</a>;          
+<a name="l00163"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___c_o_n_f_i_g_u_r_a_t_i_o_n.html#a0b23ef23086c8764e38c38cf01d25fc3">00163</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___c_o_n_f_i_g_u_r_a_t_i_o_n.html#a0b23ef23086c8764e38c38cf01d25fc3">bNumInterfaces</a>;        
+<a name="l00164"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___c_o_n_f_i_g_u_r_a_t_i_o_n.html#a2fdbf35b845da2e7a5a9961b7843988e">00164</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___c_o_n_f_i_g_u_r_a_t_i_o_n.html#a2fdbf35b845da2e7a5a9961b7843988e">bConfigurationValue</a>;   
+<a name="l00165"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___c_o_n_f_i_g_u_r_a_t_i_o_n.html#ad393c62efa49204d6cece0ff6ecf32aa">00165</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___c_o_n_f_i_g_u_r_a_t_i_o_n.html#ad393c62efa49204d6cece0ff6ecf32aa">iConfiguration</a>;        
+<a name="l00166"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___c_o_n_f_i_g_u_r_a_t_i_o_n.html#a7ed9ebc183e90105f7b5724ef2bbc26b">00166</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___c_o_n_f_i_g_u_r_a_t_i_o_n.html#a7ed9ebc183e90105f7b5724ef2bbc26b">bmAttributes</a>;          
+<a name="l00167"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___c_o_n_f_i_g_u_r_a_t_i_o_n.html#adb559fc0a6f831e3d5c6b5cad3aabb51">00167</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___c_o_n_f_i_g_u_r_a_t_i_o_n.html#adb559fc0a6f831e3d5c6b5cad3aabb51">bMaxPower</a>;             
+<a name="l00168"></a>00168 } <a class="code" href="usb_8h.html#a4ea3917c1161437221e7e7f87386c1f6">USB_DESCRIPTOR_CONFIGURATION</a>;
+<a name="l00169"></a>00169 
+<a name="l00173"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e___a_s_s_o_c_i_a_t_i_o_n.html">00173</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e___a_s_s_o_c_i_a_t_i_o_n.html">USB_DESCRIPTOR_INTERFACE_ASSOCIATION</a>
+<a name="l00174"></a>00174 {
+<a name="l00175"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e___a_s_s_o_c_i_a_t_i_o_n.html#a9f8172fb37ded42556b7883e1439f519">00175</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e___a_s_s_o_c_i_a_t_i_o_n.html#a9f8172fb37ded42556b7883e1439f519">bLength</a>;               
+<a name="l00176"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e___a_s_s_o_c_i_a_t_i_o_n.html#a64d16e58fa72a88a37403319b2ab6fe4">00176</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e___a_s_s_o_c_i_a_t_i_o_n.html#a64d16e58fa72a88a37403319b2ab6fe4">bDescriptorType</a>;       
+<a name="l00177"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e___a_s_s_o_c_i_a_t_i_o_n.html#a893afadda5ff130ae90fd0e4b2d8c8d9">00177</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e___a_s_s_o_c_i_a_t_i_o_n.html#a893afadda5ff130ae90fd0e4b2d8c8d9">bFirstInterface</a>;       
+<a name="l00178"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e___a_s_s_o_c_i_a_t_i_o_n.html#aef432dce63ad8636d162e728842ffde9">00178</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e___a_s_s_o_c_i_a_t_i_o_n.html#aef432dce63ad8636d162e728842ffde9">bInterfaceCount</a>;       
+<a name="l00179"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e___a_s_s_o_c_i_a_t_i_o_n.html#aecd5e83f798556d54fb3f8cfed0cfea8">00179</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e___a_s_s_o_c_i_a_t_i_o_n.html#aecd5e83f798556d54fb3f8cfed0cfea8">bFunctionClass</a>;        
+<a name="l00180"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e___a_s_s_o_c_i_a_t_i_o_n.html#aa80857d02bf9667168a8302de49cc938">00180</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e___a_s_s_o_c_i_a_t_i_o_n.html#aa80857d02bf9667168a8302de49cc938">bFunctionSubClass</a>;     
+<a name="l00181"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e___a_s_s_o_c_i_a_t_i_o_n.html#a95821208357d93a1bfe91cfddb1e3869">00181</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e___a_s_s_o_c_i_a_t_i_o_n.html#a95821208357d93a1bfe91cfddb1e3869">bFunctionProtocol</a>;     
+<a name="l00182"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e___a_s_s_o_c_i_a_t_i_o_n.html#a3f4b6148063e3b65a2d4c01f454a42d3">00182</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e___a_s_s_o_c_i_a_t_i_o_n.html#a3f4b6148063e3b65a2d4c01f454a42d3">iFunction</a>;             
+<a name="l00183"></a>00183 } <a class="code" href="usb_8h.html#a571369d03163c656dc7cdc7b49b4fb58">USB_DESCRIPTOR_INTERFACE_ASSOCIATION</a>;
+<a name="l00184"></a>00184 
+<a name="l00186"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html">00186</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html">USB_DESCRIPTOR_INTERFACE</a>
+<a name="l00187"></a>00187 {
+<a name="l00188"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html#a9f8172fb37ded42556b7883e1439f519">00188</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html#a9f8172fb37ded42556b7883e1439f519">bLength</a>;               
+<a name="l00189"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html#a64d16e58fa72a88a37403319b2ab6fe4">00189</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html#a64d16e58fa72a88a37403319b2ab6fe4">bDescriptorType</a>;       
+<a name="l00190"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html#ad1bc710a3b5eb9ca110a3889327a8b9e">00190</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html#ad1bc710a3b5eb9ca110a3889327a8b9e">bInterfaceNumber</a>;      
+<a name="l00191"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html#a81ff0618c67b715b8e0a1c6c5f54ee2d">00191</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html#a81ff0618c67b715b8e0a1c6c5f54ee2d">bAlternateSetting</a>;     
+<a name="l00192"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html#abf258cbe1b12c58a129aaf51289ca418">00192</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html#abf258cbe1b12c58a129aaf51289ca418">bNumEndpoints</a>;         
+<a name="l00193"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html#af1006ed2f03937e09d3d82f709ec8593">00193</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html#af1006ed2f03937e09d3d82f709ec8593">bInterfaceClass</a>;       
+<a name="l00194"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html#ad1599b558b3958e528280b610f47351b">00194</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html#ad1599b558b3958e528280b610f47351b">bInterfaceSubClass</a>;    
+<a name="l00195"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html#a0f802fe782f5eae87ad819484af13921">00195</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html#a0f802fe782f5eae87ad819484af13921">bInterfaceProtocol</a>;    
+<a name="l00196"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html#a0e52b132b6c798dc8a629472b21a2532">00196</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html#a0e52b132b6c798dc8a629472b21a2532">iInterface</a>;            
+<a name="l00197"></a>00197 } <a class="code" href="usb_8h.html#ae84b624b44c4e66f09fe093354830fe4">USB_DESCRIPTOR_INTERFACE</a>;
+<a name="l00198"></a>00198 
+<a name="l00200"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___e_n_d_p_o_i_n_t.html">00200</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___e_n_d_p_o_i_n_t.html">USB_DESCRIPTOR_ENDPOINT</a>
+<a name="l00201"></a>00201 {
+<a name="l00202"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___e_n_d_p_o_i_n_t.html#a9f8172fb37ded42556b7883e1439f519">00202</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___e_n_d_p_o_i_n_t.html#a9f8172fb37ded42556b7883e1439f519">bLength</a>;               
+<a name="l00203"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___e_n_d_p_o_i_n_t.html#a64d16e58fa72a88a37403319b2ab6fe4">00203</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___e_n_d_p_o_i_n_t.html#a64d16e58fa72a88a37403319b2ab6fe4">bDescriptorType</a>;       
+<a name="l00204"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___e_n_d_p_o_i_n_t.html#a41e0771308d1c2220856ec215231b16f">00204</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___e_n_d_p_o_i_n_t.html#a41e0771308d1c2220856ec215231b16f">bEndpointAddress</a>;      
+<a name="l00205"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___e_n_d_p_o_i_n_t.html#a7ed9ebc183e90105f7b5724ef2bbc26b">00205</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___e_n_d_p_o_i_n_t.html#a7ed9ebc183e90105f7b5724ef2bbc26b">bmAttributes</a>;          
+<a name="l00206"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___e_n_d_p_o_i_n_t.html#aca35fcacd819fd88c7809e207e6c13dc">00206</a>     <a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___e_n_d_p_o_i_n_t.html#aca35fcacd819fd88c7809e207e6c13dc">wMaxPacketSize</a>;        
+<a name="l00207"></a><a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___e_n_d_p_o_i_n_t.html#a8763473cb06615ce0b943c1c95072c58">00207</a>     <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>  <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___e_n_d_p_o_i_n_t.html#a8763473cb06615ce0b943c1c95072c58">bInterval</a>;             
+<a name="l00208"></a>00208 } <a class="code" href="usb_8h.html#a724561b028227cc0018d561ba072b2a6">USB_DESCRIPTOR_ENDPOINT</a>;
+<a name="l00209"></a>00209 
+<a name="l00210"></a>00210 <span class="comment">/* CC2511 USB CONSTANTS *******************************************************/</span>
+<a name="l00211"></a>00211 
+<a name="l00212"></a>00212 <span class="comment">// USBCSOL register bit values</span>
+<a name="l00213"></a>00213 <span class="preprocessor">#define USBCSOL_OUTPKT_RDY   0x01</span>
+<a name="l00214"></a>00214 <span class="preprocessor"></span>
+<a name="l00215"></a>00215 <span class="comment">// USBCSIL register bit values</span>
+<a name="l00216"></a>00216 <span class="preprocessor">#define USBCSIL_INPKT_RDY    0x01</span>
+<a name="l00217"></a>00217 <span class="preprocessor"></span><span class="preprocessor">#define USBCSIL_PKT_PRESENT  0x02</span>
+<a name="l00218"></a>00218 <span class="preprocessor"></span>
+<a name="l00219"></a>00219 <span class="comment">/* HELPERS ********************************************************************/</span>
+<a name="l00220"></a>00220 
+<a name="l00230"></a><a class="code" href="usb_8h.html#a1e25f42717064bbd1612092a893291dc">00230</a> <span class="preprocessor">#define DEFINE_STRING_DESCRIPTOR(name,char_count,...) static uint16 CODE name[] = { (2*(char_count+1)) | (USB_DESCRIPTOR_TYPE_STRING&lt;&lt;8), __VA_ARGS__ };</span>
+<a name="l00231"></a>00231 <span class="preprocessor"></span>
+<a name="l00232"></a>00232 <span class="comment">/* PROTOTYPES DEFINED BY LIBUSB ***********************************************/</span>
+<a name="l00233"></a>00233 
+<a name="l00240"></a>00240 <span class="keyword">extern</span> <span class="keyword">enum</span> <a class="code" href="usb_8h.html#a01aa12d15a604591277df2d2c5f0dd3a">USB_DEVICE_STATES</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> <a class="code" href="usb_8h.html#a2dcb8664a97f5d44ad2f57acbb8bc47b">usbDeviceState</a>;
+<a name="l00241"></a>00241 
+<a name="l00247"></a>00247 <span class="keyword">extern</span> <a class="code" href="union_u_s_b___s_e_t_u_p___p_a_c_k_e_t.html">USB_SETUP_PACKET</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> <a class="code" href="usb_8h.html#a596e8781d200458f546c292a45f6115f">usbSetupPacket</a>;
+<a name="l00248"></a>00248 
+<a name="l00251"></a>00251 <span class="keywordtype">void</span> <a class="code" href="usb_8h.html#a4552b1c9fe142a402c84c15444d3d927">usbInit</a>(<span class="keywordtype">void</span>);
+<a name="l00252"></a>00252 
+<a name="l00259"></a>00259 <span class="keywordtype">void</span> <a class="code" href="usb_8h.html#a602c14b8f268adeae6896014c9a79909">usbPoll</a>(<span class="keywordtype">void</span>);
 <a name="l00260"></a>00260 
-<a name="l00282"></a>00282 <span class="keywordtype">void</span> <a class="code" href="usb_8h.html#ae58b278af4c427c8cf4a06e87ed09a2f">usbShowStatusWithGreenLed</a>(<span class="keywordtype">void</span>);
+<a name="l00270"></a>00270 <span class="keywordtype">void</span> <a class="code" href="usb_8h.html#a2263ce15754643f4ac6772c60acaef9f">usbControlRead</a>(<a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> bytesCount, <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> * source);
+<a name="l00271"></a>00271 
+<a name="l00282"></a>00282 <span class="keywordtype">void</span> <a class="code" href="usb_8h.html#a75f27ba6c870382e476511cd7f282131">usbControlWrite</a>(<a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> bytesCount, <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> * source);
 <a name="l00283"></a>00283 
-<a name="l00288"></a>00288 <span class="keyword">extern</span> <span class="keyword">volatile</span> <a class="code" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> <a class="code" href="usb_8h.html#a017195b8bf77f2bb510323d87eb9b0b4">usbActivityFlag</a>;
-<a name="l00289"></a>00289 
-<a name="l00290"></a>00290 <span class="comment">/* HIGH-LEVEL CALLBACKS AND DATA STRUCTURES REQUIRED BY usb.c *****************/</span>
-<a name="l00291"></a>00291 <span class="comment">// usb.c requires these high-level callbacks and data structures:</span>
+<a name="l00291"></a>00291 <span class="keywordtype">void</span> <a class="code" href="usb_8h.html#a809ee9dbebaf3bd90ff89fe4133c9c15">usbControlAcknowledge</a>(<span class="keywordtype">void</span>);
 <a name="l00292"></a>00292 
-<a name="l00293"></a>00293 <span class="keyword">extern</span> <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html">USB_DESCRIPTOR_DEVICE</a> <a class="code" href="cc2511__types_8h.html#ae6527c8381eb3f23b7fd6d6efec6ffc7">CODE</a> usbDeviceDescriptor;
-<a name="l00294"></a>00294 <span class="keyword">extern</span> <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#ae6527c8381eb3f23b7fd6d6efec6ffc7">CODE</a> usbStringDescriptorCount;
-<a name="l00295"></a>00295 <span class="keyword">extern</span> <a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> <a class="code" href="cc2511__types_8h.html#ae6527c8381eb3f23b7fd6d6efec6ffc7">CODE</a> * <a class="code" href="cc2511__types_8h.html#ae6527c8381eb3f23b7fd6d6efec6ffc7">CODE</a> usbStringDescriptors[];
-<a name="l00296"></a>00296 <span class="keywordtype">void</span> usbCallbackSetupHandler(<span class="keywordtype">void</span>);
-<a name="l00297"></a>00297 <span class="keywordtype">void</span> usbCallbackClassDescriptorHandler(<span class="keywordtype">void</span>);
-<a name="l00298"></a>00298 <span class="keywordtype">void</span> usbCallbackInitEndpoints(<span class="keywordtype">void</span>);
-<a name="l00299"></a>00299 <span class="keywordtype">void</span> usbCallbackControlWriteHandler(<span class="keywordtype">void</span>);
-<a name="l00300"></a>00300 
-<a name="l00301"></a>00301 <span class="preprocessor">#endif</span>
+<a name="l00304"></a>00304 <span class="keywordtype">void</span> <a class="code" href="usb_8h.html#a231205da3d1655c2962e76f64fa57d4d">usbControlStall</a>(<span class="keywordtype">void</span>);
+<a name="l00305"></a>00305 
+<a name="l00310"></a>00310 <span class="keywordtype">void</span> <a class="code" href="usb_8h.html#a193c213f751a094371b6048cce3a7b36">usbInitEndpointIn</a>(<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> endpointNumber, <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> maxPacketSize);
+<a name="l00311"></a>00311 
+<a name="l00316"></a>00316 <span class="keywordtype">void</span> <a class="code" href="usb_8h.html#a0669fd5d87e77e2dbc06c8c56869cdb9">usbInitEndpointOut</a>(<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> endpointNumber, <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> maxPacketSize);
+<a name="l00317"></a>00317 
+<a name="l00323"></a>00323 <span class="keywordtype">void</span> <a class="code" href="usb_8h.html#ada6880ae2c31c48a20f8dd8ca02c41d1">usbWriteFifo</a>(<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> endpointNumber, <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> count, <span class="keyword">const</span> <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> * buffer);
+<a name="l00324"></a>00324 
+<a name="l00330"></a>00330 <span class="keywordtype">void</span> <a class="code" href="usb_8h.html#abf7f81cd4e63a01782dbe15fe8a6e837">usbReadFifo</a>(<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> endpointNumber, <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> count, <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#a40236c8c1d02f94f1fb4669ca607769d">XDATA</a> * buffer);
+<a name="l00331"></a>00331 
+<a name="l00337"></a>00337 <a class="code" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> <a class="code" href="usb_8h.html#af73cf84963ab2b2f8e462783d0fe20cb">usbSuspended</a>(<span class="keywordtype">void</span>);
+<a name="l00338"></a>00338 
+<a name="l00354"></a>00354 <span class="keywordtype">void</span> <a class="code" href="usb_8h.html#ad6ab40f0d302005a26461bd8be563a6c">usbSleep</a>(<span class="keywordtype">void</span>);
+<a name="l00355"></a>00355 
+<a name="l00382"></a>00382 <span class="keyword">extern</span> <span class="keyword">volatile</span> <a class="code" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> <a class="code" href="usb_8h.html#a614ac1a06ac6bbdcc1299d4c8b8cdabf">usbSuspendMode</a>;
+<a name="l00383"></a>00383 
+<a name="l00404"></a>00404 <span class="keywordtype">void</span> <a class="code" href="usb_8h.html#ae58b278af4c427c8cf4a06e87ed09a2f">usbShowStatusWithGreenLed</a>(<span class="keywordtype">void</span>);
+<a name="l00405"></a>00405 
+<a name="l00414"></a>00414 <span class="keyword">extern</span> <span class="keyword">volatile</span> <a class="code" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> <a class="code" href="usb_8h.html#a017195b8bf77f2bb510323d87eb9b0b4">usbActivityFlag</a>;
+<a name="l00415"></a>00415 
+<a name="l00416"></a>00416 <span class="comment">/* HIGH-LEVEL CALLBACKS AND DATA STRUCTURES REQUIRED BY usb.c *****************/</span>
+<a name="l00417"></a>00417 <span class="comment">// usb.c requires these high-level callbacks and data structures:</span>
+<a name="l00418"></a>00418 
+<a name="l00423"></a>00423 <span class="keyword">extern</span> <a class="code" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html">USB_DESCRIPTOR_DEVICE</a> <a class="code" href="cc2511__types_8h.html#ae6527c8381eb3f23b7fd6d6efec6ffc7">CODE</a> <a class="code" href="usb_8h.html#ab327812de161d63f6b26886efb3c051c">usbDeviceDescriptor</a>;
+<a name="l00424"></a>00424 
+<a name="l00429"></a>00429 <span class="keyword">extern</span> <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#ae6527c8381eb3f23b7fd6d6efec6ffc7">CODE</a> <a class="code" href="usb_8h.html#ae9730cd53885f72bdeff39b053e6042a">usbStringDescriptorCount</a>;
+<a name="l00430"></a>00430 
+<a name="l00437"></a>00437 <span class="keyword">extern</span> <a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> <a class="code" href="cc2511__types_8h.html#ae6527c8381eb3f23b7fd6d6efec6ffc7">CODE</a> * <a class="code" href="cc2511__types_8h.html#ae6527c8381eb3f23b7fd6d6efec6ffc7">CODE</a> <a class="code" href="usb_8h.html#ab587b46d24bb39c249fc7e17de2eb312">usbStringDescriptors</a>[];
+<a name="l00438"></a>00438 
+<a name="l00450"></a>00450 <span class="keywordtype">void</span> <a class="code" href="usb_8h.html#a299ecafa8420ea308e744b9bcca4c36e">usbCallbackSetupHandler</a>(<span class="keywordtype">void</span>);
+<a name="l00451"></a>00451 
+<a name="l00462"></a>00462 <span class="keywordtype">void</span> <a class="code" href="usb_8h.html#ab5bc2a431d2d072b8b83758922e433b5">usbCallbackClassDescriptorHandler</a>(<span class="keywordtype">void</span>);
+<a name="l00463"></a>00463 
+<a name="l00470"></a>00470 <span class="keywordtype">void</span> <a class="code" href="usb_8h.html#a1cdb15c072fb6d16d1ff81da7c79502e">usbCallbackInitEndpoints</a>(<span class="keywordtype">void</span>);
+<a name="l00471"></a>00471 
+<a name="l00479"></a>00479 <span class="keywordtype">void</span> <a class="code" href="usb_8h.html#acdd38730e9971753fdaccb87d6df5ebb">usbCallbackControlWriteHandler</a>(<span class="keywordtype">void</span>);
+<a name="l00480"></a>00480 
+<a name="l00481"></a>00481 <span class="preprocessor">#endif</span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -309,7 +306,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Defines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -318,7 +315,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Fri Apr 8 2011 18:20:32 for Wixel SDK by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Apr 18 2011 11:50:24 for Wixel SDK by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>
