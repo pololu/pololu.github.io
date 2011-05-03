@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>Wixel SDK: Data Structures</title>
+<title>Wixel SDK: include/i2c.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
@@ -30,8 +30,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
+      <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li id="searchli">
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -52,33 +52,41 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
-      <li><a href="classes.html"><span>Data&#160;Structure&#160;Index</span></a></li>
-      <li><a href="functions.html"><span>Data&#160;Fields</span></a></li>
+      <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
-</div>
 <div class="header">
   <div class="headertitle">
-<h1>Data Structures</h1>  </div>
+<h1>include/i2c.h</h1>  </div>
 </div>
 <div class="contents">
-<div class="textblock">Here are the data structures with brief descriptions:</div><table>
-  <tr><td class="indexkey"><a class="el" href="struct_a_c_m___l_i_n_e___c_o_d_i_n_g.html">ACM_LINE_CODING</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="struct_c_o_n_f_i_g1.html">CONFIG1</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="struct_d_m_a14___c_o_n_f_i_g.html">DMA14_CONFIG</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="struct_d_m_a___c_o_n_f_i_g.html">DMA_CONFIG</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="struct_h_i_d___j_o_y_s_t_i_c_k___i_n___r_e_p_o_r_t.html">HID_JOYSTICK_IN_REPORT</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="struct_h_i_d___k_e_y_b_o_a_r_d___i_n___r_e_p_o_r_t.html">HID_KEYBOARD_IN_REPORT</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="struct_h_i_d___k_e_y_b_o_a_r_d___o_u_t___r_e_p_o_r_t.html">HID_KEYBOARD_OUT_REPORT</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="struct_h_i_d___m_o_u_s_e___i_n___r_e_p_o_r_t.html">HID_MOUSE_IN_REPORT</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___c_o_n_f_i_g_u_r_a_t_i_o_n.html">USB_DESCRIPTOR_CONFIGURATION</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___d_e_v_i_c_e.html">USB_DESCRIPTOR_DEVICE</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___e_n_d_p_o_i_n_t.html">USB_DESCRIPTOR_ENDPOINT</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e.html">USB_DESCRIPTOR_INTERFACE</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="struct_u_s_b___d_e_s_c_r_i_p_t_o_r___i_n_t_e_r_f_a_c_e___a_s_s_o_c_i_a_t_i_o_n.html">USB_DESCRIPTOR_INTERFACE_ASSOCIATION</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="union_u_s_b___s_e_t_u_p___p_a_c_k_e_t.html">USB_SETUP_PACKET</a></td><td class="indexvalue"></td></tr>
-</table>
+<a href="i2c_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00011"></a>00011 <span class="preprocessor">#ifndef _I2C_H</span>
+<a name="l00012"></a>00012 <span class="preprocessor"></span><span class="preprocessor">#define _I2C_H</span>
+<a name="l00013"></a>00013 <span class="preprocessor"></span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include &lt;<a class="code" href="cc2511__types_8h.html">cc2511_types.h</a>&gt;</span>
+<a name="l00015"></a>00015 
+<a name="l00019"></a>00019 <span class="keyword">extern</span> <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#aad9ae913bdfab20dd94ad04ee2d5b045">DATA</a> <a class="code" href="i2c_8h.html#abb58510b9ec5c353225c645fae0acfc4">i2cPinScl</a>;
+<a name="l00020"></a>00020 
+<a name="l00024"></a>00024 <span class="keyword">extern</span> <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#aad9ae913bdfab20dd94ad04ee2d5b045">DATA</a> <a class="code" href="i2c_8h.html#a753049a5a3b77a4d3c21d707cd9ef9c0">i2cPinSda</a>;
+<a name="l00025"></a>00025 
+<a name="l00031"></a>00031 <span class="keyword">extern</span> <a class="code" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> <a class="code" href="i2c_8h.html#ac4954a553f8abc91c95c858b1ede50ae">i2cTimeoutOccurred</a>;
+<a name="l00032"></a>00032 
+<a name="l00041"></a>00041 <span class="keywordtype">void</span> <a class="code" href="i2c_8h.html#a7ddafb84bfe054e007df553e4d94fbbd">i2cSetFrequency</a>(<a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> freqKHz);
+<a name="l00042"></a>00042 
+<a name="l00049"></a>00049 <span class="keywordtype">void</span> <a class="code" href="i2c_8h.html#a5b349338e29cf7dbf34703fc8f92b8ab">i2cSetTimeout</a>(<a class="code" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> timeoutMs);
+<a name="l00050"></a>00050 
+<a name="l00053"></a>00053 <span class="keywordtype">void</span> <a class="code" href="i2c_8h.html#a4323564528b406e399646dadb8226079">i2cStart</a>(<span class="keywordtype">void</span>);
+<a name="l00054"></a>00054 
+<a name="l00057"></a>00057 <span class="keywordtype">void</span> <a class="code" href="i2c_8h.html#a46f365de216a017131a0fdc53067b741">i2cStop</a>(<span class="keywordtype">void</span>);
+<a name="l00058"></a>00058 
+<a name="l00068"></a>00068 <a class="code" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> <a class="code" href="i2c_8h.html#a2dcdd72b927032e377e2df7b76bdd198">i2cWriteByte</a>(<a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> byte);
+<a name="l00069"></a>00069 
+<a name="l00080"></a>00080 <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="i2c_8h.html#accd5b9d398a37317a54db52fc9dc193b">i2cReadByte</a>(<a class="code" href="cc2511__types_8h.html#a5cf13162aa17922ccb9c5f83f104ba49">BIT</a> nack);
+<a name="l00081"></a>00081 
+<a name="l00082"></a>00082 <span class="preprocessor">#endif</span>
+</pre></div></div>
 </div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -94,7 +102,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue May 3 2011 14:16:53 for Wixel SDK by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue May 3 2011 14:16:51 for Wixel SDK by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>
