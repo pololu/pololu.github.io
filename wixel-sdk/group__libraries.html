@@ -79,12 +79,13 @@ Peripheral Driver Libraries</h2>
 <ul>
 <li><b>adc.lib (<a class="el" href="adc_8h.html">adc.h</a>):</b> Uses the Analog-to-Digital Converter (ADC) to read analog voltages.</li>
 <li><b>gpio.lib (<a class="el" href="gpio_8h.html">gpio.h</a>):</b> Uses the CC2511's pins as general purpose inputs or outputs (GPIO).</li>
+<li><b>i2c.lib (<a class="el" href="i2c_8h.html">i2c.h</a>):</b> Provides a basic software (bit-banging) implementation of a master node for I<sup>2</sup>C communication. Depends on <b>gpio.lib</b>.</li>
 <li><b>uart.lib (<a class="el" href="uart0_8h.html">uart0.h</a>, <a class="el" href="uart1_8h.html">uart1.h</a>):</b> Uses USART0 and/or USART1 in UART mode to send and receive serial bytes.</li>
 </ul>
 <h2><a class="anchor" id="basic_libs"></a>
 Basic Libraries</h2>
 <ul>
-<li><b>wixel.lib (<a class="el" href="board_8h.html">board.h</a>, <a class="el" href="time_8h.html">time.h</a>)</b>: Takes care of everything that is specific to the Wixel hardware, including managing LEDs and other IO lines, detecting the current power source, keeping track of time, and providing delay functions.</li>
+<li><b>wixel.lib (<a class="el" href="board_8h.html">board.h</a>, <a class="el" href="time_8h.html">time.h</a>)</b>: Takes care of everything that is specific to the Wixel hardware, including managing LEDs and other I/O lines, detecting the current power source, keeping track of time, and providing delay functions.</li>
 <li><b>dma.lib (<a class="el" href="dma_8h.html">dma.h</a>)</b>: Coordinates the use of DMA channels 1-3. Does not touch DMA channel 0.</li>
 <li><b>random.lib (<a class="el" href="random_8h.html">random.h</a>)</b>: Takes care of generating random numbers.</li>
 </ul>
@@ -106,7 +107,7 @@ Standard C Libraries</h2>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue May 3 2011 14:16:53 for Wixel SDK by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue May 3 2011 14:25:26 for Wixel SDK by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>
