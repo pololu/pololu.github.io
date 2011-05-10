@@ -286,7 +286,7 @@ Variables</h2></td></tr>
 <p>This is a configuration option for the <code>radio_com.lib</code> library that can be set by higher-level code. The default value is 0.</p>
 <p>When this bit is 1, the radio_com library guarantees that the higher-level code receives notifications of changed control signals via <a class="el" href="radio__com_8h.html#afe242da634530429fbe8e3cb1d5b0258">radioComRxControlSignals()</a> and receives data bytes via <a class="el" href="radio__com_8h.html#a7009e2583b898907a3e47e0722f9cf44">radioComRxAvailable()</a> and <a class="el" href="radio__com_8h.html#a9f194ddafe90e9f14571e5e5bbb7fee6">radioComRxReceiveByte()</a> in the <b>same order</b> that these two pieces of information were received from the radio. If this bit is 1, higher-level code must call <a class="el" href="radio__com_8h.html#afe242da634530429fbe8e3cb1d5b0258">radioComRxControlSignals()</a> regularly, or else it will not be able to receive bytes using <a class="el" href="radio__com_8h.html#a7009e2583b898907a3e47e0722f9cf44">radioComRxAvailable()</a> and <a class="el" href="radio__com_8h.html#a9f194ddafe90e9f14571e5e5bbb7fee6">radioComRxReceiveByte()</a>.</p>
 <p>When this bit is 0, the higher-level code does not have to call <a class="el" href="radio__com_8h.html#afe242da634530429fbe8e3cb1d5b0258">radioComRxControlSignals()</a> regularly.</p>
-<p>We recommend that if you call <a class="el" href="radio__com_8h.html#afe242da634530429fbe8e3cb1d5b0258">radioComRxControlSignals()</a>, you should call it regularly and set <a class="el" href="radio__com_8h.html#a37d39a1b11c22b8b3392f3bee84416af">radioComRxEnforceOrdering</a> to 1 at the beginning of your program. If you are not using the control signals, you can leave this bit at 0. </p>
+<p>We recommend that if you call <a class="el" href="radio__com_8h.html#afe242da634530429fbe8e3cb1d5b0258">radioComRxControlSignals()</a>, you should call it regularly and set <a class="el" href="radio__com_8h.html#a37d39a1b11c22b8b3392f3bee84416af">radioComRxEnforceOrdering</a> to 1 at the beginning of your program. If you are not using the control signals, you should leave this bit at 0. </p>
 
 <p>Definition at line <a class="el" href="radio__com_8c_source.html#l00007">7</a> of file <a class="el" href="radio__com_8c_source.html">radio_com.c</a>.</p>
 
@@ -307,7 +307,7 @@ Variables</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue May 3 2011 14:25:25 for Wixel SDK by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue May 10 2011 11:09:04 for Wixel SDK by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

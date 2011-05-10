@@ -96,7 +96,8 @@ Variables</h2></td></tr>
 <div class="fragment"><pre class="fragment"><span class="preprocessor">#include &lt;<a class="code" href="uart0_8h.html">uart0.h</a>&gt;</span>  <span class="comment">// for UART 0</span>
 <span class="preprocessor">#include &lt;<a class="code" href="uart1_8h.html">uart1.h</a>&gt;</span>  <span class="comment">// for UART 1</span>
 </pre></div><p>Since this library uses interrupts, the include statement must be present in the file that contains main().</p>
-<p>The API for using UART 1 is the same as the API for using UART 0 that is documented here, except all the function and variable names begin with "uart1" instead of "uart0". </p>
+<p>The API for using UART 1 is the same as the API for using UART 0 that is documented here, except all the function and variable names begin with "uart1" instead of "uart0".</p>
+<p>For UART0, this library uses Alternative Location 1: P0_3 is TX, P0_2 is RX. For UART1, this library uses Alternative Location 2: P1_6 is TX, P1_7 is RX. This library does not yet allow you to choose which UART location to use. </p>
 
 <p>Definition in file <a class="el" href="uart0_8h_source.html">uart0.h</a>.</p>
 </div><hr/><h2>Function Documentation</h2>
@@ -426,7 +427,7 @@ Variables</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue May 3 2011 14:25:25 for Wixel SDK by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue May 10 2011 11:09:04 for Wixel SDK by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>
