@@ -59,12 +59,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="textblock"><p>The Pololu Wixel Software Development Kit (SDK) contains code and Makefiles that will help you create your own applications for the <a href="http://www.pololu.com/catalog/product/1336">Pololu Wixel</a>. The Wixel is a general-purpose programmable module featuring a 2.4&#160;GHz radio and USB. The Wixel is based on the <a href="http://focus.ti.com/docs/prod/folders/print/cc2511f32.html">CC2511F32</a> microcontroller from Texas Instruments, which has an integrated radio transceiver, 32 KB of flash memory, 4 KB of RAM, and a full-speed USB interface.</p>
 <h2><a class="anchor" id="starting"></a>
 Getting Started</h2>
-<p>To load apps onto the Wixel, you will also need to have the Wixel's drivers and software installed on your system. See the <em>Getting Started</em> section of the <a href="http://www.pololu.com/docs/0J46">Pololu Wixel User's Guide</a>.</p>
-<p>To develop your own apps or modify existing ones using the Wixel SDK, you will need to have a copy of the Wixel SDK, <a href="http://sdcc.sourceforge.net/">SDCC</a> version 3.0.0 or later, and you will need to have certain GNU utililties available on your path: cat, cp, echo, grep, make, mv, rm, and sed. For Windows users, we recommend that you install all of these components by downloading the <b>Wixel Development Bundle</b>, available from the <a href="http://www.pololu.com/docs/0J46">Pololu Wixel User's Guide</a>.</p>
-<p>The Wixel SDK is also available as a <a href="http://github.com/pololu/wixel-sdk">git repository hosted on GitHub</a>. You can get the latest version by installing <a href="http://git-scm.com/">git</a> and running: </p>
+<p>To load apps onto the Wixel, you will need to have the Wixel's drivers and software installed on your system. See the <em>Getting Started</em> section of the <a href="http://www.pololu.com/docs/0J46">Pololu Wixel User's Guide</a>.</p>
+<p>To develop your own apps or modify existing ones using the Wixel SDK, you will need to have a copy of the Wixel SDK, <a href="http://sdcc.sourceforge.net/">SDCC</a> version 3.0.0 or later, and you will need to have certain GNU utililties available on your path: cat, cp, echo, grep, make, mv, rm, and sed.</p>
+<p>For Windows users, we recommend that you install all of these components by downloading the <b>Wixel Development Bundle</b>, available from the <a href="http://www.pololu.com/docs/0J46">Pololu Wixel User's Guide</a>.</p>
+<p>Please see the <em>Writing Your Own Wixel App</em> section of the <a href="http://www.pololu.com/docs/0J46">Pololu Wixel User's Guide</a> for step-by-step instructions for getting started with the Wixel SDK.</p>
+<h2><a class="anchor" id="sdk"></a>
+Downloading the Wixel SDK itself</h2>
+<p>The Wixel SDK is available as a <a href="http://github.com/pololu/wixel-sdk">git repository hosted on github</a>. You can get the latest version by installing <a href="http://git-scm.com/">git</a> and running: </p>
 <pre>
 git clone -o pololu git://github.com/pololu/wixel-sdk.git
-</pre><p>If you need help, see GitHub's instructions on how to <a href="http://help.github.com/set-up-git-redirect">Set Up Git</a>. For Windows users, we also recommend installing <a href="http://code.google.com/p/tortoisegit/">TortoiseGit</a> because it provides a good graphical user interface for git.</p>
+</pre><p>If you need help, see github's instructions on how to <a href="http://help.github.com/set-up-git-redirect">Set Up Git</a>. For Windows users, we also recommend installing <a href="http://code.google.com/p/tortoisegit/">TortoiseGit</a> because it provides a good graphical user interface for git.</p>
+<p>You can also download the <a href="https://github.com/pololu/wixel-sdk/zipball/latest">latest version of the Wixel SDK</a> from github.</p>
 <h2><a class="anchor" id="building_app"></a>
 Building and Loading Apps</h2>
 <p>Open a command-line terminal, navigate to the top level directory of the SDK, and type "make". This will build all of the apps in the apps folder and all of the libraries that they depend on.</p>
@@ -91,7 +96,7 @@ Make Interrupt/Exception Error</h2>
 <p>You might get the following error message from make in Windows: </p>
 <pre>
 make: Interrupt/Exception caught (code = 0xc00000fd, addr = 0x425073)
-</pre><p>If you get this error, please run "make -v" at a Command Prompt and make sure that you are running <a href="https://github.com/pololu/make">GNU Make 3.82-pololu1</a>. This version of make is included in the latest <b>Wixel Development Bundle</b>, available from the <a href="http://www.pololu.com/docs/0J46">Pololu Wixel User's Guide</a>. If the output from "make -v" shows some other version of make even after installing the Wixel Development Bundle, then you should remove that other version of make from your PATH or reorder your PATH so that version 3.82-pololu1 is used. You can edit your PATH environment variable from the Control Panel. See the <a href="https://github.com/pololu/make/wiki">pololu/make wiki on GitHub</a> for more information on this problem.</p>
+</pre><p>If you get this error, please run "make -v" at a Command Prompt and make sure that you are running <a href="https://github.com/pololu/make">GNU Make 3.82-pololu1</a>. This version of make is included in the latest <b>Wixel Development Bundle</b>, available from the <a href="http://www.pololu.com/docs/0J46">Pololu Wixel User's Guide</a>. If the output from "make -v" shows some other version of make even after installing the Wixel Development Bundle, then you should remove that other version of make from your PATH or reorder your PATH so that version 3.82-pololu1 is used. You can edit your PATH environment variable from the Control Panel. See the <a href="https://github.com/pololu/make/wiki">pololu/make wiki on github</a> for more information on this problem.</p>
 <h2><a class="anchor" id="help"></a>
 Getting Help</h2>
 <p>If you have a problem or question, feel free to ask us on the <a href="http://forum.pololu.com/viewforum.php?f=30">Pololu Forum</a>. </p>
@@ -110,7 +115,7 @@ Getting Help</h2>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Jun 21 2011 18:14:58 for Wixel SDK by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Jun 30 2011 09:27:36 for Wixel SDK by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>
