@@ -93,7 +93,8 @@ Functions</h2></td></tr>
 <h2><a class="anchor" id="ports"></a>
 Ports</h2>
 <p>The pins on the CC2511 are divided into three ports: Port 0 (P0), Port 1 (P1), and Port 2 (P2). Every pin's name is prefixed by the name of the port it is on. For example, P0_3 starts with "P0" so it is a pin on Port 0.</p>
-<p>The pins on Port 0 and Port 1 are all inputs with pull-up resistors after a power-up or reset. On the Wixel, these pins are not tied to any on-board hardware so they completely free to be used as GPIO.</p>
+<p>On the Wixel, none of the pins on Port 0 and Port 1 are tied to any on-board hardware so they completely free to be used as GPIO.</p>
+<p>When the Wixel starts up, all the pins on Port 0 and Port 1 will be inputs with internal pull-up resistors enabled <em>except</em> P1_0 and P1_1, which do not have internal pull-up or pull-down resistors</p>
 <p>This library supports Port 2, but all of the Wixel's Port 2 pins are handled by the functions declared in <a class="el" href="board_8h.html">board.h</a> so you should not need to manipulate them with this library.</p>
 <h2><a class="anchor" id="pinparam"></a>
 The pinNumber parameter</h2>
@@ -175,7 +176,7 @@ Caveats</h2>
 <div class="memdoc">
 <p>Represents a high voltage, also known as 3V3 (typically 3.3 V). </p>
 
-<p>Definition at line <a class="el" href="gpio_8h_source.html#l00121">121</a> of file <a class="el" href="gpio_8h_source.html">gpio.h</a>.</p>
+<p>Definition at line <a class="el" href="gpio_8h_source.html#l00124">124</a> of file <a class="el" href="gpio_8h_source.html">gpio.h</a>.</p>
 
 </div>
 </div>
@@ -191,7 +192,7 @@ Caveats</h2>
 <div class="memdoc">
 <p>Specifies that the input pin should be a high-impedance input with no pull-up or pull-down resistor enabled. See <a class="el" href="gpio_8h.html#a49e4727501e9e80636d8dadec2bce474" title="Configures the specified pin as an input.">setDigitalInput()</a>. </p>
 
-<p>Definition at line <a class="el" href="gpio_8h_source.html#l00125">125</a> of file <a class="el" href="gpio_8h_source.html">gpio.h</a>.</p>
+<p>Definition at line <a class="el" href="gpio_8h_source.html#l00128">128</a> of file <a class="el" href="gpio_8h_source.html">gpio.h</a>.</p>
 
 </div>
 </div>
@@ -207,7 +208,7 @@ Caveats</h2>
 <div class="memdoc">
 <p>Represents a low voltage, also known as GND or 0 V. </p>
 
-<p>Definition at line <a class="el" href="gpio_8h_source.html#l00118">118</a> of file <a class="el" href="gpio_8h_source.html">gpio.h</a>.</p>
+<p>Definition at line <a class="el" href="gpio_8h_source.html#l00121">121</a> of file <a class="el" href="gpio_8h_source.html">gpio.h</a>.</p>
 
 </div>
 </div>
@@ -223,7 +224,7 @@ Caveats</h2>
 <div class="memdoc">
 <p>Specifies that the pin should have a 20 kilohm pull-up or pull-down enabled. See <a class="el" href="gpio_8h.html#a49e4727501e9e80636d8dadec2bce474" title="Configures the specified pin as an input.">setDigitalInput()</a>. </p>
 
-<p>Definition at line <a class="el" href="gpio_8h_source.html#l00129">129</a> of file <a class="el" href="gpio_8h_source.html">gpio.h</a>.</p>
+<p>Definition at line <a class="el" href="gpio_8h_source.html#l00132">132</a> of file <a class="el" href="gpio_8h_source.html">gpio.h</a>.</p>
 
 </div>
 </div>
@@ -433,7 +434,7 @@ P0DIR |= (1&lt;&lt;3);
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Jun 30 2011 09:27:36 for Wixel SDK by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Jul 5 2011 09:48:46 for Wixel SDK by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>
