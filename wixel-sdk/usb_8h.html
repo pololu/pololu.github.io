@@ -1001,7 +1001,7 @@ Variables</h2></td></tr>
 </div>
 <div class="memdoc">
 <p>Direct access to this bit is provided for applications that need to use the P0 interrupt and want USB suspend mode to work. If you don't fall into that category, please don't use this bit directly: instead you should call <a class="el" href="usb_8h.html#af73cf84963ab2b2f8e462783d0fe20cb">usbSuspended()</a> because that function is less likely to change in future versions. If you want to have a P0 interrupt AND USB Suspend, you should write your ISR like this: </p>
-<div class="fragment"><pre class="fragment"><a class="code" href="cc2511__map_8h.html#a671201fd0e77ec576f30610b276acd11">ISR</a>(P0INT, 1)
+<div class="fragment"><pre class="fragment"><a class="code" href="cc2511__map_8h.html#a671201fd0e77ec576f30610b276acd11">ISR</a>(P0INT, 0)
 {
     <span class="comment">// Handle the P0 flags you care about here, but you might want to</span>
     <span class="comment">// check PICTL first because if we are in suspend mode then the P0</span>
@@ -1035,7 +1035,7 @@ Variables</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed Sep 28 2011 10:51:00 for Wixel SDK by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Sep 28 2011 12:16:32 for Wixel SDK by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

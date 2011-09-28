@@ -117,7 +117,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00054"></a>00054 <span class="preprocessor"></span><span class="preprocessor">#define RADIO_MAC_STATE_TX       3</span>
 <a name="l00055"></a>00055 <span class="preprocessor"></span><span class="keyword">volatile</span> <a class="code" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> <a class="code" href="cc2511__types_8h.html#aad9ae913bdfab20dd94ad04ee2d5b045">DATA</a> radioMacState = RADIO_MAC_STATE_OFF;
 <a name="l00056"></a>00056 
-<a name="l00057"></a><a class="code" href="radio__mac_8h.html#a80dc7b079e8d70765eeaace6f64b759f">00057</a> <a class="code" href="cc2511__map_8h.html#a671201fd0e77ec576f30610b276acd11">ISR</a>(RF, 1)
+<a name="l00057"></a><a class="code" href="radio__mac_8h.html#a84fa2cd0c26785c67261a6e458559f4d">00057</a> <a class="code" href="cc2511__map_8h.html#a671201fd0e77ec576f30610b276acd11">ISR</a>(RF, 0)
 <a name="l00058"></a>00058 {
 <a name="l00059"></a>00059     S1CON = 0; <span class="comment">// Clear the general RFIF interrupt registers</span>
 <a name="l00060"></a>00060 
@@ -336,7 +336,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed Sep 28 2011 10:51:00 for Wixel SDK by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Sep 28 2011 12:16:32 for Wixel SDK by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>
