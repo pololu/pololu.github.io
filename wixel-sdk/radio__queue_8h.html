@@ -80,11 +80,9 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__queue_8h.html#a7f1e9385e002bb6ef53f55d3e943e5aa">radioQueueTxAvailable</a> (void)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__queue_8h.html#a0a13aa5b3a0844678727af43fe44bbc4">radioQueueTxQueued</a> (void)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> XDATA *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__queue_8h.html#a94f52371368a91104b3a22d8dafee7bf">radioQueueTxCurrentPacket</a> (void)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9089d9ad9c16d4d71876a5944e60875d"></a><!-- doxytag: member="radio_queue.h::radioQueueTxSendPacket" ref="a9089d9ad9c16d4d71876a5944e60875d" args="(void)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>radioQueueTxSendPacket</b> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__queue_8h.html#a9089d9ad9c16d4d71876a5944e60875d">radioQueueTxSendPacket</a> (void)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="cc2511__types_8h.html#adde6aaee8457bee49c2a92621fe22b79">uint8</a> XDATA *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__queue_8h.html#a8df8f170aafae89aebecb6babe2babd2">radioQueueRxCurrentPacket</a> (void)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a707cf051c383feec517a6b327b84c718"></a><!-- doxytag: member="radio_queue.h::radioQueueRxDoneWithPacket" ref="a707cf051c383feec517a6b327b84c718" args="(void)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>radioQueueRxDoneWithPacket</b> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__queue_8h.html#a707cf051c383feec517a6b327b84c718">radioQueueRxDoneWithPacket</a> (void)</td></tr>
 <tr><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="cc2511__types_8h.html#ac44d0188f4f50fd9b03031c1a06bd0a9">int32</a> CODE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radio__queue_8h.html#a617ee1a94407bccbd5090bd1460a1152">param_radio_channel</a></td></tr>
@@ -146,9 +144,29 @@ Variables</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Returns a pointer to the current RX packet (the earliest packet received by radio_queue which has not been processed yet by higher-level code). Returns 0 if there is no RX packet available. The RX packet has the same format as the TX packet: the length of the payload is at offset 0 and the data starts at offset 1. When you are done reading the packet, you should call radioQueueRxDoneWithPacket. This frees the current packet buffer so it can receive another packet. </p>
+<p>Returns a pointer to the current RX packet (the earliest packet received by radio_queue which has not been processed yet by higher-level code). Returns 0 if there is no RX packet available. The RX packet has the same format as the TX packet: the length of the payload is at offset 0 and the data starts at offset 1. When you are done reading the packet, you should call <a class="el" href="radio__queue_8h.html#a707cf051c383feec517a6b327b84c718">radioQueueRxDoneWithPacket()</a>. This frees the current packet buffer so it can receive another packet. </p>
 
 <p>Definition at line <a class="el" href="radio__queue_8c_source.html#l00127">127</a> of file <a class="el" href="radio__queue_8c_source.html">radio_queue.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a707cf051c383feec517a6b327b84c718"></a><!-- doxytag: member="radio_queue.h::radioQueueRxDoneWithPacket" ref="a707cf051c383feec517a6b327b84c718" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void radioQueueRxDoneWithPacket </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Frees the current RX packet so that you can advance to processing the next one. See the <a class="el" href="radio__queue_8h.html#a8df8f170aafae89aebecb6babe2babd2">radioQueueRxCurrentPacket()</a> documentation for details. </p>
+
+<p>Definition at line <a class="el" href="radio__queue_8c_source.html#l00136">136</a> of file <a class="el" href="radio__queue_8c_source.html">radio_queue.c</a>.</p>
 
 </div>
 </div>
@@ -187,7 +205,7 @@ Variables</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Returns a pointer to the current packet, or 0 if no packet is available. This function has no side effects. To populate this packet, you should write the length of the payload data (which must not exceed RADIO_QUEUE_PAYLOAD_SIZE) to offset 0, and write the data starting at offset 1. After you have put this data in the packet, call radioQueueTxSendPacket to actually queue the packet up to be sent on the radio. Example usage: </p>
+<p>Returns a pointer to the current packet, or 0 if no packet is available. This function has no side effects. To populate this packet, you should write the length of the payload data (which must not exceed RADIO_QUEUE_PAYLOAD_SIZE) to offset 0, and write the data starting at offset 1. After you have put this data in the packet, call <a class="el" href="radio__queue_8h.html#a9089d9ad9c16d4d71876a5944e60875d">radioQueueTxSendPacket()</a> to actually queue the packet up to be sent on the radio. Example usage: </p>
 <pre>
    uint8 XDATA * packet = <a class="el" href="radio__queue_8h.html#a94f52371368a91104b3a22d8dafee7bf">radioQueueTxCurrentPacket()</a>;
    if (packet != 0)
@@ -196,7 +214,7 @@ Variables</h2></td></tr>
        packet[1] = 'a';
        packet[2] = 'b';
        packet[3] = 'c';
-       radioQueueTxSendPacket();
+       <a class="el" href="radio__queue_8h.html#a9089d9ad9c16d4d71876a5944e60875d">radioQueueTxSendPacket()</a>;
    }
  </pre> 
 <p>Definition at line <a class="el" href="radio__queue_8c_source.html#l00098">98</a> of file <a class="el" href="radio__queue_8c_source.html">radio_queue.c</a>.</p>
@@ -221,6 +239,26 @@ Variables</h2></td></tr>
 <p>This function has no side effects. </p>
 
 <p>Definition at line <a class="el" href="radio__queue_8c_source.html#l00093">93</a> of file <a class="el" href="radio__queue_8c_source.html">radio_queue.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9089d9ad9c16d4d71876a5944e60875d"></a><!-- doxytag: member="radio_queue.h::radioQueueTxSendPacket" ref="a9089d9ad9c16d4d71876a5944e60875d" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void radioQueueTxSendPacket </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Sends the current TX packet. See the documentation of <a class="el" href="radio__queue_8h.html#a94f52371368a91104b3a22d8dafee7bf">radioQueueTxCurrentPacket()</a> for details. </p>
+
+<p>Definition at line <a class="el" href="radio__queue_8c_source.html#l00108">108</a> of file <a class="el" href="radio__queue_8c_source.html">radio_queue.c</a>.</p>
 
 </div>
 </div>
@@ -272,7 +310,7 @@ Variables</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Jul 19 2011 14:54:54 for Wixel SDK by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Sep 28 2011 10:51:00 for Wixel SDK by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>
