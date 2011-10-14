@@ -270,130 +270,133 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00246"></a>00246 SFR16(0xD3, 0xD2, DMA1CFG)
 <a name="l00247"></a>00247 SFR16(0xAD, 0xAC, FADDR)
 <a name="l00248"></a>00248 SFR16(0xBB, 0xBA, ADC)
-<a name="l00249"></a>00249 
-<a name="l00250"></a>00250 <span class="comment">// XDATA Radio Registers (SWRS055F Table 32)</span>
-<a name="l00251"></a>00251 
-<a name="l00252"></a>00252 SFRX(0xDF00, SYNC1)
-<a name="l00253"></a>00253 SFRX(0xDF01, SYNC0)
-<a name="l00254"></a>00254 SFRX(0xDF02, PKTLEN)
-<a name="l00255"></a>00255 SFRX(0xDF03, PKTCTRL1)
-<a name="l00256"></a>00256 SFRX(0xDF04, PKTCTRL0)
-<a name="l00257"></a>00257 SFRX(0xDF05, ADDR)
-<a name="l00258"></a>00258 SFRX(0xDF06, CHANNR)
-<a name="l00259"></a>00259 SFRX(0xDF07, FSCTRL1)
-<a name="l00260"></a>00260 SFRX(0xDF08, FSCTRL0)
-<a name="l00261"></a>00261 SFRX(0xDF09, FREQ2)
-<a name="l00262"></a>00262 SFRX(0xDF0A, FREQ1)
-<a name="l00263"></a>00263 SFRX(0xDF0B, FREQ0)
-<a name="l00264"></a>00264 SFRX(0xDF0C, MDMCFG4)
-<a name="l00265"></a>00265 SFRX(0xDF0D, MDMCFG3)
-<a name="l00266"></a>00266 SFRX(0xDF0E, MDMCFG2)
-<a name="l00267"></a>00267 SFRX(0xDF0F, MDMCFG1)
-<a name="l00268"></a>00268 SFRX(0xDF10, MDMCFG0)
-<a name="l00269"></a>00269 SFRX(0xDF11, DEVIATN)
-<a name="l00270"></a>00270 SFRX(0xDF12, MCSM2)
-<a name="l00271"></a>00271 SFRX(0xDF13, MCSM1)
-<a name="l00272"></a>00272 SFRX(0xDF14, MCSM0)
-<a name="l00273"></a>00273 SFRX(0xDF15, FOCCFG)
-<a name="l00274"></a>00274 SFRX(0xDF16, BSCFG)
-<a name="l00275"></a>00275 SFRX(0xDF17, AGCCTRL2)
-<a name="l00276"></a>00276 SFRX(0xDF18, AGCCTRL1)
-<a name="l00277"></a>00277 SFRX(0xDF19, AGCCTRL0)
-<a name="l00278"></a>00278 SFRX(0xDF1A, FREND1)
-<a name="l00279"></a>00279 SFRX(0xDF1B, FREND0)
-<a name="l00280"></a>00280 SFRX(0xDF1C, FSCAL3)
-<a name="l00281"></a>00281 SFRX(0xDF1D, FSCAL2)
-<a name="l00282"></a>00282 SFRX(0xDF1E, FSCAL1)
-<a name="l00283"></a>00283 SFRX(0xDF1F, FSCAL0)
-<a name="l00284"></a>00284 
-<a name="l00285"></a>00285 SFRX(0xDF23, TEST2)
-<a name="l00286"></a>00286 SFRX(0xDF24, TEST1)
-<a name="l00287"></a>00287 SFRX(0xDF25, TEST0)
-<a name="l00288"></a>00288 
-<a name="l00289"></a>00289 SFRX(0xDF2E, PA_TABLE0)
-<a name="l00290"></a>00290 SFRX(0xDF2F, IOCFG2)
-<a name="l00291"></a>00291 SFRX(0xDF30, IOCFG1)
-<a name="l00292"></a>00292 SFRX(0xDF31, IOCFG0)
-<a name="l00293"></a>00293 
-<a name="l00294"></a>00294 SFRX(0xDF36, PARTNUM)
-<a name="l00295"></a>00295 SFRX(0xDF37, VERSION)
-<a name="l00296"></a>00296 SFRX(0xDF38, FREQEST)
-<a name="l00297"></a>00297 SFRX(0xDF39, LQI)
-<a name="l00298"></a>00298 SFRX(0xDF3A, RSSI)
-<a name="l00299"></a>00299 SFRX(0xDF3B, MARCSTATE)
-<a name="l00300"></a>00300 SFRX(0xDF3C, PKTSTATUS)
-<a name="l00301"></a>00301 SFRX(0xDF3D, VCO_VC_DAC)
-<a name="l00302"></a>00302 
-<a name="l00303"></a>00303 
-<a name="l00304"></a>00304 <span class="comment">// I2S Registers (SWRS055F Table 33)</span>
-<a name="l00305"></a>00305 SFRX(0xDF40, I2SCFG0)
-<a name="l00306"></a>00306 SFRX(0xDF41, I2SCFG1)
-<a name="l00307"></a>00307 SFRX(0xDF42, I2SDATL)
-<a name="l00308"></a>00308 SFRX(0xDF43, I2SDATH)
-<a name="l00309"></a>00309 SFRX(0xDF44, I2SWCNT)
-<a name="l00310"></a>00310 SFRX(0xDF45, I2SSTAT)
-<a name="l00311"></a>00311 SFRX(0xDF46, I2SCLKF0)
-<a name="l00312"></a>00312 SFRX(0xDF47, I2SCLKF1)
-<a name="l00313"></a>00313 SFRX(0xDF48, I2SCLKF2)
-<a name="l00314"></a>00314 
-<a name="l00315"></a>00315 
-<a name="l00316"></a>00316 <span class="comment">// Common USB Registers (SWRS055F Table 34)</span>
-<a name="l00317"></a>00317 SFRX(0xDE00, USBADDR)
-<a name="l00318"></a>00318 SFRX(0xDE01, USBPOW)
-<a name="l00319"></a>00319 SFRX(0xDE02, USBIIF)
-<a name="l00320"></a>00320 
-<a name="l00321"></a>00321 SFRX(0xDE04, USBOIF)
-<a name="l00322"></a>00322 
-<a name="l00323"></a>00323 SFRX(0xDE06, USBCIF)
-<a name="l00324"></a>00324 SFRX(0xDE07, USBIIE)
+<a name="l00249"></a>00249 SFR16(0xDB, 0xDA, T1CC0)
+<a name="l00250"></a>00250 SFR16(0xDD, 0xDC, T1CC1)
+<a name="l00251"></a>00251 SFR16(0xDF, 0xDE, T1CC2)
+<a name="l00252"></a>00252 
+<a name="l00253"></a>00253 <span class="comment">// XDATA Radio Registers (SWRS055F Table 32)</span>
+<a name="l00254"></a>00254 
+<a name="l00255"></a>00255 SFRX(0xDF00, SYNC1)
+<a name="l00256"></a>00256 SFRX(0xDF01, SYNC0)
+<a name="l00257"></a>00257 SFRX(0xDF02, PKTLEN)
+<a name="l00258"></a>00258 SFRX(0xDF03, PKTCTRL1)
+<a name="l00259"></a>00259 SFRX(0xDF04, PKTCTRL0)
+<a name="l00260"></a>00260 SFRX(0xDF05, ADDR)
+<a name="l00261"></a>00261 SFRX(0xDF06, CHANNR)
+<a name="l00262"></a>00262 SFRX(0xDF07, FSCTRL1)
+<a name="l00263"></a>00263 SFRX(0xDF08, FSCTRL0)
+<a name="l00264"></a>00264 SFRX(0xDF09, FREQ2)
+<a name="l00265"></a>00265 SFRX(0xDF0A, FREQ1)
+<a name="l00266"></a>00266 SFRX(0xDF0B, FREQ0)
+<a name="l00267"></a>00267 SFRX(0xDF0C, MDMCFG4)
+<a name="l00268"></a>00268 SFRX(0xDF0D, MDMCFG3)
+<a name="l00269"></a>00269 SFRX(0xDF0E, MDMCFG2)
+<a name="l00270"></a>00270 SFRX(0xDF0F, MDMCFG1)
+<a name="l00271"></a>00271 SFRX(0xDF10, MDMCFG0)
+<a name="l00272"></a>00272 SFRX(0xDF11, DEVIATN)
+<a name="l00273"></a>00273 SFRX(0xDF12, MCSM2)
+<a name="l00274"></a>00274 SFRX(0xDF13, MCSM1)
+<a name="l00275"></a>00275 SFRX(0xDF14, MCSM0)
+<a name="l00276"></a>00276 SFRX(0xDF15, FOCCFG)
+<a name="l00277"></a>00277 SFRX(0xDF16, BSCFG)
+<a name="l00278"></a>00278 SFRX(0xDF17, AGCCTRL2)
+<a name="l00279"></a>00279 SFRX(0xDF18, AGCCTRL1)
+<a name="l00280"></a>00280 SFRX(0xDF19, AGCCTRL0)
+<a name="l00281"></a>00281 SFRX(0xDF1A, FREND1)
+<a name="l00282"></a>00282 SFRX(0xDF1B, FREND0)
+<a name="l00283"></a>00283 SFRX(0xDF1C, FSCAL3)
+<a name="l00284"></a>00284 SFRX(0xDF1D, FSCAL2)
+<a name="l00285"></a>00285 SFRX(0xDF1E, FSCAL1)
+<a name="l00286"></a>00286 SFRX(0xDF1F, FSCAL0)
+<a name="l00287"></a>00287 
+<a name="l00288"></a>00288 SFRX(0xDF23, TEST2)
+<a name="l00289"></a>00289 SFRX(0xDF24, TEST1)
+<a name="l00290"></a>00290 SFRX(0xDF25, TEST0)
+<a name="l00291"></a>00291 
+<a name="l00292"></a>00292 SFRX(0xDF2E, PA_TABLE0)
+<a name="l00293"></a>00293 SFRX(0xDF2F, IOCFG2)
+<a name="l00294"></a>00294 SFRX(0xDF30, IOCFG1)
+<a name="l00295"></a>00295 SFRX(0xDF31, IOCFG0)
+<a name="l00296"></a>00296 
+<a name="l00297"></a>00297 SFRX(0xDF36, PARTNUM)
+<a name="l00298"></a>00298 SFRX(0xDF37, VERSION)
+<a name="l00299"></a>00299 SFRX(0xDF38, FREQEST)
+<a name="l00300"></a>00300 SFRX(0xDF39, LQI)
+<a name="l00301"></a>00301 SFRX(0xDF3A, RSSI)
+<a name="l00302"></a>00302 SFRX(0xDF3B, MARCSTATE)
+<a name="l00303"></a>00303 SFRX(0xDF3C, PKTSTATUS)
+<a name="l00304"></a>00304 SFRX(0xDF3D, VCO_VC_DAC)
+<a name="l00305"></a>00305 
+<a name="l00306"></a>00306 
+<a name="l00307"></a>00307 <span class="comment">// I2S Registers (SWRS055F Table 33)</span>
+<a name="l00308"></a>00308 SFRX(0xDF40, I2SCFG0)
+<a name="l00309"></a>00309 SFRX(0xDF41, I2SCFG1)
+<a name="l00310"></a>00310 SFRX(0xDF42, I2SDATL)
+<a name="l00311"></a>00311 SFRX(0xDF43, I2SDATH)
+<a name="l00312"></a>00312 SFRX(0xDF44, I2SWCNT)
+<a name="l00313"></a>00313 SFRX(0xDF45, I2SSTAT)
+<a name="l00314"></a>00314 SFRX(0xDF46, I2SCLKF0)
+<a name="l00315"></a>00315 SFRX(0xDF47, I2SCLKF1)
+<a name="l00316"></a>00316 SFRX(0xDF48, I2SCLKF2)
+<a name="l00317"></a>00317 
+<a name="l00318"></a>00318 
+<a name="l00319"></a>00319 <span class="comment">// Common USB Registers (SWRS055F Table 34)</span>
+<a name="l00320"></a>00320 SFRX(0xDE00, USBADDR)
+<a name="l00321"></a>00321 SFRX(0xDE01, USBPOW)
+<a name="l00322"></a>00322 SFRX(0xDE02, USBIIF)
+<a name="l00323"></a>00323 
+<a name="l00324"></a>00324 SFRX(0xDE04, USBOIF)
 <a name="l00325"></a>00325 
-<a name="l00326"></a>00326 SFRX(0xDE09, USBOIE)
-<a name="l00327"></a>00327 
-<a name="l00328"></a>00328 SFRX(0xDE0B, USBCIE)
-<a name="l00329"></a>00329 SFRX(0xDE0C, USBFRML)
-<a name="l00330"></a>00330 SFRX(0xDE0D, USBFRMH)
-<a name="l00331"></a>00331 SFRX(0xDE0E, USBINDEX)
-<a name="l00332"></a>00332 
-<a name="l00333"></a>00333 <span class="comment">// Indexed USB Endpoint Registers (SWRS055F Table 35)</span>
-<a name="l00334"></a>00334 SFRX(0xDE10, USBMAXI)
-<a name="l00335"></a>00335 SFRX(0xDE11, USBCSIL)
-<a name="l00336"></a>00336 SFRX(0xDE12, USBCSIH)
-<a name="l00337"></a>00337 SFRX(0xDE13, USBMAXO)
-<a name="l00338"></a>00338 SFRX(0xDE14, USBCSOL)
-<a name="l00339"></a>00339 SFRX(0xDE15, USBCSOH)
-<a name="l00340"></a>00340 SFRX(0xDE16, USBCNTL)
-<a name="l00341"></a>00341 SFRX(0xDE17, USBCNTH)
-<a name="l00342"></a>00342 
-<a name="l00343"></a>00343 <span class="comment">// USB Fifo addresses</span>
-<a name="l00344"></a>00344 SFRX(0xDE20, USBF0)
-<a name="l00345"></a>00345 SFRX(0xDE22, USBF1)
-<a name="l00346"></a>00346 SFRX(0xDE24, USBF2)
-<a name="l00347"></a>00347 SFRX(0xDE26, USBF3)
-<a name="l00348"></a>00348 SFRX(0xDE28, USBF4)
-<a name="l00349"></a>00349 SFRX(0xDE2A, USBF5)
-<a name="l00350"></a>00350 
-<a name="l00351"></a>00351 <span class="preprocessor">#define USBCS0     USBCSIL</span>
-<a name="l00352"></a>00352 <span class="preprocessor"></span><span class="preprocessor">#define USBCNT0    USBCNTL</span>
-<a name="l00353"></a>00353 <span class="preprocessor"></span>
-<a name="l00364"></a><a class="code" href="cc2511__map_8h.html#a0ad413eeaa8388157d436c1044fe530f">00364</a> <span class="preprocessor">#define XDATA_SFR_ADDRESS(sfr) (0xDF00 + ((unsigned int)&amp;(sfr)))</span>
-<a name="l00365"></a>00365 <span class="preprocessor"></span>
-<a name="l00374"></a><a class="code" href="struct_d_m_a___c_o_n_f_i_g.html">00374</a> <span class="keyword">typedef</span> <span class="keyword">struct</span>
-<a name="l00375"></a>00375 {
-<a name="l00376"></a>00376     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> SRCADDRH;
-<a name="l00377"></a>00377     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> SRCADDRL;
-<a name="l00378"></a>00378     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> DESTADDRH;
-<a name="l00379"></a>00379     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> DESTADDRL;
-<a name="l00380"></a>00380 
-<a name="l00382"></a><a class="code" href="struct_d_m_a___c_o_n_f_i_g.html#ab03f3d7f7d77a925277ec67700f65a39">00382</a>     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="struct_d_m_a___c_o_n_f_i_g.html#ab03f3d7f7d77a925277ec67700f65a39">VLEN_LENH</a>;
-<a name="l00383"></a>00383     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> LENL;
-<a name="l00384"></a>00384 
-<a name="l00386"></a><a class="code" href="struct_d_m_a___c_o_n_f_i_g.html#a2dda7f0b73d9a9b2924c723c891091ec">00386</a>     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="struct_d_m_a___c_o_n_f_i_g.html#a2dda7f0b73d9a9b2924c723c891091ec">DC6</a>;
+<a name="l00326"></a>00326 SFRX(0xDE06, USBCIF)
+<a name="l00327"></a>00327 SFRX(0xDE07, USBIIE)
+<a name="l00328"></a>00328 
+<a name="l00329"></a>00329 SFRX(0xDE09, USBOIE)
+<a name="l00330"></a>00330 
+<a name="l00331"></a>00331 SFRX(0xDE0B, USBCIE)
+<a name="l00332"></a>00332 SFRX(0xDE0C, USBFRML)
+<a name="l00333"></a>00333 SFRX(0xDE0D, USBFRMH)
+<a name="l00334"></a>00334 SFRX(0xDE0E, USBINDEX)
+<a name="l00335"></a>00335 
+<a name="l00336"></a>00336 <span class="comment">// Indexed USB Endpoint Registers (SWRS055F Table 35)</span>
+<a name="l00337"></a>00337 SFRX(0xDE10, USBMAXI)
+<a name="l00338"></a>00338 SFRX(0xDE11, USBCSIL)
+<a name="l00339"></a>00339 SFRX(0xDE12, USBCSIH)
+<a name="l00340"></a>00340 SFRX(0xDE13, USBMAXO)
+<a name="l00341"></a>00341 SFRX(0xDE14, USBCSOL)
+<a name="l00342"></a>00342 SFRX(0xDE15, USBCSOH)
+<a name="l00343"></a>00343 SFRX(0xDE16, USBCNTL)
+<a name="l00344"></a>00344 SFRX(0xDE17, USBCNTH)
+<a name="l00345"></a>00345 
+<a name="l00346"></a>00346 <span class="comment">// USB Fifo addresses</span>
+<a name="l00347"></a>00347 SFRX(0xDE20, USBF0)
+<a name="l00348"></a>00348 SFRX(0xDE22, USBF1)
+<a name="l00349"></a>00349 SFRX(0xDE24, USBF2)
+<a name="l00350"></a>00350 SFRX(0xDE26, USBF3)
+<a name="l00351"></a>00351 SFRX(0xDE28, USBF4)
+<a name="l00352"></a>00352 SFRX(0xDE2A, USBF5)
+<a name="l00353"></a>00353 
+<a name="l00354"></a>00354 <span class="preprocessor">#define USBCS0     USBCSIL</span>
+<a name="l00355"></a>00355 <span class="preprocessor"></span><span class="preprocessor">#define USBCNT0    USBCNTL</span>
+<a name="l00356"></a>00356 <span class="preprocessor"></span>
+<a name="l00367"></a><a class="code" href="cc2511__map_8h.html#a0ad413eeaa8388157d436c1044fe530f">00367</a> <span class="preprocessor">#define XDATA_SFR_ADDRESS(sfr) (0xDF00 + ((unsigned int)&amp;(sfr)))</span>
+<a name="l00368"></a>00368 <span class="preprocessor"></span>
+<a name="l00377"></a><a class="code" href="struct_d_m_a___c_o_n_f_i_g.html">00377</a> <span class="keyword">typedef</span> <span class="keyword">struct</span>
+<a name="l00378"></a>00378 {
+<a name="l00379"></a>00379     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> SRCADDRH;
+<a name="l00380"></a>00380     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> SRCADDRL;
+<a name="l00381"></a>00381     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> DESTADDRH;
+<a name="l00382"></a>00382     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> DESTADDRL;
+<a name="l00383"></a>00383 
+<a name="l00385"></a><a class="code" href="struct_d_m_a___c_o_n_f_i_g.html#ab03f3d7f7d77a925277ec67700f65a39">00385</a>     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="struct_d_m_a___c_o_n_f_i_g.html#ab03f3d7f7d77a925277ec67700f65a39">VLEN_LENH</a>;
+<a name="l00386"></a>00386     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> LENL;
 <a name="l00387"></a>00387 
-<a name="l00389"></a><a class="code" href="struct_d_m_a___c_o_n_f_i_g.html#a53915253e768904879bc81d52c0c6bb3">00389</a>     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="struct_d_m_a___c_o_n_f_i_g.html#a53915253e768904879bc81d52c0c6bb3">DC7</a>;
-<a name="l00390"></a>00390 } <a class="code" href="struct_d_m_a___c_o_n_f_i_g.html">DMA_CONFIG</a>;
-<a name="l00391"></a>00391 
-<a name="l00392"></a>00392 
-<a name="l00393"></a>00393 <span class="preprocessor">#endif</span>
+<a name="l00389"></a><a class="code" href="struct_d_m_a___c_o_n_f_i_g.html#a2dda7f0b73d9a9b2924c723c891091ec">00389</a>     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="struct_d_m_a___c_o_n_f_i_g.html#a2dda7f0b73d9a9b2924c723c891091ec">DC6</a>;
+<a name="l00390"></a>00390 
+<a name="l00392"></a><a class="code" href="struct_d_m_a___c_o_n_f_i_g.html#a53915253e768904879bc81d52c0c6bb3">00392</a>     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="struct_d_m_a___c_o_n_f_i_g.html#a53915253e768904879bc81d52c0c6bb3">DC7</a>;
+<a name="l00393"></a>00393 } <a class="code" href="struct_d_m_a___c_o_n_f_i_g.html">DMA_CONFIG</a>;
+<a name="l00394"></a>00394 
+<a name="l00395"></a>00395 
+<a name="l00396"></a>00396 <span class="preprocessor">#endif</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -410,7 +413,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed Sep 28 2011 12:16:32 for Wixel SDK by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Oct 13 2011 17:15:11 for Wixel SDK by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

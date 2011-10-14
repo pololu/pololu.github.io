@@ -368,7 +368,7 @@ Variables</h2></td></tr>
 <div class="memdoc">
 <p>Checks to see if the yellow LED line (P2_2) is connected to 3V3. If they are connected, then it starts the bootloader by calling boardStartBootloader. This function is called by boardService. If you call this function regularly, then it provides a relatively easy way to get into bootloader mode if you can't do it with a USB command. Currently this function only works while the yellow LED is off. </p>
 
-<p>Definition at line <a class="el" href="board_8c_source.html#l00128">128</a> of file <a class="el" href="board_8c_source.html">board.c</a>.</p>
+<p>Definition at line <a class="el" href="board_8c_source.html#l00130">130</a> of file <a class="el" href="board_8c_source.html">board.c</a>.</p>
 
 </div>
 </div>
@@ -387,7 +387,7 @@ Variables</h2></td></tr>
 <div class="memdoc">
 <p>Disables the 1500  pull-up the USB D+ line. This signals to the USB host that this device has been detached. This function is called by <code>usb.lib</code> (see <a class="el" href="usb_8h.html">usb.h</a>); if you are using that library you should not call this function yourself. </p>
 
-<p>Definition at line <a class="el" href="board_8c_source.html#l00151">151</a> of file <a class="el" href="board_8c_source.html">board.c</a>.</p>
+<p>Definition at line <a class="el" href="board_8c_source.html#l00153">153</a> of file <a class="el" href="board_8c_source.html">board.c</a>.</p>
 
 </div>
 </div>
@@ -406,7 +406,7 @@ Variables</h2></td></tr>
 <div class="memdoc">
 <p>Enables the 1500  pull-up the USB D+ line. This signals to the USB host that a device has been attached. This function is called by <code>usb.lib</code> (see <a class="el" href="usb_8h.html">usb.h</a>); if you are using that library you should not call this function yourself. </p>
 
-<p>Definition at line <a class="el" href="board_8c_source.html#l00156">156</a> of file <a class="el" href="board_8c_source.html">board.c</a>.</p>
+<p>Definition at line <a class="el" href="board_8c_source.html#l00158">158</a> of file <a class="el" href="board_8c_source.html">board.c</a>.</p>
 
 </div>
 </div>
@@ -452,7 +452,7 @@ Variables</h2></td></tr>
 <dl class="return"><dt><b>Returns:</b></dt><dd>1 if USB power (VBUS) is detected, 0 otherwise.</dd></dl>
 <p>This function relies on getMs, so you must call <a class="el" href="time_8h.html#a71d8cd0543a53d2e61cd31c54f8ca35b">timeInit()</a> before calling this. If this function returns 1, it means that the USB cable is plugged in. </p>
 
-<p>Definition at line <a class="el" href="board_8c_source.html#l00140">140</a> of file <a class="el" href="board_8c_source.html">board.c</a>.</p>
+<p>Definition at line <a class="el" href="board_8c_source.html#l00142">142</a> of file <a class="el" href="board_8c_source.html">board.c</a>.</p>
 
 </div>
 </div>
@@ -471,7 +471,7 @@ Variables</h2></td></tr>
 <div class="memdoc">
 <dl class="return"><dt><b>Returns:</b></dt><dd>1 if VIN power is detected, 0 otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="board_8c_source.html#l00146">146</a> of file <a class="el" href="board_8c_source.html">board.c</a>.</p>
+<p>Definition at line <a class="el" href="board_8c_source.html#l00148">148</a> of file <a class="el" href="board_8c_source.html">board.c</a>.</p>
 
 </div>
 </div>
@@ -519,7 +519,7 @@ Variables</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed Sep 28 2011 12:16:32 for Wixel SDK by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Oct 13 2011 17:15:12 for Wixel SDK by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>
