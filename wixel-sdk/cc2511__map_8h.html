@@ -73,11 +73,11 @@ Data Structures</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d_m_a___c_o_n_f_i_g.html">DMA_CONFIG</a></td></tr>
 <tr><td colspan="2"><h2><a name="define-members"></a>
 Defines</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><b>SFRBIT</b>(address, name, bit7, bit6, bit5, bit4, bit3, bit2, bit1, bit0)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a42433dfb99982d073722b1d6798a4692"></a><!-- doxytag: member="cc2511_map.h::SFR" ref="a42433dfb99982d073722b1d6798a4692" args="(address, name)" -->
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>SFR</b>(address, name)&#160;&#160;&#160;static __sfr __at (address) name;</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6676d5f547e05c41dccce33c765aa31c"></a><!-- doxytag: member="cc2511_map.h::SBIT" ref="a6676d5f547e05c41dccce33c765aa31c" args="(address, name)" -->
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>SBIT</b>(address, name)&#160;&#160;&#160;static __sbit __at (address) name;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><b>SFRBIT</b>(address, name, bit7, bit6, bit5, bit4, bit3, bit2, bit1, bit0)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8046d4d3e1caad1343bba93b52e8ec43"></a><!-- doxytag: member="cc2511_map.h::SFR16" ref="a8046d4d3e1caad1343bba93b52e8ec43" args="(addressH, addressL, name)" -->
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>SFR16</b>(addressH, addressL, name)&#160;&#160;&#160;static __sfr16 __at (((addressH) &lt;&lt; 8) + (addressL)) name;</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac1b6fb70d0a533e871f9682a5cd87e35"></a><!-- doxytag: member="cc2511_map.h::SFRX" ref="ac1b6fb70d0a533e871f9682a5cd87e35" args="(address, name)" -->
@@ -176,7 +176,7 @@ Defines</h2></td></tr>
     <span class="comment">// code for handling event and clearing interrupt flag</span>
 }
 </pre></div> 
-<p>Definition at line <a class="el" href="cc2511__map_8h_source.html#l00069">69</a> of file <a class="el" href="cc2511__map_8h_source.html">cc2511_map.h</a>.</p>
+<p>Definition at line <a class="el" href="cc2511__map_8h_source.html#l00071">71</a> of file <a class="el" href="cc2511__map_8h_source.html">cc2511_map.h</a>.</p>
 
 </div>
 </div>
@@ -262,7 +262,7 @@ Defines</h2></td></tr>
   SBIT(address+6, bit6) \
   SBIT(address+7, bit7)
 </pre></div>
-<p>Definition at line <a class="el" href="cc2511__map_8h_source.html#l00026">26</a> of file <a class="el" href="cc2511__map_8h_source.html">cc2511_map.h</a>.</p>
+<p>Definition at line <a class="el" href="cc2511__map_8h_source.html#l00023">23</a> of file <a class="el" href="cc2511__map_8h_source.html">cc2511_map.h</a>.</p>
 
 </div>
 </div>
@@ -284,7 +284,7 @@ Defines</h2></td></tr>
 <p>Most of the internal SFRs are also part of the XDATA memory space, which means you can have pointers to them of type <code>uint8 XDATA *</code> and you can read or write to them using DMA transfers.</p>
 <p>This macro does NOT work with the SFRs that are highlighted in gray in Table 30 of the CC2511F32 datasheet (the "SFR Address Overview" table). </p>
 
-<p>Definition at line <a class="el" href="cc2511__map_8h_source.html#l00367">367</a> of file <a class="el" href="cc2511__map_8h_source.html">cc2511_map.h</a>.</p>
+<p>Definition at line <a class="el" href="cc2511__map_8h_source.html#l00369">369</a> of file <a class="el" href="cc2511__map_8h_source.html">cc2511_map.h</a>.</p>
 
 </div>
 </div>
@@ -303,7 +303,7 @@ Defines</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Oct 13 2011 17:15:12 for Wixel SDK by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Jan 23 2012 12:20:49 for Wixel SDK by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>
