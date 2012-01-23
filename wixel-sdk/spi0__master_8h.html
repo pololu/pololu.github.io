@@ -159,7 +159,8 @@ Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<dl class="return"><dt><b>Returns:</b></dt><dd>The number of bytes left to transfer in the current transfer. If 0, it means there is no current transfer. </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The number of bytes left to transfer in the current transfer. If 0, it means there is no current transfer.</dd></dl>
+<p>This function temporarily disables the interrupt used by this library to transfer data, so calling this function frequently could reduce the speed that data is transferred. If possible, try to use <a class="el" href="spi0__master_8h.html#af59ca0e7da47a6cd5b9086bd9bb5d2f7">spi0MasterBusy()</a> instead of this function. </p>
 
 </div>
 </div>
@@ -217,6 +218,7 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 <p>Transmits one byte to the SPI slave, simultaneously receiving a byte from the slave. This is a synchronous, blocking function so be careful about using it in apps that have regular tasks to perform.</p>
+<p>This function should not be called if the library is busy doing a transfer (i.e. <a class="el" href="spi0__master_8h.html#af59ca0e7da47a6cd5b9086bd9bb5d2f7">spi0MasterBusy()</a> returns 1).</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">byte</td><td>The byte to send to the slave. </td></tr>
@@ -263,7 +265,7 @@ Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Sets the clock phase (the bit named CPHA in U0GCR). This bit controls the phase of the clock, which determines what type of transition is occurring when when the data is sampled/transmitted. Valid values are:</p>
+<p>Sets the clock phase (the bit named CPHA in U0GCR). This bit controls the phase of the clock, which determines what type of transition is occurring when the data is sampled/transmitted. Valid values are:</p>
 <ul>
 <li><a class="el" href="spi_8h.html#a59cad885e4f3071057284e823196ac33">SPI_PHASE_EDGE_LEADING</a> (0): Data is sampled/transmitted on the leading edge, when the clock line transitions from idle to active.</li>
 <li><a class="el" href="spi_8h.html#a8c455e47e5ac420bdc419194b1281045">SPI_PHASE_EDGE_TRAILING</a> (1): Data is sampled/transmitted on the trailing edge, when the clock like transitions from active to idle.</li>
@@ -358,6 +360,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<p>This function should not be called if the library is busy doing a transfer (i.e. <a class="el" href="spi0__master_8h.html#af59ca0e7da47a6cd5b9086bd9bb5d2f7">spi0MasterBusy()</a> returns 1).</p>
 <p>In SPI, every transfer of data consists of one byte going from the master to the slave and one byte going from the slave to the master. Not every byte is meaningful: often dummy data is inserted. This function initiates a transmission of several bytes from the master (the Wixel) to the slave. During this transmission, an equal number of bytes will be received and stored in the RX buffer. </p>
 
 </div>
@@ -377,7 +380,7 @@ Functions</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon Jan 23 2012 12:20:49 for Wixel SDK by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Jan 23 2012 13:57:46 for Wixel SDK by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>
