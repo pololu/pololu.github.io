@@ -77,7 +77,7 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="time_8h.html#a804a918f133398c31737088b45848f9c">delayMs</a> (<a class="el" href="cc2511__types_8h.html#a05f6b0ae8f6a6e135b0e290c25fe0e4e">uint16</a> milliseconds)</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>This module helps you keep track of time in milliseconds. Calling <a class="el" href="time_8h.html#a71d8cd0543a53d2e61cd31c54f8ca35b">timeInit()</a> sets up a timer (Timer 4) to overflow every millisecond (approximately). You can read the time at any time by calling <a class="el" href="time_8h.html#a7434f5e33d8b24476cc61ce923cfed94">getMs()</a> variable. For the interrupt to work, you must write </p>
+<div class="textblock"><p>This module helps you keep track of time in milliseconds. Calling <a class="el" href="time_8h.html#a71d8cd0543a53d2e61cd31c54f8ca35b">timeInit()</a> sets up a timer (Timer 4) to overflow every millisecond (approximately). You can read the time at any time by calling <a class="el" href="time_8h.html#a7434f5e33d8b24476cc61ce923cfed94">getMs()</a>. For the interrupt to work, you must write </p>
 <pre>include &lt;<a class="el" href="time_8h.html">time.h</a>&gt;</pre><p> or </p>
 <pre>include &lt;<a class="el" href="wixel_8h_source.html">wixel.h</a>&gt;</pre><p> in the source file that contains your main() function. Also, you must call <a class="el" href="board_8h.html#a30ce1f711d8228eab25d03073bc26c12">boardClockInit()</a> or else the timing will be wrong.</p>
 <p>Both <a class="el" href="board_8h.html#a30ce1f711d8228eab25d03073bc26c12">boardClockInit()</a> and <a class="el" href="time_8h.html#a71d8cd0543a53d2e61cd31c54f8ca35b">timeInit()</a> are called from <a class="el" href="board_8h.html#adc86b84eeabe5d8dc8445cec2314d925">systemInit()</a>, so you can simply call <a class="el" href="board_8h.html#adc86b84eeabe5d8dc8445cec2314d925">systemInit()</a> to initialize everything. </p>
@@ -218,7 +218,7 @@ Functions</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Fri Mar 9 2012 09:50:55 for Wixel SDK by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Feb 21 2013 11:40:08 for Wixel SDK by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

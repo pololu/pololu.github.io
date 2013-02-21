@@ -144,7 +144,7 @@ The pinNumber parameter</h2>
 </table>
 <h2><a class="anchor" id="interrupts"></a>
 Interrupts</h2>
-<p>All the functions in this library are declarded as reentrant, which means it is safe to call them in your main loop and also in your interrupt service routines (ISRs). However, if you are using these functions in an ISR, you should make sure that have no code in your main loop that does a non-atomic read-modify-write operation on any of the I/O registers that are changed in the interrupt. The risk is that the interrupt could fire after while the read-modify-write operation is in progress, after the register has been read but before it has been written. Then when the register is written by the main loop, the change made by the ISR will be unintentionally lost.</p>
+<p>All the functions in this library are declared as reentrant, which means it is safe to call them in your main loop and also in your interrupt service routines (ISRs). However, if you are using these functions in an ISR, you should make sure that have no code in your main loop that does a non-atomic read-modify-write operation on any of the I/O registers that are changed in the interrupt. The risk is that the interrupt could fire after while the read-modify-write operation is in progress, after the register has been read but before it has been written. Then when the register is written by the main loop, the change made by the ISR will be unintentionally lost.</p>
 <p>For example, it would be bad if you called <code>setDigitalOutput(10, 1)</code> in an interrupt and in your main loop you had some code like: </p>
 <div class="fragment"><pre class="fragment">P1DIR = (P1DIR &amp; MASK) | VALUE;
 </pre></div><p>It is OK to have code like <code>P1DIR |= VALUE;</code> in your main loop because that compiles to a single instruction, so it should be atomic.</p>
@@ -434,7 +434,7 @@ P0DIR |= (1&lt;&lt;3);
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Fri Mar 9 2012 09:50:55 for Wixel SDK by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Feb 21 2013 11:40:08 for Wixel SDK by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>
