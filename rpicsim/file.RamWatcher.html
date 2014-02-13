@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+<title>
+  File: RamWatcher
+  
+    &mdash; Documentation by YARD 0.8.7.3
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    
+        <a href="_index.html">Index</a> &raquo;
+        
+        <a href="file.Manual.html">RPicSim manual</a> &raquo;
+    
+    <span class="title">File: RamWatcher</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'>
+<h1 id="label-RAM+watcher">RAM watcher</h1>
+
+<p>When writing a <a href="file.UnitTesting.html" title="unit test">unit test</a> for some part of your
+firmware, you should probably test any RAM variable that the code is
+supposed to write to, and make sure that it contains the correct value
+after the code executes. However, you should also try to make sure that
+your code does not write to any other parts of memory; it should only write
+to the places that you were expecting it to write to.</p>
+
+<p>RPicSim's <em>ram watcher</em> lets you see all the places in RAM
+(including SFRs) that were written by your code. It detects writes to RAM
+even if the underlying RAM value didn't change. For example, if your
+program runs a <code>clrf x</code> instruction, the RAM watcher will detect
+this even if <code>x</code> was already equal to 0.</p>
+
+<p>Also, it detects writes from instructions like "<code>movf x, F</code>",
+which is usually not desired. That instruction affects the STATUS register
+and allows you to see if <code>x</code> is zero, but it should not affect
+<code>x</code> if it is a normal variable in RAM. However, that instruction
+technically counts as a read from <code>x</code> and a write of the same
+value back to <code>x</code>, so the RAM watcher detects the write and will
+report it.</p>
+
+<p>Please note that the RAM watcher works well in MPLAB X 1.85 and 1.90 but
+the latest versions of MPLAB X have an issue that makes the RAM watcher
+useless. For more information, see <a href="file.KnownIssues.html" title="KnownIssues">KnownIssues</a>.</p>
+
+<p>The RAM watcher has two important methods:</p>
+<ul><li>
+<p>The <span class='object_link'><a href="RPicSim/MemoryWatcher.html#writes-instance_method" title="RPicSim::MemoryWatcher#writes (method)">writes</a></span> method provides a hash
+representing all the writes that have been recorded.  Each key of the hash
+is the name of the variable or SFR that was written to, or just the address
+that was written to if the write was to an unrecognized location in memory.
+The values of the hash are the final value that the item had after the last
+write.  If a subroutine under test writes to the same variable twice, the
+RAM watcher will only report about the last write.</p>
+</li><li>
+<p>The <span class='object_link'><a href="RPicSim/MemoryWatcher.html#clear-instance_method" title="RPicSim::MemoryWatcher#clear (method)">clear</a></span> method erases all previous
+records.</p>
+</li></ul>
+
+<p>For example, to test the 16-bit addition routine from the
+<a href="file.Variables.html" title="Variables page">Variables page</a> with the RAM watcher, you could write:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>adds x to y and stores the result in z</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span class='int'>70</span>
+  <span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span class='int'>22</span>
+  <span class='id identifier rubyid_step'>step</span><span class='semicolon'>;</span> <span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_ram_watcher'>ram_watcher</span><span class='period'>.</span><span class='id identifier rubyid_clear'>clear</span>
+  <span class='id identifier rubyid_run_subroutine'>run_subroutine</span> <span class='symbol'>:addition</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>100</span>
+  <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_ram_watcher'>ram_watcher</span><span class='period'>.</span><span class='id identifier rubyid_writes'>writes</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='label'>z:</span> <span class='int'>92</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>end</span></code></pre>
+
+<p>The third line in the example above, which clears the RAM watcher's records
+after stepping once, is necessary because the RAM watcher actually detects
+the writes that occurred to RAM in the lines above, even though those
+writes came from Ruby code.</p>
+
+<p>The RAM watcher is an instance of <span class='object_link'><a href="RPicSim/MemoryWatcher.html" title="RPicSim::MemoryWatcher (class)">RPicSim::MemoryWatcher</a></span>.</p>
+
+<h2 id="label-Filters">Filters</h2>
+
+<p>The <span class='object_link'><a href="RPicSim/MemoryWatcher.html" title="RPicSim::MemoryWatcher (class)">RPicSim::MemoryWatcher</a></span> class contains some special code to filter out
+reports about registers that are always changing, like <code>PCL</code> and
+<code>STATUS</code>. It also contains some special code to filter out
+spurious reports of writes that happen on the very first step of the
+simulation. Both of these filters might need to be updated to properly
+support your particular PIC (and your version of MPLAB X).</p>
+</div></div>
+
+    <div id="footer">
+  
+    This is part of the <a href="file.Manual.html">RPicSim manual</a>.
+  
+  <br/><br/>
+
+  Generated on Wed Feb 12 16:44:38 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

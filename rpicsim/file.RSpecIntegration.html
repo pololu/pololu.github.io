@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+<title>
+  File: RSpecIntegration
+  
+    &mdash; Documentation by YARD 0.8.7.3
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    
+        <a href="_index.html">Index</a> &raquo;
+        
+        <a href="file.Manual.html">RPicSim manual</a> &raquo;
+    
+    <span class="title">File: RSpecIntegration</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'>
+<h1 id="label-RSpec+integration">RSpec integration</h1>
+
+<p>RPicSim has optional code that allows you to integrated it nicely with
+RSpec. RPicSim's RSpec integration is mainly designed to help you write
+shorter, less verbose tests, but it also provides helpful error messages
+when a test fails. Most of the example code in this manual assumes that you
+have the RSpec integration enabled.</p>
+
+<h2 id="label-Turning+on+RSpec+integration">Turning on RSpec integration</h2>
+
+<p>To enable the RSpec integration, simply put this line in your
+<code>spec_helper.rb</code>:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rpicsim/rspec</span><span class='tstring_end'>'</span></span>
+</code></pre>
+
+<p>The features that this gives you are documented below.</p>
+
+<h2 id="label-Helper+methods">Helper methods</h2>
+
+<p>Requiring "rpicsim/rspec" causes the <span class='object_link'><a href="RPicSim/RSpec/Helpers.html" title="RPicSim::RSpec::Helpers (module)">RPicSim::RSpec::Helpers</a></span> module to
+get included (i.e. mixed in) to all of your RSpec examples.</p>
+
+<p>This module provides the <span class='object_link'><a href="RPicSim/RSpec/Helpers.html#start_sim-instance_method" title="RPicSim::RSpec::Helpers#start_sim (method)">start_sim</a></span>
+method and the methods described on the <a href="file.PersistentExpectations.html" title="persistent expectations page">persistent expectations page</a>. You can call <code>start_sim</code> in an
+example or a before hook to start a new simulation. The simulation object
+can then be accessed with by typing <code>sim</code> in your examples.</p>
+
+<h3 id="label-Basic+shortcuts">Basic shortcuts</h3>
+
+<p>Unless you disable them, calling <code>start_sim</code> will also give you
+access to over a dozen basic shortcut methods like <code>pin</code> and
+<code>run_to</code> in your RSpec examples. The full list of basic
+shortcuts can be found in <span class='object_link'><a href="RPicSim/Sim/BasicShortcuts.html#ForwardedMethods-constant" title="RPicSim::Sim::BasicShortcuts::ForwardedMethods (constant)">RPicSim::Sim::BasicShortcuts::ForwardedMethods</a></span>.
+You can call these by simply typing a method name in an RSpec example:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_run_to'>run_to</span> <span class='symbol'>:foo</span>    <span class='comment'># equivalent to sim.run_to :foo</span></code></pre>
+
+<h3 id="label-Firmware-specific+shortcuts">Firmware-specific shortcuts</h3>
+
+<p>Unless you disable them, you will get access to firmware-specific shortcuts
+defined by the simulation. These shortcuts correspond to items defined with
+<span class='object_link'><a href="RPicSim/Sim/ClassDefinitionMethods.html#def_var-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#def_var (method)">def_var</a></span>,
+<span class='object_link'><a href="RPicSim/Sim/ClassDefinitionMethods.html#def_flash_var-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#def_flash_var (method)">def_flash_var</a></span> and
+<span class='object_link'><a href="RPicSim/Sim/ClassDefinitionMethods.html#def_pin-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#def_pin (method)">def_pin</a></span>.</p>
+
+<p>For example, if your <a href="file.DefiningSimulationClass.html" title="simulation class">simulation class</a>
+defines a pin named <code>main_output</code>, then you can just write code
+like this in your RSpec examples:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_main_output'>main_output</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_driving_high'>be_driving_high</span></code></pre>
+
+<p>You can disable the firmware-specific shortcuts in your RSpec examples, but
+they will still be available on the simulation object itself (e.g.
+<code>sim.main_output</code>).</p>
+
+<h3 id="label-Configuring+shortcuts">Configuring shortcuts</h3>
+
+<p>RPicSim provides a custom RSpec configuration option called
+<code>sim_shortcuts</code> that can either be set to <code>:all</code>
+(default), <code>:basic</code>, or <code>:none</code>.</p>
+
+<p>If you just want to use the basic shortcuts and not the firmware-specific
+shortcuts, add the following code to your <code>spec_helper.rb</code>:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_config'>config</span><span class='op'>|</span>
+  <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_sim_shortcuts'>sim_shortcuts</span> <span class='op'>=</span> <span class='symbol'>:basic</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>To turn off all the shortcuts, use:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_config'>config</span><span class='op'>|</span>
+  <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_sim_shortcuts'>sim_shortcuts</span> <span class='op'>=</span> <span class='symbol'>:none</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<h2 id="label-Diagnostic+information">Diagnostic information</h2>
+
+<p>If an error happens in a test (either from an expectation failing or from a
+general exception being raised), RPicSim augments the default output of
+RSpec in order to provide additional information about the state of the
+simulation. When an RSpec example fails, the output you get will look
+something like this:</p>
+
+<pre class="code plain"><code class="plain">................................................F.....
+
+Failures:
+
+  1) FooWidget when exposed to 1.5 ms pulses behaves correctly
+     Failure/Error: run_cycles 1500*4
+       expected INTCON to satisfy block
+     # ./lib/rpicsim/rspec/persistent_expectations.rb:29:in `check_expectations'
+     # ./lib/rpicsim/rspec/persistent_expectations.rb:27:in `check_expectations'
+     # ./lib/rpicsim/rspec/helpers.rb:25:in `start_sim'
+     # ./lib/rpicsim/sim.rb:574:in `step'
+     # ./lib/rpicsim/sim.rb:716:in `run_to_cycle_count'
+     # ./lib/rpicsim/sim.rb:708:in `run_cycles'
+     # ./spec/foo_widget_spec.rb:10:in `(root)'
+
+     Simulation cycle count: 78963
+
+     Simulation stack trace:
+     0x01A0 = startMotor
+     0x0044 = motorService+0x14
+     0x0B12 = mainLoop+0x2
+     0x008C = start2
+
+Finished in 4.55 seconds
+44 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/example/nice_error_spec.rb:8 # FooWidget when exposed to 1.5ms pulses behaves correctly</code></pre>
+
+<p>In this example, we had a <a href="file.PersistentExpectations.html" title="persistent expectation">persistent expectation</a> asserting something about the INTCON SFR and and at some point
+in a lengthy integration test our expectation failed. The "Simulation cycle
+count" shows us the value of <span class='object_link'><a href="RPicSim/Sim.html#cycle_count-instance_method" title="RPicSim::Sim#cycle_count (method)">RPicSim::Sim#cycle_count</a></span> at the time that
+the error happened. The "Simulation stack trace" shows us what addresses
+were on the device's call stack. (Actually, the call stack stores the
+addresses the process will return to, but this stack trace shows the
+addresses where calls occurred, which is one or two less than the return
+address.) This information can help when you are <a href="file.Debugging.html" title="debugging">debugging</a> issues.</p>
+
+<h2 id="label-Better+RSpec+error+messages">Better RSpec error messages</h2>
+
+<p>RPicSim also overrides some of RSpec's error messages to be better.</p>
+
+<p>For example, instead of just saying an error message like "expected
+driving_high? to return true, got false", RSpec will actually say what
+object it called <code>driving_high?</code> on. This feature is important
+when you are using <a href="file.PersistentExpectations.html" title="persistent expectations">persistent expectations</a>
+and want to know which expectation failed, because the stack trace will not
+help.</p>
+</div></div>
+
+    <div id="footer">
+  
+    This is part of the <a href="file.Manual.html">RPicSim manual</a>.
+  
+  <br/><br/>
+
+  Generated on Wed Feb 12 16:44:39 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

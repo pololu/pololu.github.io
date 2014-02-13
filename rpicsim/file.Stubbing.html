@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+<title>
+  File: Stubbing
+  
+    &mdash; Documentation by YARD 0.8.7.3
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    
+        <a href="_index.html">Index</a> &raquo;
+        
+        <a href="file.Manual.html">RPicSim manual</a> &raquo;
+    
+    <span class="title">File: Stubbing</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'>
+<h1 id="label-Stubbing">Stubbing</h1>
+
+<p>Stubbing is a technique used in <a href="file.UnitTesting.html" title="unit testing">unit testing</a> to
+replace a routine in a system under test with a simpler routine whose
+behavior can be specified in the test. Stubbing allows you to limit the
+amount of code you are testing, which can make that test easier to design
+and faster to run. RPicSim does not have any special features to support
+stubbing, but it can easily be accomplished using features already present.</p>
+
+<h2 id="label-A+basic+stub">A basic stub</h2>
+
+<p>To stub a method in the most basic way, you can do something like this:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_every_step'>every_step</span> <span class='kw'>do</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_pc'>pc</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>==</span> <span class='id identifier rubyid_label'>label</span><span class='lparen'>(</span><span class='symbol'>:foo</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_address'>address</span>
+    <span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_return'>return</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+
+<p>The example above just alters our simulation so that whenever the
+<code>foo</code> subroutine is called, instead of running as normal it will
+return immediately using <span class='object_link'><a href="RPicSim/Sim.html#return-instance_method" title="RPicSim::Sim#return (method)">RPicSim::Sim#return</a></span>.</p>
+
+<p>The example above can be expanded in many ways: You might read and write
+from <a href="file.Variables.html" title="variables">variables</a> and <a href="file.SFRs.html" title="SFRs">SFRs</a>. You might
+record information about how the subroutine was called.</p>
+
+<h2 id="label-A+stub+that+counts">A stub that counts</h2>
+
+<p>If you want to know how many times the stubbed routine is called, you could
+do this:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='ivar'>@foo_count</span> <span class='op'>=</span> <span class='int'>0</span>
+<span class='id identifier rubyid_every_step'>every_step</span> <span class='kw'>do</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_pc'>pc</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>==</span> <span class='id identifier rubyid_label'>label</span><span class='lparen'>(</span><span class='symbol'>:foo</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_address'>address</span>
+    <span class='ivar'>@foo_count</span> <span class='op'>+=</span> <span class='int'>1</span>
+    <span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_return'>return</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+
+<p>Using a Ruby instance variable <code>@foo_count</code> instead of a simple
+local variable means that this code could go in a before hook and the code
+that checks the count could be in the main part of the RSpec example.</p>
+
+<h2 id="label-A+stub+that+records+parameters">A stub that records parameters</h2>
+
+<p>You might want to test that the right parameters are getting supplied to
+the stubbed routine. To capture information about the stubbed routine's
+parameters or anything else about the state of the simulation, you could
+use a Ruby array:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='ivar'>@foo_calls</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+<span class='id identifier rubyid_every_step'>every_step</span> <span class='kw'>do</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_pc'>pc</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>==</span> <span class='id identifier rubyid_label'>label</span><span class='lparen'>(</span><span class='symbol'>:foo</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_address'>address</span>
+    <span class='ivar'>@foo_calls</span> <span class='op'>&lt;&lt;</span> <span class='lbrace'>{</span> <span class='label'>a:</span> <span class='id identifier rubyid_foo_param_a'>foo_param_a</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span><span class='comma'>,</span> <span class='label'>b:</span> <span class='id identifier rubyid_foo_param_b'>foo_param_b</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='rbrace'>}</span>
+    <span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_return'>return</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+
+<p>In your RSpec examples, you can test that the routine was called the right
+number of times and with the expected parameters:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='ivar'>@foo_calls</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span> <span class='lbracket'>[</span> <span class='lbrace'>{</span><span class='label'>a:</span> <span class='int'>1</span><span class='comma'>,</span> <span class='label'>b:</span> <span class='int'>25</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='lbrace'>{</span><span class='label'>a:</span> <span class='int'>2</span><span class='comma'>,</span> <span class='label'>b:</span> <span class='int'>24</span> <span class='rbrace'>}</span> <span class='rbracket'>]</span></code></pre>
+
+<h2 id="label-LongDelay+example">LongDelay example</h2>
+
+<p>This is a more complete example showing how to make a simple stub that
+counts the number of times it was called.</p>
+
+<p>Here is a minimal MPASM assembly program with two routines. The
+<code>bigDelay</code> routine delays for a long time using a 16-bit counter
+and a loop. The <code>cooldown</code> routine either calls
+<code>bigDelay</code> once or twice depending on some condition.</p>
+
+<pre class="code plain"><code class="plain">  #include p10F322.inc
+  __config(0x3E06)
+  udata
+hot res 1
+counter res 2
+  code 0
+
+cooldown:
+  btfsc hot, 0
+  call bigDelay
+  call bigDelay
+  return
+
+bigDelay:
+  movlw   255
+  movwf   counter
+  movlw   255
+  movwf   counter + 1
+delayLoop:
+  decfsz  counter, F
+  goto    delayLoop
+  decfsz  counter+1, F
+  goto    delayLoop
+  return
+  end</code></pre>
+
+<p>Suppose we want to write a unit test for the logic in the
+<code>cooldown</code> method. We could just run the subroutine in various
+conditions and see how long it takes to finish. However, that test could be
+very slow to run. Instead, we should stub the <code>bigDelay</code> method
+and make the stub count how many times it was called.</p>
+
+<p>In <code>spec/spec_helper.rb</code>, we make a simulation class that points
+to the compiled COF file. There is nothing special here:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rpicsim/rspec</span><span class='tstring_end'>'</span></span>
+
+<span class='kw'>class</span> <span class='const'>LongDelay</span> <span class='op'>&lt;</span> <span class='const'>RPicSim</span><span class='op'>::</span><span class='const'>Sim</span>
+  <span class='id identifier rubyid_device_is'>device_is</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PIC10F322</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_filename_is'>filename_is</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_dirname'>dirname</span><span class='lparen'>(</span><span class='kw'>__FILE__</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>../firmware/dist/firmware.cof</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_def_var'>def_var</span> <span class='symbol'>:hot</span><span class='comma'>,</span> <span class='symbol'>:u8</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>In <code>spec/cooldown_spec.rb</code>, we stub the <code>bigDelay</code>
+routine and test <code>cooldown</code> to make sure it calls
+<code>bigDelay</code> the right number of times:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rpicsim/rspec</span><span class='tstring_end'>'</span></span>
+
+<span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>cooldown</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_before'>before</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_start_sim'>start_sim</span> <span class='const'>Firmware</span><span class='op'>::</span><span class='const'>LongDelay</span>
+
+    <span class='comment'># Stub the &quot;bigDelay&quot; function because it takes a long time to run.
+</span>    <span class='comment'># Also, count how many times it was called.
+</span>    <span class='ivar'>@big_delay_count</span> <span class='op'>=</span> <span class='int'>0</span>
+    <span class='id identifier rubyid_every_step'>every_step</span> <span class='kw'>do</span>
+      <span class='kw'>if</span> <span class='id identifier rubyid_pc'>pc</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>==</span> <span class='id identifier rubyid_label'>label</span><span class='lparen'>(</span><span class='symbol'>:bigDelay</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_address'>address</span>
+        <span class='ivar'>@big_delay_count</span> <span class='op'>+=</span> <span class='int'>1</span>
+        <span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_return'>return</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_context'>context</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>when the room is cool</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_before'>before</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_hot'>hot</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span class='int'>0</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>only does one big delay</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_run_subroutine'>run_subroutine</span> <span class='symbol'>:cooldown</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>100</span>
+      <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='ivar'>@big_delay_count</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span> <span class='int'>1</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_context'>context</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>when the room is hot</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_before'>before</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_hot'>hot</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span class='int'>1</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does two big delays</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_run_subroutine'>run_subroutine</span> <span class='symbol'>:cooldown</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>100</span>
+      <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='ivar'>@big_delay_count</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span> <span class='int'>2</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>This makes our test much faster and allows us to just test the behavior of
+the <code>cooldown</code> routine.</p>
+</div></div>
+
+    <div id="footer">
+  
+    This is part of the <a href="file.Manual.html">RPicSim manual</a>.
+  
+  <br/><br/>
+
+  Generated on Wed Feb 12 16:44:39 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

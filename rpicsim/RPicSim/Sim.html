@@ -1,0 +1,3180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: RPicSim::Sim
+  
+    &mdash; Documentation by YARD 0.8.7.3
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (S)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../RPicSim.html" title="RPicSim (module)">RPicSim</a></span></span>
+     &raquo; 
+    <span class="title">Sim</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: RPicSim::Sim
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">RPicSim::Sim</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+      <dt class="r2">Extended by:</dt>
+      <dd class="r2"><span class='object_link'><a href="Sim/ClassDefinitionMethods.html" title="RPicSim::Sim::ClassDefinitionMethods (module)">ClassDefinitionMethods</a></span>, <span class='object_link'><a href="Sim/ClassMethods.html" title="RPicSim::Sim::ClassMethods (module)">ClassMethods</a></span></dd>
+      
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/rpicsim/sim.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>This class represents a PIC microcontroller simulation. This class keeps
+track of the state of the simulation and provides methods for running the
+simulation, reading the state, and changing the state. This the main class
+of RPicSim.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Sim/BasicShortcuts.html" title="RPicSim::Sim::BasicShortcuts (module)">BasicShortcuts</a></span>, <span class='object_link'><a href="Sim/ClassDefinitionMethods.html" title="RPicSim::Sim::ClassDefinitionMethods (module)">ClassDefinitionMethods</a></span>, <span class='object_link'><a href="Sim/ClassMethods.html" title="RPicSim::Sim::ClassMethods (module)">ClassMethods</a></span>
+    
+  
+    
+  
+</p>
+
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pc-instance_method" title="#pc (instance method)">- (RPicSim::ProgramCounter) <strong>pc</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Gets the program counter, an object that lets you read and write the
+current address in program space that is being executed.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ram_watcher-instance_method" title="#ram_watcher (instance method)">- (MemoryWatcher) <strong>ram_watcher</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a <span class='object_link'><a href="MemoryWatcher.html" title="RPicSim::MemoryWatcher (class)">MemoryWatcher</a></span> object configured to watch for changes to RAM.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stkptr-instance_method" title="#stkptr (instance method)">- (Register) <strong>stkptr</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a <span class='object_link'><a href="Register.html" title="RPicSim::Register (class)">Register</a></span> object corresponding to the stack pointer.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#wreg-instance_method" title="#wreg (instance method)">- (Register) <strong>wreg</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a <span class='object_link'><a href="Register.html" title="RPicSim::Register (class)">Register</a></span> object corresponding to WREG.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  
+  
+  <h3 class="inherited">Attributes included from <span class='object_link'><a href="Sim/ClassMethods.html" title="RPicSim::Sim::ClassMethods (module)">ClassMethods</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Sim/ClassMethods.html#flash_vars-instance_method" title="RPicSim::Sim::ClassMethods#flash_vars (method)">#flash_vars</a></span>, <span class='object_link'><a href="Sim/ClassMethods.html#labels-instance_method" title="RPicSim::Sim::ClassMethods#labels (method)">#labels</a></span>, <span class='object_link'><a href="Sim/ClassMethods.html#pin_aliases-instance_method" title="RPicSim::Sim::ClassMethods#pin_aliases (method)">#pin_aliases</a></span>, <span class='object_link'><a href="Sim/ClassMethods.html#program_file-instance_method" title="RPicSim::Sim::ClassMethods#program_file (method)">#program_file</a></span>, <span class='object_link'><a href="Sim/ClassMethods.html#vars-instance_method" title="RPicSim::Sim::ClassMethods#vars (method)">#vars</a></span></p>
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#convert_condition_to_proc-instance_method" title="#convert_condition_to_proc (instance method)">- (Integer) <strong>convert_condition_to_proc</strong>(c) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Converts the specified condition into a Proc that, when called, will return
+a truthy value if the condition is satisfied.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#cycle_count-instance_method" title="#cycle_count (instance method)">- (Integer) <strong>cycle_count</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the number of instruction cycles simulated in this simulation.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#device-instance_method" title="#device (instance method)">- (String) <strong>device</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a string like "PIC10F322" specifying the PIC device number.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#every_step-instance_method" title="#every_step (instance method)">- (Object) <strong>every_step</strong>(&amp;proc) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Registers a new callback to be run after every simulation step.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#filename-instance_method" title="#filename (instance method)">- (String) <strong>filename</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the path to the firmware file.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#flash_var-instance_method" title="#flash_var (instance method)">- (Variable) <strong>flash_var</strong>(name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a <span class='object_link'><a href="Variable.html" title="RPicSim::Variable (class)">Variable</a></span> object if a flash (program memory) variable by that
+name is found, or raises an exception.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#goto-instance_method" title="#goto (instance method)">- (Object) <strong>goto</strong>(location) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Changes the <span class='object_link'><a href="#pc-instance_method" title="RPicSim::Sim#pc (method)">#pc</a></span> value to be equal to the address of the given location.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Sim) <strong>initialize</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Makes a new simulation using the settings specified when the class was
+defined.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inspect-instance_method" title="#inspect (instance method)">- (Object) <strong>inspect</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#label-instance_method" title="#label (instance method)">- (Label) <strong>label</strong>(name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a <span class='object_link'><a href="Label.html" title="RPicSim::Label (class)">Label</a></span> object if a program label by that name is found.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#location_address-instance_method" title="#location_address (instance method)">- (Integer) <strong>location_address</strong>(location) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Gets the address of the specified location in program memory.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#nmmr-instance_method" title="#nmmr (instance method)">- (Register) <strong>nmmr</strong>(name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a <span class='object_link'><a href="Register.html" title="RPicSim::Register (class)">Register</a></span> object if an NMMR by that name is found, or raises an
+exception.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pc_description-instance_method" title="#pc_description (instance method)">- (Object) <strong>pc_description</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Generates a friendly human-readable string description of where the program
+counter is currently using the symbol table.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pin-instance_method" title="#pin (instance method)">- (Pin) <strong>pin</strong>(name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a Pin object if a pin by that name is found, or raises an
+exception.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#return-instance_method" title="#return (instance method)">- (Object) <strong>return</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Simulates a return instruction being executed by popping the top value off
+of the stack and setting the <span class='object_link'><a href="#pc-instance_method" title="RPicSim::Sim#pc (method)">#pc</a></span> value equal to it.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#run_cycles-instance_method" title="#run_cycles (instance method)">- (Object) <strong>run_cycles</strong>(num_cycles) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Runs the simulation for the given number of instruction cycles.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#run_steps-instance_method" title="#run_steps (instance method)">- (Object) <strong>run_steps</strong>(step_count) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Executes the specified number of instructions.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#run_subroutine-instance_method" title="#run_subroutine (instance method)">- (Object) <strong>run_subroutine</strong>(location, opts = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Runs the subroutine at the given location.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#run_to-instance_method" title="#run_to (instance method)">- (Object) <strong>run_to</strong>(conditions, opts = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Runs the simulation until one of the given conditions has been met, then
+stops and returns the condition that was met.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#run_to_cycle_count-instance_method" title="#run_to_cycle_count (instance method)">- (Object) <strong>run_to_cycle_count</strong>(count) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Runs the simulation until the <span class='object_link'><a href="#cycle_count-instance_method" title="RPicSim::Sim#cycle_count (method)">#cycle_count</a></span> is greater than or equal to
+the given cycle count.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sfr-instance_method" title="#sfr (instance method)">- (Register) <strong>sfr</strong>(name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a <span class='object_link'><a href="Register.html" title="RPicSim::Register (class)">Register</a></span> object if an SFR by that name is found, or raises an
+exception.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sfr_or_nmmr-instance_method" title="#sfr_or_nmmr (instance method)">- (Register) <strong>sfr_or_nmmr</strong>(name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a <span class='object_link'><a href="Register.html" title="RPicSim::Register (class)">Register</a></span> object if an SFR or NMMR by that name is found, or
+raises an exception.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#shortcuts-instance_method" title="#shortcuts (instance method)">- (Object) <strong>shortcuts</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stack_contents-instance_method" title="#stack_contents (instance method)">- (Array(Integer)) <strong>stack_contents</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Gets the contents of the stack as an array of integers.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stack_push-instance_method" title="#stack_push (instance method)">- (Object) <strong>stack_push</strong>(value) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Pushes the given address onto the simulated call stack.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stack_trace-instance_method" title="#stack_trace (instance method)">- (StackTrace) <strong>stack_trace</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a call stack trace representing the current state of the
+simulation.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#step-instance_method" title="#step (instance method)">- (Object) <strong>step</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Executes one more instruction.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#var-instance_method" title="#var (instance method)">- (Variable) <strong>var</strong>(name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a <span class='object_link'><a href="Variable.html" title="RPicSim::Variable (class)">Variable</a></span> object if a RAM variable by that name is found, or
+raises an exception.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Sim/ClassDefinitionMethods.html" title="RPicSim::Sim::ClassDefinitionMethods (module)">ClassDefinitionMethods</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Sim/ClassDefinitionMethods.html#def_flash_var-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#def_flash_var (method)">def_flash_var</a></span>, <span class='object_link'><a href="Sim/ClassDefinitionMethods.html#def_pin-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#def_pin (method)">def_pin</a></span>, <span class='object_link'><a href="Sim/ClassDefinitionMethods.html#def_var-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#def_var (method)">def_var</a></span>, <span class='object_link'><a href="Sim/ClassDefinitionMethods.html#device_is-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#device_is (method)">device_is</a></span>, <span class='object_link'><a href="Sim/ClassDefinitionMethods.html#filename_is-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#filename_is (method)">filename_is</a></span></p>
+
+  
+  
+  
+  
+  
+  <div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="RPicSim::Sim (class)">Sim</a></span></tt>) <strong>initialize</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Makes a new simulation using the settings specified when the class was
+defined.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 291</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
+  <span class='ivar'>@assembly</span> <span class='op'>=</span> <span class='const'>Mplab</span><span class='op'>::</span><span class='const'>MplabAssembly</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_device'>device</span><span class='rparen'>)</span>
+  <span class='ivar'>@assembly</span><span class='period'>.</span><span class='id identifier rubyid_start_simulator_and_debugger'>start_simulator_and_debugger</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
+  <span class='ivar'>@simulator</span> <span class='op'>=</span> <span class='ivar'>@assembly</span><span class='period'>.</span><span class='id identifier rubyid_simulator'>simulator</span>
+  <span class='ivar'>@processor</span> <span class='op'>=</span> <span class='ivar'>@simulator</span><span class='period'>.</span><span class='id identifier rubyid_processor'>processor</span>
+
+  <span class='comment'># Set up our stores and helper objects.
+</span>  <span class='ivar'>@fr_memory</span> <span class='op'>=</span> <span class='const'>Memory</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='ivar'>@simulator</span><span class='period'>.</span><span class='id identifier rubyid_fr_memory'>fr_memory</span>
+  <span class='ivar'>@sfr_memory</span> <span class='op'>=</span> <span class='const'>Memory</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='ivar'>@simulator</span><span class='period'>.</span><span class='id identifier rubyid_sfr_memory'>sfr_memory</span>
+  <span class='ivar'>@nmmr_memory</span> <span class='op'>=</span> <span class='const'>Memory</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='ivar'>@simulator</span><span class='period'>.</span><span class='id identifier rubyid_nmmr_memory'>nmmr_memory</span>
+  <span class='ivar'>@program_memory</span> <span class='op'>=</span> <span class='const'>Memory</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='ivar'>@simulator</span><span class='period'>.</span><span class='id identifier rubyid_program_memory'>program_memory</span>
+  <span class='ivar'>@stack_memory</span> <span class='op'>=</span> <span class='const'>Memory</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='ivar'>@simulator</span><span class='period'>.</span><span class='id identifier rubyid_stack_memory'>stack_memory</span>
+  <span class='ivar'>@test_memory</span> <span class='op'>=</span> <span class='const'>Memory</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='ivar'>@simulator</span><span class='period'>.</span><span class='id identifier rubyid_test_memory'>test_memory</span>
+
+  <span class='ivar'>@pc</span> <span class='op'>=</span> <span class='const'>ProgramCounter</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@simulator</span><span class='period'>.</span><span class='id identifier rubyid_processor'>processor</span><span class='rparen'>)</span>
+
+  <span class='ivar'>@step_callbacks</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+
+  <span class='id identifier rubyid_initialize_pins'>initialize_pins</span>
+  <span class='id identifier rubyid_initialize_sfrs_and_nmmrs'>initialize_sfrs_and_nmmrs</span>
+  <span class='id identifier rubyid_initialize_vars'>initialize_vars</span>
+  <span class='id identifier rubyid_initialize_flash_vars'>initialize_flash_vars</span>
+
+  <span class='ivar'>@ram_watcher</span> <span class='op'>=</span> <span class='const'>MemoryWatcher</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='ivar'>@simulator</span><span class='period'>.</span><span class='id identifier rubyid_fr_memory'>fr_memory</span><span class='comma'>,</span> <span class='ivar'>@vars</span><span class='period'>.</span><span class='id identifier rubyid_values'>values</span> <span class='op'>+</span> <span class='ivar'>@sfrs</span><span class='period'>.</span><span class='id identifier rubyid_values'>values</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="pc-instance_method">
+  
+    - (<tt><span class='object_link'><a href="ProgramCounter.html" title="RPicSim::ProgramCounter (class)">RPicSim::ProgramCounter</a></span></tt>) <strong>pc</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Gets the program counter, an object that lets you read and write the
+current address in program space that is being executed.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="ProgramCounter.html" title="RPicSim::ProgramCounter (class)">RPicSim::ProgramCounter</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+266
+267
+268</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 266</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pc'>pc</span>
+  <span class='ivar'>@pc</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="ram_watcher-instance_method">
+  
+    - (<tt><span class='object_link'><a href="MemoryWatcher.html" title="RPicSim::MemoryWatcher (class)">MemoryWatcher</a></span></tt>) <strong>ram_watcher</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a <span class='object_link'><a href="MemoryWatcher.html" title="RPicSim::MemoryWatcher (class)">MemoryWatcher</a></span> object configured to watch for changes to RAM.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="MemoryWatcher.html" title="RPicSim::MemoryWatcher (class)">MemoryWatcher</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+270
+271
+272</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 270</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_ram_watcher'>ram_watcher</span>
+  <span class='ivar'>@ram_watcher</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="stkptr-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Register.html" title="RPicSim::Register (class)">Register</a></span></tt>) <strong>stkptr</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a <span class='object_link'><a href="Register.html" title="RPicSim::Register (class)">Register</a></span> object corresponding to the stack pointer.  You can
+use this to read and write the value of the stack pointer.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Register.html" title="RPicSim::Register (class)">Register</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+280
+281
+282</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 280</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_stkptr'>stkptr</span>
+  <span class='ivar'>@stkptr</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="wreg-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Register.html" title="RPicSim::Register (class)">Register</a></span></tt>) <strong>wreg</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a <span class='object_link'><a href="Register.html" title="RPicSim::Register (class)">Register</a></span> object corresponding to WREG.  You can use this to
+read and write the value of the W register.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Register.html" title="RPicSim::Register (class)">Register</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+275
+276
+277</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 275</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_wreg'>wreg</span>
+  <span class='ivar'>@wreg</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="convert_condition_to_proc-instance_method">
+  
+    - (<tt>Integer</tt>) <strong>convert_condition_to_proc</strong>(c) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Converts the specified condition into a Proc that, when called, will return
+a truthy value if the condition is satisfied. This is a helper for
+processing the main argument to <span class='object_link'><a href="#run_to-instance_method" title="RPicSim::Sim#run_to (method)">#run_to</a></span>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>c</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>One of the following:</p>
+<ul><li>
+<p>The symbol <code>:return</code>. The condition will be true if the current
+subroutine has returned. This is implemented by looking to see whether the
+stack pointer has decreased one level below the level it was at when this
+method was called.</p>
+</li><li>
+<p>The name of a program label, as a symbol or string, or a <span class='object_link'><a href="Label.html" title="RPicSim::Label (class)">Label</a></span> object. 
+The condition will be true if the <span class='object_link'><a href="#pc-instance_method" title="RPicSim::Sim#pc (method)">#pc</a></span> value is equal to the label
+address.</p>
+</li><li>
+<p>An integer representing an address.  The condition will be true if the
+<span class='object_link'><a href="#pc-instance_method" title="RPicSim::Sim#pc (method)">#pc</a></span> value is equal to the address.</p>
+</li><li>
+<p>A Proc.  The Proc will be returned unchanged.</p>
+</li></ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 667</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_convert_condition_to_proc'>convert_condition_to_proc</span><span class='lparen'>(</span><span class='id identifier rubyid_c'>c</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id identifier rubyid_c'>c</span>
+
+  <span class='kw'>when</span> <span class='const'>Proc</span>
+    <span class='id identifier rubyid_c'>c</span>
+
+  <span class='kw'>when</span> <span class='const'>Integer</span>
+    <span class='const'>Proc</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_pc'>pc</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>==</span> <span class='id identifier rubyid_c'>c</span> <span class='rbrace'>}</span>
+
+  <span class='kw'>when</span> <span class='symbol'>:return</span>
+    <span class='id identifier rubyid_current_val'>current_val</span> <span class='op'>=</span> <span class='id identifier rubyid_stkptr'>stkptr</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_current_val'>current_val</span> <span class='op'>==</span> <span class='int'>0</span>
+      <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The stack pointer is 0; waiting for a return would be strange and might not work.</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_target_val'>target_val</span> <span class='op'>=</span> <span class='id identifier rubyid_current_val'>current_val</span> <span class='op'>-</span> <span class='int'>1</span>
+    <span class='kw'>end</span>
+    <span class='const'>Proc</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_stkptr'>stkptr</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>==</span> <span class='id identifier rubyid_target_val'>target_val</span> <span class='rbrace'>}</span>
+
+  <span class='kw'>when</span> <span class='const'>Label</span>
+    <span class='id identifier rubyid_convert_condition_to_proc'>convert_condition_to_proc</span> <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_address'>address</span>
+
+  <span class='kw'>when</span> <span class='const'>String</span><span class='comma'>,</span> <span class='const'>Symbol</span>
+    <span class='id identifier rubyid_convert_condition_to_proc'>convert_condition_to_proc</span> <span class='id identifier rubyid_label'>label</span><span class='lparen'>(</span><span class='id identifier rubyid_c'>c</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_address'>address</span>
+
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Invalid run-termination condition </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="cycle_count-instance_method">
+  
+    - (<tt>Integer</tt>) <strong>cycle_count</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the number of instruction cycles simulated in this simulation.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+433
+434
+435</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 433</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_cycle_count'>cycle_count</span>
+  <span class='ivar'>@simulator</span><span class='period'>.</span><span class='id identifier rubyid_stopwatch_value'>stopwatch_value</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="device-instance_method">
+  
+    - (<tt>String</tt>) <strong>device</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a string like "PIC10F322" specifying the PIC device number.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+284</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 284</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_device'>device</span><span class='semicolon'>;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_device'>device</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="every_step-instance_method">
+  
+    - (<tt>Object</tt>) <strong>every_step</strong>(&amp;proc) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Registers a new callback to be run after every simulation step. Each time
+the simulation takes a step, the provided block will be called.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+439
+440
+441</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 439</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_every_step'>every_step</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_proc'>proc</span><span class='rparen'>)</span>
+  <span class='ivar'>@step_callbacks</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_proc'>proc</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="filename-instance_method">
+  
+    - (<tt>String</tt>) <strong>filename</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the path to the firmware file.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+288</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 288</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_filename'>filename</span><span class='semicolon'>;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_filename'>filename</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="flash_var-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Variable.html" title="RPicSim::Variable (class)">Variable</a></span></tt>) <strong>flash_var</strong>(name) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a <span class='object_link'><a href="Variable.html" title="RPicSim::Variable (class)">Variable</a></span> object if a flash (program memory) variable by that
+name is found, or raises an exception.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Variable.html" title="RPicSim::Variable (class)">Variable</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+419
+420
+421</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 419</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_flash_var'>flash_var</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='ivar'>@flash_vars</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span> <span class='kw'>or</span> <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Cannot find flash var named '</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>'.</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="goto-instance_method">
+  
+    - (<tt>Object</tt>) <strong>goto</strong>(location) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Changes the <span class='object_link'><a href="#pc-instance_method" title="RPicSim::Sim#pc (method)">#pc</a></span> value to be equal to the address of the given location.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>location</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Any valid argument to <span class='object_link'><a href="#location_address-instance_method" title="RPicSim::Sim#location_address (method)">#location_address</a></span>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+553
+554
+555</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 553</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_goto'>goto</span><span class='lparen'>(</span><span class='id identifier rubyid_location'>location</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_pc'>pc</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span class='id identifier rubyid_location_address'>location_address</span><span class='lparen'>(</span><span class='id identifier rubyid_location'>location</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="inspect-instance_method">
+  
+    - (<tt>Object</tt>) <strong>inspect</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+648
+649
+650</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 648</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_inspect'>inspect</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#&lt;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='rbrace'>}</span><span class='tstring_content'>:0x%x, </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_pc_description'>pc_description</span><span class='rbrace'>}</span><span class='tstring_content'>, stkptr = </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_stkptr'>stkptr</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span><span class='rbrace'>}</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='id identifier rubyid_object_id'>object_id</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="label-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Label.html" title="RPicSim::Label (class)">Label</a></span></tt>) <strong>label</strong>(name) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a <span class='object_link'><a href="Label.html" title="RPicSim::Label (class)">Label</a></span> object if a program label by that name is found. The name
+is specified in the code that defined the label.  If you are using a C
+compiler, you will probably need to prefix the name with an underscore.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Label.html" title="RPicSim::Label (class)">Label</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+427
+428
+429</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 427</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_label'>label</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_program_file'>program_file</span><span class='period'>.</span><span class='id identifier rubyid_label'>label</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="location_address-instance_method">
+  
+    - (<tt>Integer</tt>) <strong>location_address</strong>(location) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Gets the address of the specified location in program memory. This is a
+helper for processing the main argument to <span class='object_link'><a href="#goto-instance_method" title="RPicSim::Sim#goto (method)">#goto</a></span> and <span class='object_link'><a href="#run_subroutine-instance_method" title="RPicSim::Sim#run_subroutine (method)">#run_subroutine</a></span>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>location</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>One of the following:</p>
+<ul><li>
+<p>The name of a program label, as a symbol or string.</p>
+</li><li>
+<p>A <span class='object_link'><a href="Label.html" title="RPicSim::Label (class)">Label</a></span> object.</p>
+</li><li>
+<p>An integer representing the address.</p>
+</li></ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+543
+544
+545
+546
+547
+548
+549</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 543</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_location_address'>location_address</span><span class='lparen'>(</span><span class='id identifier rubyid_location'>location</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id identifier rubyid_location'>location</span>
+  <span class='kw'>when</span> <span class='const'>Integer</span>         <span class='kw'>then</span> <span class='id identifier rubyid_location'>location</span>
+  <span class='kw'>when</span> <span class='const'>Label</span>           <span class='kw'>then</span> <span class='id identifier rubyid_location'>location</span><span class='period'>.</span><span class='id identifier rubyid_address'>address</span>
+  <span class='kw'>when</span> <span class='const'>Symbol</span><span class='comma'>,</span> <span class='const'>String</span>  <span class='kw'>then</span> <span class='id identifier rubyid_label'>label</span><span class='lparen'>(</span><span class='id identifier rubyid_location'>location</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_address'>address</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="nmmr-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Register.html" title="RPicSim::Register (class)">Register</a></span></tt>) <strong>nmmr</strong>(name) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a <span class='object_link'><a href="Register.html" title="RPicSim::Register (class)">Register</a></span> object if an NMMR by that name is found, or raises an
+exception.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The name from the datasheet.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Register.html" title="RPicSim::Register (class)">Register</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+405
+406
+407</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 405</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_nmmr'>nmmr</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='ivar'>@nmmrs</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span> <span class='kw'>or</span> <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Cannot find NMMR named '</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>'.</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="pc_description-instance_method">
+  
+    - (<tt>Object</tt>) <strong>pc_description</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Generates a friendly human-readable string description of where the program
+counter is currently using the symbol table.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+611
+612
+613</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 611</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pc_description'>pc_description</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_program_file'>program_file</span><span class='period'>.</span><span class='id identifier rubyid_address_description'>address_description</span><span class='lparen'>(</span><span class='id identifier rubyid_pc'>pc</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="pin-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Pin.html" title="RPicSim::Pin (class)">Pin</a></span></tt>) <strong>pin</strong>(name) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a Pin object if a pin by that name is found, or raises an
+exception.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The name from the datasheet or a name specified in a call to
+<span class='object_link'><a href="Sim/ClassDefinitionMethods.html#def_pin-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#def_pin (method)">RPicSim::Sim::ClassDefinitionMethods#def_pin</a></span> in the class definition.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Pin.html" title="RPicSim::Pin (class)">Pin</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+380
+381
+382</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 380</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pin'>pin</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='ivar'>@pins_by_name</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span> <span class='kw'>or</span> <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Cannot find pin named '</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>'.</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="return-instance_method">
+  
+    - (<tt>Object</tt>) <strong>return</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Simulates a return instruction being executed by popping the top value off
+of the stack and setting the <span class='object_link'><a href="#pc-instance_method" title="RPicSim::Sim#pc (method)">#pc</a></span> value equal to it. This can be useful
+for speeding up your tests when you have a very slow function and just want
+to skip it.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+599
+600
+601
+602
+603
+604
+605
+606
+607</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 599</span>
+
+<span class='kw'>def</span> <span class='kw'>return</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_stkptr'>stkptr</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>==</span> <span class='int'>0</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Cannot return because stack pointer is 0.</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Simulate popping the stack.
+</span>  <span class='id identifier rubyid_stkptr'>stkptr</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>-=</span> <span class='int'>1</span>
+  <span class='id identifier rubyid_pc'>pc</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span class='ivar'>@stack_memory</span><span class='period'>.</span><span class='id identifier rubyid_read_word'>read_word</span><span class='lparen'>(</span><span class='id identifier rubyid_stkptr'>stkptr</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="run_cycles-instance_method">
+  
+    - (<tt>Object</tt>) <strong>run_cycles</strong>(num_cycles) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Runs the simulation for the given number of instruction cycles. Note that
+the existence of multi-cycle instructions means that sometimes this method
+can run one cycle longer than desired.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>num_cycles</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+582
+583
+584</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 582</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_run_cycles'>run_cycles</span><span class='lparen'>(</span><span class='id identifier rubyid_num_cycles'>num_cycles</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_run_to_cycle_count'>run_to_cycle_count</span> <span class='id identifier rubyid_cycle_count'>cycle_count</span> <span class='op'>+</span> <span class='id identifier rubyid_num_cycles'>num_cycles</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="run_steps-instance_method">
+  
+    - (<tt>Object</tt>) <strong>run_steps</strong>(step_count) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Executes the specified number of instructions.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>step_count</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>nil</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+454
+455
+456
+457</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 454</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_run_steps'>run_steps</span><span class='lparen'>(</span><span class='id identifier rubyid_step_count'>step_count</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_step_count'>step_count</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_step'>step</span> <span class='rbrace'>}</span>
+  <span class='kw'>nil</span>  <span class='comment'># To make using the ruby debugger more pleasant.
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="run_subroutine-instance_method">
+  
+    - (<tt>Object</tt>) <strong>run_subroutine</strong>(location, opts = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Runs the subroutine at the given location.  This can be useful for doing
+unit tests of subroutines in your firmware.</p>
+
+<p>The current program counter value will be pushed onto the stack before
+running the subroutine so that after the subroutine is done the simulation
+can proceed as it was before.</p>
+
+<p>Example usage in RSpec:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_run_subroutine'>run_subroutine</span> <span class='symbol'>:calculateSum</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>20</span>
+<span class='id identifier rubyid_sum'>sum</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='op'>==</span> <span class='int'>30</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>location</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Any valid argument to <span class='object_link'><a href="#location_address-instance_method" title="RPicSim::Sim#location_address (method)">#location_address</a></span>.  It should generally point to a
+subroutine in program memory that will end by executing a return
+instructions.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'></span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Any of the options supported by <span class='object_link'><a href="#run_to-instance_method" title="RPicSim::Sim#run_to (method)">#run_to</a></span>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+572
+573
+574
+575
+576</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 572</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_run_subroutine'>run_subroutine</span><span class='lparen'>(</span><span class='id identifier rubyid_location'>location</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_stack_push'>stack_push</span> <span class='id identifier rubyid_pc'>pc</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span>
+  <span class='id identifier rubyid_goto'>goto</span> <span class='id identifier rubyid_location'>location</span>
+  <span class='id identifier rubyid_run_to'>run_to</span> <span class='symbol'>:return</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="run_to-instance_method">
+  
+    - (<tt>Object</tt>) <strong>run_to</strong>(conditions, opts = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Runs the simulation until one of the given conditions has been met, then
+stops and returns the condition that was met.</p>
+
+<p>Example usage in RSpec:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_run_to'>run_to</span> <span class='lbracket'>[</span><span class='symbol'>:mylabel</span><span class='comma'>,</span> <span class='symbol'>:return</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>400</span>
+<span class='id identifier rubyid_result'>result</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='op'>==</span> <span class='symbol'>:return</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>conditions</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Each element of the conditions array should be a Proc that returns true
+when the condition is met, a symbol corresponding to a program label, or
+any other object that is a valid argument to <span class='object_link'><a href="#convert_condition_to_proc-instance_method" title="RPicSim::Sim#convert_condition_to_proc (method)">#convert_condition_to_proc</a></span>.
+If there is only one condition, you can pass it directly in as the first
+argument without wrapping it in an array.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A hash of options.</p>
+<ul><li>
+<p><code>cycle_limit</code>: The maximum number of cycles to run, as an
+integer. It is recommended to always specify this to avoid accidentally
+making an infinite loop.  Note that multi-cycle instructions mean that this
+limit will sometimes be violated by one cycle. If none of the conditions
+are met by the cycle limit, an exception is raised.</p>
+</li><li>
+<p><code>cycles</code>: A range of integers specifying how long you expect it
+to take to reach one of the conditions, for example e.g.
+<code>1000..2000</code>. If a condition is met before the minimum, an
+exception is raised. If none of the conditions are met after the maximum,
+an exception is raised.</p>
+
+<p>This option is a more powerful version of <code>cycle_limit</code>, so it
+cannot be used at the same time as <code>cycle_limit</code>.</p>
+</li></ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>The condition that was met which caused the run to stop.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 488</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_run_to'>run_to</span><span class='lparen'>(</span><span class='id identifier rubyid_conditions'>conditions</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_conditions'>conditions</span> <span class='op'>=</span> <span class='const'>Array</span><span class='lparen'>(</span><span class='id identifier rubyid_conditions'>conditions</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_conditions'>conditions</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Must specify at least one condition.</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_condition_procs'>condition_procs</span> <span class='op'>=</span> <span class='id identifier rubyid_conditions'>conditions</span><span class='period'>.</span><span class='id identifier rubyid_collect'>collect</span> <span class='op'>&amp;</span><span class='id identifier rubyid_method'>method</span><span class='lparen'>(</span><span class='symbol'>:convert_condition_to_proc</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_allowed_keys'>allowed_keys</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='symbol'>:cycle_limit</span><span class='comma'>,</span> <span class='symbol'>:cycles</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_invalid_keys'>invalid_keys</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span> <span class='op'>-</span> <span class='id identifier rubyid_allowed_keys'>allowed_keys</span>
+  <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_invalid_keys'>invalid_keys</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unrecognized options: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_invalid_keys'>invalid_keys</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>, </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:cycles</span><span class='rbracket'>]</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:cycle_limit</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Cannot specify both :cycles and :cycle_limit.</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_start_cycle'>start_cycle</span> <span class='op'>=</span> <span class='id identifier rubyid_cycle_count'>cycle_count</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:cycles</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Invalid range: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:cycles</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:cycles</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_min'>min</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:cycles</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span>
+    <span class='id identifier rubyid_min_cycle'>min_cycle</span> <span class='op'>=</span> <span class='id identifier rubyid_start_cycle'>start_cycle</span> <span class='op'>+</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:cycles</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_min'>min</span>
+    <span class='id identifier rubyid_max_cycle'>max_cycle</span> <span class='op'>=</span> <span class='id identifier rubyid_start_cycle'>start_cycle</span> <span class='op'>+</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:cycles</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span>
+    <span class='id identifier rubyid_max_cycle'>max_cycle</span> <span class='op'>-=</span> <span class='int'>1</span> <span class='kw'>if</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:cycles</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_exclude_end?'>exclude_end?</span>
+  <span class='kw'>elsif</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:cycle_limit</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_max_cycle'>max_cycle</span> <span class='op'>=</span> <span class='id identifier rubyid_start_cycle'>start_cycle</span> <span class='op'>+</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:cycle_limit</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:cycle_limit</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Loop as long as none of the conditions are satisfied.
+</span>  <span class='kw'>while</span> <span class='op'>!</span><span class='lparen'>(</span><span class='id identifier rubyid_met_condition_index'>met_condition_index</span> <span class='op'>=</span> <span class='id identifier rubyid_condition_procs'>condition_procs</span><span class='period'>.</span><span class='id identifier rubyid_find_index'>find_index</span> <span class='op'>&amp;</span><span class='symbol'>:call</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_max_cycle'>max_cycle</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_cycle_count'>cycle_count</span> <span class='op'>&gt;=</span> <span class='id identifier rubyid_max_cycle'>max_cycle</span>
+      <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Failed to reach </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_conditions'>conditions</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_content'> after </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_cycle_count'>cycle_count</span> <span class='op'>-</span> <span class='id identifier rubyid_start_cycle'>start_cycle</span><span class='rbrace'>}</span><span class='tstring_content'> cycles.</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_step'>step</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_met_condition'>met_condition</span> <span class='op'>=</span> <span class='id identifier rubyid_conditions'>conditions</span><span class='lbracket'>[</span><span class='id identifier rubyid_met_condition_index'>met_condition_index</span><span class='rbracket'>]</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_min_cycle'>min_cycle</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_cycle_count'>cycle_count</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_min_cycle'>min_cycle</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Reached </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_met_condition'>met_condition</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_content'> in only </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_cycle_count'>cycle_count</span> <span class='op'>-</span> <span class='id identifier rubyid_start_cycle'>start_cycle</span><span class='rbrace'>}</span><span class='tstring_content'> cycles </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>but expected it to take at least </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_min_cycle'>min_cycle</span> <span class='op'>-</span> <span class='id identifier rubyid_start_cycle'>start_cycle</span><span class='rbrace'>}</span><span class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Return the argument that specified the condition that was satisfied.
+</span>  <span class='kw'>return</span> <span class='id identifier rubyid_met_condition'>met_condition</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="run_to_cycle_count-instance_method">
+  
+    - (<tt>Object</tt>) <strong>run_to_cycle_count</strong>(count) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Runs the simulation until the <span class='object_link'><a href="#cycle_count-instance_method" title="RPicSim::Sim#cycle_count (method)">#cycle_count</a></span> is greater than or equal to
+the given cycle count.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>count</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+589
+590
+591
+592
+593</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 589</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_run_to_cycle_count'>run_to_cycle_count</span><span class='lparen'>(</span><span class='id identifier rubyid_count'>count</span><span class='rparen'>)</span>
+  <span class='kw'>while</span> <span class='id identifier rubyid_cycle_count'>cycle_count</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_count'>count</span>
+    <span class='id identifier rubyid_step'>step</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="sfr-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Register.html" title="RPicSim::Register (class)">Register</a></span></tt>) <strong>sfr</strong>(name) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a <span class='object_link'><a href="Register.html" title="RPicSim::Register (class)">Register</a></span> object if an SFR by that name is found, or raises an
+exception.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The name from the datasheet.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Register.html" title="RPicSim::Register (class)">Register</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+388
+389
+390</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 388</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sfr'>sfr</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='ivar'>@sfrs</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span> <span class='kw'>or</span> <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Cannot find SFR named '</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>'.</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="sfr_or_nmmr-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Register.html" title="RPicSim::Register (class)">Register</a></span></tt>) <strong>sfr_or_nmmr</strong>(name) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a <span class='object_link'><a href="Register.html" title="RPicSim::Register (class)">Register</a></span> object if an SFR or NMMR by that name is found, or
+raises an exception.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The name from the datasheet.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Register.html" title="RPicSim::Register (class)">Register</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+396
+397
+398
+399</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 396</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sfr_or_nmmr'>sfr_or_nmmr</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
+  <span class='ivar'>@sfrs</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='ivar'>@nmmrs</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span> <span class='kw'>or</span> <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Cannot find SFR or NMMR named '</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>'.</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="shortcuts-instance_method">
+  
+    - (<tt>Object</tt>) <strong>shortcuts</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+696
+697
+698</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 696</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_shortcuts'>shortcuts</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='op'>::</span><span class='const'>Shortcuts</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="stack_contents-instance_method">
+  
+    - (<tt>Array(Integer)</tt>) <strong>stack_contents</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Gets the contents of the stack as an array of integers.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array(Integer)</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>An array of integers.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+627
+628
+629
+630
+631</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 627</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_stack_contents'>stack_contents</span>
+  <span class='lparen'>(</span><span class='int'>0</span><span class='op'>...</span><span class='id identifier rubyid_stkptr'>stkptr</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_collect'>collect</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span>
+    <span class='ivar'>@stack_memory</span><span class='period'>.</span><span class='id identifier rubyid_read_word'>read_word</span><span class='lparen'>(</span><span class='id identifier rubyid_n'>n</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="stack_push-instance_method">
+  
+    - (<tt>Object</tt>) <strong>stack_push</strong>(value) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Pushes the given address onto the simulated call stack.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+616
+617
+618
+619
+620
+621
+622
+623</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 616</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_stack_push'>stack_push</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='op'>!</span><span class='ivar'>@stack_memory</span><span class='period'>.</span><span class='id identifier rubyid_is_valid_address?'>is_valid_address?</span><span class='lparen'>(</span><span class='id identifier rubyid_stkptr'>stkptr</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Simulated stack is full (stack pointer = </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_stkptr'>stkptr</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span><span class='rbrace'>}</span><span class='tstring_content'>).</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='ivar'>@stack_memory</span><span class='period'>.</span><span class='id identifier rubyid_write_word'>write_word</span><span class='lparen'>(</span><span class='id identifier rubyid_stkptr'>stkptr</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_stkptr'>stkptr</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>+=</span> <span class='int'>1</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="stack_trace-instance_method">
+  
+    - (<tt><span class='object_link'><a href="StackTrace.html" title="RPicSim::StackTrace (class)">StackTrace</a></span></tt>) <strong>stack_trace</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a call stack trace representing the current state of the
+simulation.  Printing this stack trace can help you figure out what part of
+your code is running and why.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="StackTrace.html" title="RPicSim::StackTrace (class)">StackTrace</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 637</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_stack_trace'>stack_trace</span>
+  <span class='comment'># The stack stores return addresses, not call addresses.
+</span>  <span class='comment'># We get the call addresses by calling pred (subtract 1).
+</span>  <span class='comment'># TODO: make this work for PIC18 devices where we probably have to subtract 2
+</span>  <span class='id identifier rubyid_addresses'>addresses</span> <span class='op'>=</span> <span class='id identifier rubyid_stack_contents'>stack_contents</span><span class='period'>.</span><span class='id identifier rubyid_collect'>collect</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:pred</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='lbracket'>[</span><span class='id identifier rubyid_pc'>pc</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_entries'>entries</span> <span class='op'>=</span> <span class='id identifier rubyid_addresses'>addresses</span><span class='period'>.</span><span class='id identifier rubyid_collect'>collect</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_address'>address</span><span class='op'>|</span>
+    <span class='const'>StackTraceEntry</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='id identifier rubyid_address'>address</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_program_file'>program_file</span><span class='period'>.</span><span class='id identifier rubyid_address_description'>address_description</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='const'>StackTrace</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_entries'>entries</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="step-instance_method">
+  
+    - (<tt>Object</tt>) <strong>step</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Executes one more instruction.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>nil</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+445
+446
+447
+448
+449</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 445</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_step'>step</span>
+  <span class='ivar'>@assembly</span><span class='period'>.</span><span class='id identifier rubyid_debugger_step'>debugger_step</span>
+  <span class='ivar'>@step_callbacks</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:call</span><span class='rparen'>)</span>
+  <span class='kw'>nil</span>  <span class='comment'># To make using the ruby debugger more pleasant.
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="var-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Variable.html" title="RPicSim::Variable (class)">Variable</a></span></tt>) <strong>var</strong>(name) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a <span class='object_link'><a href="Variable.html" title="RPicSim::Variable (class)">Variable</a></span> object if a RAM variable by that name is found, or
+raises an exception.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Variable.html" title="RPicSim::Variable (class)">Variable</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+412
+413
+414</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 412</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_var'>var</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='ivar'>@vars</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span> <span class='kw'>or</span> <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Cannot find var named '</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>'.</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  
+  <br/><br/>
+
+  Generated on Wed Feb 12 16:44:41 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

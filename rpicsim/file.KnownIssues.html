@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+<title>
+  File: KnownIssues
+  
+    &mdash; Documentation by YARD 0.8.7.3
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    
+        <a href="_index.html">Index</a> &raquo;
+        
+        <a href="file.Manual.html">RPicSim manual</a> &raquo;
+    
+    <span class="title">File: KnownIssues</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'>
+<h1 id="label-Known+issues">Known issues</h1>
+
+<p>This page documents all the known issues RPicSim has that could affect its
+users. Some issues are caused by the MPLAB X simulator and would need to be
+addressed by Microchip.</p>
+
+<p>RPicSim has only been tested with the following versions of MPLAB X:</p>
+<ul><li>
+<p>1.85</p>
+</li><li>
+<p>1.90</p>
+</li><li>
+<p>1.95</p>
+</li><li>
+<p>2.00</p>
+</li></ul>
+
+<p>If you are using a different version of MPLAB X, some of the issues might
+not apply to you.</p>
+
+<p>Many of these issues have only been reproduced on a single model of PIC
+microcontroller and they may or may not affect other models.</p>
+
+<p>Many of these issues are also reported on other pages of this
+<a href="file.Manual.html" title="manual">manual</a>, but this page is a complete list of all issues
+that could affect users of RPicSim.</p>
+
+<p>Internal issues that have been successfully worked around are not listed
+here, but might be found in the RPicSim specs by searching for the word
+"flaw".</p>
+
+<p>There are almost certainly many issues that have not been found yet.</p>
+
+<h2 id="label-MPLAB+X+simulator+does+not+support+all+PIC+devices+equally">MPLAB X simulator does not support all PIC devices equally</h2>
+
+<p><em>Type: MPLAB X missing feature</em></p>
+
+<p>Be sure to check the Device Support table to see if your device is properly
+supported by the MPLAB X simulator. The table can be found in your MPLAB X
+installation folder under "<code>docs/Device Support.htm</code>". The
+<em>SIMISA</em> column probably stands for "Simulator (instruction set and
+architecture)" while the <em>SIMP</em> column probably stands for
+"Simulator (peripherals)".</p>
+
+<h2 id="label-Simulation+timing+is+affected+by+the+details+of+how+long+each+instruction+takes">Simulation timing is affected by the details of how long each instruction takes</h2>
+
+<p><em>Type: MPLAB X missing feature</em></p>
+
+<p>As mentioned on the <a href="file.Running.html" title="Running">Running</a> page, RPicSim's only way to
+advance the simulation is to execute an entire instruction. Some
+instructions take two instruction cycles to run and others only take one.
+When you request RPicSim to delay for a certain number of cycles, it might
+need to delay by one cycle more than was requested since it cannot stop in
+the middle of a two-cycle instruction. As a result, the timing of your
+tests and the input signals you send to the simulated device can sometimes
+be slightly off and these errors could accumulate in longer tests.</p>
+
+<p>One workaround that prevents timing errors from accumulating is to only use
+<span class='object_link'><a href="RPicSim/Sim.html#run_to_cycle_count-instance_method" title="RPicSim::Sim#run_to_cycle_count (method)">RPicSim::Sim#run_to_cycle_count</a></span> to run the simulation.</p>
+
+<h2 id="label-MPLAB+X+must+be+on+the+C+drive">MPLAB X must be on the C drive</h2>
+
+<p><em>Type: MPLAB X bug</em></p>
+
+<p><em>MPLAB X versions affected: all tested versions</em></p>
+
+<p>In Windows, a bug in MPLAB X prevents RPicSim from using an MPLAB X
+installed on any drive other than the C drive.</p>
+
+<p>This issue is tested in <code>spec/mplab_x/path_retrieval_spec.rb</code>.</p>
+
+<h2 id="label-Firmware+under+test+must+be+inside+a+folder+named+%22dist%22">Firmware under test must be inside a folder named "dist"</h2>
+
+<p><em>Type: MPLAB X bug</em></p>
+
+<p><em>MPLAB X versions affected: all tested versions</em></p>
+
+<p>This issue is tested in <code>spec/mplab_x/program_file_spec.rb</code>.</p>
+
+<h2 id="label-Limited+number+of+variable+types+supported">Limited number of variable types supported</h2>
+
+<p><em>Type: RPicSim missing feature</em></p>
+
+<p>There is no support for variables larger than 32 bits. There is no support
+for arrays or structs of variables. There is also no support for reading
+and writing directly from the simulated device's RAM, Flash, EEPROM, and
+stack memories from Ruby.</p>
+
+<h2 id="label-No+EEPROM+support">No EEPROM support</h2>
+
+<p><em>Type: RPicSim missing feature</em></p>
+
+<p>RPicSim does not support reading or writing from EEPROM from Ruby.</p>
+
+<h2 id="label-Dissasembly+is+limited+to+midrange+and+baseline+PIC+microcontrollers">Dissasembly is limited to midrange and baseline PIC microcontrollers</h2>
+
+<p><em>Type: RPicSim missing feature</em></p>
+
+<p>The disassembled instruction graph created by <span class='object_link'><a href="RPicSim/ProgramFile.html" title="RPicSim::ProgramFile (class)">RPicSim::ProgramFile</a></span>
+currently only supports baseline and midrange PICs, but it should be easy
+to expand to other PICs. This is a side feature of RPicSim, and not
+required for simulation.</p>
+
+<h2 id="label-Stack+trace+will+show+slightly+wrong+values+for+PIC18+microcontrollers">Stack trace will show slightly wrong values for PIC18 microcontrollers</h2>
+
+<p><em>Type: RPicSim bug</em></p>
+
+<p>For the PIC18, <span class='object_link'><a href="RPicSim/Sim.html#stack_trace-instance_method" title="RPicSim::Sim#stack_trace (method)">RPicSim::Sim#stack_trace</a></span> will probably show values that
+are too high by one because it does not account for the fact that PIC18
+instructions take two bytes.</p>
+
+<h2 id="label-Cannot+detect+PIC+model+from+COF+file">Cannot detect PIC model from COF file</h2>
+
+<p><em>Type: RPicSim missing feature</em></p>
+
+<p>The MPLAB X code might allow RPicSim to detect the PIC device name from the
+COF file so that the user does not have to specify it when creating a
+<span class='object_link'><a href="RPicSim/ProgramFile.html" title="RPicSim::ProgramFile (class)">RPicSim::ProgramFile</a></span> or a subclass of <span class='object_link'><a href="RPicSim/Sim.html" title="RPicSim::Sim (class)">RPicSim::Sim</a></span>. Currently RPicSim
+requires the user to always specify the PIC device name.</p>
+
+<h2 id="label-Not+tested+on+Linux+and+Mac+OS+X">Not tested on Linux and Mac OS X</h2>
+
+<p><em>Type: RPicSim missing feature</em></p>
+
+<p>RPicSim has not been tested on Linux and Mac OS X. See
+<a href="file.SupportedOperatingSystems.html" title="Supported operating systems">Supported operating systems</a> for more
+information.</p>
+
+<h2 id="label-Variables+defined+in+user+ID+space+are+not+read+from+the+COF+file">Variables defined in user ID space are not read from the COF file</h2>
+
+<p><em>Type: MPLAB X bug</em></p>
+
+<p><em>MPLAB X version affected: all tested versions</em></p>
+
+<p>The workaround is to simply set any variables defined in user ID space to
+the correct values from Ruby before running the simulation. This issue is
+tested in <code>spec/integration/flash_variable_spec.rb</code>.</p>
+
+<h2 id="label-Simulated+firmware+cannot+write+to+the+first+user+ID+location">Simulated firmware cannot write to the first user ID location</h2>
+
+<p><em>Type: MPLAB X bug</em></p>
+
+<p><em>MPLAB X versions affected: 1.85, 1.90</em></p>
+
+<p>This issue is tested in
+<code>spec/integration/flash_variable_spec.rb</code>. It has been
+<a href="http://www.microchip.com/forums/m743214.aspx" target="_parent" title="reported to Microchip">reported to Microchip</a> and
+was fixed in later versions.</p>
+
+<h2 id="label-Pins+report+the+wrong+output+state+if+the+ANSELx+bit+is+1">Pins report the wrong output state if the ANSELx bit is 1</h2>
+
+<p><em>Type: MPLAB X bug</em></p>
+
+<p><em>MPLAB X versions affected: all tested versions</em></p>
+
+<p>The ANSELx bit for a real PIC pin only disables the digital input circuitry
+and should not affect the pin's use as a digital output. However, if the
+ANSELx bit is set to 1, then <span class='object_link'><a href="RPicSim/Pin.html#driving_low%3F-instance_method" title="RPicSim::Pin#driving_low? (method)">RPicSim::Pin#driving_low?</a></span> always seems to
+return true even if the pin is actually driving high.</p>
+
+<p>This issue is tested in <code>spec/integration/pin_spec.rb</code>.</p>
+
+<h2 id="label-Pins+report+the+wrong+output+state+if+LATx+is+set+before+TRISx">Pins report the wrong output state if LATx is set before TRISx</h2>
+
+<p><em>Type: MPLAB X bug</em></p>
+
+<p><em>MPLAB X versions affected: all tested versions</em></p>
+
+<p>Updating a pin's LATx bit before its clearing its TRISx bit is the proper
+way to turn on an output pin without causing glitches. However, if you set
+the two bits in that order then <span class='object_link'><a href="RPicSim/Pin.html#driving_low%3F-instance_method" title="RPicSim::Pin#driving_low? (method)">RPicSim::Pin#driving_low?</a></span> always seems to
+return true even if the pin is actually driving high.</p>
+
+<p>This issue is tested in <code>spec/integration/pin_spec.rb</code>.</p>
+
+<h2 id="label-Pins+report+the+wrong+output+state+if+TRISx+is+cleared+again">Pins report the wrong output state if TRISx is cleared again</h2>
+
+<p><em>Type: MPLAB X bug</em></p>
+
+<p><em>MPLAB X versions affected: all tested versions</em></p>
+
+<p>Even if you set up the pin properly (working around all the issues above)
+and get <span class='object_link'><a href="RPicSim/Pin.html#driving_high%3F-instance_method" title="RPicSim::Pin#driving_high? (method)">RPicSim::Pin#driving_high?</a></span> to return true, a <code>bcf</code>
+instruction on the pin's TRISx bit (or probably any write to the TRISx
+register) will cause the pin to start reporting the wrong output state.</p>
+
+<p>This issue is tested in <code>spec/integration/pin_spec.rb</code>.</p>
+
+<h2 id="label-RAM+watcher+is+useless+because+all+of+RAM+seems+to+change+on+every+step">RAM watcher is useless because all of RAM seems to change on every step</h2>
+
+<p><em>Type: MPLAB X bug</em></p>
+
+<p><em>MPLAB X versions affected: 1.95, 2.00</em></p>
+
+<p>This issue is tested in <code>spec/mplab_x/memory_attach_spec.rb</code>. If
+you want to use the <a href="file.RamWatcher.html" title="RAM watcher">RAM watcher</a>, you should use MPLAB
+X version 1.85 or 1.90.</p>
+
+<h2 id="label-RAM+watcher+reports+a+write+to+PORTA+instead+of+to+LATA">RAM watcher reports a write to PORTA instead of to LATA</h2>
+
+<p><em>Type: MPLAB X bug</em></p>
+
+<p><em>MPLAB X versions affected: all tested versions</em></p>
+
+<p>The <a href="file.RamWatcher.html" title="RAM watcher">RAM watcher</a>, when testing code that writes to
+LATA, might actually report it as a write to PORTA instead of LATA. This
+issue has been observed on a PIC10F322 but it probably affects other PORTx
+and LATx registers.</p>
+
+<p>This issue is tested in <code>spec/integration/ram_watcher_spec.rb</code>.
+This issue could not be tested on MPLAB X versions affected by the "RAM
+watcher is useless" issue above.</p>
+
+<h2 id="label-Midrange+ADC+gives+incorrect+readings">Midrange ADC gives incorrect readings</h2>
+
+<p><em>Type: MPLAB X bug</em></p>
+
+<p><em>MPLAB X versions affected: all tested versions</em></p>
+
+<p>The simulated ADC for midrange PIC microcontrollers has various issues in
+different versions of MPLAB X that make it give incorrect readings. These
+issues might affect other PIC architectures as well.</p>
+<ul><li>
+<p><strong>Bad modulus:</strong> In MPLAB X 1.90 and later, simply setting a
+pin to high with <code>pin.set(true)</code> will result in an ADC reading
+of 0.  The workaround is to use <code>pin.set(4.9)</code>.  The ADC acts
+like it is using a modulus operator incorrectly as a way of limiting the
+ADC result to be between 0 and 255.</p>
+</li><li>
+<p><strong>No intermediate values:</strong> In MPLAB X 1.85, setting a pin to
+any voltage other than 0 V will result in an ADC reading of 255.</p>
+</li></ul>
+
+<p>These issues are tested in
+<code>spec/integration/adc_midrange_spec.rb</code>. The bad modulus issue
+was <a href="http://www.microchip.com/forums/m760886.aspx" target="_parent" title="reported to Microchip">reported to Microchip</a> in
+November 2013.</p>
+</div></div>
+
+    <div id="footer">
+  
+    This is part of the <a href="file.Manual.html">RPicSim manual</a>.
+  
+  <br/><br/>
+
+  Generated on Wed Feb 12 16:44:39 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

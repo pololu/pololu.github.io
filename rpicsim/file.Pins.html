@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+<title>
+  File: Pins
+  
+    &mdash; Documentation by YARD 0.8.7.3
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    
+        <a href="_index.html">Index</a> &raquo;
+        
+        <a href="file.Manual.html">RPicSim manual</a> &raquo;
+    
+    <span class="title">File: Pins</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'>
+<h1 id="label-Pins">Pins</h1>
+
+<p>The only way a PIC microcontroller can have an effect on the world is
+through its pins, so pins are an important part of a PIC simulation.
+RPicSim exposes the modeling of pins that the MPLAB X simulator provides.
+Each <span class='object_link'><a href="RPicSim/Sim.html" title="RPicSim::Sim (class)">RPicSim::Sim</a></span> simulation object contains a collection of
+<span class='object_link'><a href="RPicSim/Pin.html" title="RPicSim::Pin (class)">RPicSim::Pin</a></span> objects, one for each external pin of the device. Using a
+Pin object, you can detect whether the pin is an input or an output. If it
+is an output, you can detect whether the output is driving high or driving
+low. If it is an input, you can set the simulated value of the input.</p>
+
+<h2 id="label-Getting+a+Pin+object">Getting a Pin object</h2>
+
+<p>The <span class='object_link'><a href="RPicSim/Sim.html#pin-instance_method" title="RPicSim::Sim#pin (method)">RPicSim::Sim#pin</a></span> method can be called on your simulation object to
+retrieve a <span class='object_link'><a href="RPicSim/Pin.html" title="RPicSim::Pin (class)">RPicSim::Pin</a></span> object. If you are using RPicSim's
+<a href="file.RSpecIntegration.html" title="RSpec integration">RSpec integration</a>, the <code>pin</code> method
+inside an example automatically redirects to the simulation object so you
+can use it easily like this:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>works</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_pin'>pin</span><span class='lparen'>(</span><span class='symbol'>:RA1</span><span class='rparen'>)</span>  <span class='comment'># =&gt; returns a Pin object
+</span><span class='kw'>end</span>
+</code></pre>
+
+<p>The first argument of <span class='object_link'><a href="RPicSim/Sim.html#pin-instance_method" title="RPicSim::Sim#pin (method)">RPicSim::Sim#pin</a></span> should be the name of the pin as a
+symbol. The allowed names come from the MPLAB X code, but they should match
+the names given in the PIC datasheet. For example, the PIC10F322 pin RA1
+can be referred to by many names, including <code>:RA1</code>,
+<code>:PWM2</code>, <code>:AN1</code>, and <code>:NCO1CLK</code>.</p>
+
+<p>RPicSim does not model the GND and VDD pins.</p>
+
+<h2 id="label-Pin+aliases">Pin aliases</h2>
+
+<p>To make your tests readable and protect against future schematic changes,
+you should try to refer to pins by an application-specific name like "main
+output" instead of a datasheet name like RA1. RPicSim provides a feature to
+help you do this called a <em>pin alias</em>.</p>
+
+<p>Within your <a href="file.DefiningSimulationClass.html" title="simulation class definition">simulation class definition</a>,
+call <span class='object_link'><a href="RPicSim/Sim/ClassDefinitionMethods.html#def_pin-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#def_pin (method)">def_pin</a></span> to define your
+pins. For example:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='kw'>class</span> <span class='const'>MySim</span> <span class='op'>&lt;</span> <span class='const'>RRicSim</span><span class='op'>::</span><span class='const'>Sim</span>
+  <span class='comment'>#...
+</span>
+  <span class='id identifier rubyid_def_pin'>def_pin</span> <span class='symbol'>:main_output</span><span class='comma'>,</span> <span class='symbol'>:RA1</span>
+
+<span class='kw'>end</span>
+</code></pre>
+
+<p>This makes <code>:main_output</code> be an alias for <code>:RA1</code>. You
+can now access the Pin object by passing <code>:main_output</code> as the
+argument to <span class='object_link'><a href="RPicSim/Sim.html#pin-instance_method" title="RPicSim::Sim#pin (method)">RPicSim::Sim#pin</a></span>:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_pin'>pin</span><span class='lparen'>(</span><span class='symbol'>:main_output</span><span class='rparen'>)</span></code></pre>
+
+<p>Defining a pin alias also adds a "shortcut" method by the same name. This
+means that you can access the pin like this:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_main_output'>main_output</span></code></pre>
+
+<p>The shortcuts are also available in RSpec thanks to RPicsim's
+<a href="file.RSpecIntegration.html" title="RSpec integration">RSpec integration</a>, so you can simply write
+<code>main_output</code> in any of your RSpec examples:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>drives the main output high</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_main_output'>main_output</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_driving_high'>be_driving_high</span>
+<span class='kw'>end</span></code></pre>
+
+<p>Note that since the shortcuts are available in many places, your pin names
+might conflict with names defined in other places.</p>
+
+<h2 id="label-Pin+methods">Pin methods</h2>
+
+<p>Once you have a Pin object, you can call any of the methods listed in
+<span class='object_link'><a href="RPicSim/Pin.html" title="RPicSim::Pin (class)">RPicSim::Pin</a></span> on it. These methods allow you to ask about the state of the
+Pin and to set the simulated input value of an input pin.</p>
+
+<h2 id="label-Issues">Issues</h2>
+
+<p>The modelling of Pins provided by the MPLAB X simulator is fairly new and
+there are still some bugs in it. For example, you might need to clear the
+ANSELx bit of a pin in your firmware before trying to set its output value,
+or else the simulator will mistakenly think your pin is driving low. For
+more information, see the <a href="file.KnownIssues.html" title="Known issues page">Known issues page</a>.</p>
+
+<h2 id="label-PinMirror+example">PinMirror example</h2>
+
+<p>This section contains a simple example showing how to apply the information
+above and use <span class='object_link'><a href="RPicSim/Pin.html" title="RPicSim::Pin (class)">RPicSim::Pin</a></span> objects.</p>
+
+<p>Here is a minimal MPASM assembly program for the PIC10F322 that
+continuously reads the value from an input pin (RA0) and copies it to an
+output pin (RA1):</p>
+
+<pre class="code plain"><code class="plain">  #include p10F322.inc
+  __config(0x3E06)
+  code 0
+  clrf  ANSELA
+  bcf   TRISA, 1
+loopStart
+  btfss PORTA, 0
+  bcf   LATA, 1
+  btfsc PORTA, 0
+  bsf   LATA, 1
+  goto  loopStart
+  end</code></pre>
+
+<p>In <code>spec/spec_helper.rb</code>, we make a simulation class that points
+to the compiled COF file and defines some pin aliases:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rpicsim/rspec</span><span class='tstring_end'>'</span></span>
+
+<span class='kw'>class</span> <span class='const'>PinMirror</span> <span class='op'>&lt;</span> <span class='const'>RPicSim</span><span class='op'>::</span><span class='const'>Pic</span>
+  <span class='id identifier rubyid_device_is'>device_is</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PIC10F322</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_filename_is'>filename_is</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_dirname'>dirname</span><span class='lparen'>(</span><span class='kw'>__FILE__</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>../firmware/dist/firmware.cof</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='id identifier rubyid_def_pin'>def_pin</span> <span class='symbol'>:main_input</span><span class='comma'>,</span> <span class='symbol'>:RA0</span>
+  <span class='id identifier rubyid_def_pin'>def_pin</span> <span class='symbol'>:main_output</span><span class='comma'>,</span> <span class='symbol'>:RA1</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>In <code>spec/pin_mirror_spec.rb</code>, we write a simple test that
+changes the input and makes sure that the output changes accordingly:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>spec_helper</span><span class='tstring_end'>'</span></span>
+
+<span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PinMirror</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_before'>before</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_start_sim'>start_sim</span> <span class='const'>PinMirror</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>continuously mirrors</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_main_input'>main_input</span><span class='period'>.</span><span class='id identifier rubyid_set'>set</span> <span class='kw'>false</span>
+    <span class='id identifier rubyid_run_cycles'>run_cycles</span> <span class='int'>10</span>
+    <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_main_output'>main_output</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_driving_low'>be_driving_low</span>
+
+    <span class='id identifier rubyid_run_cycles'>run_cycles</span> <span class='int'>10</span>
+    <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_main_output'>main_output</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_driving_low'>be_driving_low</span>
+
+    <span class='id identifier rubyid_main_input'>main_input</span><span class='period'>.</span><span class='id identifier rubyid_set'>set</span> <span class='kw'>true</span>
+    <span class='id identifier rubyid_run_cycles'>run_cycles</span> <span class='int'>10</span>
+    <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_main_output'>main_output</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_driving_high'>be_driving_high</span>
+
+    <span class='id identifier rubyid_run_cycles'>run_cycles</span> <span class='int'>10</span>
+    <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_main_output'>main_output</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_driving_high'>be_driving_high</span>
+
+    <span class='id identifier rubyid_main_input'>main_input</span><span class='period'>.</span><span class='id identifier rubyid_set'>set</span> <span class='kw'>false</span>
+    <span class='id identifier rubyid_run_cycles'>run_cycles</span> <span class='int'>10</span>
+    <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_main_output'>main_output</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_driving_low'>be_driving_low</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+
+<p>The calls to <span class='object_link'><a href="RPicSim/Sim.html#run_cycles-instance_method" title="RPicSim::Sim#run_cycles (method)">RPicSim::Sim#run_cycles</a></span> are needed to give the simulated
+device enough time to react to the change on its input.</p>
+</div></div>
+
+    <div id="footer">
+  
+    This is part of the <a href="file.Manual.html">RPicSim manual</a>.
+  
+  <br/><br/>
+
+  Generated on Wed Feb 12 16:44:38 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

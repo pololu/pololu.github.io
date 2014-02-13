@@ -1,0 +1,646 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: RPicSim::Sim::ClassMethods
+  
+    &mdash; Documentation by YARD 0.8.7.3
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../';
+  framesUrl = "../../frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (C)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../RPicSim.html" title="RPicSim (module)">RPicSim</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Sim.html" title="RPicSim::Sim (class)">Sim</a></span></span>
+     &raquo; 
+    <span class="title">ClassMethods</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: RPicSim::Sim::ClassMethods
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r1">Included in:</dt>
+    <dd class="r1"><span class='object_link'><a href="../Sim.html" title="RPicSim::Sim (class)">RPicSim::Sim</a></span></dd>
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/rpicsim/sim.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>These are class methods that you can call on subclasses of <span class='object_link'><a href="../Sim.html" title="RPicSim::Sim (class)">RPicSim::Sim</a></span>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#device-instance_method" title="#device (instance method)">- (Object) <strong>device</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A string like "PIC10F322" specifying the PIC device number.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#filename-instance_method" title="#filename (instance method)">- (Object) <strong>filename</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The path to a COF file for the PIC firmware, which was originally passed to
+the constructor.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#flash_vars-instance_method" title="#flash_vars (instance method)">- (Object) <strong>flash_vars</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A hash that associates flash variable names to (unbound) <span class='object_link'><a href="../Variable.html" title="RPicSim::Variable (class)">Variable</a></span>
+objects.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#labels-instance_method" title="#labels (instance method)">- (Object) <strong>labels</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A hash that associates label names as symbols to <span class='object_link'><a href="../Label.html" title="RPicSim::Label (class)">Label</a></span> objects.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pin_aliases-instance_method" title="#pin_aliases (instance method)">- (Object) <strong>pin_aliases</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A hash that associates our names for pins (like :main_output_pin) to
+datasheet pin names (like :RB3).</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#program_file-instance_method" title="#program_file (instance method)">- (Object) <strong>program_file</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The <span class='object_link'><a href="../ProgramFile.html" title="RPicSim::ProgramFile (class)">ProgramFile</a></span> object representing the firmware.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#vars-instance_method" title="#vars (instance method)">- (Object) <strong>vars</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A hash that associates RAM variable names to (unbound) <span class='object_link'><a href="../Variable.html" title="RPicSim::Variable (class)">Variable</a></span> objects.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="device-instance_method">
+  
+    - (<tt>Object</tt>) <strong>device</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>A string like "PIC10F322" specifying the PIC device number.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+176
+177
+178</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 176</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_device'>device</span>
+  <span class='ivar'>@device</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="filename-instance_method">
+  
+    - (<tt>Object</tt>) <strong>filename</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The path to a COF file for the PIC firmware, which was originally passed to
+the constructor.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+180
+181
+182</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 180</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_filename'>filename</span>
+  <span class='ivar'>@filename</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="flash_vars-instance_method">
+  
+    - (<tt>Object</tt>) <strong>flash_vars</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>A hash that associates flash variable names to (unbound) <span class='object_link'><a href="../Variable.html" title="RPicSim::Variable (class)">Variable</a></span>
+objects. The variables are defined by
+<span class='object_link'><a href="ClassDefinitionMethods.html#def_flash_var-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#def_flash_var (method)">RPicSim::Sim::ClassDefinitionMethods#def_flash_var</a></span>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+192
+193
+194</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 192</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_flash_vars'>flash_vars</span>
+  <span class='ivar'>@flash_vars</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="labels-instance_method">
+  
+    - (<tt>Object</tt>) <strong>labels</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>A hash that associates label names as symbols to <span class='object_link'><a href="../Label.html" title="RPicSim::Label (class)">Label</a></span> objects.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+195
+196
+197</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 195</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_labels'>labels</span>
+  <span class='ivar'>@labels</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="pin_aliases-instance_method">
+  
+    - (<tt>Object</tt>) <strong>pin_aliases</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>A hash that associates our names for pins (like :main_output_pin) to
+datasheet pin names (like :RB3).  These aliases are defined by
+<span class='object_link'><a href="ClassDefinitionMethods.html#def_pin-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#def_pin (method)">RPicSim::Sim::ClassDefinitionMethods#def_pin</a></span>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+184
+185
+186</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 184</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pin_aliases'>pin_aliases</span>
+  <span class='ivar'>@pin_aliases</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="program_file-instance_method">
+  
+    - (<tt>Object</tt>) <strong>program_file</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The <span class='object_link'><a href="../ProgramFile.html" title="RPicSim::ProgramFile (class)">ProgramFile</a></span> object representing the firmware.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+198
+199
+200</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 198</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_program_file'>program_file</span>
+  <span class='ivar'>@program_file</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="vars-instance_method">
+  
+    - (<tt>Object</tt>) <strong>vars</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>A hash that associates RAM variable names to (unbound) <span class='object_link'><a href="../Variable.html" title="RPicSim::Variable (class)">Variable</a></span> objects.
+The variables are defined by <span class='object_link'><a href="ClassDefinitionMethods.html#def_var-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#def_var (method)">RPicSim::Sim::ClassDefinitionMethods#def_var</a></span>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+188
+189
+190</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 188</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_vars'>vars</span>
+  <span class='ivar'>@vars</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+</div>
+
+    <div id="footer">
+  
+  <br/><br/>
+
+  Generated on Wed Feb 12 16:44:40 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

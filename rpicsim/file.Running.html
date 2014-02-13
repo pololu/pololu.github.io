@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+<title>
+  File: Running
+  
+    &mdash; Documentation by YARD 0.8.7.3
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    
+        <a href="_index.html">Index</a> &raquo;
+        
+        <a href="file.Manual.html">RPicSim manual</a> &raquo;
+    
+    <span class="title">File: Running</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'>
+<h1 id="label-Running+the+simulation">Running the simulation</h1>
+
+<p>Any useful microcontroller simulation needs to run for some number of steps
+and then stop. RPicSim provides a variety of ways to specify what code to
+run and when to stop running. This page is a guide to the following methods
+of <span class='object_link'><a href="RPicSim/Sim.html" title="RPicSim::Sim (class)">RPicSim::Sim</a></span>:</p>
+<ul><li>
+<p><span class='object_link'><a href="RPicSim/Sim.html#step-instance_method" title="RPicSim::Sim#step (method)">step</a></span></p>
+</li><li>
+<p><span class='object_link'><a href="RPicSim/Sim.html#run_steps-instance_method" title="RPicSim::Sim#run_steps (method)">run_steps</a></span></p>
+</li><li>
+<p><span class='object_link'><a href="RPicSim/Sim.html#run_cycles-instance_method" title="RPicSim::Sim#run_cycles (method)">run_cycles</a></span></p>
+</li><li>
+<p><span class='object_link'><a href="RPicSim/Sim.html#run_to_cycle_count-instance_method" title="RPicSim::Sim#run_to_cycle_count (method)">run_to_cycle_count</a></span></p>
+</li><li>
+<p><span class='object_link'><a href="RPicSim/Sim.html#run_to-instance_method" title="RPicSim::Sim#run_to (method)">run_to</a></span></p>
+</li><li>
+<p><span class='object_link'><a href="RPicSim/Sim.html#run_subroutine-instance_method" title="RPicSim::Sim#run_subroutine (method)">run_subroutine</a></span></p>
+</li><li>
+<p><span class='object_link'><a href="RPicSim/Sim.html#goto-instance_method" title="RPicSim::Sim#goto (method)">goto</a></span></p>
+</li></ul>
+
+<p>Each of these methods has a delegator provided by RPicSim's
+<a href="file.RSpecIntegration.html" title="RSpec integration">RSpec integration</a>, so in your RSpec examples you
+can just call them by writing something like <code>step</code> and that
+will have the same effect as <code>sim.step</code>. This applies to all the
+methods listed above, not just <code>step</code>.</p>
+
+<h2 id="label-Single-stepping">Single-stepping</h2>
+
+<p>The <span class='object_link'><a href="RPicSim/Sim.html#step-instance_method" title="RPicSim::Sim#step (method)">RPicSim::Sim#step</a></span> method is the most basic way to run the simulation.
+It executes a single instruction. The program counter will be updated to
+point to the next instruction, and the <span class='object_link'><a href="RPicSim/Sim.html#cycle_count-instance_method" title="RPicSim::Sim#cycle_count (method)">cycle count</a></span> will be increased by the number of cycles that the instruction took.
+This method might do some interesting things at times when the CPU is
+stalled (i.e. during a flash write) or during sleep and that behavior has
+not been characterized.</p>
+
+<p>The <code>step</code> method is the most basic way to run a simulation, and
+all the <code>run_*</code> methods described here call <code>step</code> in
+order to actually run the simulation.</p>
+
+<p>If you want to run a bit of code after each step, see
+<span class='object_link'><a href="RPicSim/Sim.html#every_step-instance_method" title="RPicSim::Sim#every_step (method)">RPicSim::Sim#every_step</a></span> and <a href="file.PersistentExpectations.html" title="Persistent expectations">Persistent expectations</a>.</p>
+
+<h2 id="label-Running+for+a+set+time">Running for a set time</h2>
+
+<p>RPicSim provides several different ways to run the simulation for a set
+amount of "time".</p>
+
+<p>The <span class='object_link'><a href="RPicSim/Sim.html#run_steps-instance_method" title="RPicSim::Sim#run_steps (method)">run_steps</a></span> method just runs the
+<code>step</code> method the specified number of times:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_run_steps'>run_steps</span> <span class='int'>10</span>   <span class='comment'># runs the simulation for 10 steps</span></code></pre>
+
+<p>The <span class='object_link'><a href="RPicSim/Sim.html#run_cycles-instance_method" title="RPicSim::Sim#run_cycles (method)">run_cycles</a></span> method runs the simulation until a
+certain number of instruction cycles have elapsed, using
+<span class='object_link'><a href="RPicSim/Sim.html#cycle_count-instance_method" title="RPicSim::Sim#cycle_count (method)">RPicSim::Sim#cycle_count</a></span>:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_run_cycles'>run_cycles</span> <span class='int'>20</span>  <span class='comment'># runs the simulation for approximately 20 instruction cycles</span></code></pre>
+
+<p>The <span class='object_link'><a href="RPicSim/Sim.html#run_to_cycle_count-instance_method" title="RPicSim::Sim#run_to_cycle_count (method)">run_to_cycle_count</a></span> method is similar
+to <code>run_cycles</code>, but it takes as an argument the total number of
+cycles since the simulation was started, and it runs up to that point:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_run_to_cycle_count'>run_to_cycle_count</span> <span class='int'>1000</span>  <span class='comment'># runs the simulation until the total cycle count is 1000</span></code></pre>
+
+<p>Regarding time accuracy: Certain instructions take two cycles and there is
+no way to stop the simulation in the middle of an instruction, so the
+simulation will sometimes run one cycle longer than requested when calling
+one of the methods described on this page. Therefore, if you need to test
+something with high time-precision (like a software serial library) you
+might need to do something more complex using <span class='object_link'><a href="RPicSim/Sim.html#cycle_count-instance_method" title="RPicSim::Sim#cycle_count (method)">RPicSim::Sim#cycle_count</a></span>
+and <span class='object_link'><a href="RPicSim/Sim.html#step-instance_method" title="RPicSim::Sim#step (method)">RPicSim::Sim#step</a></span>.</p>
+
+<h2 id="label-Running+until+a+condition+is+met">Running until a condition is met</h2>
+
+<p>The most versatile method for running a simulation is <span class='object_link'><a href="RPicSim/Sim.html#run_to-instance_method" title="RPicSim::Sim#run_to (method)">run_to</a></span>.</p>
+
+<p>For its first argument, the <code>run_to</code> method takes either a
+single condition or an array of conditions. A condition can be many
+different things as shown in the examples below. The <code>run_to</code>
+method will run the simulation until one of the conditions is met and then
+stop.</p>
+
+<p>The second argument to <code>run_to</code> is an optional hash of options.
+It is recommended to always specify the <code>cycle_limit</code> option,
+which limits how the long simulation can run, in order to avoid an
+accidental infinite loop in your tests. If the limit is exceeded, an
+exception is raised.</p>
+
+<p>For example, to run to a label named "apple":</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_run_to'>run_to</span> <span class='symbol'>:apple</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>100</span></code></pre>
+
+<p>To run until either the "step2" label is reached or the current subroutine
+returns:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_run_to'>run_to</span> <span class='lbracket'>[</span> <span class='symbol'>:step2</span><span class='comma'>,</span> <span class='symbol'>:return</span> <span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>200</span></code></pre>
+
+<p>When <code>run_to</code> finishes, it will return the object representing
+the condition that was met. This can be helpful in tests:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_run_to'>run_to</span> <span class='lbracket'>[</span> <span class='symbol'>:step2</span><span class='comma'>,</span> <span class='symbol'>:return</span> <span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>200</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span> <span class='symbol'>:step2</span></code></pre>
+
+<p>To run until an arbitrary condition is met:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_run_to'>run_to</span> <span class='const'>Proc</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_wreg'>wreg</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>==</span> <span class='int'>2</span> <span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>300</span></code></pre>
+
+<p>To run to a particular address:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_run_to'>run_to</span> <span class='int'>0x2000</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>300</span></code></pre>
+
+<p>To finish running a subroutine and assert that it takes between 10000 and
+11000 cycles to finish:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_run_to'>run_to</span> <span class='symbol'>:return</span><span class='comma'>,</span> <span class='label'>cycles:</span> <span class='int'>10000</span><span class='op'>..</span><span class='int'>11000</span></code></pre>
+
+<p>For the complete, formal documentation of <code>run_to</code>, see
+<span class='object_link'><a href="RPicSim/Sim.html#run_to-instance_method" title="RPicSim::Sim#run_to (method)">RPicSim::Sim#run_to</a></span>.</p>
+
+<h2 id="label-Running+a+small+piece+of+code">Running a small piece of code</h2>
+
+<p>It is possible to use <span class='object_link'><a href="RPicSim/Sim.html#goto-instance_method" title="RPicSim::Sim#goto (method)">RPicSim::Sim#goto</a></span> and <span class='object_link'><a href="RPicSim/Sim.html#run_to-instance_method" title="RPicSim::Sim#run_to (method)">RPicSim::Sim#run_to</a></span>
+together to just run a small piece of the firmware without regard for the
+rest. This can be useful for unit tests. For example, this code moves the
+devices's program counter to point to the address of the "loopStart" label
+and then runs the simulation until it reaches loopEnd:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_goto'>goto</span> <span class='symbol'>:loopStart</span>
+<span class='id identifier rubyid_run_to'>run_to</span> <span class='symbol'>:loopEnd</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>400</span></code></pre>
+
+<h2 id="label-Running+a+subroutine+or+function">Running a subroutine or function</h2>
+
+<p>One of the most useful methods for unit tests is
+<span class='object_link'><a href="RPicSim/Sim.html#run_subroutine-instance_method" title="RPicSim::Sim#run_subroutine (method)">RPicSim::Sim#run_subroutine</a></span>. This method is the easiest way to test a
+subroutine or function in your program in isolation from other things. It
+runs the given subroutine until it returns (e.g. with a RETURN or RETLW
+instruction).</p>
+
+<p>The first argument should be a label name (or any valid argument to
+<span class='object_link'><a href="RPicSim/Sim.html#location_address-instance_method" title="RPicSim::Sim#location_address (method)">RPicSim::Sim#location_address</a></span>), and the second argument is an optional
+hash of options that supports the same options as <span class='object_link'><a href="RPicSim/Sim.html#run_to-instance_method" title="RPicSim::Sim#run_to (method)">run_to</a></span>.</p>
+
+<p>For example, to test a subroutine that drives the <code>main_output</code>
+pin high:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_run_subroutine'>run_subroutine</span> <span class='symbol'>:drivePinHigh</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>20</span>
+<span class='id identifier rubyid_main_output'>main_output</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_be_driving_high'>be_driving_high</span></code></pre>
+
+<p>In this example, <code>main_output</code> is a pin alias, as described in
+the <a href="file.Pins.html" title="Pins page">Pins page</a>.</p>
+
+<p>Some subroutine values might store input or output values in RAM. To test
+those subroutines, you will need to be able to read and write RAM as
+described in the <a href="file.Variables.html" title="Variables page">Variables page</a>.</p>
+
+<p>Some subroutine values might store input or output values in SFRs. To test
+those subroutines, you will need to be able to read and write SFRs as
+described in the <a href="file.SFRs.html" title="SFRs page">SFRs page</a>.</p>
+</div></div>
+
+    <div id="footer">
+  
+    This is part of the <a href="file.Manual.html">RPicSim manual</a>.
+  
+  <br/><br/>
+
+  Generated on Wed Feb 12 16:44:38 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

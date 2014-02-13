@@ -1,0 +1,1373 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: RPicSim::CallStackInfo
+  
+    &mdash; Documentation by YARD 0.8.7.3
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (C)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../RPicSim.html" title="RPicSim (module)">RPicSim</a></span></span>
+     &raquo; 
+    <span class="title">CallStackInfo</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: RPicSim::CallStackInfo
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">RPicSim::CallStackInfo</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/rpicsim/call_stack_info.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>This class helps analyze programs to see whether it is possible for them to
+overflow the call stack, which is limited to a small number of levels on
+many PIC microcontrollers. It traverses the <span class='object_link'><a href="Instruction.html" title="RPicSim::Instruction (class)">Instruction</a></span> graph provided by
+a <span class='object_link'><a href="ProgramFile.html" title="RPicSim::ProgramFile (class)">ProgramFile</a></span> from a given root node and for each reachable instruction
+determines the maximum possible call stack depth when that instruction
+starts executing, relative to how deep the call stack depth was when the
+root instruction started.</p>
+
+<p>Here is an example of how you would use this to check the call stack depth
+in a program that has one interrupt vector at address 4 inside an RSpec
+test. Of course, you should adjust the numbers to suit your application:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_infos'>infos</span> <span class='op'>=</span> <span class='const'>CallStackInfo</span><span class='period'>.</span><span class='id identifier rubyid_hash_from_program_file'>hash_from_program_file</span><span class='lparen'>(</span><span class='id identifier rubyid_program_file'>program_file</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>4</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_infos'>infos</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_max_depth'>max_depth</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='op'>&lt;=</span> <span class='int'>5</span>  <span class='comment'># main-line code should take at most 5 levels
+</span><span class='id identifier rubyid_infos'>infos</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_max_depth'>max_depth</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='op'>&lt;=</span> <span class='int'>1</span>  <span class='comment'># ISR should take at most 1 stack level</span></code></pre>
+
+<p>Additionally, it can generate reports of all different ways that the
+maximum call stack depth can be achieved, which can be helpful if you need
+to reduce your maximum stack depth.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="CallStackInfo/CodePath.html" title="RPicSim::CallStackInfo::CodePath (class)">CodePath</a></span>
+    
+  
+</p>
+
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#max_depth-instance_method" title="#max_depth (instance method)">- (Integer) <strong>max_depth</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The maximum call stack depth for all the reachable instructions.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#root-instance_method" title="#root (instance method)">- (Instruction) <strong>root</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The root instruction that this report was generated from.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#from_root_instruction-class_method" title="from_root_instruction (class method)">+ (Object) <strong>from_root_instruction</strong>(root) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Generates a <span class='object_link'><a href="" title="RPicSim::CallStackInfo (class)">CallStackInfo</a></span> from the given root instruction.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#hash_from_program_file-class_method" title="hash_from_program_file (class method)">+ (Hash(address =&gt; CallStackInfo)) <strong>hash_from_program_file</strong>(program_file, root_instruction_addresses) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>For each of the given root instruction addresses, generates a
+<span class='object_link'><a href="" title="RPicSim::CallStackInfo (class)">CallStackInfo</a></span> report.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#code_paths-instance_method" title="#code_paths (instance method)">- (Array(CodePaths)) <strong>code_paths</strong>(instruction) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>All the possible code paths that lead to the given instruction.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#double_check%21-instance_method" title="#double_check! (instance method)">- (Object) <strong>double_check!</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Check the max-depth data hash for consistency.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (CallStackInfo) <strong>initialize</strong>(root) </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Generates a <span class='object_link'><a href="" title="RPicSim::CallStackInfo (class)">CallStackInfo</a></span> from the given root instruction.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inspect-instance_method" title="#inspect (instance method)">- (Object) <strong>inspect</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#instructions_with_worst_case-instance_method" title="#instructions_with_worst_case (instance method)">- (Array(Instruction)) <strong>instructions_with_worst_case</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns all the <span class='object_link'><a href="Instruction.html" title="RPicSim::Instruction (class)">Instruction</a></span>s that have the worse case possible call stack
+depth.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#reachable_instructions-instance_method" title="#reachable_instructions (instance method)">- (Array(Instruction)) <strong>reachable_instructions</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns all the <span class='object_link'><a href="Instruction.html" title="RPicSim::Instruction (class)">Instruction</a></span>s that are reachable from the given root.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#worst_case_code_paths-instance_method" title="#worst_case_code_paths (instance method)">- (Array(CodePath)) <strong>worst_case_code_paths</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns an array of <span class='object_link'><a href="CallStackInfo/CodePath.html" title="RPicSim::CallStackInfo::CodePath (class)">CodePath</a></span>s representing all possible ways that the
+call stack could reach the worst-case depth.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#worst_case_code_paths_filtered-instance_method" title="#worst_case_code_paths_filtered (instance method)">- (Array(CodePath)) <strong>worst_case_code_paths_filtered</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a filtered version of <span class='object_link'><a href="#worst_case_code_paths-instance_method" title="RPicSim::CallStackInfo#worst_case_code_paths (method)">#worst_case_code_paths</a></span>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#worst_case_code_paths_filtered_report-instance_method" title="#worst_case_code_paths_filtered_report (instance method)">- (String) <strong>worst_case_code_paths_filtered_report</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a nice report string of all the <span class='object_link'><a href="#worst_case_code_paths_filtered-instance_method" title="RPicSim::CallStackInfo#worst_case_code_paths_filtered (method)">#worst_case_code_paths_filtered</a></span>.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="RPicSim::CallStackInfo (class)">CallStackInfo</a></span></tt>) <strong>initialize</strong>(root) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Generates a <span class='object_link'><a href="" title="RPicSim::CallStackInfo (class)">RPicSim::CallStackInfo</a></span> from the given root instruction.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+66
+67
+68
+69
+70</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/call_stack_info.rb', line 66</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_root'>root</span><span class='rparen'>)</span>
+  <span class='ivar'>@root</span> <span class='op'>=</span> <span class='id identifier rubyid_root'>root</span>
+  <span class='id identifier rubyid_generate'>generate</span>
+  <span class='ivar'>@max_depth</span> <span class='op'>=</span> <span class='ivar'>@max_depths</span><span class='period'>.</span><span class='id identifier rubyid_values'>values</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="max_depth-instance_method">
+  
+    - (<tt>Integer</tt>) <strong>max_depth</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The maximum call stack depth for all the reachable instructions. If your
+program starts executing at the root node and the call stack is empty, then
+(not accounting for interrupts) the call stack will never exceed this
+depth.</p>
+
+<p>A value of 0 means that no subroutine calls a possible; a value of 1 means
+that at most one subroutine call is possible at any given time, and so on.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+60
+61
+62</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/call_stack_info.rb', line 60</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_max_depth'>max_depth</span>
+  <span class='ivar'>@max_depth</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="root-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Instruction.html" title="RPicSim::Instruction (class)">Instruction</a></span></tt>) <strong>root</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns The root instruction that this report was generated from.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Instruction.html" title="RPicSim::Instruction (class)">Instruction</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The root instruction that this report was generated from.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+63
+64
+65</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/call_stack_info.rb', line 63</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_root'>root</span>
+  <span class='ivar'>@root</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="from_root_instruction-class_method">
+  
+    + (<tt>Object</tt>) <strong>from_root_instruction</strong>(root) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Generates a <span class='object_link'><a href="" title="RPicSim::CallStackInfo (class)">RPicSim::CallStackInfo</a></span> from the given root instruction. This will tell
+you the maximum value the call stack could get to for a program that starts
+at the given instruction with an empty call stack and never gets
+interrupted.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+46
+47
+48</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/call_stack_info.rb', line 46</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_from_root_instruction'>from_root_instruction</span><span class='lparen'>(</span><span class='id identifier rubyid_root'>root</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_root'>root</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="hash_from_program_file-class_method">
+  
+    + (<tt>Hash(address =&gt; <span class='object_link'><a href="" title="RPicSim::CallStackInfo (class)">CallStackInfo</a></span>)</tt>) <strong>hash_from_program_file</strong>(program_file, root_instruction_addresses) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>For each of the given root instruction addresses, generates a
+<span class='object_link'><a href="" title="RPicSim::CallStackInfo (class)">RPicSim::CallStackInfo</a></span> report.  Returns the reports in a hash.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>program_file</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="ProgramFile.html" title="RPicSim::ProgramFile (class)">ProgramFile</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>root_instruction_addresses</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Array(Integer)  The flash addresses of the entry vectors for your program. 
+On a midrange device, these are typically 0 for the main-line code and 4
+for the interrupt.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash(address =&gt; <span class='object_link'><a href="" title="RPicSim::CallStackInfo (class)">CallStackInfo</a></span>)</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36
+37
+38
+39
+40</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/call_stack_info.rb', line 34</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_hash_from_program_file'>hash_from_program_file</span><span class='lparen'>(</span><span class='id identifier rubyid_program_file'>program_file</span><span class='comma'>,</span> <span class='id identifier rubyid_root_instruction_addresses'>root_instruction_addresses</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_infos'>infos</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_root_instruction_addresses'>root_instruction_addresses</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_addr'>addr</span><span class='op'>|</span>
+    <span class='id identifier rubyid_infos'>infos</span><span class='lbracket'>[</span><span class='id identifier rubyid_addr'>addr</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_from_root_instruction'>from_root_instruction</span><span class='lparen'>(</span><span class='id identifier rubyid_program_file'>program_file</span><span class='period'>.</span><span class='id identifier rubyid_instruction'>instruction</span><span class='lparen'>(</span><span class='id identifier rubyid_addr'>addr</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_infos'>infos</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="code_paths-instance_method">
+  
+    - (<tt>Array(CodePaths)</tt>) <strong>code_paths</strong>(instruction) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns all the possible code paths that lead to the given instruction.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array(CodePaths)</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>all the possible code paths that lead to the given instruction.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/call_stack_info.rb', line 187</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_code_paths'>code_paths</span><span class='lparen'>(</span><span class='id identifier rubyid_instruction'>instruction</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_code_paths'>code_paths</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='const'>Search</span><span class='period'>.</span><span class='id identifier rubyid_depth_first_search_simple'>depth_first_search_simple</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='lbracket'>[</span><span class='id identifier rubyid_instruction'>instruction</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_instrs'>instrs</span><span class='op'>|</span>
+    <span class='id identifier rubyid_prev_instrs'>prev_instrs</span> <span class='op'>=</span> <span class='ivar'>@back_links</span><span class='lbracket'>[</span><span class='id identifier rubyid_instrs'>instrs</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span><span class='rbracket'>]</span>
+    
+    <span class='kw'>if</span> <span class='id identifier rubyid_prev_instrs'>prev_instrs</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+      <span class='comment'># This must be the root node.
+</span>      <span class='kw'>if</span> <span class='id identifier rubyid_instrs'>instrs</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span> <span class='op'>!=</span> <span class='ivar'>@root</span>
+        <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>This instruction is not the root and has no back links: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_instrs'>instrs</span><span class='rbrace'>}</span><span class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>end</span>
+      
+      <span class='id identifier rubyid_code_paths'>code_paths</span> <span class='op'>&lt;&lt;</span> <span class='const'>CodePath</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_instrs'>instrs</span><span class='rparen'>)</span>
+      <span class='lbracket'>[</span><span class='rbracket'>]</span>   <span class='comment'># don't search anything from this node
+</span>    <span class='kw'>else</span>
+      <span class='comment'># Investigate all possible code paths that could get to this instruction.
+</span>      <span class='comment'># However, exclude code paths that have the same instruction twice;
+</span>      <span class='comment'># otherwise we get stuck in an infinite loop.
+</span>      <span class='lparen'>(</span><span class='id identifier rubyid_prev_instrs'>prev_instrs</span> <span class='op'>-</span> <span class='id identifier rubyid_instrs'>instrs</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_collect'>collect</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_instr'>instr</span><span class='op'>|</span>
+        <span class='lbracket'>[</span><span class='id identifier rubyid_instr'>instr</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_instrs'>instrs</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_code_paths'>code_paths</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="double_check!-instance_method">
+  
+    - (<tt>Object</tt>) <strong>double_check!</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Check the max-depth data hash for consistency.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/call_stack_info.rb', line 117</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_double_check!'>double_check!</span>
+  <span class='id identifier rubyid_reachable_instructions'>reachable_instructions</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_instr'>instr</span><span class='op'>|</span>
+    <span class='id identifier rubyid_depth'>depth</span> <span class='op'>=</span> <span class='ivar'>@max_depths</span><span class='lbracket'>[</span><span class='id identifier rubyid_instr'>instr</span><span class='rbracket'>]</span>
+
+    <span class='id identifier rubyid_instr'>instr</span><span class='period'>.</span><span class='id identifier rubyid_transitions'>transitions</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_transition'>transition</span><span class='op'>|</span>
+      <span class='id identifier rubyid_next_instruction'>next_instruction</span> <span class='op'>=</span> <span class='id identifier rubyid_transition'>transition</span><span class='period'>.</span><span class='id identifier rubyid_next_instruction'>next_instruction</span>
+      <span class='kw'>if</span> <span class='ivar'>@max_depths</span><span class='lbracket'>[</span><span class='id identifier rubyid_next_instruction'>next_instruction</span><span class='rbracket'>]</span> <span class='op'>&lt;</span> <span class='ivar'>@max_depths</span><span class='lbracket'>[</span><span class='id identifier rubyid_instr'>instr</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_transition'>transition</span><span class='period'>.</span><span class='id identifier rubyid_call_depth_change'>call_depth_change</span>
+        <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Call stack info double check failed: %s has max_depth %d and leads (%d) to %s with max_depth %d.</span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span>
+          <span class='lbracket'>[</span><span class='id identifier rubyid_instr'>instr</span><span class='comma'>,</span> <span class='id identifier rubyid_depth'>depth</span><span class='comma'>,</span> <span class='id identifier rubyid_transition'>transition</span><span class='period'>.</span><span class='id identifier rubyid_call_depth_change'>call_depth_change</span><span class='comma'>,</span> <span class='id identifier rubyid_next_instruction'>next_instruction</span><span class='comma'>,</span> <span class='ivar'>@max_depths</span><span class='lbracket'>[</span><span class='id identifier rubyid_next_instruction'>next_instruction</span><span class='rbracket'>]</span><span class='rbracket'>]</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+    
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="inspect-instance_method">
+  
+    - (<tt>Object</tt>) <strong>inspect</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+212
+213
+214</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/call_stack_info.rb', line 212</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_inspect'>inspect</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#&lt;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='rbrace'>}</span><span class='tstring_content'>:root=</span><span class='embexpr_beg'>#{</span><span class='ivar'>@root</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="instructions_with_worst_case-instance_method">
+  
+    - (<tt>Array(<span class='object_link'><a href="Instruction.html" title="RPicSim::Instruction (class)">Instruction</a></span>)</tt>) <strong>instructions_with_worst_case</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns all the <span class='object_link'><a href="Instruction.html" title="RPicSim::Instruction (class)">Instruction</a></span>s that have the worse case possible call stack
+depth.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array(<span class='object_link'><a href="Instruction.html" title="RPicSim::Instruction (class)">Instruction</a></span>)</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+106
+107
+108</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/call_stack_info.rb', line 106</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_instructions_with_worst_case'>instructions_with_worst_case</span>
+  <span class='ivar'>@max_depths</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_instr'>instr</span><span class='comma'>,</span> <span class='id identifier rubyid_depth'>depth</span><span class='op'>|</span> <span class='id identifier rubyid_depth'>depth</span> <span class='op'>==</span> <span class='ivar'>@max_depth</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_collect'>collect</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:first</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="reachable_instructions-instance_method">
+  
+    - (<tt>Array(<span class='object_link'><a href="Instruction.html" title="RPicSim::Instruction (class)">Instruction</a></span>)</tt>) <strong>reachable_instructions</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns all the <span class='object_link'><a href="Instruction.html" title="RPicSim::Instruction (class)">Instruction</a></span>s that are reachable from the given root.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array(<span class='object_link'><a href="Instruction.html" title="RPicSim::Instruction (class)">Instruction</a></span>)</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+112
+113
+114</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/call_stack_info.rb', line 112</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_reachable_instructions'>reachable_instructions</span>
+  <span class='ivar'>@max_depths</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="worst_case_code_paths-instance_method">
+  
+    - (<tt>Array(<span class='object_link'><a href="CallStackInfo/CodePath.html" title="RPicSim::CallStackInfo::CodePath (class)">CodePath</a></span>)</tt>) <strong>worst_case_code_paths</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns an array of <span class='object_link'><a href="CallStackInfo/CodePath.html" title="RPicSim::CallStackInfo::CodePath (class)">CodePath</a></span>s representing all possible ways that the
+call stack could reach the worst-case depth.  This will often be a very
+large amount of data, even for a small project.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array(<span class='object_link'><a href="CallStackInfo/CodePath.html" title="RPicSim::CallStackInfo::CodePath (class)">CodePath</a></span>)</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+136
+137
+138
+139
+140</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/call_stack_info.rb', line 136</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_worst_case_code_paths'>worst_case_code_paths</span>
+  <span class='id identifier rubyid_instructions_with_worst_case'>instructions_with_worst_case</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span><span class='period'>.</span><span class='id identifier rubyid_flat_map'>flat_map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_instruction'>instruction</span><span class='op'>|</span>
+    <span class='id identifier rubyid_code_paths'>code_paths</span><span class='lparen'>(</span><span class='id identifier rubyid_instruction'>instruction</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="worst_case_code_paths_filtered-instance_method">
+  
+    - (<tt>Array(<span class='object_link'><a href="CallStackInfo/CodePath.html" title="RPicSim::CallStackInfo::CodePath (class)">CodePath</a></span>)</tt>) <strong>worst_case_code_paths_filtered</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a filtered version of <span class='object_link'><a href="#worst_case_code_paths-instance_method" title="RPicSim::CallStackInfo#worst_case_code_paths (method)">#worst_case_code_paths</a></span>. Filters out any
+code paths that are just a superset of another code path. For each
+instruction that has a back trace leading to it, it just returns the code
+paths with the smallest number of interesting instructions.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array(<span class='object_link'><a href="CallStackInfo/CodePath.html" title="RPicSim::CallStackInfo::CodePath (class)">CodePath</a></span>)</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/call_stack_info.rb', line 147</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_worst_case_code_paths_filtered'>worst_case_code_paths_filtered</span>
+  <span class='id identifier rubyid_all_code_paths'>all_code_paths</span> <span class='op'>=</span> <span class='id identifier rubyid_worst_case_code_paths'>worst_case_code_paths</span>
+
+  <span class='comment'>#puts &quot;all worst-case code paths: #{all_code_paths.size}&quot;
+</span>  
+  <span class='comment'># Filter out code path that are just a superset of another code path.
+</span>  <span class='id identifier rubyid_previously_seen_instruction_sequences'>previously_seen_instruction_sequences</span> <span class='op'>=</span> <span class='const'>Set</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='id identifier rubyid_code_paths'>code_paths</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_all_code_paths'>all_code_paths</span><span class='period'>.</span><span class='id identifier rubyid_sort_by'>sort_by</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:count</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_code_path'>code_path</span><span class='op'>|</span>
+    <span class='id identifier rubyid_seen_before'>seen_before</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='int'>1</span><span class='op'>..</span><span class='id identifier rubyid_code_path'>code_path</span><span class='period'>.</span><span class='id identifier rubyid_instructions'>instructions</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span>
+      <span class='id identifier rubyid_subsequence'>subsequence</span> <span class='op'>=</span> <span class='id identifier rubyid_code_path'>code_path</span><span class='period'>.</span><span class='id identifier rubyid_instructions'>instructions</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_n'>n</span><span class='rbracket'>]</span>
+      <span class='id identifier rubyid_previously_seen_instruction_sequences'>previously_seen_instruction_sequences</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span> <span class='id identifier rubyid_subsequence'>subsequence</span>
+    <span class='kw'>end</span>
+    <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_seen_before'>seen_before</span>
+      <span class='id identifier rubyid_previously_seen_instruction_sequences'>previously_seen_instruction_sequences</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_code_path'>code_path</span><span class='period'>.</span><span class='id identifier rubyid_instructions'>instructions</span>
+      <span class='id identifier rubyid_code_paths'>code_paths</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_code_path'>code_path</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># For each instruction that has a code path leading to it, pick out
+</span>  <span class='comment'># the shortest code path (in terms of interesting instructions).
+</span>  <span class='id identifier rubyid_code_paths'>code_paths</span> <span class='op'>=</span> <span class='id identifier rubyid_code_paths'>code_paths</span><span class='period'>.</span><span class='id identifier rubyid_group_by'>group_by</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_cp'>cp</span><span class='op'>|</span> <span class='id identifier rubyid_cp'>cp</span><span class='period'>.</span><span class='id identifier rubyid_instructions'>instructions</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_collect'>collect</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_instr'>instr</span><span class='comma'>,</span> <span class='id identifier rubyid_code_paths'>code_paths</span><span class='op'>|</span>
+    <span class='id identifier rubyid_code_paths'>code_paths</span><span class='period'>.</span><span class='id identifier rubyid_min_by'>min_by</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_cp'>cp</span><span class='op'>|</span> <span class='id identifier rubyid_cp'>cp</span><span class='period'>.</span><span class='id identifier rubyid_interesting_instructions'>interesting_instructions</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span> <span class='rbrace'>}</span>
+  <span class='kw'>end</span>
+  
+  <span class='id identifier rubyid_code_paths'>code_paths</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="worst_case_code_paths_filtered_report-instance_method">
+  
+    - (<tt>String</tt>) <strong>worst_case_code_paths_filtered_report</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a nice report string of all the <span class='object_link'><a href="#worst_case_code_paths_filtered-instance_method" title="RPicSim::CallStackInfo#worst_case_code_paths_filtered (method)">#worst_case_code_paths_filtered</a></span>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+177
+178
+179
+180
+181
+182
+183
+184</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/call_stack_info.rb', line 177</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_worst_case_code_paths_filtered_report'>worst_case_code_paths_filtered_report</span>
+  <span class='id identifier rubyid_s'>s</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_worst_case_code_paths_filtered'>worst_case_code_paths_filtered</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_code_path'>code_path</span><span class='op'>|</span>
+    <span class='id identifier rubyid_s'>s</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_code_path'>code_path</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_s'>s</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_s'>s</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  
+  <br/><br/>
+
+  Generated on Wed Feb 12 16:44:42 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

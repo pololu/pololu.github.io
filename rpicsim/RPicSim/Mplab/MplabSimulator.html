@@ -1,0 +1,788 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: RPicSim::Mplab::MplabSimulator
+  
+    &mdash; Documentation by YARD 0.8.7.3
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../';
+  framesUrl = "../../frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (M)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../RPicSim.html" title="RPicSim (module)">RPicSim</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Mplab.html" title="RPicSim::Mplab (module)">Mplab</a></span></span>
+     &raquo; 
+    <span class="title">MplabSimulator</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: RPicSim::Mplab::MplabSimulator
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">RPicSim::Mplab::MplabSimulator</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/rpicsim/mplab/mplab_simulator.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>DeviceInfo is a wrapper for the MPLAB xPIC class which gives us information
+about the target PIC device.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#check_peripherals-instance_method" title="#check_peripherals (instance method)">- (Object) <strong>check_peripherals</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fr_memory-instance_method" title="#fr_memory (instance method)">- (Object) <strong>fr_memory</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (MplabSimulator) <strong>initialize</strong>(simulator) </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Makes a new DeviceInfo object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#nmmr_memory-instance_method" title="#nmmr_memory (instance method)">- (Object) <strong>nmmr_memory</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pins-instance_method" title="#pins (instance method)">- (Object) <strong>pins</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#processor-instance_method" title="#processor (instance method)">- (Object) <strong>processor</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#program_memory-instance_method" title="#program_memory (instance method)">- (Object) <strong>program_memory</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sfr_memory-instance_method" title="#sfr_memory (instance method)">- (Object) <strong>sfr_memory</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stack_memory-instance_method" title="#stack_memory (instance method)">- (Object) <strong>stack_memory</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stopwatch_value-instance_method" title="#stopwatch_value (instance method)">- (Object) <strong>stopwatch_value</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#test_memory-instance_method" title="#test_memory (instance method)">- (Object) <strong>test_memory</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="RPicSim::Mplab::MplabSimulator (class)">MplabSimulator</a></span></tt>) <strong>initialize</strong>(simulator) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Makes a new DeviceInfo object.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>simulator</span>
+      
+      
+        <span class='type'>(<tt>com.microchip.mplab.mdbcore.simulator.Simulator</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10
+11
+12</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_simulator.rb', line 10</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_simulator'>simulator</span><span class='rparen'>)</span>
+  <span class='ivar'>@simulator</span> <span class='op'>=</span> <span class='id identifier rubyid_simulator'>simulator</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="check_peripherals-instance_method">
+  
+    - (<tt>Object</tt>) <strong>check_peripherals</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+64
+65
+66
+67</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_simulator.rb', line 64</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_check_peripherals'>check_peripherals</span>
+  <span class='id identifier rubyid_check_peripherals_in_data_store'>check_peripherals_in_data_store</span>
+  <span class='id identifier rubyid_check_peripheral_set'>check_peripheral_set</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="fr_memory-instance_method">
+  
+    - (<tt>Object</tt>) <strong>fr_memory</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+18
+19
+20</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_simulator.rb', line 18</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_fr_memory'>fr_memory</span>
+  <span class='ivar'>@fr_memory</span> <span class='op'>||=</span> <span class='const'>MplabMemory</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='id identifier rubyid_data_store'>data_store</span><span class='period'>.</span><span class='id identifier rubyid_getFileMemory'>getFileMemory</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="nmmr_memory-instance_method">
+  
+    - (<tt>Object</tt>) <strong>nmmr_memory</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+26
+27
+28</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_simulator.rb', line 26</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_nmmr_memory'>nmmr_memory</span>
+  <span class='ivar'>@nmmr_memory</span> <span class='op'>||=</span> <span class='const'>MplabMemory</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='id identifier rubyid_data_store'>data_store</span><span class='period'>.</span><span class='id identifier rubyid_getNMMRMemory'>getNMMRMemory</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="pins-instance_method">
+  
+    - (<tt>Object</tt>) <strong>pins</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_simulator.rb', line 46</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pins'>pins</span>
+  <span class='id identifier rubyid_pin_descs'>pin_descs</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='int'>0</span><span class='op'>...</span><span class='id identifier rubyid_data_store'>data_store</span><span class='period'>.</span><span class='id identifier rubyid_getNumPins'>getNumPins</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span> <span class='id identifier rubyid_data_store'>data_store</span><span class='period'>.</span><span class='id identifier rubyid_getPinDesc'>getPinDesc</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+
+  <span class='id identifier rubyid_pin_set'>pin_set</span> <span class='op'>=</span> <span class='id identifier rubyid_data_store'>data_store</span><span class='period'>.</span><span class='id identifier rubyid_getProcessor'>getProcessor</span><span class='period'>.</span><span class='id identifier rubyid_getPinSet'>getPinSet</span>
+
+  <span class='comment'># The PinSet class has strangely-implemented lazy loading.
+</span>  <span class='comment'># We call getPin(String name) to force it to load pin data from
+</span>  <span class='comment'># the SimulatorDataStore.
+</span>  <span class='id identifier rubyid_pin_descs'>pin_descs</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_pin_desc'>pin_desc</span><span class='op'>|</span>
+    <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='id identifier rubyid_pin_desc'>pin_desc</span><span class='period'>.</span><span class='id identifier rubyid_getSignal'>getSignal</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span>  <span class='comment'># e.g. &quot;RA0&quot;
+</span>    <span class='id identifier rubyid_pin_set'>pin_set</span><span class='period'>.</span><span class='id identifier rubyid_getPin'>getPin</span> <span class='id identifier rubyid_name'>name</span>                <span class='comment'># Trigger the lazy loading.
+</span>  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_pins'>pins</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='int'>0</span><span class='op'>...</span><span class='id identifier rubyid_pin_set'>pin_set</span><span class='period'>.</span><span class='id identifier rubyid_getNumPins'>getNumPins</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_collect'>collect</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span>
+    <span class='const'>MplabPin</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='id identifier rubyid_pin_set'>pin_set</span><span class='period'>.</span><span class='id identifier rubyid_getPin'>getPin</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="processor-instance_method">
+  
+    - (<tt>Object</tt>) <strong>processor</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+42
+43
+44</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_simulator.rb', line 42</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_processor'>processor</span>
+  <span class='ivar'>@processor</span> <span class='op'>||=</span> <span class='const'>MplabProcessor</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='id identifier rubyid_data_store'>data_store</span><span class='period'>.</span><span class='id identifier rubyid_getProcessor'>getProcessor</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="program_memory-instance_method">
+  
+    - (<tt>Object</tt>) <strong>program_memory</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+30
+31
+32</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_simulator.rb', line 30</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_program_memory'>program_memory</span>
+  <span class='ivar'>@program_memory</span> <span class='op'>||=</span> <span class='const'>MplabMemory</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='id identifier rubyid_data_store'>data_store</span><span class='period'>.</span><span class='id identifier rubyid_getProgMemory'>getProgMemory</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="sfr_memory-instance_method">
+  
+    - (<tt>Object</tt>) <strong>sfr_memory</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+22
+23
+24</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_simulator.rb', line 22</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sfr_memory'>sfr_memory</span>
+  <span class='ivar'>@sfr_memory</span> <span class='op'>||=</span> <span class='const'>MplabMemory</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='id identifier rubyid_data_store'>data_store</span><span class='period'>.</span><span class='id identifier rubyid_getSFRMemory'>getSFRMemory</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="stack_memory-instance_method">
+  
+    - (<tt>Object</tt>) <strong>stack_memory</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_simulator.rb', line 34</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_stack_memory'>stack_memory</span>
+  <span class='ivar'>@stack_memory</span> <span class='op'>||=</span> <span class='const'>MplabMemory</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='id identifier rubyid_data_store'>data_store</span><span class='period'>.</span><span class='id identifier rubyid_getStackMemory'>getStackMemory</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="stopwatch_value-instance_method">
+  
+    - (<tt>Object</tt>) <strong>stopwatch_value</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14
+15
+16</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_simulator.rb', line 14</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_stopwatch_value'>stopwatch_value</span>
+  <span class='ivar'>@simulator</span><span class='period'>.</span><span class='const'>GetStopwatchValue</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="test_memory-instance_method">
+  
+    - (<tt>Object</tt>) <strong>test_memory</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+38
+39
+40</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_simulator.rb', line 38</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_test_memory'>test_memory</span>
+  <span class='ivar'>@test_memory</span> <span class='op'>||=</span> <span class='const'>MplabMemory</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='id identifier rubyid_data_store'>data_store</span><span class='period'>.</span><span class='id identifier rubyid_getTestMemory'>getTestMemory</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  
+  <br/><br/>
+
+  Generated on Wed Feb 12 16:44:42 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

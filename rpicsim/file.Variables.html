@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+<title>
+  File: Variables
+  
+    &mdash; Documentation by YARD 0.8.7.3
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    
+        <a href="_index.html">Index</a> &raquo;
+        
+        <a href="file.Manual.html">RPicSim manual</a> &raquo;
+    
+    <span class="title">File: Variables</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'>
+<h1 id="label-Variables">Variables</h1>
+
+<p>RPicSim allows you to read and write from simulated variables stored in RAM
+or flash, which can be useful for <a href="file.UnitTesting.html" title="unit testing">unit testing</a>.
+Variables are represented as Ruby objects that are instances of a subclass
+of <span class='object_link'><a href="RPicSim/Variable.html" title="RPicSim::Variable (class)">RPicSim::Variable</a></span>.</p>
+
+<p>To access a variable, RPicSim needs to know the name it will be called in
+your Ruby code, what data type it is (e.g. 16-bit unsigned integer), and
+its address in memory. In most cases, RPicSim can deduce the address by
+looking at the symbol table in your COF file, so you will not need to type
+the address. However, RPicSim cannot deduce the data type of a variable, so
+any variables used need to be explicitly defined beforehand.</p>
+
+<h2 id="label-Defining+a+RAM+variable">Defining a RAM variable</h2>
+
+<p>RAM variables that you want to access from Ruby must be defined in the
+<a href="file.DefiningSimulationClass.html" title="simulation class">simulation class</a> using
+<span class='object_link'><a href="RPicSim/Sim/ClassDefinitionMethods.html#def_var-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#def_var (method)">def_var</a></span>. For example:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='kw'>class</span> <span class='const'>MySim</span> <span class='op'>&lt;</span> <span class='const'>RPicSim</span><span class='op'>::</span><span class='const'>Sim</span>
+  <span class='comment'>#...
+</span>
+  <span class='id identifier rubyid_def_var'>def_var</span> <span class='symbol'>:counter</span><span class='comma'>,</span> <span class='symbol'>:u8</span>
+
+<span class='kw'>end</span>
+</code></pre>
+
+<p>The first argument to <code>def_var</code> specifies what to call the
+variable in Ruby code. Using the example above, you could access the
+variable object by passing <code>:counter</code> as the argument to
+<span class='object_link'><a href="RPicSim/Sim.html#var-instance_method" title="RPicSim::Sim#var (method)">RPicSim::Sim#var</a></span>:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_var'>var</span><span class='lparen'>(</span><span class='symbol'>:counter</span><span class='rparen'>)</span></code></pre>
+
+<p>Each variable also has a "shortcut" method by the same name. This means
+that you can access the variable like this:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_counter'>counter</span></code></pre>
+
+<p>The shortcuts are also available in RSpec thanks to RPicsim's
+<a href="file.RSpecIntegration.html" title="RSpec integration">RSpec integration</a>, so you can simply write
+<code>counter</code> in any of your RSpec examples:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>drives the main output high</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_counter'>counter</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span> <span class='int'>44</span>
+<span class='kw'>end</span></code></pre>
+
+<p>The second argument to <code>def_var</code> specifies the data type of the
+variable. This is required. For the full list of allowed types, see
+<span class='object_link'><a href="RPicSim/Sim/ClassDefinitionMethods.html#def_var-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#def_var (method)">RPicSim::Sim::ClassDefinitionMethods#def_var</a></span>.</p>
+
+<p>In the example above, RPicSim will look in your firmware's COF file for a
+RAM symbol named "counter" and it will use that as the address for the
+variable, so you do not need to specify the address yourself.</p>
+
+<p>You can use the <code>symbol</code> option to specify what symbol in the
+symbol table marks the location of the variable. For example:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_def_var'>def_var</span> <span class='symbol'>:counter</span><span class='comma'>,</span> <span class='symbol'>:u8</span><span class='comma'>,</span> <span class='label'>symbol:</span> <span class='symbol'>:_counter</span></code></pre>
+
+<p>The example above shows how you could access a variable from a C compiler
+(which will generally be prefixed with an underscore) without having to
+type the underscore in your tests. More generally, the <code>symbol</code>
+option allows you to call a variable one thing in your firmware and call it
+a different thing in your tests.</p>
+
+<p>RPicSim will raise an exception if it cannot find the specified symbol in
+the symbol table. To troubleshoot this, you might print the list of
+variables that RPicSim found:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_program_file'>program_file</span><span class='period'>.</span><span class='id identifier rubyid_var_addresses'>var_addresses</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span></code></pre>
+
+<p>You can use the <code>address</code> option to specify an arbitrary address
+instead of using the symbol table. For example:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_def_var'>def_var</span> <span class='symbol'>:counter</span><span class='comma'>,</span> <span class='symbol'>:u8</span><span class='comma'>,</span> <span class='label'>address:</span> <span class='int'>0x63</span></code></pre>
+
+<h2 id="label-Defining+Flash+variables">Defining Flash variables</h2>
+
+<p>Flash (program space) variables work the same way as RAM variables except:</p>
+<ul><li>
+<p>They are defined with <span class='object_link'><a href="RPicSim/Sim/ClassDefinitionMethods.html#def_flash_var-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#def_flash_var (method)">def_flash_var</a></span>.</p>
+</li><li>
+<p>The set of allowed data types for the second argument of
+<code>def_flash_var</code> is different, and you can see the documentation
+by clicking the link above.</p>
+</li><li>
+<p>Flash variables cannot be accessed with <span class='object_link'><a href="RPicSim/Sim.html#var-instance_method" title="RPicSim::Sim#var (method)">RPicSim::Sim#var</a></span>, but can be
+accessed with <span class='object_link'><a href="RPicSim/Sim.html#flash_var-instance_method" title="RPicSim::Sim#flash_var (method)">RPicSim::Sim#flash_var</a></span></p>
+</li></ul>
+
+<h2 id="label-Using+a+variable">Using a variable</h2>
+
+<p>Once you have defined a variable and accessed it using one of the methods
+above, you will have an instance of a subclass of <span class='object_link'><a href="RPicSim/Variable.html" title="RPicSim::Variable (class)">RPicSim::Variable</a></span>. You
+can read and write the value of the variable using the <code>value</code>
+attribute:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_counter'>counter</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span class='int'>0x6A</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_counter'>counter</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span> <span class='int'>0x6A</span></code></pre>
+
+<h2 id="label-Addition+example">Addition example</h2>
+
+<p>This section contains a simple example showing how to apply the information
+above and use <span class='object_link'><a href="RPicSim/Variable.html" title="RPicSim::Variable (class)">RPicSim::Variable</a></span> objects.</p>
+
+<p>Here is a minimal MPASM assembly program for the PIC10F322 that does not
+actually do anything but it has a 16-bit addition subroutine:</p>
+
+<pre class="code plain"><code class="plain">#include p10F322.inc
+__config(0x3E06)
+  udata
+x res 2
+y res 2
+z res 2
+  code 0
+addition  ; 16-bit addition routine:  z = x + y
+  movf    x, W
+  addwf   y, W
+  movwf   z
+  movf    x + 1, W
+  btfsc   STATUS, C
+  addlw   1
+  addwf   y + 1, W
+  movwf   z + 1
+  return
+  end</code></pre>
+
+<p>In <code>spec/spec_helper.rb</code>, we make a simulation class that points
+to the compiled COF file and defines the variables:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rpicsim/rspec</span><span class='tstring_end'>'</span></span>
+
+<span class='kw'>class</span> <span class='const'>Addition</span> <span class='op'>&lt;</span> <span class='const'>RPicSim</span><span class='op'>::</span><span class='const'>Sim</span>
+  <span class='id identifier rubyid_device_is'>device_is</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PIC10F322</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_filename_is'>filename_is</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_dirname'>dirname</span><span class='lparen'>(</span><span class='kw'>__FILE__</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>../firmware/dist/firmware.cof</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_def_var'>def_var</span> <span class='symbol'>:x</span><span class='comma'>,</span> <span class='symbol'>:u16</span>
+  <span class='id identifier rubyid_def_var'>def_var</span> <span class='symbol'>:y</span><span class='comma'>,</span> <span class='symbol'>:u16</span>
+  <span class='id identifier rubyid_def_var'>def_var</span> <span class='symbol'>:z</span><span class='comma'>,</span> <span class='symbol'>:u16</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>In <code>spec/addition_spec.rb</code>, we write a simple unit test that
+writes to <code>x</code> and <code>y</code>, runs the <code>addition</code>
+subroutine, and checks that the correct result is stored in <code>z</code>:</p>
+
+<pre class="code ruby"><code class="ruby">require_relative 'spec_helper'
+
+describe &quot;addition routine&quot; do
+  before do
+    start_sim Addition
+  end
+
+  it &quot;can add 70 + 22&quot;
+    x.value = 70
+    y.value = 22
+    run_subroutine :addition, cycle_limit: 100
+    expect(z.value).to eq 92
+  end
+end</code></pre>
+</div></div>
+
+    <div id="footer">
+  
+    This is part of the <a href="file.Manual.html">RPicSim manual</a>.
+  
+  <br/><br/>
+
+  Generated on Wed Feb 12 16:44:38 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

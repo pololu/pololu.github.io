@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+<title>
+  File: QuickStartGuide
+  
+    &mdash; Documentation by YARD 0.8.7.3
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    
+        <a href="_index.html">Index</a> &raquo;
+        
+        <a href="file.Manual.html">RPicSim manual</a> &raquo;
+    
+    <span class="title">File: QuickStartGuide</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'>
+<h1 id="label-Quick-start+guide">Quick-start guide</h1>
+
+<p>This guide should help you get started with RPicSim. It is assumed that you
+are familiar with some PIC firmware development environment and are able to
+compile your firmware to a COF or HEX file. By the end of this guide, you
+will have a suite of automated simulator-based tests for the firmware.</p>
+
+<h2 id="label-Installing+prerequisites">Installing prerequisites</h2>
+
+<p>First, on a computer running Windows, install RPicSim and the software it
+requires:</p>
+<ol><li>
+<p>Install <a
+href="http://www.microchip.com/pagehandler/en-us/family/mplabx/">MPLAB
+X</a>. RPicSim uses the Microchip Java classes from MPLAB X.</p>
+</li><li>
+<p>Install the latest version of <a href="http://jruby.org/">JRuby</a>.</p>
+</li><li>
+<p>Run the command <code>jgem install rpicsim rspec</code>. This will install
+the latest versions of RPicSim and <a href="http://rspec.info/">RSpec</a>
+from <a href="http://rubygems.org/">RubyGems.org</a>.</p>
+</li></ol>
+
+<h2 id="label-Setting+up+your+directories">Setting up your directories</h2>
+
+<p>You should set up your PIC development environment so that it creates a COF
+or HEX file inside a directory named "dist". The file does not need to be
+at the top level of "dist"; it can be in any subdirectory inside "dist".
+This requirement is due to a limitation in the MPLAB X code.</p>
+
+<p>Next, make a directory called "spec" for the tests you are going to write.
+You can put that directory anywhere, but my preferred directory structure
+looks like this:</p>
+
+<pre class="code ruby"><code class="ruby">project_dir
+|-- firmware
+|   |-- asm and c source files
+|   `-- dist
+`-- spec
+    |-- *_spec.rb
+    `-- spec_helper.rb</code></pre>
+
+<h2 id="label-Writing+your+first+test">Writing your first test</h2>
+
+<p>The convention for RSpec is that all the specs live in the "spec" directory
+and have a name ending with <code>_spec.rb</code>. In the spec directory,
+create a file named <code>firmware_spec.rb</code>. You can rename it later.
+In <code>firmware_spec.rb</code>, write:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>spec_helper</span><span class='tstring_end'>'</span></span>
+
+<span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>the firmware</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_before'>before</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_start_sim'>start_sim</span> <span class='const'>MySim</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_specify'>specify</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>program counter changes every step for the first 100 steps</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='int'>100</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_last_pc_value'>last_pc_value</span> <span class='op'>=</span> <span class='id identifier rubyid_pc'>pc</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span>
+      <span class='id identifier rubyid_step'>step</span>
+      <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_pc'>pc</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_not'>to_not</span> <span class='id identifier rubyid_eq'>eq</span> <span class='id identifier rubyid_last_pc_value'>last_pc_value</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+
+<p>This sets up a dummy test that runs the simulation for 100 steps and
+verifies that the program counter (the address of the next instruction to
+execute) changes each time. This test would fail if the firmware went into
+a one-instruction loop in the first 100 instructions.</p>
+
+<p>To someone who is new to Ruby, RSpec, and RPicSim, understanding the code
+above might be pretty hard. More information can be found by reading
+further in this manual; this page is just meant to help you get started,
+and a long explanation of this code would slow down people who already know
+what they are doing but just need a quick reminder of how to get started.</p>
+
+<p>We have not yet told RPicSim where to find the firmware file. To do this,
+make a new file named <code>spec_helper.rb</code> in the <code>spec</code>
+directory. In <code>spec/spec_helper.rb</code>, write:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rpicsim/rspec</span><span class='tstring_end'>'</span></span>
+
+<span class='kw'>class</span> <span class='const'>MySim</span> <span class='op'>&lt;</span> <span class='const'>RPicSim</span><span class='op'>::</span><span class='const'>Sim</span>
+  <span class='id identifier rubyid_device_is'>device_is</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PIC10F322</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_filename_is'>filename_is</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_dirname'>dirname</span><span class='lparen'>(</span><span class='kw'>__FILE__</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/../firmware/dist/default/production/firmware_dir.production.cof</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>Edit the <code>device_is</code> and <code>filename_is</code> lines to match
+your actual device and the path to its COF file. The file specified here
+can either be COF or HEX, but COF is recommended because it allows
+convenient access to the variables, functions, and labels defined in the
+firmware.</p>
+
+<p>Eventually you should rename the <code>MySim</code> class to something more
+specific. I like to name the simulation class by concatenating the project
+name with <code>Sim</code>.</p>
+
+<p>To run the spec, go to your shell and run the command <code>rspec</code>
+from the directory that contains <code>spec</code>. In the example
+directory structure above, you would need to be inside the
+<code>project_dir</code> directory when you run <code>rspec</code>. If all
+goes well, the output from <code>rspec</code> should look like:</p>
+
+<pre class="code ruby"><code class="ruby">.
+
+Finished in 0.006 seconds
+1 example, 0 failures</code></pre>
+
+<p>RSpec is telling us that it found our one example that tests the program
+counter for the first 100 steps, and that it passed. You now have have an
+automated simulator-based test for your firmware and you are ready to add
+more.</p>
+
+<p>More information about how to use RPicSim can be found in the other
+sections of <a href="file.Manual.html" title="this manual">this manual</a>.</p>
+</div></div>
+
+    <div id="footer">
+  
+    This is part of the <a href="file.Manual.html">RPicSim manual</a>.
+  
+  <br/><br/>
+
+  Generated on Wed Feb 12 16:44:37 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

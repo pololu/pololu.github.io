@@ -1,0 +1,808 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: RPicSim::MemoryWatcher
+  
+    &mdash; Documentation by YARD 0.8.7.3
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (M)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../RPicSim.html" title="RPicSim (module)">RPicSim</a></span></span>
+     &raquo; 
+    <span class="title">MemoryWatcher</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: RPicSim::MemoryWatcher
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">RPicSim::MemoryWatcher</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/rpicsim/memory_watcher.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>This class can attach to an MPLAB X memory class and watch for changes in
+it, and report those changes as a hash associating variable names to new
+values.  This is very useful for writing tests that assert that not only
+were the desired variables written to, but also that no other variables
+were written to.</p>
+
+<p>This class does not analyze the current instruction being executed; it uses
+the Attach method of the MPLAB X memory classes.  This means that it
+doesn't work properly in some versions of MPLAB X.  See
+<a href="../file.Flaws.html" title="Flaws">Flaws</a>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#var_names_ignored-instance_method" title="#var_names_ignored (instance method)">- (Object) <strong>var_names_ignored</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute var_names_ignored.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#var_names_ignored_on_first_step-instance_method" title="#var_names_ignored_on_first_step (instance method)">- (Object) <strong>var_names_ignored_on_first_step</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute var_names_ignored_on_first_step.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#clear-instance_method" title="#clear (instance method)">- (Object) <strong>clear</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Clears the record of what variables have been written to.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#default_var_names_ignored-instance_method" title="#default_var_names_ignored (instance method)">- (Object) <strong>default_var_names_ignored</strong>(device_name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#default_var_names_ignored_on_first_step-instance_method" title="#default_var_names_ignored_on_first_step (instance method)">- (Object) <strong>default_var_names_ignored_on_first_step</strong>(device_name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#handle_change-instance_method" title="#handle_change (instance method)">- (Object) <strong>handle_change</strong>(address_ranges) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (MemoryWatcher) <strong>initialize</strong>(sim, memory, vars) </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a new instance.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#writes-instance_method" title="#writes (instance method)">- (Hash) <strong>writes</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Generate a nice report of what variables have been written to since the
+last time <span class='object_link'><a href="#clear-instance_method" title="RPicSim::MemoryWatcher#clear (method)">#clear</a></span> was called.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="RPicSim::MemoryWatcher (class)">MemoryWatcher</a></span></tt>) <strong>initialize</strong>(sim, memory, vars) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a new instance.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>sim</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Sim.html" title="RPicSim::Sim (class)">Sim</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>memory</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Mplab/MplabMemory.html" title="RPicSim::Mplab::MplabMemory (class)">Mplab::MplabMemory</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The memory to watch</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>vars</span>
+      
+      
+        <span class='type'>(<tt>Array(<span class='object_link'><a href="Variable.html" title="RPicSim::Variable (class)">Variable</a></span>)</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory_watcher.rb', line 20</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_sim'>sim</span><span class='comma'>,</span> <span class='id identifier rubyid_memory'>memory</span><span class='comma'>,</span> <span class='id identifier rubyid_vars'>vars</span><span class='rparen'>)</span>
+  <span class='comment'># Populate the @vars_by_address instance hash
+</span>  <span class='ivar'>@vars_by_address</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_vars'>vars</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_var'>var</span><span class='op'>|</span>
+    <span class='id identifier rubyid_var'>var</span><span class='period'>.</span><span class='id identifier rubyid_addresses'>addresses</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_address'>address</span><span class='op'>|</span>
+      <span class='kw'>if</span> <span class='ivar'>@vars_by_address</span><span class='lbracket'>[</span><span class='id identifier rubyid_address'>address</span><span class='rbracket'>]</span>
+        <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Variable %s overlaps with %s at 0x%x</span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span>
+          <span class='lbracket'>[</span><span class='id identifier rubyid_var'>var</span><span class='comma'>,</span> <span class='ivar'>@vars_by_address</span><span class='lbracket'>[</span><span class='id identifier rubyid_address'>address</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_address'>address</span><span class='rbracket'>]</span>
+      <span class='kw'>end</span>
+      <span class='ivar'>@vars_by_address</span><span class='lbracket'>[</span><span class='id identifier rubyid_address'>address</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_var'>var</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='ivar'>@sim</span> <span class='op'>=</span> <span class='id identifier rubyid_sim'>sim</span>
+  <span class='ivar'>@memory</span> <span class='op'>=</span> <span class='id identifier rubyid_memory'>memory</span>
+  <span class='ivar'>@memory</span><span class='period'>.</span><span class='id identifier rubyid_on_change'>on_change</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_ar'>ar</span><span class='op'>|</span> <span class='id identifier rubyid_handle_change'>handle_change</span><span class='lparen'>(</span><span class='id identifier rubyid_ar'>ar</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  
+  <span class='ivar'>@vars_written</span> <span class='op'>=</span> <span class='const'>Set</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='ivar'>@var_names_ignored</span> <span class='op'>=</span> <span class='id identifier rubyid_default_var_names_ignored'>default_var_names_ignored</span><span class='lparen'>(</span><span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_device'>device</span><span class='rparen'>)</span>
+  <span class='ivar'>@var_names_ignored_on_first_step</span> <span class='op'>=</span> <span class='id identifier rubyid_default_var_names_ignored_on_first_step'>default_var_names_ignored_on_first_step</span><span class='lparen'>(</span><span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_device'>device</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="var_names_ignored=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="var_names_ignored-instance_method">
+  
+    - (<tt>Object</tt>) <strong>var_names_ignored</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute var_names_ignored</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+13
+14
+15</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory_watcher.rb', line 13</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_var_names_ignored'>var_names_ignored</span>
+  <span class='ivar'>@var_names_ignored</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="var_names_ignored_on_first_step=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="var_names_ignored_on_first_step-instance_method">
+  
+    - (<tt>Object</tt>) <strong>var_names_ignored_on_first_step</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute var_names_ignored_on_first_step</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14
+15
+16</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory_watcher.rb', line 14</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_var_names_ignored_on_first_step'>var_names_ignored_on_first_step</span>
+  <span class='ivar'>@var_names_ignored_on_first_step</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="clear-instance_method">
+  
+    - (<tt>Object</tt>) <strong>clear</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Clears the record of what variables have been written to.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+61
+62
+63</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory_watcher.rb', line 61</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_clear'>clear</span>
+  <span class='ivar'>@vars_written</span><span class='period'>.</span><span class='id identifier rubyid_clear'>clear</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="default_var_names_ignored-instance_method">
+  
+    - (<tt>Object</tt>) <strong>default_var_names_ignored</strong>(device_name) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+65
+66
+67
+68
+69
+70</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory_watcher.rb', line 65</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_default_var_names_ignored'>default_var_names_ignored</span><span class='lparen'>(</span><span class='id identifier rubyid_device_name'>device_name</span><span class='rparen'>)</span>
+  <span class='comment'># The datasheet says the PCLATH is not affected by pushing or popping the stack, but
+</span>  <span class='comment'># we still get spurious events for it when a return instruction is executed.
+</span>
+  <span class='lbracket'>[</span><span class='symbol'>:PCL</span><span class='comma'>,</span> <span class='symbol'>:PCLATH</span><span class='comma'>,</span> <span class='symbol'>:STATUS</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="default_var_names_ignored_on_first_step-instance_method">
+  
+    - (<tt>Object</tt>) <strong>default_var_names_ignored_on_first_step</strong>(device_name) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+72
+73
+74
+75
+76</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory_watcher.rb', line 72</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_default_var_names_ignored_on_first_step'>default_var_names_ignored_on_first_step</span><span class='lparen'>(</span><span class='id identifier rubyid_device_name'>device_name</span><span class='rparen'>)</span>
+  <span class='comment'>#TODO: get rid of this stuff? people should just have a goto or something harmless at
+</span>  <span class='comment'># the beginning of their program and take a single step like we do.
+</span>  <span class='lbracket'>[</span><span class='symbol'>:PORTA</span><span class='comma'>,</span> <span class='symbol'>:LATA</span><span class='comma'>,</span> <span class='symbol'>:OSCCON</span><span class='comma'>,</span> <span class='symbol'>:PMCON2</span><span class='comma'>,</span> <span class='symbol'>:INTCON</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="handle_change-instance_method">
+  
+    - (<tt>Object</tt>) <strong>handle_change</strong>(address_ranges) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory_watcher.rb', line 78</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_handle_change'>handle_change</span><span class='lparen'>(</span><span class='id identifier rubyid_address_ranges'>address_ranges</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_addresses'>addresses</span> <span class='op'>=</span> <span class='id identifier rubyid_address_ranges'>address_ranges</span><span class='period'>.</span><span class='id identifier rubyid_flat_map'>flat_map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:to_a</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_vars'>vars</span> <span class='op'>=</span> <span class='id identifier rubyid_addresses'>addresses</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='op'>|</span> <span class='ivar'>@vars_by_address</span><span class='lbracket'>[</span><span class='id identifier rubyid_a'>a</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='id identifier rubyid_a'>a</span> <span class='rbrace'>}</span>
+
+  <span class='id identifier rubyid_remove_vars'>remove_vars</span><span class='lparen'>(</span><span class='id identifier rubyid_vars'>vars</span><span class='comma'>,</span> <span class='ivar'>@var_names_ignored</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_remove_vars'>remove_vars</span><span class='lparen'>(</span><span class='id identifier rubyid_vars'>vars</span><span class='comma'>,</span> <span class='ivar'>@var_names_ignored_on_first_step</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='ivar'>@sim</span><span class='period'>.</span><span class='id identifier rubyid_cycle_count'>cycle_count</span> <span class='op'>&lt;=</span> <span class='int'>1</span>
+  
+  <span class='comment'># The line below works because @vars_written is a Set, not a Hash.
+</span>  <span class='ivar'>@vars_written</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span> <span class='id identifier rubyid_vars'>vars</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="writes-instance_method">
+  
+    - (<tt>Hash</tt>) <strong>writes</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Generate a nice report of what variables have been written to since the
+last time <span class='object_link'><a href="#clear-instance_method" title="RPicSim::MemoryWatcher#clear (method)">#clear</a></span> was called.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A hash where the keys are names (as symbols) of variables that were written
+to, and the value is the variable’s current value. If an address was
+written to that does not correspond to a variable, the key for that will
+just be address as an integer.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory_watcher.rb', line 48</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_writes'>writes</span>
+  <span class='id identifier rubyid_hash'>hash</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='ivar'>@vars_written</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_var'>var</span><span class='op'>|</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_var'>var</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span> <span class='const'>Integer</span>
+      <span class='id identifier rubyid_hash'>hash</span><span class='lbracket'>[</span><span class='id identifier rubyid_var'>var</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='ivar'>@memory</span><span class='period'>.</span><span class='id identifier rubyid_read_word'>read_word</span><span class='lparen'>(</span><span class='id identifier rubyid_var'>var</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_hash'>hash</span><span class='lbracket'>[</span><span class='id identifier rubyid_var'>var</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_var'>var</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_hash'>hash</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  
+  <br/><br/>
+
+  Generated on Wed Feb 12 16:44:42 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+<title>
+  File: IntroductionToRuby
+  
+    &mdash; Documentation by YARD 0.8.7.3
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    
+        <a href="_index.html">Index</a> &raquo;
+        
+        <a href="file.Manual.html">RPicSim manual</a> &raquo;
+    
+    <span class="title">File: IntroductionToRuby</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'>
+<h1 id="label-Introduction+to+Ruby">Introduction to Ruby</h1>
+
+<p>RPicSim, and the tests that it enables you to write, are written in the
+<a href="http://www.ruby-lang.org" target="_parent" title="Ruby programming language">Ruby programming language</a>. From ruby-lang.org:</p>
+
+<blockquote>
+<p>Ruby is a dynamic, open source programming language with a focus on
+simplicity and productivity. It has an elegant syntax that is natural to
+read and easy to write.</p>
+</blockquote>
+
+<p>Instead of using the standard Ruby interpreter (known as MRI), RPicSim uses
+<a href="http://jruby.org" target="_parent" title="JRuby">JRuby</a> in order to gain access to the Java classes that
+come with MPLAB X.</p>
+
+<p>This manual comes with plenty of concrete, usable examples that you can
+start with even if you do not know Ruby. You should be able to accomplish a
+lot with RPicSim by just copying the examples in this manual, without any
+specific study of the Ruby language. However, knowing Ruby will allow you
+to condense repetitive parts of your tests, enable you to express complex
+concepts, and make it much easier to troubleshoot problems.</p>
+
+<p>If you are new to Ruby, I recommend spending an afternoon perusing the <a
+href="https://www.ruby-lang.org/en/documentation/">Documentation page on
+ruby-lang.org</a>. If you want more, there are many books you can buy that
+teach Ruby. If you have any particular questions, try searching Google and
+then try asking on <a
+href="http://www.stackoverflow.com">StackOverflow</a>. Your question will
+probably be answered within hours, but remember to provide all the
+necessary information in your first post (see <a
+href="http://www.sscce.org">SSCCE.org</a>).</p>
+
+<h2 id="label-Symbols">Symbols</h2>
+
+<p>Whenever you see a colon followed by a word in Ruby, such as
+<code>:all</code>, that is called a
+<a href="http://www.ruby-doc.org/core/Symbol.html" target="_parent" title="Symbol">Symbol</a>. Symbols are a part of
+the Ruby language. They are like strings, but the main difference is that
+they are not mutable; they cannot be changed after they have been made.
+RPicSim almost always uses symbols instead of strings to represent names of
+things.</p>
+
+<h2 id="label-Method+calls">Method calls</h2>
+
+<p>Ruby does not require parentheses around method arguments. The following
+code retrieves the <code>sim</code> object and calls its
+<code>run_cycles</code> method with an argument of 250:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_run_cycles'>run_cycles</span> <span class='int'>250</span></code></pre>
+
+<h2 id="label-Hashes">Hashes</h2>
+
+<p>Ruby has a built-in hash table implementation called
+<a href="http://www.ruby-doc.org/core/Hash.html" target="_parent" title="Hash">Hash</a>. A hash can hold any type of
+Ruby object as keys and values.</p>
+
+<p>Here is some example code that makes a hash that associates the symbol
+<code>:cycle_limit</code> to the number 500:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_hash'>hash</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='symbol'>:cycle_limit</span> <span class='op'>=&gt;</span> <span class='int'>500</span> <span class='rbrace'>}</span>
+</code></pre>
+
+<p>Since the key is a symbol, we can simplify this using special Ruby syntax:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_hash'>hash</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='label'>cycle_limit:</span> <span class='int'>500</span> <span class='rbrace'>}</span></code></pre>
+
+<p>Multiple pairs can be separated by commas:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_hash'>hash</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='label'>temperature:</span> <span class='int'>30</span><span class='comma'>,</span> <span class='label'>humidity:</span> <span class='int'>10</span> <span class='rbrace'>}</span></code></pre>
+
+<p>Values can be read or written after the hash is created:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_hash'>hash</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+<span class='id identifier rubyid_hash'>hash</span><span class='lbracket'>[</span><span class='symbol'>:cycle_limit</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='int'>500</span>
+<span class='id identifier rubyid_hash'>hash</span><span class='lbracket'>[</span><span class='symbol'>:cycle_limit</span><span class='rbracket'>]</span>        <span class='comment'># returns 500</span></code></pre>
+
+<p>Ruby has a special syntax for passing a hash as the last argument of a
+method call; you do not need to write the brackets:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_run_to'>run_to</span> <span class='symbol'>:loopDone</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>44</span></code></pre>
+
+<h2 id="label-Blocks">Blocks</h2>
+
+<p>Whenever you see code between the Ruby keywords <code>do</code> and
+<code>end</code>, or between <code>{</code> and <code>}</code>, that code
+is inside a Ruby <em>block</em>. A block is a chunk of executable code that
+can be easily created, passed around, and called like a method. Any given
+block could be called once, multiple times, or never depending on the
+situation.</p>
+
+<p>For example, here is some code that passes a black to a method called
+<code>foo_method</code>. The block prints "hello world" to the standard
+output.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_foo_method'>foo_method</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>hello world</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></code></pre>
+
+<p>Depending on how <code>foo_method</code> behaves, this code could output
+"hello world" any number of times or not at all. Also,
+<code>foo_method</code> might store the block in an object and call it at
+some later point in the program.</p>
+</div></div>
+
+    <div id="footer">
+  
+    This is part of the <a href="file.Manual.html">RPicSim manual</a>.
+  
+  <br/><br/>
+
+  Generated on Wed Feb 12 16:44:37 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

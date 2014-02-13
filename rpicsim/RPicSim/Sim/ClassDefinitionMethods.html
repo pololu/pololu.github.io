@@ -1,0 +1,826 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: RPicSim::Sim::ClassDefinitionMethods
+  
+    &mdash; Documentation by YARD 0.8.7.3
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../';
+  framesUrl = "../../frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (C)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../RPicSim.html" title="RPicSim (module)">RPicSim</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Sim.html" title="RPicSim::Sim (class)">Sim</a></span></span>
+     &raquo; 
+    <span class="title">ClassDefinitionMethods</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: RPicSim::Sim::ClassDefinitionMethods
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r1">Included in:</dt>
+    <dd class="r1"><span class='object_link'><a href="../Sim.html" title="RPicSim::Sim (class)">RPicSim::Sim</a></span></dd>
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/rpicsim/sim.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>These methods should be called while defining a subclass of <span class='object_link'><a href="../Sim.html" title="RPicSim::Sim (class)">RPicSim::Sim</a></span>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#def_flash_var-instance_method" title="#def_flash_var (instance method)">- (Object) <strong>def_flash_var</strong>(name, type, opts = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Define a flash (program memory or user ID) variable.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#def_pin-instance_method" title="#def_pin (instance method)">- (Object) <strong>def_pin</strong>(our_name, datasheet_name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Define a pin alias.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#def_var-instance_method" title="#def_var (instance method)">- (Object) <strong>def_var</strong>(name, type, opts = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Define a RAM variable.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#device_is-instance_method" title="#device_is (instance method)">- (Object) <strong>device_is</strong>(device) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Specifies what exact device the firmware runs on.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#filename_is-instance_method" title="#filename_is (instance method)">- (Object) <strong>filename_is</strong>(filename) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Specifies the path to the firmware file.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="def_flash_var-instance_method">
+  
+    - (<tt>Object</tt>) <strong>def_flash_var</strong>(name, type, opts = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Define a flash (program memory or user ID) variable.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Specifies what you would like to call the variable. A method with this name
+will be added to your class’s <code>Shortcuts</code> module so it is
+available as a method on instances of your class and also in your RSpec
+tests. The method will return a <span class='object_link'><a href="../Variable.html" title="RPicSim::Variable (class)">Variable</a></span> object that you can use to read
+or write the value of the actual variable in the simulation.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>type</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Specifies how to interpret the data in the variable and its size. The only
+supported option current is <code>:word</code>, which represents a full
+word of flash.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Specifies additional options.  The options are:</p>
+<ul><li>
+<p><code>:symbol</code>: By default, we look for a symbol with the same name
+as the variable and use that as the location of the variable.  This option
+lets you specify a different symbol to look for in the firmware.</p>
+</li><li>
+<p><code>:address</code>: An integer to use as the address of the variable.</p>
+</li></ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 137</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_def_flash_var'>def_flash_var</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_allowed_keys'>allowed_keys</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='symbol'>:symbol</span><span class='comma'>,</span> <span class='symbol'>:address</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_invalid_keys'>invalid_keys</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span> <span class='op'>-</span> <span class='id identifier rubyid_allowed_keys'>allowed_keys</span>
+  <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_invalid_keys'>invalid_keys</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unrecognized options: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_invalid_keys'>invalid_keys</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>, </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:address</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_address'>address</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:address</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_symbol'>symbol</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:symbol</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_symbol'>symbol</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>@</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Limitations in Microchip's code prevent us from accessing </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>variables with '@' in the name like '</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_symbol'>symbol</span><span class='rbrace'>}</span><span class='tstring_content'>'</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+    <span class='id identifier rubyid_label'>label</span> <span class='op'>=</span> <span class='id identifier rubyid_labels'>labels</span><span class='lbracket'>[</span><span class='id identifier rubyid_symbol'>symbol</span><span class='rbracket'>]</span> <span class='kw'>or</span> <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Could not find label named '</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_symbol'>symbol</span><span class='rbrace'>}</span><span class='tstring_content'>'.</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_address'>address</span> <span class='op'>=</span> <span class='id identifier rubyid_label'>label</span><span class='period'>.</span><span class='id identifier rubyid_address'>address</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_klass'>klass</span> <span class='op'>=</span> <span class='kw'>case</span> <span class='id identifier rubyid_type'>type</span>
+            <span class='kw'>when</span> <span class='const'>Class</span> <span class='kw'>then</span> <span class='id identifier rubyid_type'>type</span>
+            <span class='kw'>when</span> <span class='symbol'>:word</span> <span class='kw'>then</span> <span class='const'>VariableWord</span>
+            <span class='kw'>else</span> <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unknown type '</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_type'>type</span><span class='rbrace'>}</span><span class='tstring_content'>'.</span><span class='tstring_end'>&quot;</span></span>
+          <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_variable'>variable</span> <span class='op'>=</span> <span class='id identifier rubyid_klass'>klass</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_address'>address</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_variable'>variable</span><span class='period'>.</span><span class='id identifier rubyid_max_value'>max_value</span> <span class='op'>=</span> <span class='ivar'>@code_word_max_value</span>
+  <span class='ivar'>@flash_vars</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_variable'>variable</span>
+
+  <span class='kw'>self</span><span class='op'>::</span><span class='const'>Shortcuts</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='symbol'>:define_method</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_flash_var'>flash_var</span> <span class='id identifier rubyid_name'>name</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="def_pin-instance_method">
+  
+    - (<tt>Object</tt>) <strong>def_pin</strong>(our_name, datasheet_name) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Define a pin alias.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>our_name</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Specifies what you would like to call the pin. A method with this name will
+be added to your class’s <code>Shortcuts</code> module so it is available
+as a method on instances of your class and also in your RSpec tests.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>datasheet_name</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A symbol like :RB3 that specifies what pin it is.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+54
+55
+56
+57
+58
+59</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 54</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_def_pin'>def_pin</span><span class='lparen'>(</span><span class='id identifier rubyid_our_name'>our_name</span><span class='comma'>,</span> <span class='id identifier rubyid_datasheet_name'>datasheet_name</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_our_name'>our_name</span> <span class='op'>=</span> <span class='id identifier rubyid_our_name'>our_name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
+  <span class='ivar'>@pin_aliases</span><span class='lbracket'>[</span><span class='id identifier rubyid_our_name'>our_name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_datasheet_name'>datasheet_name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
+
+  <span class='kw'>self</span><span class='op'>::</span><span class='const'>Shortcuts</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='symbol'>:define_method</span><span class='comma'>,</span> <span class='id identifier rubyid_our_name'>our_name</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_pin'>pin</span> <span class='id identifier rubyid_our_name'>our_name</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="def_var-instance_method">
+  
+    - (<tt>Object</tt>) <strong>def_var</strong>(name, type, opts = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Define a RAM variable.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Specifies what you would like to call the variable. A method with this name
+will be added to your class’s <code>Shortcuts</code> module so it is
+available as a method on instances of your class and also in your RSpec
+tests. The method will return a <span class='object_link'><a href="../Variable.html" title="RPicSim::Variable (class)">Variable</a></span> object that you can use to read
+or write the value of the actual variable in the simulation.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>type</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Specifies how to interpret the data in the variable and its size. For
+integers, it should be one of <code>:u8</code>, <code>:s8</code>,
+<code>:u16</code>, <code>:s16</code>, <code>:u24</code>, <code>:s24</code>,
+<code>:u32</code>, or <code>:s32</code>. The <code>s</code> stands for
+signed and the <code>u</code> stands for unsigned, and the number stands
+for the number of bits.  All multi-byte integers are considered to be
+little Endian.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Specifies additional options.  The options are:</p>
+<ul><li>
+<p><code>:symbol</code>: By default, we look for a symbol with the same name
+as the variable and use that as the location of the variable.  This option
+lets you specify a different symbol to look for in the firmware, so you
+could call the variable one thing in your firmware and call it a different
+thing in your tests. This option is ignored if +:address is specified.</p>
+</li><li>
+<p><code>:address</code>: An integer to use as the address of the variable.</p>
+</li></ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 78</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_def_var'>def_var</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_allowed_keys'>allowed_keys</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='symbol'>:symbol</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_invalid_keys'>invalid_keys</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span> <span class='op'>-</span> <span class='id identifier rubyid_allowed_keys'>allowed_keys</span>
+  <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_invalid_keys'>invalid_keys</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unrecognized options: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_invalid_keys'>invalid_keys</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>, </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:address</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_address'>address</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:address</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_symbol'>symbol</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:symbol</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_symbol'>symbol</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>@</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Limitations in Microchip's code prevent us from accessing </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>variables with '@' in the name like '</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_symbol'>symbol</span><span class='rbrace'>}</span><span class='tstring_content'>'</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+    <span class='id identifier rubyid_address'>address</span> <span class='op'>=</span> <span class='ivar'>@var_address</span><span class='lbracket'>[</span><span class='id identifier rubyid_symbol'>symbol</span><span class='rbracket'>]</span> <span class='kw'>or</span> <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Cannot find variable named '</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_symbol'>symbol</span><span class='rbrace'>}</span><span class='tstring_content'>'.</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_klass'>klass</span> <span class='op'>=</span> <span class='kw'>case</span> <span class='id identifier rubyid_type'>type</span>
+            <span class='kw'>when</span> <span class='const'>Class</span> <span class='kw'>then</span> <span class='id identifier rubyid_type'>type</span>
+            <span class='kw'>when</span> <span class='symbol'>:u8</span> <span class='kw'>then</span> <span class='const'>VariableU8</span>
+            <span class='kw'>when</span> <span class='symbol'>:s8</span> <span class='kw'>then</span> <span class='const'>VariableS8</span>
+            <span class='kw'>when</span> <span class='symbol'>:u16</span> <span class='kw'>then</span> <span class='const'>VariableU16</span>
+            <span class='kw'>when</span> <span class='symbol'>:s16</span> <span class='kw'>then</span> <span class='const'>VariableS16</span>
+            <span class='kw'>when</span> <span class='symbol'>:u24</span> <span class='kw'>then</span> <span class='const'>VariableU24</span>
+            <span class='kw'>when</span> <span class='symbol'>:s24</span> <span class='kw'>then</span> <span class='const'>VariableS24</span>
+            <span class='kw'>when</span> <span class='symbol'>:u32</span> <span class='kw'>then</span> <span class='const'>VariableU32</span>
+            <span class='kw'>when</span> <span class='symbol'>:s32</span> <span class='kw'>then</span> <span class='const'>VariableS32</span>
+            <span class='kw'>else</span> <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unknown type '</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_type'>type</span><span class='rbrace'>}</span><span class='tstring_content'>'.</span><span class='tstring_end'>&quot;</span></span>
+          <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_variable'>variable</span> <span class='op'>=</span> <span class='id identifier rubyid_klass'>klass</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_address'>address</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_variable'>variable</span><span class='period'>.</span><span class='id identifier rubyid_addresses'>addresses</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_address'>address</span><span class='op'>|</span>
+    <span class='kw'>if</span> <span class='ivar'>@vars_by_address</span><span class='lbracket'>[</span><span class='id identifier rubyid_address'>address</span><span class='rbracket'>]</span>
+      <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Variable %s overlaps with %s at 0x%x</span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span>
+        <span class='lbracket'>[</span><span class='id identifier rubyid_variable'>variable</span><span class='comma'>,</span> <span class='ivar'>@vars_by_address</span><span class='lbracket'>[</span><span class='id identifier rubyid_address'>address</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_address'>address</span><span class='rbracket'>]</span>
+    <span class='kw'>end</span>
+    <span class='ivar'>@vars_by_address</span><span class='lbracket'>[</span><span class='id identifier rubyid_address'>address</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_variable'>variable</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@vars</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_variable'>variable</span>
+
+  <span class='kw'>self</span><span class='op'>::</span><span class='const'>Shortcuts</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='symbol'>:define_method</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_var'>var</span> <span class='id identifier rubyid_name'>name</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="device_is-instance_method">
+  
+    - (<tt>Object</tt>) <strong>device_is</strong>(device) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Specifies what exact device the firmware runs on.  In theory we could
+extract this from the COF file instead of requiring it to be specified in
+subclasses of <span class='object_link'><a href="../Sim.html" title="RPicSim::Sim (class)">RPicSim::Sim</a></span>, but MPLAB X classes do not seem to make that easy.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>device</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The device name, for example “PIC10F322”.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+32
+33
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 32</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_device_is'>device_is</span><span class='lparen'>(</span><span class='id identifier rubyid_device'>device</span><span class='rparen'>)</span>
+  <span class='ivar'>@device</span> <span class='op'>=</span> <span class='id identifier rubyid_device'>device</span>
+  <span class='ivar'>@assembly</span> <span class='op'>=</span> <span class='const'>Mplab</span><span class='op'>::</span><span class='const'>MplabAssembly</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_device'>device</span><span class='rparen'>)</span>
+  <span class='ivar'>@code_word_max_value</span> <span class='op'>=</span> <span class='ivar'>@assembly</span><span class='period'>.</span><span class='id identifier rubyid_device_info'>device_info</span><span class='period'>.</span><span class='id identifier rubyid_code_word_max_value'>code_word_max_value</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="filename_is-instance_method">
+  
+    - (<tt>Object</tt>) <strong>filename_is</strong>(filename) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Specifies the path to the firmware file.  The file can be a HEX or COF
+file, but COF is recommended so that you can access label addresses and
+other debugging information. You must call <span class='object_link'><a href="#device_is-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#device_is (method)">#device_is</a></span> before calling
+this.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+41
+42
+43
+44
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 41</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_filename_is'>filename_is</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Must specify device before filename (e.g. 'device_is \&quot;PIC10F322\&quot;')</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='ivar'>@device</span>
+  <span class='ivar'>@filename</span> <span class='op'>=</span> <span class='id identifier rubyid_filename'>filename</span>
+  <span class='id identifier rubyid_initialize_symbols'>initialize_symbols</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  
+  <br/><br/>
+
+  Generated on Wed Feb 12 16:44:40 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

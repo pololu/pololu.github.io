@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+<title>
+  File: Debugging
+  
+    &mdash; Documentation by YARD 0.8.7.3
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    
+        <a href="_index.html">Index</a> &raquo;
+        
+        <a href="file.Manual.html">RPicSim manual</a> &raquo;
+    
+    <span class="title">File: Debugging</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'>
+<h1 id="label-Debugging">Debugging</h1>
+
+<p>RPicSim makes it easier to fix firmware bugs that you have found. With
+RPicSim, you have access to the entire state of the simulation at every
+step. You can see exactly how your code is behaving without having to hook
+up an oscilloscope or add debugging signals.</p>
+
+<p>Suppose you are writing an RSpec-based integration test that fails with the
+following error message:</p>
+
+<pre class="code plain"><code class="plain">................................................F.....
+
+Failures:
+
+  1) FooWidget when exposed to 1.5 ms pulses behaves correctly
+     Failure/Error: run_cycles 1500*4
+       expected INTCON to satisfy block
+     # ./lib/rpicsim/rspec/persistent_expectations.rb:29:in `check_expectations'
+     # ./lib/rpicsim/rspec/persistent_expectations.rb:27:in `check_expectations'
+     # ./lib/rpicsim/rspec/helpers.rb:25:in `start_sim'
+     # ./lib/rpicsim/sim.rb:574:in `step'
+     # ./lib/rpicsim/sim.rb:716:in `run_to_cycle_count'
+     # ./lib/rpicsim/sim.rb:708:in `run_cycles'
+     # ./spec/foo_widget_spec.rb:10:in `(root)'
+
+     Simulation cycle count: 78963
+
+     Simulation stack trace:
+     0x01A0 = startMotor
+     0x0044 = motorService+0x14
+     0x0B12 = mainLoop+0x2
+     0x008C = start2
+
+Finished in 4.55 seconds
+44 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/example/nice_error_spec.rb:8 # FooWidget when exposed to 1.5ms pulses behaves correctly</code></pre>
+
+<p>In this example, we had a <a href="file.PersistentExpectations.html" title="persistent expectation">persistent expectation</a> asserting something about the INTCON SFR and and at some point
+in a lengthy integration test our expectation failed.</p>
+
+<p>The stack trace gives us a big clue about what code might be causing the
+problem. If we want to inspect the situation more carefully, we could use
+<code>run_to_cycle_count 78950</code> to run the simulation to a point just
+a few cycles before the error happened and then insert code at the point to
+do something special. Two different options are described below.</p>
+
+<h2 id="label-Logging">Logging</h2>
+
+<p>One option for debugging is to print some debugging information to the
+console after each step. For example, we might insert this code into the
+appropriate point in the RSpec example that is failing:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_run_to_cycle_count'>run_to_cycle_count</span> <span class='int'>78950</span>
+<span class='int'>100</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_step'>step</span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_pc_description'>pc_description</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  wreg=</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_wreg'>wreg</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+<span class='kw'>end</span></code></pre>
+
+<p>This code runs until the cycle count of the simulation is 78950, and then
+it starts printing debugging information for the next 100 steps. This
+example prints a friendly description of the program counter's value and
+the current value of WREG, but it could be changed to print other things.</p>
+
+<h2 id="label-Interactive+debugging">Interactive debugging</h2>
+
+<p>You can also start an interactive session that allows you to manipulate the
+simulation and inspect its state. This section shows how to use the
+ruby-debug gem, but there are other tools that could probably do the same
+thing (Ripl, PRY, and IRB).</p>
+
+<p>First, install ruby-debug by running:</p>
+
+<pre class="code plain"><code class="plain">jgem install ruby-debug</code></pre>
+
+<p>In the test that is failing, choose the point where you want to start the
+interactive session and insert this code:</p>
+
+<pre class="code plain"><code class="plain">require 'ruby-debug'; debugger
+</code></pre>
+
+<p>For best results when using the debugger, you need to provide the
+<code>--debug</code> option to JRuby. From bash, you can do this by running
+a command like</p>
+
+<pre class="code plain"><code class="plain">RUBYOPT=--debug rspec</code></pre>
+
+<p>If you are using a Windows Command Prompt, you need to set the environment
+with the <code>set</code> command before running RSpec:</p>
+
+<pre class="code plain"><code class="plain">set RUBYOPT=--debug
+rspec</code></pre>
+
+<p>This debugger provides many commands, but the only one you really need is
+the <code>p</code> command because it can run arbitrary code. To advance
+the simulation by one step and print a friendly description of where the
+program counter is pointing, you could run <code>p step; p
+pc_description</code> as shown below:</p>
+
+<pre class="code plain"><code class="plain">(rdb:1) p step; p pc_description
+nil
+&quot;0x0044 = motorService+0x0E&quot;</code></pre>
+</div></div>
+
+    <div id="footer">
+  
+    This is part of the <a href="file.Manual.html">RPicSim manual</a>.
+  
+  <br/><br/>
+
+  Generated on Wed Feb 12 16:44:39 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

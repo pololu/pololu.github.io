@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+<title>
+  File: Contributing
+  
+    &mdash; Documentation by YARD 0.8.7.3
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    
+        <a href="_index.html">Index</a> &raquo;
+        
+        <a href="file.Manual.html">RPicSim manual</a> &raquo;
+    
+    <span class="title">File: Contributing</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'>
+<h1 id="label-Contributing">Contributing</h1>
+
+<p>RPicSim is hosted on the <a
+href="https://github.com/pololu/rpicsim">pololu/rpicsim github page</a>.</p>
+
+<p>To report a bug, go to a github page and create a new issue.</p>
+
+<p>If you want to contribute code, these are the general steps:</p>
+<ol><li>
+<p>Clone our git repository to your computer.</p>
+</li><li>
+<p>Install JRuby and MPLAB X if you have not done so already.</p>
+</li><li>
+<p>Run these commands to get the development dependencies:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_jgem'>jgem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_bundler'>bundler</span>
+<span class='id identifier rubyid_bundle'>bundle</span></code></pre>
+</li><li>
+<p>Run the specs with the command <code>bundle exec rake</code> to make sure
+they are working.</p>
+</li><li>
+<p>Add a new spec somewhere in the <code>spec</code> directory for the bug or
+feature you want to fix.</p>
+</li><li>
+<p>Run the specs again to make sure your spec is failing.</p>
+</li><li>
+<p>Modify the code.</p>
+</li><li>
+<p>Run the specs again to make sure they are all passing.</p>
+</li><li>
+<p>Fork our repository on github and push your changes to a branch of your
+repository. It is good practice make a branch with a special name and push
+to that instead of master.</p>
+</li><li>
+<p>On github, make a pull request from your branch to our repository.</p>
+</li></ol>
+
+<p>You can generate documentation from the source code by running:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_bundle'>bundle</span> <span class='id identifier rubyid_exec'>exec</span> <span class='id identifier rubyid_rake'>rake</span> <span class='id identifier rubyid_doc'>doc</span></code></pre>
+
+<p>If you have multiple versions of Ruby installed it is good to keep just one
+version of Ruby on your PATH at any given time so you do not accidentally
+run the wrong version.</p>
+</div></div>
+
+    <div id="footer">
+  
+    This is part of the <a href="file.Manual.html">RPicSim manual</a>.
+  
+  <br/><br/>
+
+  Generated on Wed Feb 12 16:44:39 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

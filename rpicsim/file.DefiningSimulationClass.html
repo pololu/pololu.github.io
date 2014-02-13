@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+<title>
+  File: DefiningSimulationClass
+  
+    &mdash; Documentation by YARD 0.8.7.3
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    
+        <a href="_index.html">Index</a> &raquo;
+        
+        <a href="file.Manual.html">RPicSim manual</a> &raquo;
+    
+    <span class="title">File: DefiningSimulationClass</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'>
+<h1 id="label-Defining+your+simulation+class">Defining your simulation class</h1>
+
+<p>In order to run a simulation of your firmware using RPicSim, you must make
+a new subclass of <span class='object_link'><a href="RPicSim/Sim.html" title="RPicSim::Sim (class)">RPicSim::Sim</a></span>. This class is called your <em>simulation
+class</em>. Below is an example:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='kw'>class</span> <span class='const'>MySim</span> <span class='op'>&lt;</span> <span class='const'>RPicSim</span><span class='op'>::</span><span class='const'>Sim</span>
+  <span class='id identifier rubyid_device_is'>device_is</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PIC10F322</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_filename_is'>filename_is</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_dirname'>dirname</span><span class='lparen'>(</span><span class='kw'>__FILE__</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>../firmware/dist/firmware.cof</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>A full list of the special RPicSim methods you can call inside your class
+definition can be found by looking at the documentation for
+<span class='object_link'><a href="RPicSim/Sim/ClassDefinitionMethods.html" title="RPicSim::Sim::ClassDefinitionMethods (module)">RPicSim::Sim::ClassDefinitionMethods</a></span>.</p>
+
+<h2 id="label-Required+properties">Required properties</h2>
+
+<p>There are two things you must do inside a simulation class.</p>
+
+<p>First, call <span class='object_link'><a href="RPicSim/Sim/ClassDefinitionMethods.html#device_is-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#device_is (method)">device_is</a></span> in
+order to specify the PIC device your firmware runs on. Unfortunately,
+RPicSim cannot just detect this information from your COF file. The
+argument to <code>device_is</code> should be a simple string containing the
+official name of the PIC device, like "PIC10F322".</p>
+
+<p>Second, call <span class='object_link'><a href="RPicSim/Sim/ClassDefinitionMethods.html#filename_is-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#filename_is (method)">filename_is</a></span>
+to specify the path to your COF or HEX file. This must be done after
+calling <code>device_is</code>. In the example, we start with
+<code>File.dirname(__FILE__)</code>, which is the name of the directory
+that the current Ruby file is in, and add a string to that. This allows us
+to move our tests and firmware files around on the disk without changing
+the <code>filename_is</code> line.</p>
+
+<h2 id="label-Pins">Pins</h2>
+
+<p>You can use <span class='object_link'><a href="RPicSim/Sim/ClassDefinitionMethods.html#def_pin-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#def_pin (method)">def_pin</a></span> to
+define an alternative name for a pin. For more information, see
+<a href="file.Pins.html" title="Pins">Pins</a>.</p>
+
+<h2 id="label-Variables">Variables</h2>
+
+<p>You can use <span class='object_link'><a href="RPicSim/Sim/ClassDefinitionMethods.html#def_var-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#def_var (method)">def_var</a></span> to
+define a variable in RAM, and
+<span class='object_link'><a href="RPicSim/Sim/ClassDefinitionMethods.html#def_flash_var-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#def_flash_var (method)">def_flash_var</a></span> to
+define a variable in flash. For more information, see <a href="file.Variables.html" title="Variables">Variables</a>.</p>
+
+<h2 id="label-Methods">Methods</h2>
+
+<p>It is sometimes helpful to define your own methods in the simulation class.
+For example, here are some methods that help us simulate the effect of the
+user placing a jumper between RA1 and GND:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='kw'>class</span> <span class='const'>MySim</span> <span class='op'>&lt;</span> <span class='const'>RPicSim</span><span class='op'>::</span><span class='const'>Sim</span>
+  <span class='id identifier rubyid_device_is'>device_is</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PIC10F322</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_filename_is'>filename_is</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_dirname'>dirname</span><span class='lparen'>(</span><span class='kw'>__FILE__</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>../firmware/dist/firmware.cof</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='kw'>def</span> <span class='id identifier rubyid_jumper_on'>jumper_on</span>
+    <span class='id identifier rubyid_pin'>pin</span><span class='lparen'>(</span><span class='symbol'>:RA1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_set'>set</span> <span class='kw'>false</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>def</span> <span class='id identifier rubyid_jumper_off'>jumper_off</span>
+    <span class='id identifier rubyid_pin'>pin</span><span class='lparen'>(</span><span class='symbol'>:RA1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_set'>set</span> <span class='kw'>true</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>By making these <code>jumper_on</code> and <code>jumper_off</code> methods,
+we can write lots of tests that manipulate the jumper but we don't have to
+constantly worry about how the hardware jumper is implemented when writing
+or reading those tests. This makes our tests clearer to the reader and
+makes it easier to adapt them to change.</p>
+
+<p>If you have an instance of the simulation class, you can call such a method
+in the usual way:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_jumper_on'>jumper_on</span></code></pre>
+
+<h2 id="label-Using+the+simulation+class">Using the simulation class</h2>
+
+<p>To start a new simulation, you can simply make a new instance of the
+simulation class. For example:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_sim'>sim</span> <span class='op'>=</span> <span class='const'>MySim</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span></code></pre>
+
+<p>However, if you are using RSpec and RPicSim's <a href="file.RSpecIntegration.html" title="RSpec Integration">RSpec Integration</a>, then you should not create a new instance yourself.
+Instead, make a before hook that calls <span class='object_link'><a href="RPicSim/RSpec/Helpers.html#start_sim-instance_method" title="RPicSim::RSpec::Helpers#start_sim (method)">start_sim</a></span>. This will start the simulation for you and use it to make some
+other methods and features available in your examples. After running
+<span class='object_link'><a href="RPicSim/RSpec/Helpers.html#start_sim-instance_method" title="RPicSim::RSpec::Helpers#start_sim (method)">start_sim</a></span>, you will be able to access
+your simulation object using the method <code>sim</code>.</p>
+
+<p>For example:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>my firmware</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_before'>before</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_start_sim'>start_sim</span> <span class='const'>MySim</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>runs to the :abc label</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_run_to'>run_to</span> <span class='symbol'>:abc</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>100</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+</div></div>
+
+    <div id="footer">
+  
+    This is part of the <a href="file.Manual.html">RPicSim manual</a>.
+  
+  <br/><br/>
+
+  Generated on Wed Feb 12 16:44:37 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>
