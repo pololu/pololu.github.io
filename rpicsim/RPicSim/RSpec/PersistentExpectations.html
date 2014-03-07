@@ -6,7 +6,7 @@
 <title>
   Module: RPicSim::RSpec::PersistentExpectations
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!" + escape(window.location.href);
+  framesUrl = "../../frames.html#!RPicSim/RSpec/PersistentExpectations.html";
 </script>
 
 
@@ -342,6 +342,10 @@ be able write in RSpec in place of MATCHER in the code below:</p>
 <p>To remove an expectation on an object, just provide <code>nil</code> for
 the matcher.</p>
 
+<p>If given a block, applies the new expectations, executes the block, then
+resets expectations to their former state. Expectation blocks may be nested
+and freely mixed with other calls to `expecting`.</p>
+
 
   </div>
 </div>
@@ -354,15 +358,35 @@ the matcher.</p>
       <pre class="lines">
 
 
-48
-49
-50</pre>
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/rspec/persistent_expectations.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/rspec/persistent_expectations.rb', line 53</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_expecting'>expecting</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_expectations'>expectations</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span> <span class='id identifier rubyid_hash'>hash</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+    <span class='id identifier rubyid_saved_expectations'>saved_expectations</span> <span class='op'>=</span> <span class='id identifier rubyid_expectations'>expectations</span><span class='period'>.</span><span class='id identifier rubyid_clone'>clone</span>
+    <span class='kw'>begin</span>
+      <span class='id identifier rubyid_expecting'>expecting</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span><span class='rparen'>)</span>
+      <span class='kw'>yield</span>
+    <span class='kw'>ensure</span>
+      <span class='ivar'>@expectations</span> <span class='op'>=</span> <span class='id identifier rubyid_saved_expectations'>saved_expectations</span>
+    <span class='kw'>end</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_expectations'>expectations</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span> <span class='id identifier rubyid_hash'>hash</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -377,9 +401,9 @@ the matcher.</p>
   
   <br/><br/>
 
-  Generated on Wed Feb 12 16:57:07 2014 by
+  Generated on Fri Mar  7 10:32:19 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.3 (ruby-1.9.3).
+  0.8.7.4 (ruby-1.9.3).
 </div>
 
   </body>

@@ -6,7 +6,7 @@
 <title>
   Class: RPicSim::MemoryWatcher
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!" + escape(window.location.href);
+  framesUrl = "../frames.html#!RPicSim/MemoryWatcher.html";
 </script>
 
 
@@ -220,50 +220,6 @@ doesn't work properly in some versions of MPLAB X.  See
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#default_var_names_ignored-instance_method" title="#default_var_names_ignored (instance method)">- (Object) <strong>default_var_names_ignored</strong>(device_name) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#default_var_names_ignored_on_first_step-instance_method" title="#default_var_names_ignored_on_first_step (instance method)">- (Object) <strong>default_var_names_ignored_on_first_step</strong>(device_name) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#handle_change-instance_method" title="#handle_change (instance method)">- (Object) <strong>handle_change</strong>(address_ranges) </a>
     
 
@@ -427,8 +383,7 @@ last time <span class='object_link'><a href="#clear-instance_method" title="RPic
 36
 37
 38
-39
-40</pre>
+39</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rpicsim/memory_watcher.rb', line 20</span>
@@ -439,7 +394,7 @@ last time <span class='object_link'><a href="#clear-instance_method" title="RPic
   <span class='id identifier rubyid_vars'>vars</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_var'>var</span><span class='op'>|</span>
     <span class='id identifier rubyid_var'>var</span><span class='period'>.</span><span class='id identifier rubyid_addresses'>addresses</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_address'>address</span><span class='op'>|</span>
       <span class='kw'>if</span> <span class='ivar'>@vars_by_address</span><span class='lbracket'>[</span><span class='id identifier rubyid_address'>address</span><span class='rbracket'>]</span>
-        <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Variable %s overlaps with %s at 0x%x</span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span>
+        <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Variable %s overlaps with %s at 0x%x</span><span class='tstring_end'>'</span></span> <span class='op'>%</span>
           <span class='lbracket'>[</span><span class='id identifier rubyid_var'>var</span><span class='comma'>,</span> <span class='ivar'>@vars_by_address</span><span class='lbracket'>[</span><span class='id identifier rubyid_address'>address</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_address'>address</span><span class='rbracket'>]</span>
       <span class='kw'>end</span>
       <span class='ivar'>@vars_by_address</span><span class='lbracket'>[</span><span class='id identifier rubyid_address'>address</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_var'>var</span>
@@ -449,10 +404,9 @@ last time <span class='object_link'><a href="#clear-instance_method" title="RPic
   <span class='ivar'>@sim</span> <span class='op'>=</span> <span class='id identifier rubyid_sim'>sim</span>
   <span class='ivar'>@memory</span> <span class='op'>=</span> <span class='id identifier rubyid_memory'>memory</span>
   <span class='ivar'>@memory</span><span class='period'>.</span><span class='id identifier rubyid_on_change'>on_change</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_ar'>ar</span><span class='op'>|</span> <span class='id identifier rubyid_handle_change'>handle_change</span><span class='lparen'>(</span><span class='id identifier rubyid_ar'>ar</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
-  
+
   <span class='ivar'>@vars_written</span> <span class='op'>=</span> <span class='const'>Set</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
   <span class='ivar'>@var_names_ignored</span> <span class='op'>=</span> <span class='id identifier rubyid_default_var_names_ignored'>default_var_names_ignored</span><span class='lparen'>(</span><span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_device'>device</span><span class='rparen'>)</span>
-  <span class='ivar'>@var_names_ignored_on_first_step</span> <span class='op'>=</span> <span class='id identifier rubyid_default_var_names_ignored_on_first_step'>default_var_names_ignored_on_first_step</span><span class='lparen'>(</span><span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_device'>device</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -583,85 +537,15 @@ last time <span class='object_link'><a href="#clear-instance_method" title="RPic
       <pre class="lines">
 
 
+60
 61
-62
-63</pre>
+62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory_watcher.rb', line 61</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory_watcher.rb', line 60</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_clear'>clear</span>
   <span class='ivar'>@vars_written</span><span class='period'>.</span><span class='id identifier rubyid_clear'>clear</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="default_var_names_ignored-instance_method">
-  
-    - (<tt>Object</tt>) <strong>default_var_names_ignored</strong>(device_name) 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-65
-66
-67
-68
-69
-70</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory_watcher.rb', line 65</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_default_var_names_ignored'>default_var_names_ignored</span><span class='lparen'>(</span><span class='id identifier rubyid_device_name'>device_name</span><span class='rparen'>)</span>
-  <span class='comment'># The datasheet says the PCLATH is not affected by pushing or popping the stack, but
-</span>  <span class='comment'># we still get spurious events for it when a return instruction is executed.
-</span>
-  <span class='lbracket'>[</span><span class='symbol'>:PCL</span><span class='comma'>,</span> <span class='symbol'>:PCLATH</span><span class='comma'>,</span> <span class='symbol'>:STATUS</span><span class='rbracket'>]</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="default_var_names_ignored_on_first_step-instance_method">
-  
-    - (<tt>Object</tt>) <strong>default_var_names_ignored_on_first_step</strong>(device_name) 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-72
-73
-74
-75
-76</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory_watcher.rb', line 72</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_default_var_names_ignored_on_first_step'>default_var_names_ignored_on_first_step</span><span class='lparen'>(</span><span class='id identifier rubyid_device_name'>device_name</span><span class='rparen'>)</span>
-  <span class='comment'>#TODO: get rid of this stuff? people should just have a goto or something harmless at
-</span>  <span class='comment'># the beginning of their program and take a single step like we do.
-</span>  <span class='lbracket'>[</span><span class='symbol'>:PORTA</span><span class='comma'>,</span> <span class='symbol'>:LATA</span><span class='comma'>,</span> <span class='symbol'>:OSCCON</span><span class='comma'>,</span> <span class='symbol'>:PMCON2</span><span class='comma'>,</span> <span class='symbol'>:INTCON</span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -683,27 +567,25 @@ last time <span class='object_link'><a href="#clear-instance_method" title="RPic
       <pre class="lines">
 
 
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87</pre>
+64
+65
+66
+67
+68
+69
+70
+71
+72</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory_watcher.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory_watcher.rb', line 64</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_handle_change'>handle_change</span><span class='lparen'>(</span><span class='id identifier rubyid_address_ranges'>address_ranges</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_addresses'>addresses</span> <span class='op'>=</span> <span class='id identifier rubyid_address_ranges'>address_ranges</span><span class='period'>.</span><span class='id identifier rubyid_flat_map'>flat_map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:to_a</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_vars'>vars</span> <span class='op'>=</span> <span class='id identifier rubyid_addresses'>addresses</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='op'>|</span> <span class='ivar'>@vars_by_address</span><span class='lbracket'>[</span><span class='id identifier rubyid_a'>a</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='id identifier rubyid_a'>a</span> <span class='rbrace'>}</span>
 
   <span class='id identifier rubyid_remove_vars'>remove_vars</span><span class='lparen'>(</span><span class='id identifier rubyid_vars'>vars</span><span class='comma'>,</span> <span class='ivar'>@var_names_ignored</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_remove_vars'>remove_vars</span><span class='lparen'>(</span><span class='id identifier rubyid_vars'>vars</span><span class='comma'>,</span> <span class='ivar'>@var_names_ignored_on_first_step</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='ivar'>@sim</span><span class='period'>.</span><span class='id identifier rubyid_cycle_count'>cycle_count</span> <span class='op'>&lt;=</span> <span class='int'>1</span>
-  
+
   <span class='comment'># The line below works because @vars_written is a Set, not a Hash.
 </span>  <span class='ivar'>@vars_written</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span> <span class='id identifier rubyid_vars'>vars</span>
 <span class='kw'>end</span></pre>
@@ -760,6 +642,7 @@ just be address as an integer.</p>
       <pre class="lines">
 
 
+47
 48
 49
 50
@@ -769,11 +652,10 @@ just be address as an integer.</p>
 54
 55
 56
-57
-58</pre>
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory_watcher.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory_watcher.rb', line 47</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_writes'>writes</span>
   <span class='id identifier rubyid_hash'>hash</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
@@ -799,9 +681,9 @@ just be address as an integer.</p>
   
   <br/><br/>
 
-  Generated on Wed Feb 12 16:57:08 2014 by
+  Generated on Fri Mar  7 10:32:21 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.3 (ruby-1.9.3).
+  0.8.7.4 (ruby-1.9.3).
 </div>
 
   </body>

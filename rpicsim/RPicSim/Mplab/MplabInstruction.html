@@ -6,7 +6,7 @@
 <title>
   Class: RPicSim::Mplab::MplabInstruction
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!" + escape(window.location.href);
+  framesUrl = "../../frames.html#!RPicSim/Mplab/MplabInstruction.html";
 </script>
 
 
@@ -99,9 +99,55 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>This class wraps a com.microchip.mplab.mdbcore.disasm.Instruction, which
+represents a disassembled instruction from Microchip's disassembler.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
 
 
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#opcode-instance_method" title="#opcode (instance method)">- (Object) <strong>opcode</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute opcode.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
 
 
 
@@ -117,7 +163,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#inc-instance_method" title="#inc (instance method)">- (Object) <strong>inc</strong> </a>
+      <a href="#compute_size-instance_method" title="#compute_size (instance method)">- (Object) <strong>compute_size</strong>(address_increment) </a>
     
 
     
@@ -132,7 +178,8 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The number of bytes that the instruction takes.</p>
+<p>Returns the size of the instruction in the same units that are used for
+program memory addresses.</p>
 </div></span>
   
 </li>
@@ -168,28 +215,6 @@
   <span class="summary_signature">
     
       <a href="#instruction_string-instance_method" title="#instruction_string (instance method)">- (Object) <strong>instruction_string</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#opcode-instance_method" title="#opcode (instance method)">- (Object) <strong>opcode</strong> </a>
     
 
     
@@ -277,15 +302,35 @@
       <pre class="lines">
 
 
-4
-5
-6</pre>
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_instruction.rb', line 4</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_instruction.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_instruction'>instruction</span><span class='rparen'>)</span>
   <span class='ivar'>@instruction</span> <span class='op'>=</span> <span class='id identifier rubyid_instruction'>instruction</span>
+
+  <span class='ivar'>@opcode</span> <span class='op'>=</span> <span class='ivar'>@instruction</span><span class='period'>.</span><span class='id identifier rubyid_opcode'>opcode</span>
+  <span class='ivar'>@string</span> <span class='op'>=</span> <span class='ivar'>@instruction</span><span class='period'>.</span><span class='id identifier rubyid_instruction'>instruction</span>
+
+  <span class='comment'># Fix a typo in MPLAB X.
+</span>  <span class='kw'>if</span> <span class='ivar'>@opcode</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>RBLRD+*</span><span class='tstring_end'>'</span></span>
+    <span class='ivar'>@opcode</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>TBLRD+*</span><span class='tstring_end'>'</span></span>
+    <span class='ivar'>@string</span> <span class='op'>=</span> <span class='ivar'>@string</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>RBLRD</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>TBLRD</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@opcode</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -294,15 +339,15 @@
   
 </div>
 
-
-  <div id="instance_method_details" class="method_details_list">
-    <h2>Instance Method Details</h2>
-
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
     
+      
+      <span id=""></span>
       <div class="method_details first">
-  <h3 class="signature first" id="inc-instance_method">
+  <h3 class="signature first" id="opcode-instance_method">
   
-    - (<tt>Object</tt>) <strong>inc</strong> 
+    - (<tt>Object</tt>) <strong>opcode</strong>  <span class="extras">(readonly)</span>
   
 
   
@@ -311,7 +356,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>The number of bytes that the instruction takes.</p>
+<p>Returns the value of attribute opcode</p>
 
 
   </div>
@@ -325,15 +370,119 @@
       <pre class="lines">
 
 
-21
-22
-23</pre>
+5
+6
+7</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_instruction.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_instruction.rb', line 5</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_inc'>inc</span>
-  <span class='ivar'>@instruction</span><span class='period'>.</span><span class='id identifier rubyid_inc'>inc</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_opcode'>opcode</span>
+  <span class='ivar'>@opcode</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="compute_size-instance_method">
+  
+    - (<tt>Object</tt>) <strong>compute_size</strong>(address_increment) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the size of the instruction in the same units that are used for
+program memory addresses.  (Bytes for the PIC18, otherwise words.)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>address_increment</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The number of address units per word of program memory in this
+architecture.  See <span class='object_link'><a href="MplabDeviceInfo.html#code_address_increment-instance_method" title="RPicSim::Mplab::MplabDeviceInfo#code_address_increment (method)">RPicSim::Mplab::MplabDeviceInfo#code_address_increment</a></span>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_instruction.rb', line 34</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_compute_size'>compute_size</span><span class='lparen'>(</span><span class='id identifier rubyid_address_increment'>address_increment</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='const'>RPicSim</span><span class='op'>::</span><span class='const'>Flaws</span><span class='lbracket'>[</span><span class='symbol'>:instruction_inc_is_in_byte_units</span><span class='rbracket'>]</span>
+    <span class='comment'># Convert the increment, which is the number of bytes, into 'size',
+</span>    <span class='comment'># which is the same units as the program memory address space.
+</span>    <span class='kw'>if</span> <span class='id identifier rubyid_address_increment'>address_increment</span> <span class='op'>==</span> <span class='int'>1</span>
+      <span class='comment'># Non-PIC18 architectures: program memory addresses are in terms of words
+</span>      <span class='comment'># so we divide by two to convert from bytes to words.
+</span>      <span class='ivar'>@instruction</span><span class='period'>.</span><span class='id identifier rubyid_inc'>inc</span> <span class='op'>/</span> <span class='int'>2</span>
+    <span class='kw'>elsif</span> <span class='id identifier rubyid_address_increment'>address_increment</span> <span class='op'>==</span> <span class='int'>2</span>
+      <span class='comment'># PIC18 architecture: No change necessary because both are in terms
+</span>      <span class='comment'># of bytes.
+</span>      <span class='ivar'>@instruction</span><span class='period'>.</span><span class='id identifier rubyid_inc'>inc</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Cannot handle address increment value of </span><span class='embexpr_beg'>#{</span><span class='ivar'>@address_increment</span><span class='rbrace'>}</span><span class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>else</span>
+    <span class='comment'># inc is in the same units as the code space addresses.
+</span>    <span class='ivar'>@instruction</span><span class='period'>.</span><span class='id identifier rubyid_inc'>inc</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -355,45 +504,15 @@
       <pre class="lines">
 
 
-12
-13
-14</pre>
+22
+23
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_instruction.rb', line 12</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_instruction.rb', line 22</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_instruction_string'>instruction_string</span>
-  <span class='ivar'>@instruction</span><span class='period'>.</span><span class='id identifier rubyid_instruction'>instruction</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="opcode-instance_method">
-  
-    - (<tt>Object</tt>) <strong>opcode</strong> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-8
-9
-10</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_instruction.rb', line 8</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_opcode'>opcode</span>
-  <span class='ivar'>@instruction</span><span class='period'>.</span><span class='id identifier rubyid_opcode'>opcode</span>
+  <span class='ivar'>@string</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -415,12 +534,12 @@
       <pre class="lines">
 
 
-16
-17
-18</pre>
+26
+27
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_instruction.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_instruction.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_operands'>operands</span>
   <span class='ivar'>@operands</span> <span class='op'>||=</span> <span class='id identifier rubyid_operands_hash'>operands_hash</span><span class='lparen'>(</span><span class='ivar'>@instruction</span><span class='period'>.</span><span class='id identifier rubyid_operands'>operands</span><span class='rparen'>)</span>
@@ -438,9 +557,9 @@
   
   <br/><br/>
 
-  Generated on Wed Feb 12 16:57:09 2014 by
+  Generated on Fri Mar  7 10:32:22 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.3 (ruby-1.9.3).
+  0.8.7.4 (ruby-1.9.3).
 </div>
 
   </body>

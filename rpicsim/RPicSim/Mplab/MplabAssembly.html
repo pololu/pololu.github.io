@@ -6,7 +6,7 @@
 <title>
   Class: RPicSim::Mplab::MplabAssembly
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!" + escape(window.location.href);
+  framesUrl = "../../frames.html#!RPicSim/Mplab/MplabAssembly.html";
 </script>
 
 
@@ -99,7 +99,20 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>This class wraps objects belonging to the abstract Java class
+com.microchip.mplab.mdbcore.assemblies.Assembly, which represent a
+collection of objects being used together.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
 
 
@@ -345,16 +358,16 @@ disassemble the program binary.</p>
       <pre class="lines">
 
 
-9
-10
-11
 12
 13
 14
-15</pre>
+15
+16
+17
+18</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_assembly.rb', line 9</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_assembly.rb', line 12</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_device'>device</span><span class='rparen'>)</span>
   <span class='ivar'>@device</span> <span class='op'>=</span> <span class='id identifier rubyid_device'>device</span>
@@ -401,12 +414,12 @@ disassemble the program binary.</p>
       <pre class="lines">
 
 
-7
-8
-9</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_assembly.rb', line 7</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_assembly.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_device'>device</span>
   <span class='ivar'>@device</span>
@@ -438,12 +451,12 @@ disassemble the program binary.</p>
       <pre class="lines">
 
 
-44
-45
-46</pre>
+47
+48
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_assembly.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_assembly.rb', line 47</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_debugger_step'>debugger_step</span>
   <span class='id identifier rubyid_debugger'>debugger</span><span class='period'>.</span><span class='const'>StepInstr</span>
@@ -468,12 +481,12 @@ disassemble the program binary.</p>
       <pre class="lines">
 
 
-59
-60
-61</pre>
+62
+63
+64</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_assembly.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_assembly.rb', line 62</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_device_info'>device_info</span>
   <span class='ivar'>@device_info</span> <span class='op'>||=</span> <span class='const'>MplabDeviceInfo</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@assembly</span><span class='period'>.</span><span class='const'>GetDevice</span><span class='rparen'>)</span>
@@ -510,12 +523,12 @@ disassemble the program binary.</p>
       <pre class="lines">
 
 
-55
-56
-57</pre>
+58
+59
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_assembly.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_assembly.rb', line 58</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_disassembler'>disassembler</span>
   <span class='ivar'>@disassembler</span> <span class='op'>||=</span> <span class='const'>MplabDisassembler</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='id identifier rubyid_lookup'>lookup</span> <span class='const'>Mdbcore</span><span class='period'>.</span><span class='id identifier rubyid_disasm'>disasm</span><span class='period'>.</span><span class='const'>DisAsm</span><span class='period'>.</span><span class='id identifier rubyid_java_class'>java_class</span>
@@ -540,12 +553,12 @@ disassemble the program binary.</p>
       <pre class="lines">
 
 
-40
-41
-42</pre>
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_assembly.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_assembly.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_load_file'>load_file</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_loader'>loader</span><span class='period'>.</span><span class='const'>Load</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
@@ -581,12 +594,12 @@ disassemble the program binary.</p>
       <pre class="lines">
 
 
-49
-50
-51</pre>
+52
+53
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_assembly.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_assembly.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_simulator'>simulator</span>
   <span class='ivar'>@simulator</span> <span class='op'>||=</span> <span class='const'>MplabSimulator</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='id identifier rubyid_lookup'>lookup</span> <span class='const'>Mdbcore</span><span class='period'>.</span><span class='id identifier rubyid_simulator'>simulator</span><span class='period'>.</span><span class='const'>Simulator</span><span class='period'>.</span><span class='id identifier rubyid_java_class'>java_class</span>
@@ -622,9 +635,6 @@ disassemble the program binary.</p>
       <pre class="lines">
 
 
-18
-19
-20
 21
 22
 23
@@ -642,30 +652,33 @@ disassemble the program binary.</p>
 35
 36
 37
-38</pre>
+38
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_assembly.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_assembly.rb', line 21</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_start_simulator_and_debugger'>start_simulator_and_debugger</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
   <span class='comment'># In MPLAB X v1.70, this line had to be before the call to SetTool, or else when we run
 </span>  <span class='comment'># debugger.Connect we will get two lines of: [Fatal Error] :1:1: Premature end of file.
 </span>  <span class='id identifier rubyid_simulator'>simulator</span>
 
-  <span class='id identifier rubyid_sim_meta'>sim_meta</span> <span class='op'>=</span> <span class='const'>Mdbcore</span><span class='period'>.</span><span class='id identifier rubyid_platformtool'>platformtool</span><span class='period'>.</span><span class='const'>PlatformToolMetaManager</span><span class='period'>.</span><span class='id identifier rubyid_getTool'>getTool</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Simulator</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-  <span class='ivar'>@assembly</span><span class='period'>.</span><span class='const'>SetTool</span><span class='lparen'>(</span><span class='id identifier rubyid_sim_meta'>sim_meta</span><span class='period'>.</span><span class='id identifier rubyid_configuration_object_id'>configuration_object_id</span><span class='comma'>,</span> <span class='id identifier rubyid_sim_meta'>sim_meta</span><span class='period'>.</span><span class='id identifier rubyid_class_name'>class_name</span><span class='comma'>,</span> <span class='id identifier rubyid_sim_meta'>sim_meta</span><span class='period'>.</span><span class='id identifier rubyid_flavor'>flavor</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_sim_meta'>sim_meta</span><span class='period'>.</span><span class='id identifier rubyid_getToolSupportForDevice'>getToolSupportForDevice</span><span class='lparen'>(</span><span class='id identifier rubyid_device'>device</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_all?'>all?</span> <span class='op'>&amp;</span><span class='symbol'>:isSupported</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Microchip's simulator does not support </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_device'>device</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_sim_meta'>sim_meta</span> <span class='op'>=</span> <span class='const'>Mdbcore</span><span class='period'>.</span><span class='id identifier rubyid_platformtool'>platformtool</span><span class='period'>.</span><span class='const'>PlatformToolMetaManager</span><span class='period'>.</span><span class='id identifier rubyid_getTool'>getTool</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Simulator</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='ivar'>@assembly</span><span class='period'>.</span><span class='const'>SetTool</span><span class='lparen'>(</span><span class='id identifier rubyid_sim_meta'>sim_meta</span><span class='period'>.</span><span class='id identifier rubyid_configuration_object_id'>configuration_object_id</span><span class='comma'>,</span> <span class='id identifier rubyid_sim_meta'>sim_meta</span><span class='period'>.</span><span class='id identifier rubyid_class_name'>class_name</span><span class='comma'>,</span> <span class='id identifier rubyid_sim_meta'>sim_meta</span><span class='period'>.</span><span class='id identifier rubyid_flavor'>flavor</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_sim_meta'>sim_meta</span><span class='period'>.</span><span class='id identifier rubyid_getToolSupportForDevice'>getToolSupportForDevice</span><span class='lparen'>(</span><span class='id identifier rubyid_device'>device</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_all?'>all?</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:isSupported</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Microchip's simulator does not support </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_device'>device</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>.</span><span class='tstring_end'>'</span></span>
   <span class='kw'>end</span>
-  <span class='ivar'>@assembly</span><span class='period'>.</span><span class='const'>SetHeader</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>  <span class='comment'># The Microchip documentation doesn't say what this is.
+  <span class='ivar'>@assembly</span><span class='period'>.</span><span class='const'>SetHeader</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>  <span class='comment'># The Microchip documentation doesn't say what this is.
 </span>  <span class='id identifier rubyid_debugger'>debugger</span><span class='period'>.</span><span class='const'>Connect</span><span class='lparen'>(</span><span class='const'>Mdbcore</span><span class='period'>.</span><span class='id identifier rubyid_debugger'>debugger</span><span class='period'>.</span><span class='const'>Debugger</span><span class='op'>::</span><span class='const'>CONNECTION_TYPE</span><span class='op'>::</span><span class='const'>DEBUGGER</span><span class='rparen'>)</span>
-  
+
   <span class='comment'># Load our firmware into the simulator.
 </span>  <span class='id identifier rubyid_load_file'>load_file</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_debugger'>debugger</span><span class='period'>.</span><span class='const'>Program</span><span class='lparen'>(</span><span class='const'>Mdbcore</span><span class='period'>.</span><span class='id identifier rubyid_debugger'>debugger</span><span class='period'>.</span><span class='const'>Debugger</span><span class='op'>::</span><span class='const'>PROGRAM_OPERATION</span><span class='op'>::</span><span class='const'>AUTO_SELECT</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_check_for_errors'>check_for_errors</span>
-  
+
   <span class='kw'>nil</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -681,9 +694,9 @@ disassemble the program binary.</p>
   
   <br/><br/>
 
-  Generated on Wed Feb 12 16:57:09 2014 by
+  Generated on Fri Mar  7 10:32:21 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.3 (ruby-1.9.3).
+  0.8.7.4 (ruby-1.9.3).
 </div>
 
   </body>

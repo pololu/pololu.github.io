@@ -6,7 +6,7 @@
 <title>
   Class: RPicSim::Mplab::MplabPin
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!" + escape(window.location.href);
+  framesUrl = "../../frames.html#!RPicSim/Mplab/MplabPin.html";
 </script>
 
 
@@ -372,7 +372,7 @@ if it is configured as an input.</p>
       <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_pin.rb', line 5</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_pin_physical'>pin_physical</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>pin_physical is nil</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_pin_physical'>pin_physical</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>pin_physical is nil</span><span class='tstring_end'>'</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_pin_physical'>pin_physical</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
   <span class='ivar'>@pin_physical</span> <span class='op'>=</span> <span class='id identifier rubyid_pin_physical'>pin_physical</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -508,7 +508,7 @@ neither, which we think is impossible.</p>
       <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_pin.rb', line 49</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_names'>names</span>
-  <span class='ivar'>@pin_physical</span><span class='period'>.</span><span class='id identifier rubyid_collect'>collect</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:name</span><span class='rparen'>)</span>
+  <span class='ivar'>@pin_physical</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:name</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -681,9 +681,9 @@ state is neither, which we think is impossible.</p>
   
   <br/><br/>
 
-  Generated on Wed Feb 12 16:57:09 2014 by
+  Generated on Fri Mar  7 10:32:21 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.3 (ruby-1.9.3).
+  0.8.7.4 (ruby-1.9.3).
 </div>
 
   </body>

@@ -6,7 +6,7 @@
 <title>
   Class: RPicSim::Variable
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!" + escape(window.location.href);
+  framesUrl = "../frames.html#!RPicSim/Variable.html";
 </script>
 
 
@@ -88,157 +88,22 @@
   
   
     
-      <dt class="r2">Extended by:</dt>
-      <dd class="r2"><span class='object_link'><a href="Variable/ClassMethods.html" title="RPicSim::Variable::ClassMethods (module)">ClassMethods</a></span></dd>
-      
-    
   
     
   
   
   
-    <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">lib/rpicsim/variable.rb</dd>
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/rpicsim/variable.rb</dd>
   
 </dl>
 <div class="clear"></div>
 
-<h2>Overview</h2><div class="docstring">
-  <div class="discussion">
-    
-<p>This class and its subclasses represent firmware-defined variables in RAM
-or flash.</p>
-
-<p>Instances of this class come in two varieties:</p>
-<ul><li>
-<p>Unbound variables are just a name and an address.</p>
-</li><li>
-<p>Bound variables have a name and an address and they are attached to a
-memory object so you can actually read and write values from them.</p>
-</li></ul>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><div id="subclasses">
-  <h2>Direct Known Subclasses</h2>
-  <p class="children"><span class='object_link'><a href="VariableS16.html" title="RPicSim::VariableS16 (class)">VariableS16</a></span>, <span class='object_link'><a href="VariableS24.html" title="RPicSim::VariableS24 (class)">VariableS24</a></span>, <span class='object_link'><a href="VariableS32.html" title="RPicSim::VariableS32 (class)">VariableS32</a></span>, <span class='object_link'><a href="VariableS8.html" title="RPicSim::VariableS8 (class)">VariableS8</a></span>, <span class='object_link'><a href="VariableU16.html" title="RPicSim::VariableU16 (class)">VariableU16</a></span>, <span class='object_link'><a href="VariableU24.html" title="RPicSim::VariableU24 (class)">VariableU24</a></span>, <span class='object_link'><a href="VariableU32.html" title="RPicSim::VariableU32 (class)">VariableU32</a></span>, <span class='object_link'><a href="VariableU8.html" title="RPicSim::VariableU8 (class)">VariableU8</a></span>, <span class='object_link'><a href="VariableWord.html" title="RPicSim::VariableWord (class)">VariableWord</a></span></p>
-</div>
-<h2>Defined Under Namespace</h2>
-<p class="children">
-  
-    
-      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Variable/ClassMethods.html" title="RPicSim::Variable::ClassMethods (module)">ClassMethods</a></span>
-    
-  
-    
-  
-</p>
 
 
 
 
-  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
-  <ul class="summary">
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#address-instance_method" title="#address (instance method)">- (Object) <strong>address</strong> </a>
-    
 
-    
-  </span>
-  
-  
-  
-    
-      <span class="note title readonly">readonly</span>
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute address.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#memory%3D-instance_method" title="#memory= (instance method)">- (Object) <strong>memory</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-    
-      <span class="note title writeonly">writeonly</span>
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Sets the attribute memory.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#name-instance_method" title="#name (instance method)">- (Object) <strong>name</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-      <span class="note title readonly">readonly</span>
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute name.</p>
-</div></span>
-  
-</li>
-
-    
-  </ul>
-
-
-
-  
-  
-  <h3 class="inherited">Attributes included from <span class='object_link'><a href="Variable/ClassMethods.html" title="RPicSim::Variable::ClassMethods (module)">ClassMethods</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Variable/ClassMethods.html#size-instance_method" title="RPicSim::Variable::ClassMethods#size (method)">#size</a></span></p>
 
 
   
@@ -252,7 +117,7 @@ memory object so you can actually read and write values from them.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#addresses-instance_method" title="#addresses (instance method)">- (Range) <strong>addresses</strong> </a>
+      <a href="#address-instance_method" title="#address (instance method)">- (Object) <strong>address</strong> </a>
     
 
     
@@ -266,9 +131,7 @@ memory object so you can actually read and write values from them.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The addresses of each byte that is part of this variable.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -276,7 +139,7 @@ memory object so you can actually read and write values from them.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#bind-instance_method" title="#bind (instance method)">- (Object) <strong>bind</strong>(memory) </a>
+      <a href="#addresses-instance_method" title="#addresses (instance method)">- (Object) <strong>addresses</strong> </a>
     
 
     
@@ -290,9 +153,7 @@ memory object so you can actually read and write values from them.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Creates a new Variable that is bound to the specified memory.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -300,7 +161,7 @@ memory object so you can actually read and write values from them.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Variable) <strong>initialize</strong>(name, address) </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Variable) <strong>initialize</strong>(storage) </a>
     
 
     
@@ -317,7 +178,7 @@ memory object so you can actually read and write values from them.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Creates a new Variable object not bound to any memory yet.</p>
+<p>Creates a new Variable object.</p>
 </div></span>
   
 </li>
@@ -326,7 +187,56 @@ memory object so you can actually read and write values from them.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#inspect-instance_method" title="#inspect (instance method)">- (Object) <strong>inspect</strong> </a>
+      <a href="#memory_value-instance_method" title="#memory_value (instance method)">- (Object) <strong>memory_value</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Reads the value directly from the memory object backing the register.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#memory_value%3D-instance_method" title="#memory_value= (instance method)">- (Object) <strong>memory_value=</strong>(val) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Writes the value to the variable in a lower-level way that overrides any
+read-only bits.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#name-instance_method" title="#name (instance method)">- (Object) <strong>name</strong> </a>
     
 
     
@@ -385,7 +295,7 @@ memory object so you can actually read and write values from them.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Reads the value of the variable from memory.</p>
+<p>Reads the value of the variable.</p>
 </div></span>
   
 </li>
@@ -409,7 +319,7 @@ memory object so you can actually read and write values from them.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Writes to the value to the variable's memory.</p>
+<p>Writes the value to the variable.</p>
 </div></span>
   
 </li>
@@ -418,24 +328,13 @@ memory object so you can actually read and write values from them.</p>
     </ul>
   
 
-
-  
-  
-  
-  
-  
-  
-  
-  
-  <h3 class="inherited">Methods included from <span class='object_link'><a href="Variable/ClassMethods.html" title="RPicSim::Variable::ClassMethods (module)">ClassMethods</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Variable/ClassMethods.html#size_is-instance_method" title="RPicSim::Variable::ClassMethods#size_is (method)">size_is</a></span></p>
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    - (<tt><span class='object_link'><a href="" title="RPicSim::Variable (class)">Variable</a></span></tt>) <strong>initialize</strong>(name, address) 
+    - (<tt><span class='object_link'><a href="" title="RPicSim::Variable (class)">Variable</a></span></tt>) <strong>initialize</strong>(storage) 
   
 
   
@@ -444,7 +343,7 @@ memory object so you can actually read and write values from them.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Creates a new Variable object not bound to any memory yet.</p>
+<p>Creates a new Variable object.</p>
 
 
   </div>
@@ -455,136 +354,7 @@ memory object so you can actually read and write values from them.</p>
   
     <li>
       
-        <span class='name'>name</span>
-      
-      
-        <span class='type'>(<tt>Symbol</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>The name of the variable.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>address</span>
-      
-      
-        <span class='type'>(<tt>Integer</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>should be the address of the variable</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-31
-32
-33
-34</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 31</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_address'>address</span><span class='rparen'>)</span>
-  <span class='ivar'>@name</span> <span class='op'>=</span> <span class='id identifier rubyid_name'>name</span>
-  <span class='ivar'>@address</span> <span class='op'>=</span> <span class='id identifier rubyid_address'>address</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-  
-</div>
-
-  <div id="instance_attr_details" class="attr_details">
-    <h2>Instance Attribute Details</h2>
-    
-      
-      <span id=""></span>
-      <div class="method_details first">
-  <h3 class="signature first" id="address-instance_method">
-  
-    - (<tt>Object</tt>) <strong>address</strong>  <span class="extras">(readonly)</span>
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Returns the value of attribute address</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-25
-26
-27</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 25</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_address'>address</span>
-  <span class='ivar'>@address</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id=""></span>
-      <div class="method_details ">
-  <h3 class="signature " id="memory=-instance_method">
-  
-    - (<tt>Object</tt>) <strong>memory=</strong>(value)  <span class="extras">(writeonly)</span>
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Sets the attribute memory</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>value</span>
+        <span class='name'>storage</span>
       
       
         <span class='type'></span>
@@ -593,7 +363,7 @@ memory object so you can actually read and write values from them.</p>
       
         &mdash;
         <div class='inline'>
-<p>the value to set the attribute memory to.</p>
+<p>The internal storage for the variable.</p>
 </div>
       
     </li>
@@ -607,65 +377,22 @@ memory object so you can actually read and write values from them.</p>
       <pre class="lines">
 
 
-26
-27
-28</pre>
+5
+6
+7</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 5</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_memory='>memory=</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
-  <span class='ivar'>@memory</span> <span class='op'>=</span> <span class='id identifier rubyid_value'>value</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_storage'>storage</span><span class='rparen'>)</span>
+  <span class='ivar'>@storage</span> <span class='op'>=</span> <span class='id identifier rubyid_storage'>storage</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
 </div>
-    
-      
-      <span id=""></span>
-      <div class="method_details ">
-  <h3 class="signature " id="name-instance_method">
   
-    - (<tt>Object</tt>) <strong>name</strong>  <span class="extras">(readonly)</span>
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Returns the value of attribute name</p>
-
-
-  </div>
 </div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-25
-26
-27</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 25</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_name'>name</span>
-  <span class='ivar'>@name</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-  </div>
 
 
   <div id="instance_method_details" class="method_details_list">
@@ -673,128 +400,9 @@ memory object so you can actually read and write values from them.</p>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="addresses-instance_method">
+  <h3 class="signature first" id="address-instance_method">
   
-    - (<tt>Range</tt>) <strong>addresses</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Returns The addresses of each byte that is part of this variable.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Range</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>The addresses of each byte that is part of this variable.</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-45
-46
-47</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 45</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_addresses'>addresses</span>
-  <span class='id identifier rubyid_address'>address</span> <span class='op'>...</span> <span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span> <span class='op'>+</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="bind-instance_method">
-  
-    - (<tt>Object</tt>) <strong>bind</strong>(memory) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Creates a new Variable that is bound to the specified memory.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>memory</span>
-      
-      
-        <span class='type'>(<tt>RPicSim::Memory</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-38
-39
-40
-41
-42</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 38</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_bind'>bind</span><span class='lparen'>(</span><span class='id identifier rubyid_memory'>memory</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_bound_var'>bound_var</span> <span class='op'>=</span> <span class='id identifier rubyid_dup'>dup</span>
-  <span class='id identifier rubyid_bound_var'>bound_var</span><span class='period'>.</span><span class='id identifier rubyid_memory'>memory</span> <span class='op'>=</span> <span class='id identifier rubyid_memory'>memory</span>
-  <span class='id identifier rubyid_bound_var'>bound_var</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="inspect-instance_method">
-  
-    - (<tt>Object</tt>) <strong>inspect</strong> 
+    - (<tt>Object</tt>) <strong>address</strong> 
   
 
   
@@ -806,15 +414,159 @@ memory object so you can actually read and write values from them.</p>
       <pre class="lines">
 
 
-65
-66
-67</pre>
+42
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 65</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 42</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_inspect'>inspect</span>
-  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;%s %s 0x%x&gt;</span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='lbracket'>[</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_address'>address</span><span class='rbracket'>]</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_address'>address</span>
+  <span class='ivar'>@storage</span><span class='period'>.</span><span class='id identifier rubyid_address'>address</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="addresses-instance_method">
+  
+    - (<tt>Object</tt>) <strong>addresses</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+38
+39
+40</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 38</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_addresses'>addresses</span>
+  <span class='ivar'>@storage</span><span class='period'>.</span><span class='id identifier rubyid_addresses'>addresses</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="memory_value-instance_method">
+  
+    - (<tt>Object</tt>) <strong>memory_value</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Reads the value directly from the memory object backing the register. For
+some types of variables, this is the same as <span class='object_link'><a href="#value-instance_method" title="RPicSim::Variable#value (method)">#value</a></span>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+30
+31
+32</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 30</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_memory_value'>memory_value</span>
+  <span class='ivar'>@storage</span><span class='period'>.</span><span class='id identifier rubyid_memory_value'>memory_value</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="memory_value=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>memory_value=</strong>(val) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Writes the value to the variable in a lower-level way that overrides any
+read-only bits. For some types of variables, this is the same as <span class='object_link'><a href="#value%3D-instance_method" title="RPicSim::Variable#value= (method)">#value=</a></span>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+24
+25
+26</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 24</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_memory_value='>memory_value=</span><span class='lparen'>(</span><span class='id identifier rubyid_val'>val</span><span class='rparen'>)</span>
+  <span class='ivar'>@storage</span><span class='period'>.</span><span class='id identifier rubyid_memory_value'>memory_value</span> <span class='op'>=</span> <span class='id identifier rubyid_val'>val</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="name-instance_method">
+  
+    - (<tt>Object</tt>) <strong>name</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+46
+47
+48</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 46</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_name'>name</span>
+  <span class='ivar'>@storage</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -836,15 +588,15 @@ memory object so you can actually read and write values from them.</p>
       <pre class="lines">
 
 
-61
-62
-63</pre>
+34
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 61</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 34</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
-  <span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+  <span class='ivar'>@storage</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -863,7 +615,7 @@ memory object so you can actually read and write values from them.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Reads the value of the variable from memory.</p>
+<p>Reads the value of the variable.</p>
 
 
   </div>
@@ -883,19 +635,6 @@ memory object so you can actually read and write values from them.</p>
     </li>
   
 </ul>
-<p class="tag_title">Raises:</p>
-<ul class="raise">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>NoMethodError</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
 
 </div><table class="source_code">
   <tr>
@@ -903,15 +642,15 @@ memory object so you can actually read and write values from them.</p>
       <pre class="lines">
 
 
-51
-52
-53</pre>
+11
+12
+13</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 51</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 11</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_value'>value</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>NoMethodError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>value not implemented</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@storage</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -930,7 +669,7 @@ memory object so you can actually read and write values from them.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Writes to the value to the variable's memory.</p>
+<p>Writes the value to the variable.</p>
 
 
   </div>
@@ -950,19 +689,6 @@ memory object so you can actually read and write values from them.</p>
     </li>
   
 </ul>
-<p class="tag_title">Raises:</p>
-<ul class="raise">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>NoMethodError</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
 
 </div><table class="source_code">
   <tr>
@@ -970,15 +696,15 @@ memory object so you can actually read and write values from them.</p>
       <pre class="lines">
 
 
-57
-58
-59</pre>
+17
+18
+19</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 57</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 17</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_value='>value=</span><span class='lparen'>(</span><span class='id identifier rubyid_val'>val</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>NoMethodError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>value= not implemented</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@storage</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span class='id identifier rubyid_val'>val</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -993,9 +719,9 @@ memory object so you can actually read and write values from them.</p>
   
   <br/><br/>
 
-  Generated on Wed Feb 12 16:57:08 2014 by
+  Generated on Fri Mar  7 10:32:20 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.3 (ruby-1.9.3).
+  0.8.7.4 (ruby-1.9.3).
 </div>
 
   </body>

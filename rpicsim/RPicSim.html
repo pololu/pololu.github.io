@@ -6,7 +6,7 @@
 <title>
   Module: RPicSim
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!" + escape(window.location.href);
+  framesUrl = "frames.html#!RPicSim.html";
 </script>
 
 
@@ -80,7 +80,7 @@
   
     <dt class="r1 last">Defined in:</dt>
     <dd class="r1 last">lib/rpicsim/pin.rb<span class="defines">,<br />
-  lib/rpicsim/sim.rb,<br /> lib/rpicsim/flaws.rb,<br /> lib/rpicsim/label.rb,<br /> lib/rpicsim/mplab.rb,<br /> lib/rpicsim/search.rb,<br /> lib/rpicsim/version.rb,<br /> lib/rpicsim/register.rb,<br /> lib/rpicsim/variable.rb,<br /> lib/rpicsim/instruction.rb,<br /> lib/rpicsim/stack_trace.rb,<br /> lib/rpicsim/program_file.rb,<br /> lib/rpicsim/rspec/helpers.rb,<br /> lib/rpicsim/memory_watcher.rb,<br /> lib/rpicsim/call_stack_info.rb,<br /> lib/rpicsim/program_counter.rb,<br /> lib/rpicsim/rspec/persistent_expectations.rb</span>
+  lib/rpicsim/sim.rb,<br /> lib/rpicsim/flaws.rb,<br /> lib/rpicsim/label.rb,<br /> lib/rpicsim/memory.rb,<br /> lib/rpicsim/search.rb,<br /> lib/rpicsim/version.rb,<br /> lib/rpicsim/variable.rb,<br /> lib/rpicsim/instruction.rb,<br /> lib/rpicsim/stack_trace.rb,<br /> lib/rpicsim/program_file.rb,<br /> lib/rpicsim/variable_set.rb,<br /> lib/rpicsim/stack_pointer.rb,<br /> lib/rpicsim/rspec/helpers.rb,<br /> lib/rpicsim/memory_watcher.rb,<br /> lib/rpicsim/call_stack_info.rb,<br /> lib/rpicsim/program_counter.rb,<br /> lib/rpicsim/composite_memory.rb,<br /> lib/rpicsim/rspec/persistent_expectations.rb</span>
 </dd>
   
 </dl>
@@ -90,11 +90,11 @@
 <p class="children">
   
     
-      <strong class="modules">Modules:</strong> <span class='object_link'><a href="RPicSim/Flaws.html" title="RPicSim::Flaws (module)">Flaws</a></span>, <span class='object_link'><a href="RPicSim/Mplab.html" title="RPicSim::Mplab (module)">Mplab</a></span>, <span class='object_link'><a href="RPicSim/RSpec.html" title="RPicSim::RSpec (module)">RSpec</a></span>, <span class='object_link'><a href="RPicSim/Search.html" title="RPicSim::Search (module)">Search</a></span>
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="RPicSim/Flaws.html" title="RPicSim::Flaws (module)">Flaws</a></span>, <span class='object_link'><a href="RPicSim/Mplab.html" title="RPicSim::Mplab (module)">Mplab</a></span>, <span class='object_link'><a href="RPicSim/RSpec.html" title="RPicSim::RSpec (module)">RSpec</a></span>, <span class='object_link'><a href="RPicSim/Search.html" title="RPicSim::Search (module)">Search</a></span>, <span class='object_link'><a href="RPicSim/Storage.html" title="RPicSim::Storage (module)">Storage</a></span>
     
   
     
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="RPicSim/CallStackInfo.html" title="RPicSim::CallStackInfo (class)">CallStackInfo</a></span>, <span class='object_link'><a href="RPicSim/Instruction.html" title="RPicSim::Instruction (class)">Instruction</a></span>, <span class='object_link'><a href="RPicSim/Label.html" title="RPicSim::Label (class)">Label</a></span>, <span class='object_link'><a href="RPicSim/MemoryWatcher.html" title="RPicSim::MemoryWatcher (class)">MemoryWatcher</a></span>, <span class='object_link'><a href="RPicSim/Pin.html" title="RPicSim::Pin (class)">Pin</a></span>, <span class='object_link'><a href="RPicSim/ProgramCounter.html" title="RPicSim::ProgramCounter (class)">ProgramCounter</a></span>, <span class='object_link'><a href="RPicSim/ProgramFile.html" title="RPicSim::ProgramFile (class)">ProgramFile</a></span>, <span class='object_link'><a href="RPicSim/Register.html" title="RPicSim::Register (class)">Register</a></span>, <span class='object_link'><a href="RPicSim/Sim.html" title="RPicSim::Sim (class)">Sim</a></span>, <span class='object_link'><a href="RPicSim/StackTrace.html" title="RPicSim::StackTrace (class)">StackTrace</a></span>, <span class='object_link'><a href="RPicSim/StackTraceEntry.html" title="RPicSim::StackTraceEntry (class)">StackTraceEntry</a></span>, <span class='object_link'><a href="RPicSim/Variable.html" title="RPicSim::Variable (class)">Variable</a></span>, <span class='object_link'><a href="RPicSim/VariableS16.html" title="RPicSim::VariableS16 (class)">VariableS16</a></span>, <span class='object_link'><a href="RPicSim/VariableS24.html" title="RPicSim::VariableS24 (class)">VariableS24</a></span>, <span class='object_link'><a href="RPicSim/VariableS32.html" title="RPicSim::VariableS32 (class)">VariableS32</a></span>, <span class='object_link'><a href="RPicSim/VariableS8.html" title="RPicSim::VariableS8 (class)">VariableS8</a></span>, <span class='object_link'><a href="RPicSim/VariableU16.html" title="RPicSim::VariableU16 (class)">VariableU16</a></span>, <span class='object_link'><a href="RPicSim/VariableU24.html" title="RPicSim::VariableU24 (class)">VariableU24</a></span>, <span class='object_link'><a href="RPicSim/VariableU32.html" title="RPicSim::VariableU32 (class)">VariableU32</a></span>, <span class='object_link'><a href="RPicSim/VariableU8.html" title="RPicSim::VariableU8 (class)">VariableU8</a></span>, <span class='object_link'><a href="RPicSim/VariableWord.html" title="RPicSim::VariableWord (class)">VariableWord</a></span>
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="RPicSim/CallStackInfo.html" title="RPicSim::CallStackInfo (class)">CallStackInfo</a></span>, <span class='object_link'><a href="RPicSim/CompositeMemory.html" title="RPicSim::CompositeMemory (class)">CompositeMemory</a></span>, <span class='object_link'><a href="RPicSim/Instruction.html" title="RPicSim::Instruction (class)">Instruction</a></span>, <span class='object_link'><a href="RPicSim/Label.html" title="RPicSim::Label (class)">Label</a></span>, <span class='object_link'><a href="RPicSim/Memory.html" title="RPicSim::Memory (class)">Memory</a></span>, <span class='object_link'><a href="RPicSim/MemoryWatcher.html" title="RPicSim::MemoryWatcher (class)">MemoryWatcher</a></span>, <span class='object_link'><a href="RPicSim/Pin.html" title="RPicSim::Pin (class)">Pin</a></span>, <span class='object_link'><a href="RPicSim/ProgramCounter.html" title="RPicSim::ProgramCounter (class)">ProgramCounter</a></span>, <span class='object_link'><a href="RPicSim/ProgramFile.html" title="RPicSim::ProgramFile (class)">ProgramFile</a></span>, <span class='object_link'><a href="RPicSim/Sim.html" title="RPicSim::Sim (class)">Sim</a></span>, <span class='object_link'><a href="RPicSim/StackPointer.html" title="RPicSim::StackPointer (class)">StackPointer</a></span>, <span class='object_link'><a href="RPicSim/StackTrace.html" title="RPicSim::StackTrace (class)">StackTrace</a></span>, <span class='object_link'><a href="RPicSim/StackTraceEntry.html" title="RPicSim::StackTraceEntry (class)">StackTraceEntry</a></span>, <span class='object_link'><a href="RPicSim/Variable.html" title="RPicSim::Variable (class)">Variable</a></span>, <span class='object_link'><a href="RPicSim/VariableSet.html" title="RPicSim::VariableSet (class)">VariableSet</a></span>
     
   
 </p>
@@ -106,7 +106,7 @@
         <dt id="VERSION-constant" class="">VERSION =
           
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>0.1.0</span><span class='tstring_end'>'</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>0.2.0</span><span class='tstring_end'>'</span></span></pre></dd>
       
     </dl>
   
@@ -125,9 +125,9 @@
   
   <br/><br/>
 
-  Generated on Wed Feb 12 16:57:06 2014 by
+  Generated on Fri Mar  7 10:32:19 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.3 (ruby-1.9.3).
+  0.8.7.4 (ruby-1.9.3).
 </div>
 
   </body>

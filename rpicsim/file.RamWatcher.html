@@ -6,7 +6,7 @@
 <title>
   File: RamWatcher
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!" + escape(window.location.href);
+  framesUrl = "frames.html#!file.RamWatcher.html";
 </script>
 
 
@@ -71,11 +71,11 @@
 <p>When writing a <a href="file.UnitTesting.html" title="unit test">unit test</a> for some part of your
 firmware, you should probably test any RAM variable that the code is
 supposed to write to, and make sure that it contains the correct value
-after the code executes. However, you should also try to make sure that
-your code does not write to any other parts of memory; it should only write
-to the places that you were expecting it to write to.</p>
+after the code executes. However, it is also helpful to try to make sure
+that your code does not write to any other parts of memory; it should only
+write to the places that you were expecting it to write to.</p>
 
-<p>RPicSim's <em>ram watcher</em> lets you see all the places in RAM
+<p>RPicSim's <em>RAM watcher</em> lets you see all the places in RAM
 (including SFRs) that were written by your code. It detects writes to RAM
 even if the underlying RAM value didn't change. For example, if your
 program runs a <code>clrf x</code> instruction, the RAM watcher will detect
@@ -93,15 +93,22 @@ report it.</p>
 the latest versions of MPLAB X have an issue that makes the RAM watcher
 useless. For more information, see <a href="file.KnownIssues.html" title="KnownIssues">KnownIssues</a>.</p>
 
-<p>The RAM watcher has two important methods:</p>
+<p>To create a new RAM watcher object, call <span class='object_link'><a href="RPicSim/Sim.html#new_ram_watcher-instance_method" title="RPicSim::Sim#new_ram_watcher (method)">RPicSim::Sim#new_ram_watcher</a></span>.
+There is a shortcut for this method, so if you are using RPicSim's
+<a href="file.RSpecIntegration.html" title="RSpec integration">RSpec integration</a> then you can just write:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_ram_watcher'>ram_watcher</span> <span class='op'>=</span> <span class='id identifier rubyid_new_ram_watcher'>new_ram_watcher</span></code></pre>
+
+<p>The resulting object is an instance of the <span class='object_link'><a href="RPicSim/MemoryWatcher.html" title="RPicSim::MemoryWatcher (class)">RPicSim::MemoryWatcher</a></span> class
+and has two important methods:</p>
 <ul><li>
 <p>The <span class='object_link'><a href="RPicSim/MemoryWatcher.html#writes-instance_method" title="RPicSim::MemoryWatcher#writes (method)">writes</a></span> method provides a hash
 representing all the writes that have been recorded.  Each key of the hash
 is the name of the variable or SFR that was written to, or just the address
 that was written to if the write was to an unrecognized location in memory.
-The values of the hash are the final value that the item had after the last
-write.  If a subroutine under test writes to the same variable twice, the
-RAM watcher will only report about the last write.</p>
+The values of the hash are the final value that the variable had after the
+last write.  If a variable is written to more than once, the RAM watcher
+will only report about the last write.</p>
 </li><li>
 <p>The <span class='object_link'><a href="RPicSim/MemoryWatcher.html#clear-instance_method" title="RPicSim::MemoryWatcher#clear (method)">clear</a></span> method erases all previous
 records.</p>
@@ -113,26 +120,33 @@ records.</p>
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>adds x to y and stores the result in z</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
   <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span class='int'>70</span>
   <span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span class='int'>22</span>
-  <span class='id identifier rubyid_step'>step</span><span class='semicolon'>;</span> <span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_ram_watcher'>ram_watcher</span><span class='period'>.</span><span class='id identifier rubyid_clear'>clear</span>
+  <span class='id identifier rubyid_step'>step</span>
+  <span class='id identifier rubyid_ram_watcher'>ram_watcher</span> <span class='op'>=</span> <span class='id identifier rubyid_new_ram_watcher'>new_ram_watcher</span>
   <span class='id identifier rubyid_run_subroutine'>run_subroutine</span> <span class='symbol'>:addition</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>100</span>
-  <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_ram_watcher'>ram_watcher</span><span class='period'>.</span><span class='id identifier rubyid_writes'>writes</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='label'>z:</span> <span class='int'>92</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_ram_watcher'>ram_watcher</span><span class='period'>.</span><span class='id identifier rubyid_writes'>writes</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='label'>z:</span> <span class='int'>92</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 <span class='kw'>end</span></code></pre>
 
-<p>The third line in the example above, which clears the RAM watcher's records
-after stepping once, is necessary because the RAM watcher actually detects
-the writes that occurred to RAM in the lines above, even though those
-writes came from Ruby code.</p>
+<p>The third line in the example above advances the simulation by one step.
+That initial step is necessary for two reasons:</p>
+<ul><li>
+<p>Without it, the RAM watcher would report the writes to the <code>x</code>
+and <code>z</code> variables performed above, even though those writes came
+from Ruby code.</p>
+</li><li>
+<p>Without it, the RAM watcher would report spurious writes to several
+registers such as INTCON and LATA.  On the first step of the simulation,
+the MPLAB X code reports writes to several registers that were not caused
+by the firmware.  We can avoid seeing them by taking a single step before
+creating the RAM watcher.</p>
+</li></ul>
 
 <p>The RAM watcher is an instance of <span class='object_link'><a href="RPicSim/MemoryWatcher.html" title="RPicSim::MemoryWatcher (class)">RPicSim::MemoryWatcher</a></span>.</p>
 
 <h2 id="label-Filters">Filters</h2>
 
 <p>The <span class='object_link'><a href="RPicSim/MemoryWatcher.html" title="RPicSim::MemoryWatcher (class)">RPicSim::MemoryWatcher</a></span> class contains some special code to filter out
-reports about registers that are always changing, like <code>PCL</code> and
-<code>STATUS</code>. It also contains some special code to filter out
-spurious reports of writes that happen on the very first step of the
-simulation. Both of these filters might need to be updated to properly
-support your particular PIC (and your version of MPLAB X).</p>
+reports about registers that very frequently change, like <code>PCL</code>
+and <code>STATUS</code>.</p>
 </div></div>
 
     <div id="footer">
@@ -141,9 +155,9 @@ support your particular PIC (and your version of MPLAB X).</p>
   
   <br/><br/>
 
-  Generated on Wed Feb 12 16:57:05 2014 by
+  Generated on Fri Mar  7 10:32:18 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.3 (ruby-1.9.3).
+  0.8.7.4 (ruby-1.9.3).
 </div>
 
   </body>

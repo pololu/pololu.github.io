@@ -6,7 +6,7 @@
 <title>
   Class: RPicSim::Instruction::Transition
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!" + escape(window.location.href);
+  framesUrl = "../../frames.html#!RPicSim/Instruction/Transition.html";
 </script>
 
 
@@ -109,7 +109,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#next_instruction-instance_method" title="#next_instruction (instance method)">- (Object) <strong>next_instruction</strong> </a>
+      <a href="#next_address-instance_method" title="#next_address (instance method)">- (Object) <strong>next_address</strong> </a>
     
 
     
@@ -129,7 +129,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute next_instruction.</p>
+<p>Returns the value of attribute next_address.</p>
 </div></span>
   
 </li>
@@ -202,7 +202,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Transition) <strong>initialize</strong>(previous_instruction, next_instruction, attrs) </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Transition) <strong>initialize</strong>(previous_instruction, next_address, instruction_store, attrs) </a>
     
 
     
@@ -221,6 +221,28 @@
     <span class="summary_desc"><div class='inline'>
 <p>A new instance of Transition.</p>
 </div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#next_instruction-instance_method" title="#next_instruction (instance method)">- (Object) <strong>next_instruction</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -256,7 +278,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    - (<tt><span class='object_link'><a href="" title="RPicSim::Instruction::Transition (class)">Transition</a></span></tt>) <strong>initialize</strong>(previous_instruction, next_instruction, attrs) 
+    - (<tt><span class='object_link'><a href="" title="RPicSim::Instruction::Transition (class)">Transition</a></span></tt>) <strong>initialize</strong>(previous_instruction, next_address, instruction_store, attrs) 
   
 
   
@@ -279,18 +301,20 @@
       <pre class="lines">
 
 
-163
-164
-165
-166
-167</pre>
+313
+314
+315
+316
+317
+318</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 163</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 313</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_previous_instruction'>previous_instruction</span><span class='comma'>,</span> <span class='id identifier rubyid_next_instruction'>next_instruction</span><span class='comma'>,</span> <span class='id identifier rubyid_attrs'>attrs</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_previous_instruction'>previous_instruction</span><span class='comma'>,</span> <span class='id identifier rubyid_next_address'>next_address</span><span class='comma'>,</span> <span class='id identifier rubyid_instruction_store'>instruction_store</span><span class='comma'>,</span> <span class='id identifier rubyid_attrs'>attrs</span><span class='rparen'>)</span>
   <span class='ivar'>@previous_instruction</span> <span class='op'>=</span> <span class='id identifier rubyid_previous_instruction'>previous_instruction</span>
-  <span class='ivar'>@next_instruction</span> <span class='op'>=</span> <span class='id identifier rubyid_next_instruction'>next_instruction</span>
+  <span class='ivar'>@next_address</span> <span class='op'>=</span> <span class='id identifier rubyid_next_address'>next_address</span>
+  <span class='ivar'>@instruction_store</span> <span class='op'>=</span> <span class='id identifier rubyid_instruction_store'>instruction_store</span>
   <span class='ivar'>@attrs</span> <span class='op'>=</span> <span class='id identifier rubyid_attrs'>attrs</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -306,9 +330,9 @@
       
       <span id=""></span>
       <div class="method_details first">
-  <h3 class="signature first" id="next_instruction-instance_method">
+  <h3 class="signature first" id="next_address-instance_method">
   
-    - (<tt>Object</tt>) <strong>next_instruction</strong>  <span class="extras">(readonly)</span>
+    - (<tt>Object</tt>) <strong>next_address</strong>  <span class="extras">(readonly)</span>
   
 
   
@@ -317,7 +341,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute next_instruction</p>
+<p>Returns the value of attribute next_address</p>
 
 
   </div>
@@ -331,15 +355,15 @@
       <pre class="lines">
 
 
-161
-162
-163</pre>
+311
+312
+313</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 161</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 311</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_next_instruction'>next_instruction</span>
-  <span class='ivar'>@next_instruction</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_next_address'>next_address</span>
+  <span class='ivar'>@next_address</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -374,12 +398,12 @@
       <pre class="lines">
 
 
-161
-162
-163</pre>
+310
+311
+312</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 161</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 310</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_previous_instruction'>previous_instruction</span>
   <span class='ivar'>@previous_instruction</span>
@@ -411,15 +435,45 @@
       <pre class="lines">
 
 
-173
-174
-175</pre>
+328
+329
+330</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 173</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 328</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_call_depth_change'>call_depth_change</span>
   <span class='ivar'>@attrs</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:call_depth_change</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="next_instruction-instance_method">
+  
+    - (<tt>Object</tt>) <strong>next_instruction</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+320
+321
+322</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 320</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_next_instruction'>next_instruction</span>
+  <span class='ivar'>@next_instruction</span> <span class='op'>||=</span> <span class='ivar'>@instruction_store</span><span class='period'>.</span><span class='id identifier rubyid_instruction'>instruction</span><span class='lparen'>(</span><span class='id identifier rubyid_next_address'>next_address</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -463,12 +517,12 @@
       <pre class="lines">
 
 
-169
-170
-171</pre>
+324
+325
+326</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 169</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 324</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_non_local?'>non_local?</span>
   <span class='ivar'>@attrs</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:non_local</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span>
@@ -486,9 +540,9 @@
   
   <br/><br/>
 
-  Generated on Wed Feb 12 16:57:08 2014 by
+  Generated on Fri Mar  7 10:32:20 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.3 (ruby-1.9.3).
+  0.8.7.4 (ruby-1.9.3).
 </div>
 
   </body>

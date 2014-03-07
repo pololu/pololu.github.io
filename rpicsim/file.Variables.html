@@ -6,7 +6,7 @@
 <title>
   File: Variables
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!" + escape(window.location.href);
+  framesUrl = "frames.html#!file.Variables.html";
 </script>
 
 
@@ -68,28 +68,29 @@
     <div id="content"><div id='filecontents'>
 <h1 id="label-Variables">Variables</h1>
 
-<p>RPicSim allows you to read and write from simulated variables stored in RAM
-or flash, which can be useful for <a href="file.UnitTesting.html" title="unit testing">unit testing</a>.
-Variables are represented as Ruby objects that are instances of a subclass
-of <span class='object_link'><a href="RPicSim/Variable.html" title="RPicSim::Variable (class)">RPicSim::Variable</a></span>.</p>
+<p>RPicSim uses the <span class='object_link'><a href="RPicSim/Variable.html" title="RPicSim::Variable (class)">RPicSim::Variable</a></span> class to let you access simulated
+program variables stored in RAM, program memory, or EEPROM, as well as
+Special Function Registers, which can be useful for <a href="file.UnitTesting.html" title="unit testing">unit testing</a>.</p>
 
 <p>To access a variable, RPicSim needs to know the name it will be called in
-your Ruby code, what data type it is (e.g. 16-bit unsigned integer), and
-its address in memory. In most cases, RPicSim can deduce the address by
-looking at the symbol table in your COF file, so you will not need to type
-the address. However, RPicSim cannot deduce the data type of a variable, so
-any variables used need to be explicitly defined beforehand.</p>
+your Ruby code, what type of memory it is stored in, what data type it is
+(e.g. 16-bit unsigned integer), and its address in memory. This information
+is deduced in different ways for the different types of variables described
+below.</p>
 
-<h2 id="label-Defining+a+RAM+variable">Defining a RAM variable</h2>
+<h2 id="label-User-defined+variables">User-defined variables</h2>
 
-<p>RAM variables that you want to access from Ruby must be defined in the
+<p>For variables defined in your firmware, RPicSim can usually deduce the
+address by looking at the symbol table in your COF file, so you will not
+need to type the address. However, RPicSim cannot deduce the data type of a
+variable, so any variables used need to be explicitly defined in the
 <a href="file.DefiningSimulationClass.html" title="simulation class">simulation class</a> using
 <span class='object_link'><a href="RPicSim/Sim/ClassDefinitionMethods.html#def_var-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#def_var (method)">def_var</a></span>. For example:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='kw'>class</span> <span class='const'>MySim</span> <span class='op'>&lt;</span> <span class='const'>RPicSim</span><span class='op'>::</span><span class='const'>Sim</span>
   <span class='comment'>#...
 </span>
-  <span class='id identifier rubyid_def_var'>def_var</span> <span class='symbol'>:counter</span><span class='comma'>,</span> <span class='symbol'>:u8</span>
+  <span class='id identifier rubyid_def_var'>def_var</span> <span class='symbol'>:counter</span><span class='comma'>,</span> <span class='symbol'>:uint8</span>
 
 <span class='kw'>end</span>
 </code></pre>
@@ -101,12 +102,12 @@ variable object by passing <code>:counter</code> as the argument to
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_var'>var</span><span class='lparen'>(</span><span class='symbol'>:counter</span><span class='rparen'>)</span></code></pre>
 
-<p>Each variable also has a "shortcut" method by the same name. This means
-that you can access the variable like this:</p>
+<p>Each variable also has a method on the simulation object by the same name.
+This means that you can access the variable like this:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_counter'>counter</span></code></pre>
 
-<p>The shortcuts are also available in RSpec thanks to RPicsim's
+<p>A shortcut is also available in RSpec thanks to RPicsim's
 <a href="file.RSpecIntegration.html" title="RSpec integration">RSpec integration</a>, so you can simply write
 <code>counter</code> in any of your RSpec examples:</p>
 
@@ -125,7 +126,7 @@ variable, so you do not need to specify the address yourself.</p>
 <p>You can use the <code>symbol</code> option to specify what symbol in the
 symbol table marks the location of the variable. For example:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_def_var'>def_var</span> <span class='symbol'>:counter</span><span class='comma'>,</span> <span class='symbol'>:u8</span><span class='comma'>,</span> <span class='label'>symbol:</span> <span class='symbol'>:_counter</span></code></pre>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_def_var'>def_var</span> <span class='symbol'>:counter</span><span class='comma'>,</span> <span class='symbol'>:uint8</span><span class='comma'>,</span> <span class='label'>symbol:</span> <span class='symbol'>:_counter</span></code></pre>
 
 <p>The example above shows how you could access a variable from a C compiler
 (which will generally be prefixed with an underscore) without having to
@@ -134,29 +135,75 @@ option allows you to call a variable one thing in your firmware and call it
 a different thing in your tests.</p>
 
 <p>RPicSim will raise an exception if it cannot find the specified symbol in
-the symbol table. To troubleshoot this, you might print the list of
-variables that RPicSim found:</p>
+the symbol table. To troubleshoot this, you might print the list of symbols
+that RPicSim found:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_program_file'>program_file</span><span class='period'>.</span><span class='id identifier rubyid_var_addresses'>var_addresses</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span></code></pre>
 
 <p>You can use the <code>address</code> option to specify an arbitrary address
 instead of using the symbol table. For example:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_def_var'>def_var</span> <span class='symbol'>:counter</span><span class='comma'>,</span> <span class='symbol'>:u8</span><span class='comma'>,</span> <span class='label'>address:</span> <span class='int'>0x63</span></code></pre>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_def_var'>def_var</span> <span class='symbol'>:counter</span><span class='comma'>,</span> <span class='symbol'>:uint8</span><span class='comma'>,</span> <span class='label'>address:</span> <span class='int'>0x63</span></code></pre>
 
-<h2 id="label-Defining+Flash+variables">Defining Flash variables</h2>
+<p>Variables are assumed to be in RAM by default, but you can specify that
+they are in program memory or EEPROM using the <code>memory</code> option.</p>
 
-<p>Flash (program space) variables work the same way as RAM variables except:</p>
-<ul><li>
-<p>They are defined with <span class='object_link'><a href="RPicSim/Sim/ClassDefinitionMethods.html#def_flash_var-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#def_flash_var (method)">def_flash_var</a></span>.</p>
-</li><li>
-<p>The set of allowed data types for the second argument of
-<code>def_flash_var</code> is different, and you can see the documentation
-by clicking the link above.</p>
-</li><li>
-<p>Flash variables cannot be accessed with <span class='object_link'><a href="RPicSim/Sim.html#var-instance_method" title="RPicSim::Sim#var (method)">RPicSim::Sim#var</a></span>, but can be
-accessed with <span class='object_link'><a href="RPicSim/Sim.html#flash_var-instance_method" title="RPicSim::Sim#flash_var (method)">RPicSim::Sim#flash_var</a></span></p>
-</li></ul>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_def_var'>def_var</span> <span class='symbol'>:settings</span><span class='comma'>,</span> <span class='symbol'>:word</span><span class='comma'>,</span> <span class='label'>memory:</span> <span class='symbol'>:program_memory</span>
+<span class='id identifier rubyid_def_var'>def_var</span> <span class='symbol'>:checksum</span><span class='comma'>,</span> <span class='symbol'>:uint16</span><span class='comma'>,</span> <span class='label'>memory:</span> <span class='symbol'>:eeprom</span></code></pre>
+
+<h3 id="label-Program+memory+on+non-PIC18+devices">Program memory on non-PIC18 devices</h3>
+
+<p>On non-PIC18 devices, program memory is made up of words that are 12 bits
+or 14 bits wide.</p>
+
+<p>The type of address used for program memory of these devices is called a
+<em>word address</em> because it specifies the number of a word instead of
+the number of a byte. For example, a word address of <code>1</code> would
+correspond to the second word in program memory.</p>
+
+<p>To access all the bits of a particular word, you can define your variable
+to be of the <code>:word</code> type as shown in the example above. If you
+specify any of the integer types like :uint8 or :int16, the bytes that
+comprise that variable will live in the least-significant 8 bits of one or
+more words in program memory. The upper bits of the words will not be
+changed when writing to the variable.</p>
+
+<p>This behavior is useful because if you store an integer in program memory
+as 1 to 4 consecutive RETLW instructions, you can read and write from it in
+Ruby without changing the bits that make those words be RETLW instructions.</p>
+
+<h2 id="label-Accessing+special+function+registers">Accessing special function registers</h2>
+
+<p>The Special Function Registers (SFRs) on a microcontroller enable the
+firmware to interact with the microcontroller's peripherals and talk to the
+outside world. The <span class='object_link'><a href="RPicSim/Sim.html#reg-instance_method" title="RPicSim::Sim#reg (method)">RPicSim::Sim#reg</a></span> method can be called on your
+simulation object to retrieve a <span class='object_link'><a href="RPicSim/Variable.html" title="RPicSim::Variable (class)">RPicSim::Variable</a></span> object:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_reg'>reg</span><span class='lparen'>(</span><span class='symbol'>:LATA</span><span class='rparen'>)</span>  <span class='comment'># =&gt; returns a Variable object
+</span></code></pre>
+
+<p>If you are using RPicSim's <a href="file.RSpecIntegration.html" title="RSpec integration">RSpec integration</a>,
+the <code>reg</code> method inside an example automatically redirects to
+the <code>@sim</code> object:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>works</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_reg'>reg</span><span class='lparen'>(</span><span class='symbol'>:LATA</span><span class='rparen'>)</span>  <span class='comment'># =&gt; returns a Variable object
+</span><span class='kw'>end</span>
+</code></pre>
+
+<p>The first argument of <span class='object_link'><a href="RPicSim/Sim.html#reg-instance_method" title="RPicSim::Sim#reg (method)">RPicSim::Sim#reg</a></span> should be a symbol containing the
+name of the SFR. The name comes from the MPLAB X code, but we expect it to
+match the name given in the microcontroller's datasheet.</p>
+
+<p>Note that the MPLAB X code considers "SFRs" to only be the special
+registers that have an address in memory. The special registers without a
+memory address are called Non-Memory-Mapped Registers (NMMRs). For example,
+on some chips, WREG and STKPTR are NMMRs. You can access NMMRs in exactly
+the same way as SFRs:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sets W to 5</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_reg'>reg</span><span class='lparen'>(</span><span class='symbol'>:WREG</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span> <span class='int'>5</span>
+<span class='kw'>end</span></code></pre>
 
 <h2 id="label-Using+a+variable">Using a variable</h2>
 
@@ -167,6 +214,27 @@ attribute:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_counter'>counter</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span class='int'>0x6A</span>
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_counter'>counter</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span> <span class='int'>0x6A</span></code></pre>
+
+<h2 id="label-Protected+bits">Protected bits</h2>
+
+<p>When you write to a register with <span class='object_link'><a href="RPicSim/Variable.html#value%3D-instance_method" title="RPicSim::Variable#value= (method)">RPicSim::Variable#value=</a></span>, you are
+(according to our understanding of MPLAB X) writing to it in the same way
+that the simulated microcontroller would write to it. This means that some
+bits might not be writable or might have restrictions on what value can be
+written to them. For example, the TO and PD bits of the STATUS register on
+the PIC10F322 are not writable by the microcontroller.</p>
+
+<p>To get around this, you can use <span class='object_link'><a href="RPicSim/Variable.html#memory_value%3D-instance_method" title="RPicSim::Variable#memory_value= (method)">RPicSim::Variable#memory_value=</a></span> instead,
+which should allow you to write to any of the bits.</p>
+
+<h2 id="label-Peripheral+updating">Peripheral updating</h2>
+
+<p>The MPLAB X code contains various objects that simulate the peripherals on
+a chip, such as the ADC. We have not determined whether writing to SFRs
+using the <span class='object_link'><a href="RPicSim/Variable.html" title="RPicSim::Variable (class)">RPicSim::Variable</a></span> object updates the simulation of those
+peripherals in the proper way. Also, whether the peripherals get updated
+might depend on whether the <code>value</code> or the
+<code>memory_value</code> attribute is used for writing.</p>
 
 <h2 id="label-Addition+example">Addition example</h2>
 
@@ -201,11 +269,11 @@ to the compiled COF file and defines the variables:</p>
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rpicsim/rspec</span><span class='tstring_end'>'</span></span>
 
 <span class='kw'>class</span> <span class='const'>Addition</span> <span class='op'>&lt;</span> <span class='const'>RPicSim</span><span class='op'>::</span><span class='const'>Sim</span>
-  <span class='id identifier rubyid_device_is'>device_is</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PIC10F322</span><span class='tstring_end'>&quot;</span></span>
-  <span class='id identifier rubyid_filename_is'>filename_is</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_dirname'>dirname</span><span class='lparen'>(</span><span class='kw'>__FILE__</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>../firmware/dist/firmware.cof</span><span class='tstring_end'>&quot;</span></span>
-  <span class='id identifier rubyid_def_var'>def_var</span> <span class='symbol'>:x</span><span class='comma'>,</span> <span class='symbol'>:u16</span>
-  <span class='id identifier rubyid_def_var'>def_var</span> <span class='symbol'>:y</span><span class='comma'>,</span> <span class='symbol'>:u16</span>
-  <span class='id identifier rubyid_def_var'>def_var</span> <span class='symbol'>:z</span><span class='comma'>,</span> <span class='symbol'>:u16</span>
+  <span class='id identifier rubyid_use_device'>use_device</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PIC10F322</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_use_file'>use_file</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_dirname'>dirname</span><span class='lparen'>(</span><span class='kw'>__FILE__</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>../firmware/dist/firmware.cof</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_def_var'>def_var</span> <span class='symbol'>:x</span><span class='comma'>,</span> <span class='symbol'>:uint16</span>
+  <span class='id identifier rubyid_def_var'>def_var</span> <span class='symbol'>:y</span><span class='comma'>,</span> <span class='symbol'>:uint16</span>
+  <span class='id identifier rubyid_def_var'>def_var</span> <span class='symbol'>:z</span><span class='comma'>,</span> <span class='symbol'>:uint16</span>
 <span class='kw'>end</span>
 </code></pre>
 
@@ -213,20 +281,20 @@ to the compiled COF file and defines the variables:</p>
 writes to <code>x</code> and <code>y</code>, runs the <code>addition</code>
 subroutine, and checks that the correct result is stored in <code>z</code>:</p>
 
-<pre class="code ruby"><code class="ruby">require_relative 'spec_helper'
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>spec_helper</span><span class='tstring_end'>'</span></span>
 
-describe &quot;addition routine&quot; do
-  before do
-    start_sim Addition
-  end
+<span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>addition routine</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_before'>before</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_start_sim'>start_sim</span> <span class='const'>Addition</span>
+  <span class='kw'>end</span>
 
-  it &quot;can add 70 + 22&quot;
-    x.value = 70
-    y.value = 22
-    run_subroutine :addition, cycle_limit: 100
-    expect(z.value).to eq 92
-  end
-end</code></pre>
+  <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>can add 70 + 22</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span class='int'>70</span>
+    <span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span class='int'>22</span>
+    <span class='id identifier rubyid_run_subroutine'>run_subroutine</span> <span class='symbol'>:addition</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>100</span>
+    <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_z'>z</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span> <span class='int'>92</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
 </div></div>
 
     <div id="footer">
@@ -235,9 +303,9 @@ end</code></pre>
   
   <br/><br/>
 
-  Generated on Wed Feb 12 16:57:05 2014 by
+  Generated on Fri Mar  7 10:32:17 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.3 (ruby-1.9.3).
+  0.8.7.4 (ruby-1.9.3).
 </div>
 
   </body>

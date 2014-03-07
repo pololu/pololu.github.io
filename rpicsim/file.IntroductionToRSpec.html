@@ -6,7 +6,7 @@
 <title>
   File: IntroductionToRSpec
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!" + escape(window.location.href);
+  framesUrl = "frames.html#!file.IntroductionToRSpec.html";
 </script>
 
 
@@ -74,9 +74,8 @@ RSpec provides great ways to combine code from similar tests, provides good
 error messages, and encourages you to specify exactly what you are testing.</p>
 
 <p>The main documentation for RSpec can be found from the project's website at
-<a href="http://rspec.info/">rspec.info</a>, but I think it is not very
-easy to follow. This page goes over the most important things you should
-know about RSpec.</p>
+<a href="http://rspec.info/">rspec.info</a>. This page documents the most
+important things you should know about RSpec.</p>
 
 <h2 id="label-File+structure">File structure</h2>
 
@@ -120,17 +119,17 @@ an example group:</p>
 
 <p>The strings passed to <code>describe</code>, <code>context</code>,
 <code>it</code>, and <code>specify</code> are optional, but are used to
-generate helpful error messages and documentation. If an example fails then
-a string about the expected behavior is produced by concatenating all the
-provided strings, from outermost to innermost.</p>
+generate helpful error messages and documentation. If an example fails,
+then a string about the expected behavior is produced by concatenating all
+the provided strings, from outermost to innermost.</p>
 
 <h2 id="label-Expectations">Expectations</h2>
 
 <p>In general, an RSpec example consists of some code to set up the situation
-being tested, and some code that called an <em>expectation</em> that
-defines the expected outcome. If an expectation fails, an exception is
-raised, the example stops executing, and a failure message is displayed.
-Expectations look like this:</p>
+being tested, and some code called an <em>expectation</em> that defines the
+expected outcome. If an expectation fails, an exception is raised, the
+example stops executing, and a failure message is displayed. Expectations
+look like this:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_something'>something</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_some_property'>have_some_property</span>
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_something'>something</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_not'>to_not</span> <span class='id identifier rubyid_have_some_property'>have_some_property</span></code></pre>
@@ -166,11 +165,11 @@ values, states, or properties being tested.</p>
   <span class='kw'>end</span>
 <span class='kw'>end</span></code></pre>
 
-<p>First, the code adds 1 to 5 and then expects it to equal 6. Then the number
-6 is passed as the first argument to <code>eq</code>, making an equality
-matcher that tests whether the result is equal to 6. Note that parentheses
-are not required when calling a method in Ruby: you can write
-<code>eq(6)</code> or <code>eq 6</code>.</p>
+<p>First, the code adds 1 to 5 and stores the result. Then the number 6 is
+passed as the first argument to <code>eq</code>, making an equality matcher
+that tests whether the result is equal to 6. Note that parentheses are not
+required when calling a method in Ruby: you can write <code>eq(6)</code> or
+<code>eq 6</code>.</p>
 
 <p>A common practice in RSpec is to have just one expectation per example.
 This helps you organize your examples and makes it clear to the reader what
@@ -260,10 +259,9 @@ variable, and the block will be called if the value of the variable is ever
 needed. In other words, <code>let</code> variables are lazily evaluated.</p>
 
 <p>The example below shows how a <code>let</code> variable could be useful for
-making your tests more readable; I only had to write the number 2 once. In
-this case, <code>let</code> allows us to separate the description of the
-expected behavior (the car can shift gears) from the arbitrary value (2)
-that we used to test it.</p>
+making your tests more readable. In this case, <code>let</code> allows us
+to separate the description of the expected behavior (the car can shift
+gears) from the arbitrary value (2) that we used to test it.</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>my car</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
   <span class='id identifier rubyid_let'>let</span><span class='lparen'>(</span><span class='symbol'>:gear</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='int'>2</span> <span class='rbrace'>}</span>
@@ -325,9 +323,9 @@ shared examples</a> documentation for more information.</p>
   
   <br/><br/>
 
-  Generated on Wed Feb 12 16:57:05 2014 by
+  Generated on Fri Mar  7 10:32:18 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.3 (ruby-1.9.3).
+  0.8.7.4 (ruby-1.9.3).
 </div>
 
   </body>

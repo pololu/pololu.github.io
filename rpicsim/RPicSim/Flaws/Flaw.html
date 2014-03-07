@@ -6,7 +6,7 @@
 <title>
   Class: RPicSim::Flaws::Flaw
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!" + escape(window.location.href);
+  framesUrl = "../../frames.html#!RPicSim/Flaws/Flaw.html";
 </script>
 
 
@@ -420,7 +420,7 @@ have.</p>
       <pre class="code"><span class="info file"># File 'lib/rpicsim/flaws.rb', line 20</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_effect'>effect</span><span class='lparen'>(</span><span class='id identifier rubyid_version'>version</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='ivar'>@versions</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span> <span class='id identifier rubyid_version'>version</span>
+  <span class='kw'>if</span> <span class='ivar'>@versions</span><span class='period'>.</span><span class='id identifier rubyid_key?'>key?</span> <span class='id identifier rubyid_version'>version</span>
     <span class='ivar'>@versions</span><span class='lbracket'>[</span><span class='id identifier rubyid_version'>version</span><span class='rbracket'>]</span>
   <span class='kw'>else</span>
     <span class='ivar'>@probable_affect_for_other_versions</span>
@@ -482,9 +482,9 @@ the next version of MPLAB X will behave.</p>
   
   <br/><br/>
 
-  Generated on Wed Feb 12 16:57:07 2014 by
+  Generated on Fri Mar  7 10:32:20 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.3 (ruby-1.9.3).
+  0.8.7.4 (ruby-1.9.3).
 </div>
 
   </body>

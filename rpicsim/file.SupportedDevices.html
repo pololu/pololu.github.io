@@ -6,7 +6,7 @@
 <title>
   File: SupportedDevices
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!" + escape(window.location.href);
+  framesUrl = "frames.html#!file.SupportedDevices.html";
 </script>
 
 
@@ -69,31 +69,12 @@
 <h1 id="label-Supported+devices">Supported devices</h1>
 
 <p>RPicSim aims to support all 8-bit PIC microcontrollers. No support is
-planned for 16-bit or 32-bit PIC microcontrollers because the author does
-not have an interest in using those devices. It might be easy to add
-support for them, but the code that handles <a href="file.SFRs.html" title="SFRs">SFRs</a> would have
-to be adjusted to allow SFRs with more than 8 bits.</p>
+planned for 16-bit or 32-bit PIC microcontrollers because we do not have an
+interest in using those devices.</p>
 
 <p>RPicSim relies on MPLAB X code to perform the actual simulation, and MPLAB
-X abstracts away most of the differences between PICs.</p>
-
-<p>The 8-bit PICs have
-<a href="http://www.microchip.com/pagehandler/en-us/family/8bit/architecture/home.html" target="_parent" title="four different architectures">four different architectures</a>:</p>
-<ul><li>
-<p>Baseline</p>
-</li><li>
-<p>Midrange</p>
-</li><li>
-<p>Enhanced Midrange</p>
-</li><li>
-<p>PIC18</p>
-</li></ul>
-
-<p>There is currently some code in <span class='object_link'><a href="RPicSim/ProgramFile.html#instruction-instance_method" title="RPicSim::ProgramFile#instruction (method)">RPicSim::ProgramFile#instruction</a></span> that
-only works with baseline and midrange PICs, but it should be easy to expand
-it to other PICs. This code is only used to calculate call stack depth
-information for users who want that feature; it is not used for actual
-simulations.</p>
+X abstracts away most of the differences between different PIC
+microcontrollers.</p>
 </div></div>
 
     <div id="footer">
@@ -102,9 +83,9 @@ simulations.</p>
   
   <br/><br/>
 
-  Generated on Wed Feb 12 16:57:04 2014 by
+  Generated on Fri Mar  7 10:32:16 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.3 (ruby-1.9.3).
+  0.8.7.4 (ruby-1.9.3).
 </div>
 
   </body>

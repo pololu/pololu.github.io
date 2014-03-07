@@ -6,7 +6,7 @@
 <title>
   Module: RPicSim::Sim::ClassMethods
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!" + escape(window.location.href);
+  framesUrl = "../../frames.html#!RPicSim/Sim/ClassMethods.html";
 </script>
 
 
@@ -168,36 +168,6 @@ the constructor.</p>
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#flash_vars-instance_method" title="#flash_vars (instance method)">- (Object) <strong>flash_vars</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-      <span class="note title readonly">readonly</span>
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>A hash that associates flash variable names to (unbound) <span class='object_link'><a href="../Variable.html" title="RPicSim::Variable (class)">Variable</a></span>
-objects.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#labels-instance_method" title="#labels (instance method)">- (Object) <strong>labels</strong> </a>
     
 
@@ -286,7 +256,7 @@ datasheet pin names (like :RB3).</p>
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#vars-instance_method" title="#vars (instance method)">- (Object) <strong>vars</strong> </a>
+      <a href="#variable_set-instance_method" title="#variable_set (instance method)">- (Object) <strong>variable_set</strong> </a>
     
 
     
@@ -306,7 +276,8 @@ datasheet pin names (like :RB3).</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A hash that associates RAM variable names to (unbound) <span class='object_link'><a href="../Variable.html" title="RPicSim::Variable (class)">Variable</a></span> objects.</p>
+<p>A <span class='object_link'><a href="../VariableSet.html" title="RPicSim::VariableSet (class)">VariableSet</a></span> that holds information about all the variables that were
+defined with <span class='object_link'><a href="ClassDefinitionMethods.html#def_var-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#def_var (method)">def_var</a></span>.</p>
 </div></span>
   
 </li>
@@ -349,12 +320,12 @@ datasheet pin names (like :RB3).</p>
       <pre class="lines">
 
 
-176
-177
-178</pre>
+90
+91
+92</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 176</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 90</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_device'>device</span>
   <span class='ivar'>@device</span>
@@ -393,60 +364,15 @@ the constructor.</p>
       <pre class="lines">
 
 
-180
-181
-182</pre>
+94
+95
+96</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 180</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 94</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_filename'>filename</span>
   <span class='ivar'>@filename</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id=""></span>
-      <div class="method_details ">
-  <h3 class="signature " id="flash_vars-instance_method">
-  
-    - (<tt>Object</tt>) <strong>flash_vars</strong>  <span class="extras">(readonly)</span>
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>A hash that associates flash variable names to (unbound) <span class='object_link'><a href="../Variable.html" title="RPicSim::Variable (class)">Variable</a></span>
-objects. The variables are defined by
-<span class='object_link'><a href="ClassDefinitionMethods.html#def_flash_var-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#def_flash_var (method)">RPicSim::Sim::ClassDefinitionMethods#def_flash_var</a></span>.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-192
-193
-194</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 192</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_flash_vars'>flash_vars</span>
-  <span class='ivar'>@flash_vars</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -481,12 +407,12 @@ objects. The variables are defined by
       <pre class="lines">
 
 
-195
-196
-197</pre>
+105
+106
+107</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 195</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 105</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_labels'>labels</span>
   <span class='ivar'>@labels</span>
@@ -526,12 +452,12 @@ datasheet pin names (like :RB3).  These aliases are defined by
       <pre class="lines">
 
 
-184
-185
-186</pre>
+98
+99
+100</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 184</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 98</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pin_aliases'>pin_aliases</span>
   <span class='ivar'>@pin_aliases</span>
@@ -569,12 +495,12 @@ datasheet pin names (like :RB3).  These aliases are defined by
       <pre class="lines">
 
 
-198
-199
-200</pre>
+108
+109
+110</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 198</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 108</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_program_file'>program_file</span>
   <span class='ivar'>@program_file</span>
@@ -587,9 +513,9 @@ datasheet pin names (like :RB3).  These aliases are defined by
       
       <span id=""></span>
       <div class="method_details ">
-  <h3 class="signature " id="vars-instance_method">
+  <h3 class="signature " id="variable_set-instance_method">
   
-    - (<tt>Object</tt>) <strong>vars</strong>  <span class="extras">(readonly)</span>
+    - (<tt>Object</tt>) <strong>variable_set</strong>  <span class="extras">(readonly)</span>
   
 
   
@@ -598,8 +524,8 @@ datasheet pin names (like :RB3).  These aliases are defined by
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>A hash that associates RAM variable names to (unbound) <span class='object_link'><a href="../Variable.html" title="RPicSim::Variable (class)">Variable</a></span> objects.
-The variables are defined by <span class='object_link'><a href="ClassDefinitionMethods.html#def_var-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#def_var (method)">RPicSim::Sim::ClassDefinitionMethods#def_var</a></span>.</p>
+<p>A <span class='object_link'><a href="../VariableSet.html" title="RPicSim::VariableSet (class)">VariableSet</a></span> that holds information about all the variables that were
+defined with <span class='object_link'><a href="ClassDefinitionMethods.html#def_var-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#def_var (method)">def_var</a></span>.</p>
 
 
   </div>
@@ -613,15 +539,15 @@ The variables are defined by <span class='object_link'><a href="ClassDefinitionM
       <pre class="lines">
 
 
-188
-189
-190</pre>
+102
+103
+104</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 188</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 102</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_vars'>vars</span>
-  <span class='ivar'>@vars</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_variable_set'>variable_set</span>
+  <span class='ivar'>@variable_set</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -637,9 +563,9 @@ The variables are defined by <span class='object_link'><a href="ClassDefinitionM
   
   <br/><br/>
 
-  Generated on Wed Feb 12 16:57:06 2014 by
+  Generated on Fri Mar  7 10:32:19 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.3 (ruby-1.9.3).
+  0.8.7.4 (ruby-1.9.3).
 </div>
 
   </body>

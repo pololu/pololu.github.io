@@ -6,7 +6,7 @@
 <title>
   Class: RPicSim::Mplab::MplabSimulator
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!" + escape(window.location.href);
+  framesUrl = "../../frames.html#!RPicSim/Mplab/MplabSimulator.html";
 </script>
 
 
@@ -102,8 +102,9 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>DeviceInfo is a wrapper for the MPLAB xPIC class which gives us information
-about the target PIC device.</p>
+<p>This class is a wrapper for
+thecom.microchip.mplab.mdbcore.simulator.Simulator class, which helps
+manage running a simulation.</p>
 
 
   </div>
@@ -130,6 +131,50 @@ about the target PIC device.</p>
   <span class="summary_signature">
     
       <a href="#check_peripherals-instance_method" title="#check_peripherals (instance method)">- (Object) <strong>check_peripherals</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#config_memory-instance_method" title="#config_memory (instance method)">- (Object) <strong>config_memory</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#eeprom_memory-instance_method" title="#eeprom_memory (instance method)">- (Object) <strong>eeprom_memory</strong> </a>
     
 
     
@@ -190,7 +235,7 @@ about the target PIC device.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Makes a new DeviceInfo object.</p>
+<p>Makes a new MplabSimulator object.</p>
 </div></span>
   
 </li>
@@ -390,7 +435,7 @@ about the target PIC device.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Makes a new DeviceInfo object.</p>
+<p>Makes a new MplabSimulator object.</p>
 
 
   </div>
@@ -456,17 +501,77 @@ about the target PIC device.</p>
       <pre class="lines">
 
 
-64
-65
-66
-67</pre>
+72
+73
+74
+75</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_simulator.rb', line 64</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_simulator.rb', line 72</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_check_peripherals'>check_peripherals</span>
   <span class='id identifier rubyid_check_peripherals_in_data_store'>check_peripherals_in_data_store</span>
   <span class='id identifier rubyid_check_peripheral_set'>check_peripheral_set</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="config_memory-instance_method">
+  
+    - (<tt>Object</tt>) <strong>config_memory</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+42
+43
+44</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_simulator.rb', line 42</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_config_memory'>config_memory</span>
+  <span class='ivar'>@config_memory</span> <span class='op'>||=</span> <span class='const'>MplabMemory</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='id identifier rubyid_data_store'>data_store</span><span class='period'>.</span><span class='id identifier rubyid_getCFGMemory'>getCFGMemory</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="eeprom_memory-instance_method">
+  
+    - (<tt>Object</tt>) <strong>eeprom_memory</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+46
+47
+48</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_simulator.rb', line 46</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_eeprom_memory'>eeprom_memory</span>
+  <span class='ivar'>@eeprom_memory</span> <span class='op'>||=</span> <span class='const'>MplabMemory</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='id identifier rubyid_data_store'>data_store</span><span class='period'>.</span><span class='id identifier rubyid_getEEDataMemory'>getEEDataMemory</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -548,14 +653,6 @@ about the target PIC device.</p>
       <pre class="lines">
 
 
-46
-47
-48
-49
-50
-51
-52
-53
 54
 55
 56
@@ -564,13 +661,21 @@ about the target PIC device.</p>
 59
 60
 61
-62</pre>
+62
+63
+64
+65
+66
+67
+68
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_simulator.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_simulator.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pins'>pins</span>
-  <span class='id identifier rubyid_pin_descs'>pin_descs</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='int'>0</span><span class='op'>...</span><span class='id identifier rubyid_data_store'>data_store</span><span class='period'>.</span><span class='id identifier rubyid_getNumPins'>getNumPins</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_collect'>collect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span> <span class='id identifier rubyid_data_store'>data_store</span><span class='period'>.</span><span class='id identifier rubyid_getPinDesc'>getPinDesc</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_pin_descs'>pin_descs</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='int'>0</span><span class='op'>...</span><span class='id identifier rubyid_data_store'>data_store</span><span class='period'>.</span><span class='id identifier rubyid_getNumPins'>getNumPins</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span> <span class='id identifier rubyid_data_store'>data_store</span><span class='period'>.</span><span class='id identifier rubyid_getPinDesc'>getPinDesc</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
 
   <span class='id identifier rubyid_pin_set'>pin_set</span> <span class='op'>=</span> <span class='id identifier rubyid_data_store'>data_store</span><span class='period'>.</span><span class='id identifier rubyid_getProcessor'>getProcessor</span><span class='period'>.</span><span class='id identifier rubyid_getPinSet'>getPinSet</span>
 
@@ -582,7 +687,7 @@ about the target PIC device.</p>
 </span>    <span class='id identifier rubyid_pin_set'>pin_set</span><span class='period'>.</span><span class='id identifier rubyid_getPin'>getPin</span> <span class='id identifier rubyid_name'>name</span>                <span class='comment'># Trigger the lazy loading.
 </span>  <span class='kw'>end</span>
 
-  <span class='id identifier rubyid_pins'>pins</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='int'>0</span><span class='op'>...</span><span class='id identifier rubyid_pin_set'>pin_set</span><span class='period'>.</span><span class='id identifier rubyid_getNumPins'>getNumPins</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_collect'>collect</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span>
+  <span class='lparen'>(</span><span class='int'>0</span><span class='op'>...</span><span class='id identifier rubyid_pin_set'>pin_set</span><span class='period'>.</span><span class='id identifier rubyid_getNumPins'>getNumPins</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span>
     <span class='const'>MplabPin</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='id identifier rubyid_pin_set'>pin_set</span><span class='period'>.</span><span class='id identifier rubyid_getPin'>getPin</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
@@ -606,12 +711,12 @@ about the target PIC device.</p>
       <pre class="lines">
 
 
-42
-43
-44</pre>
+50
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_simulator.rb', line 42</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_simulator.rb', line 50</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_processor'>processor</span>
   <span class='ivar'>@processor</span> <span class='op'>||=</span> <span class='const'>MplabProcessor</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='id identifier rubyid_data_store'>data_store</span><span class='period'>.</span><span class='id identifier rubyid_getProcessor'>getProcessor</span>
@@ -779,9 +884,9 @@ about the target PIC device.</p>
   
   <br/><br/>
 
-  Generated on Wed Feb 12 16:57:09 2014 by
+  Generated on Fri Mar  7 10:32:22 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.3 (ruby-1.9.3).
+  0.8.7.4 (ruby-1.9.3).
 </div>
 
   </body>

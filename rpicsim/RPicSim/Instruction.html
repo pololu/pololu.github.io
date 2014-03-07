@@ -6,7 +6,7 @@
 <title>
   Class: RPicSim::Instruction
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!" + escape(window.location.href);
+  framesUrl = "../frames.html#!RPicSim/Instruction.html";
 </script>
 
 
@@ -126,7 +126,7 @@ the firmware.</p>
 <p class="children">
   
     
-      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Instruction/Call.html" title="RPicSim::Instruction::Call (module)">Call</a></span>, <span class='object_link'><a href="Instruction/ConditionalSkip.html" title="RPicSim::Instruction::ConditionalSkip (module)">ConditionalSkip</a></span>, <span class='object_link'><a href="Instruction/Goto.html" title="RPicSim::Instruction::Goto (module)">Goto</a></span>, <span class='object_link'><a href="Instruction/Return.html" title="RPicSim::Instruction::Return (module)">Return</a></span>
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Instruction/Call.html" title="RPicSim::Instruction::Call (module)">Call</a></span>, <span class='object_link'><a href="Instruction/ConditionalRelativeBranch.html" title="RPicSim::Instruction::ConditionalRelativeBranch (module)">ConditionalRelativeBranch</a></span>, <span class='object_link'><a href="Instruction/ConditionalSkip.html" title="RPicSim::Instruction::ConditionalSkip (module)">ConditionalSkip</a></span>, <span class='object_link'><a href="Instruction/ControlEnder.html" title="RPicSim::Instruction::ControlEnder (module)">ControlEnder</a></span>, <span class='object_link'><a href="Instruction/Goto.html" title="RPicSim::Instruction::Goto (module)">Goto</a></span>, <span class='object_link'><a href="Instruction/RelativeBranch.html" title="RPicSim::Instruction::RelativeBranch (module)">RelativeBranch</a></span>, <span class='object_link'><a href="Instruction/RelativeCall.html" title="RPicSim::Instruction::RelativeCall (module)">RelativeCall</a></span>
     
   
     
@@ -164,7 +164,7 @@ the firmware.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The flash address of the instruction.</p>
+<p>The program memory address of the instruction.</p>
 </div></span>
   
 </li>
@@ -251,7 +251,36 @@ the firmware.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The number of flash address units that this instruction takes.</p>
+<p>The number of program memory address units that this instruction takes.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#string-instance_method" title="#string (instance method)">- (String) <strong>string</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A line of assembly language that would represent this instruction.</p>
 </div></span>
   
 </li>
@@ -297,7 +326,7 @@ the firmware.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Instruction) <strong>initialize</strong>(address, instruction_store, opcode, operands, size, address_increment, string, properties) </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Instruction) <strong>initialize</strong>(mplab_instruction, address, address_increment, instruction_store) </a>
     
 
     
@@ -436,7 +465,8 @@ or nil if no such transition exists.</p>
     <span class="summary_desc"><div class='inline'>
 <p>Returns info about all the instructions that this instruction could
 directly lead to (not counting interrupts, returns, and not accounting at
-all for what happens after the last word in flash is executed).</p>
+all for what happens after the last word in the main program memory is
+executed).</p>
 </div></span>
   
 </li>
@@ -452,7 +482,7 @@ all for what happens after the last word in flash is executed).</p>
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    - (<tt><span class='object_link'><a href="" title="RPicSim::Instruction (class)">Instruction</a></span></tt>) <strong>initialize</strong>(address, instruction_store, opcode, operands, size, address_increment, string, properties) 
+    - (<tt><span class='object_link'><a href="" title="RPicSim::Instruction (class)">Instruction</a></span></tt>) <strong>initialize</strong>(mplab_instruction, address, address_increment, instruction_store) 
   
 
   
@@ -467,28 +497,7 @@ all for what happens after the last word in flash is executed).</p>
   </div>
 </div>
 <div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
   
-    <li>
-      
-        <span class='name'>instruction_store</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>some object such as <span class='object_link'><a href="ProgramFile.html" title="RPicSim::ProgramFile (class)">ProgramFile</a></span> that responds to #instruction and
-#address_description.</p>
-</div>
-      
-    </li>
-  
-</ul>
-
 
 </div><table class="source_code">
   <tr>
@@ -496,10 +505,6 @@ all for what happens after the last word in flash is executed).</p>
       <pre class="lines">
 
 
-34
-35
-36
-37
 38
 39
 40
@@ -519,27 +524,245 @@ all for what happens after the last word in flash is executed).</p>
 54
 55
 56
-57</pre>
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 38</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='comma'>,</span> <span class='id identifier rubyid_instruction_store'>instruction_store</span><span class='comma'>,</span> <span class='id identifier rubyid_opcode'>opcode</span><span class='comma'>,</span> <span class='id identifier rubyid_operands'>operands</span><span class='comma'>,</span> <span class='id identifier rubyid_size'>size</span><span class='comma'>,</span> <span class='id identifier rubyid_address_increment'>address_increment</span><span class='comma'>,</span> <span class='id identifier rubyid_string'>string</span><span class='comma'>,</span> <span class='id identifier rubyid_properties'>properties</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_mplab_instruction'>mplab_instruction</span><span class='comma'>,</span> <span class='id identifier rubyid_address'>address</span><span class='comma'>,</span> <span class='id identifier rubyid_address_increment'>address_increment</span><span class='comma'>,</span> <span class='id identifier rubyid_instruction_store'>instruction_store</span><span class='rparen'>)</span>
   <span class='ivar'>@address</span> <span class='op'>=</span> <span class='id identifier rubyid_address'>address</span>
   <span class='ivar'>@instruction_store</span> <span class='op'>=</span> <span class='id identifier rubyid_instruction_store'>instruction_store</span>
-  <span class='ivar'>@opcode</span> <span class='op'>=</span> <span class='id identifier rubyid_opcode'>opcode</span>
-  <span class='ivar'>@operands</span> <span class='op'>=</span> <span class='id identifier rubyid_operands'>operands</span>
-  <span class='ivar'>@size</span> <span class='op'>=</span> <span class='id identifier rubyid_size'>size</span>
   <span class='ivar'>@address_increment</span> <span class='op'>=</span> <span class='id identifier rubyid_address_increment'>address_increment</span>
-  <span class='ivar'>@string</span> <span class='op'>=</span> <span class='id identifier rubyid_string'>string</span>
-  
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_mplab_instruction'>mplab_instruction</span> <span class='op'>==</span> <span class='symbol'>:invalid</span>
+    <span class='ivar'>@valid</span> <span class='op'>=</span> <span class='kw'>false</span>
+    <span class='ivar'>@size</span> <span class='op'>=</span> <span class='ivar'>@address_increment</span>
+    <span class='ivar'>@string</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>[INVALID]</span><span class='tstring_end'>'</span></span>
+    <span class='kw'>return</span>
+  <span class='kw'>end</span>
+
+  <span class='ivar'>@valid</span> <span class='op'>=</span> <span class='kw'>true</span>
+  <span class='ivar'>@opcode</span> <span class='op'>=</span> <span class='id identifier rubyid_mplab_instruction'>mplab_instruction</span><span class='period'>.</span><span class='id identifier rubyid_opcode'>opcode</span>
+  <span class='ivar'>@operands</span> <span class='op'>=</span> <span class='id identifier rubyid_mplab_instruction'>mplab_instruction</span><span class='period'>.</span><span class='id identifier rubyid_operands'>operands</span>
+  <span class='ivar'>@string</span> <span class='op'>=</span> <span class='id identifier rubyid_mplab_instruction'>mplab_instruction</span><span class='period'>.</span><span class='id identifier rubyid_instruction_string'>instruction_string</span>
+
+  <span class='ivar'>@size</span> <span class='op'>=</span> <span class='id identifier rubyid_mplab_instruction'>mplab_instruction</span><span class='period'>.</span><span class='id identifier rubyid_compute_size'>compute_size</span><span class='lparen'>(</span><span class='id identifier rubyid_address_increment'>address_increment</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Invalid size </span><span class='embexpr_beg'>#{</span><span class='ivar'>@size</span><span class='rbrace'>}</span><span class='tstring_content'> for </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='op'>!</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>4</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='ivar'>@size</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_properties'>properties</span> <span class='op'>=</span> <span class='const'>Array</span> <span class='kw'>case</span> <span class='id identifier rubyid_mplab_instruction'>mplab_instruction</span><span class='period'>.</span><span class='id identifier rubyid_opcode'>opcode</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>ADDFSR</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>ADDLW</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>ADDWF</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>ADDWFC</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>ANDLW</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>ANDWF</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>ASRF</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>BC</span><span class='tstring_end'>'</span></span>     <span class='kw'>then</span> <span class='lbracket'>[</span><span class='symbol'>:conditional_relative_branch</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>BCF</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>BN</span><span class='tstring_end'>'</span></span>     <span class='kw'>then</span> <span class='lbracket'>[</span><span class='symbol'>:conditional_relative_branch</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>BNC</span><span class='tstring_end'>'</span></span>    <span class='kw'>then</span> <span class='lbracket'>[</span><span class='symbol'>:conditional_relative_branch</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>BNN</span><span class='tstring_end'>'</span></span>    <span class='kw'>then</span> <span class='lbracket'>[</span><span class='symbol'>:conditional_relative_branch</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>BNOV</span><span class='tstring_end'>'</span></span>   <span class='kw'>then</span> <span class='lbracket'>[</span><span class='symbol'>:conditional_relative_branch</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>BNZ</span><span class='tstring_end'>'</span></span>    <span class='kw'>then</span> <span class='lbracket'>[</span><span class='symbol'>:conditional_relative_branch</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>BRA</span><span class='tstring_end'>'</span></span>    <span class='kw'>then</span> <span class='lbracket'>[</span><span class='symbol'>:relative_branch</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>BRW</span><span class='tstring_end'>'</span></span>    <span class='kw'>then</span> <span class='lbracket'>[</span><span class='symbol'>:control_ender</span><span class='rbracket'>]</span>    <span class='comment'># Hard to predict
+</span>  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>BSF</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>BTG</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>BTFSC</span><span class='tstring_end'>'</span></span>  <span class='kw'>then</span> <span class='lbracket'>[</span><span class='symbol'>:conditional_skip</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>BTFSS</span><span class='tstring_end'>'</span></span>  <span class='kw'>then</span> <span class='lbracket'>[</span><span class='symbol'>:conditional_skip</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>BZ</span><span class='tstring_end'>'</span></span>     <span class='kw'>then</span> <span class='lbracket'>[</span><span class='symbol'>:conditional_relative_branch</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>CALL</span><span class='tstring_end'>'</span></span>   <span class='kw'>then</span> <span class='lbracket'>[</span><span class='symbol'>:call</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>CALLW</span><span class='tstring_end'>'</span></span>  <span class='kw'>then</span> <span class='lbracket'>[</span><span class='symbol'>:control_ender</span><span class='rbracket'>]</span>    <span class='comment'># Hard to predict
+</span>  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>CPFSEQ</span><span class='tstring_end'>'</span></span> <span class='kw'>then</span> <span class='lbracket'>[</span><span class='symbol'>:conditional_skip</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>CPFSGT</span><span class='tstring_end'>'</span></span> <span class='kw'>then</span> <span class='lbracket'>[</span><span class='symbol'>:conditional_skip</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>CPFSLT</span><span class='tstring_end'>'</span></span> <span class='kw'>then</span> <span class='lbracket'>[</span><span class='symbol'>:conditional_skip</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>CLRF</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>CLRW</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>CLRWDT</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>COMF</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>DAW</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>DECF</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>DECFSZ</span><span class='tstring_end'>'</span></span> <span class='kw'>then</span> <span class='lbracket'>[</span><span class='symbol'>:conditional_skip</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>DCFSNZ</span><span class='tstring_end'>'</span></span> <span class='kw'>then</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>GOTO</span><span class='tstring_end'>'</span></span>   <span class='kw'>then</span> <span class='lbracket'>[</span><span class='symbol'>:goto</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>INCF</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>INCFSZ</span><span class='tstring_end'>'</span></span> <span class='kw'>then</span> <span class='lbracket'>[</span><span class='symbol'>:conditional_skip</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>INFSNZ</span><span class='tstring_end'>'</span></span> <span class='kw'>then</span> <span class='lbracket'>[</span><span class='symbol'>:conditional_skip</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>IORLW</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>IORWF</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>LFSR</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>LSLF</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>LSRF</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>MOVIW</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>MOVWI</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>MOVLB</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>MOVLP</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>MOVLW</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>MOVWF</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>MOVF</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>MOVFF</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>MULLW</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>MULWF</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>NEGF</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>NOP</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>OPTION</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>PUSH</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>POP</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>RCALL</span><span class='tstring_end'>'</span></span>  <span class='kw'>then</span> <span class='lbracket'>[</span><span class='symbol'>:relative_call</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>RESET</span><span class='tstring_end'>'</span></span>  <span class='kw'>then</span> <span class='lbracket'>[</span><span class='symbol'>:control_ender</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>RETFIE</span><span class='tstring_end'>'</span></span> <span class='kw'>then</span> <span class='lbracket'>[</span><span class='symbol'>:control_ender</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>RETLW</span><span class='tstring_end'>'</span></span>  <span class='kw'>then</span> <span class='lbracket'>[</span><span class='symbol'>:control_ender</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>RETURN</span><span class='tstring_end'>'</span></span> <span class='kw'>then</span> <span class='lbracket'>[</span><span class='symbol'>:control_ender</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>RLCF</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>RLF</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>RLNCF</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>RRCF</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>RRF</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>RRNCF</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>SETF</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>SLEEP</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>SUBLW</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>SUBWF</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>SUBWFB</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>SWAPF</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>TBLRD*</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>TBLRD*+</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>TBLRD*-</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>TBLRD+*</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>TBLWT*</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>TBLWT*+</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>TBLWT*-</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>TBLWT+*</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>TRIS</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>TSTFSZ</span><span class='tstring_end'>'</span></span> <span class='kw'>then</span> <span class='lbracket'>[</span><span class='symbol'>:conditional_skip</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>XORLW</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>XORWF</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unrecognized opcode </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_mplab_instruction'>mplab_instruction</span><span class='period'>.</span><span class='id identifier rubyid_opcode'>opcode</span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>(</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_address_description'>address_description</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_content'>, operands </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_mplab_instruction'>mplab_instruction</span><span class='period'>.</span><span class='id identifier rubyid_operands'>operands</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_content'>).</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
   <span class='id identifier rubyid_modules'>modules</span> <span class='op'>=</span> <span class='lbrace'>{</span>
     <span class='label'>conditional_skip:</span> <span class='const'>ConditionalSkip</span><span class='comma'>,</span>
+    <span class='label'>conditional_relative_branch:</span> <span class='const'>ConditionalRelativeBranch</span><span class='comma'>,</span>
+    <span class='label'>relative_branch:</span> <span class='const'>RelativeBranch</span><span class='comma'>,</span>
+    <span class='label'>relative_call:</span> <span class='const'>RelativeCall</span><span class='comma'>,</span>
     <span class='label'>goto:</span> <span class='const'>Goto</span><span class='comma'>,</span>
-    <span class='label'>return:</span> <span class='const'>Return</span><span class='comma'>,</span>
-    <span class='label'>call:</span> <span class='const'>Call</span>
+    <span class='label'>control_ender:</span> <span class='const'>ControlEnder</span><span class='comma'>,</span>
+    <span class='label'>call:</span> <span class='const'>Call</span><span class='comma'>,</span>
   <span class='rbrace'>}</span>
-  
+
   <span class='id identifier rubyid_properties'>properties</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_p'>p</span><span class='op'>|</span>
     <span class='id identifier rubyid_mod'>mod</span> <span class='op'>=</span> <span class='id identifier rubyid_modules'>modules</span><span class='lbracket'>[</span><span class='id identifier rubyid_p'>p</span><span class='rbracket'>]</span>
     <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_mod'>mod</span>
@@ -572,8 +795,8 @@ all for what happens after the last word in flash is executed).</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>The flash address of the instruction. For PIC18s this will be the byte
-address. For other PIC architectures, it will be the word address.</p>
+<p>The program memory address of the instruction. For PIC18s this will be the
+byte address. For other PIC architectures, it will be the word address.</p>
 
 
   </div>
@@ -741,8 +964,8 @@ address. For other PIC architectures, it will be the word address.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>The number of flash address units that this instruction takes. The units of
-this are the same as the units of <span class='object_link'><a href="#address-instance_method" title="RPicSim::Instruction#address (method)">#address</a></span>.</p>
+<p>The number of program memory address units that this instruction takes. The
+units of this are the same as the units of <span class='object_link'><a href="#address-instance_method" title="RPicSim::Instruction#address (method)">#address</a></span>.</p>
 
 
   </div>
@@ -784,6 +1007,63 @@ this are the same as the units of <span class='object_link'><a href="#address-in
 </table>
 </div>
     
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="string-instance_method">
+  
+    - (<tt>String</tt>) <strong>string</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>A line of assembly language that would represent this instruction. For
+example "GOTO 0x2".</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+35
+36
+37</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 35</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_string'>string</span>
+  <span class='ivar'>@string</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 
@@ -819,15 +1099,15 @@ order by address.</p>
       <pre class="lines">
 
 
-61
-62
-63</pre>
+172
+173
+174</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 61</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 172</span>
 
 <span class='kw'>def</span> <span class='op'>&lt;=&gt;</span><span class='lparen'>(</span><span class='id identifier rubyid_other'>other</span><span class='rparen'>)</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_address'>address</span> <span class='op'>&lt;=&gt;</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_address'>address</span>
+  <span class='id identifier rubyid_address'>address</span> <span class='op'>&lt;=&gt;</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_address'>address</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -849,12 +1129,12 @@ order by address.</p>
       <pre class="lines">
 
 
-70
-71
-72</pre>
+181
+182
+183</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 70</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 181</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inspect'>inspect</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#&lt;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='rbrace'>}</span><span class='tstring_content'>:</span><span class='embexpr_beg'>#{</span><span class='ivar'>@instruction_store</span><span class='period'>.</span><span class='id identifier rubyid_address_description'>address_description</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='ivar'>@string</span><span class='rbrace'>}</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span>
@@ -904,19 +1184,15 @@ directly lead to.</p>
       <pre class="lines">
 
 
-93
-94
-95
-96
-97</pre>
+204
+205
+206</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 93</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 204</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_next_addresses'>next_addresses</span>
-  <span class='id identifier rubyid_transitions'>transitions</span><span class='period'>.</span><span class='id identifier rubyid_collect'>collect</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_t'>t</span><span class='op'>|</span>
-    <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_next_instruction'>next_instruction</span><span class='period'>.</span><span class='id identifier rubyid_address'>address</span>
-  <span class='kw'>end</span>
+  <span class='id identifier rubyid_transitions'>transitions</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:next_address</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -949,12 +1225,12 @@ directly lead to.</p>
       <pre class="lines">
 
 
-66
-67
-68</pre>
+177
+178
+179</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 66</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 177</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Instruction(</span><span class='embexpr_beg'>#{</span><span class='ivar'>@instruction_store</span><span class='period'>.</span><span class='id identifier rubyid_address_description'>address_description</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='ivar'>@string</span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
@@ -1009,12 +1285,12 @@ or nil if no such transition exists.</p>
       <pre class="lines">
 
 
-87
-88
-89</pre>
+198
+199
+200</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 87</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 198</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_transition_to'>transition_to</span><span class='lparen'>(</span><span class='id identifier rubyid_instruction'>instruction</span><span class='rparen'>)</span>
   <span class='ivar'>@transitions</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_t'>t</span><span class='op'>|</span> <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_next_instruction'>next_instruction</span> <span class='op'>==</span> <span class='id identifier rubyid_instruction'>instruction</span> <span class='rbrace'>}</span>
@@ -1038,9 +1314,9 @@ or nil if no such transition exists.</p>
     
 <p>Returns info about all the instructions that this instruction could
 directly lead to (not counting interrupts, returns, and not accounting at
-all for what happens after the last word in flash is executed). For
-instructions that pop from the call stack like RETURN and RETFIE, this will
-be the empty array.</p>
+all for what happens after the last word in the main program memory is
+executed). For instructions that pop from the call stack like RETURN and
+RETFIE, this will be the empty array.</p>
 
 
   </div>
@@ -1067,12 +1343,12 @@ be the empty array.</p>
       <pre class="lines">
 
 
-80
-81
-82</pre>
+191
+192
+193</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 80</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 191</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_transitions'>transitions</span>
   <span class='ivar'>@transitions</span> <span class='op'>||=</span> <span class='id identifier rubyid_generate_transitions'>generate_transitions</span>
@@ -1090,9 +1366,9 @@ be the empty array.</p>
   
   <br/><br/>
 
-  Generated on Wed Feb 12 16:57:08 2014 by
+  Generated on Fri Mar  7 10:32:20 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.3 (ruby-1.9.3).
+  0.8.7.4 (ruby-1.9.3).
 </div>
 
   </body>

@@ -6,7 +6,7 @@
 <title>
   File: Running
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!" + escape(window.location.href);
+  framesUrl = "frames.html#!file.Running.html";
 </script>
 
 
@@ -97,11 +97,10 @@ methods listed above, not just <code>step</code>.</p>
 <h2 id="label-Single-stepping">Single-stepping</h2>
 
 <p>The <span class='object_link'><a href="RPicSim/Sim.html#step-instance_method" title="RPicSim::Sim#step (method)">RPicSim::Sim#step</a></span> method is the most basic way to run the simulation.
-It executes a single instruction. The program counter will be updated to
-point to the next instruction, and the <span class='object_link'><a href="RPicSim/Sim.html#cycle_count-instance_method" title="RPicSim::Sim#cycle_count (method)">cycle count</a></span> will be increased by the number of cycles that the instruction took.
-This method might do some interesting things at times when the CPU is
-stalled (i.e. during a flash write) or during sleep and that behavior has
-not been characterized.</p>
+It executes a single instruction. The <span class='object_link'><a href="RPicSim/Sim.html#pc-instance_method" title="RPicSim::Sim#pc (method)">program counter</a></span>
+will be updated to point to the next instruction, and the
+<span class='object_link'><a href="RPicSim/Sim.html#cycle_count-instance_method" title="RPicSim::Sim#cycle_count (method)">cycle count</a></span> will be increased by the number of
+cycles that the instruction took.</p>
 
 <p>The <code>step</code> method is the most basic way to run a simulation, and
 all the <code>run_*</code> methods described here call <code>step</code> in
@@ -214,18 +213,15 @@ hash of options that supports the same options as <span class='object_link'><a h
 pin high:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_run_subroutine'>run_subroutine</span> <span class='symbol'>:drivePinHigh</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>20</span>
-<span class='id identifier rubyid_main_output'>main_output</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_be_driving_high'>be_driving_high</span></code></pre>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_main_output'>main_output</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_driving_high'>be_driving_high</span></code></pre>
 
 <p>In this example, <code>main_output</code> is a pin alias, as described in
 the <a href="file.Pins.html" title="Pins page">Pins page</a>.</p>
 
-<p>Some subroutine values might store input or output values in RAM. To test
-those subroutines, you will need to be able to read and write RAM as
-described in the <a href="file.Variables.html" title="Variables page">Variables page</a>.</p>
-
-<p>Some subroutine values might store input or output values in SFRs. To test
-those subroutines, you will need to be able to read and write SFRs as
-described in the <a href="file.SFRs.html" title="SFRs page">SFRs page</a>.</p>
+<p>Some subroutine values might store input or output values in RAM, either in
+user-defined variables or in special function registers (SFRs). To test
+those subroutines, you can read and write RAM as described in the
+<a href="file.Variables.html" title="Variables page">Variables page</a>.</p>
 </div></div>
 
     <div id="footer">
@@ -234,9 +230,9 @@ described in the <a href="file.SFRs.html" title="SFRs page">SFRs page</a>.</p>
   
   <br/><br/>
 
-  Generated on Wed Feb 12 16:57:05 2014 by
+  Generated on Fri Mar  7 10:32:17 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.3 (ruby-1.9.3).
+  0.8.7.4 (ruby-1.9.3).
 </div>
 
   </body>

@@ -6,7 +6,7 @@
 <title>
   File: QuickStartGuide
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!" + escape(window.location.href);
+  framesUrl = "frames.html#!file.QuickStartGuide.html";
 </script>
 
 
@@ -75,8 +75,8 @@ will have a suite of automated simulator-based tests for the firmware.</p>
 
 <h2 id="label-Installing+prerequisites">Installing prerequisites</h2>
 
-<p>First, on a computer running Windows, install RPicSim and the software it
-requires:</p>
+<p>First, on a computer running Windows, Linux, or Mac OS X, install RPicSim
+and the software it requires:</p>
 <ol><li>
 <p>Install <a
 href="http://www.microchip.com/pagehandler/en-us/family/mplabx/">MPLAB
@@ -149,20 +149,19 @@ directory. In <code>spec/spec_helper.rb</code>, write:</p>
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rpicsim/rspec</span><span class='tstring_end'>'</span></span>
 
 <span class='kw'>class</span> <span class='const'>MySim</span> <span class='op'>&lt;</span> <span class='const'>RPicSim</span><span class='op'>::</span><span class='const'>Sim</span>
-  <span class='id identifier rubyid_device_is'>device_is</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PIC10F322</span><span class='tstring_end'>&quot;</span></span>
-  <span class='id identifier rubyid_filename_is'>filename_is</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_dirname'>dirname</span><span class='lparen'>(</span><span class='kw'>__FILE__</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/../firmware/dist/default/production/firmware_dir.production.cof</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_use_device'>use_device</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PIC10F322</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_use_file'>use_file</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_dirname'>dirname</span><span class='lparen'>(</span><span class='kw'>__FILE__</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/../firmware/dist/default/production/firmware_dir.production.cof</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span>
 </code></pre>
 
-<p>Edit the <code>device_is</code> and <code>filename_is</code> lines to match
+<p>Edit the <code>use_device</code> and <code>use_file</code> lines to match
 your actual device and the path to its COF file. The file specified here
 can either be COF or HEX, but COF is recommended because it allows
 convenient access to the variables, functions, and labels defined in the
 firmware.</p>
 
 <p>Eventually you should rename the <code>MySim</code> class to something more
-specific. I like to name the simulation class by concatenating the project
-name with <code>Sim</code>.</p>
+specific, such as the concatenation of the project name with "Sim".</p>
 
 <p>To run the spec, go to your shell and run the command <code>rspec</code>
 from the directory that contains <code>spec</code>. In the example
@@ -190,9 +189,9 @@ sections of <a href="file.Manual.html" title="this manual">this manual</a>.</p>
   
   <br/><br/>
 
-  Generated on Wed Feb 12 16:57:04 2014 by
+  Generated on Fri Mar  7 10:32:16 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.3 (ruby-1.9.3).
+  0.8.7.4 (ruby-1.9.3).
 </div>
 
   </body>

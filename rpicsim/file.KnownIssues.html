@@ -6,7 +6,7 @@
 <title>
   File: KnownIssues
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!" + escape(window.location.href);
+  framesUrl = "frames.html#!file.KnownIssues.html";
 </script>
 
 
@@ -72,19 +72,9 @@
 users. Some issues are caused by the MPLAB X simulator and would need to be
 addressed by Microchip.</p>
 
-<p>RPicSim has only been tested with the following versions of MPLAB X:</p>
-<ul><li>
-<p>1.85</p>
-</li><li>
-<p>1.90</p>
-</li><li>
-<p>1.95</p>
-</li><li>
-<p>2.00</p>
-</li></ul>
-
-<p>If you are using a different version of MPLAB X, some of the issues might
-not apply to you.</p>
+<p>RPicSim has only been tested with the versions of MPLAB X that are listed
+on the <a href="index.html" title="Introduction">Introduction</a> page. If you are using a different version of
+MPLAB X, you might have different issues.</p>
 
 <p>Many of these issues have only been reproduced on a single model of PIC
 microcontroller and they may or may not affect other models.</p>
@@ -135,7 +125,7 @@ be slightly off and these errors could accumulate in longer tests.</p>
 <p>In Windows, a bug in MPLAB X prevents RPicSim from using an MPLAB X
 installed on any drive other than the C drive.</p>
 
-<p>This issue is tested in <code>spec/mplab_x/path_retrieval_spec.rb</code>.</p>
+<p>This issue is tested in <code>spec/mplab/path_retrieval_spec.rb</code>.</p>
 
 <h2 id="label-Firmware+under+test+must+be+inside+a+folder+named+%22dist%22">Firmware under test must be inside a folder named "dist"</h2>
 
@@ -143,56 +133,15 @@ installed on any drive other than the C drive.</p>
 
 <p><em>MPLAB X versions affected: all tested versions</em></p>
 
-<p>This issue is tested in <code>spec/mplab_x/program_file_spec.rb</code>.</p>
-
-<h2 id="label-Limited+number+of+variable+types+supported">Limited number of variable types supported</h2>
-
-<p><em>Type: RPicSim missing feature</em></p>
-
-<p>There is no support for variables larger than 32 bits. There is no support
-for arrays or structs of variables. There is also no support for reading
-and writing directly from the simulated device's RAM, Flash, EEPROM, and
-stack memories from Ruby.</p>
-
-<h2 id="label-No+EEPROM+support">No EEPROM support</h2>
-
-<p><em>Type: RPicSim missing feature</em></p>
-
-<p>RPicSim does not support reading or writing from EEPROM from Ruby.</p>
-
-<h2 id="label-Dissasembly+is+limited+to+midrange+and+baseline+PIC+microcontrollers">Dissasembly is limited to midrange and baseline PIC microcontrollers</h2>
-
-<p><em>Type: RPicSim missing feature</em></p>
-
-<p>The disassembled instruction graph created by <span class='object_link'><a href="RPicSim/ProgramFile.html" title="RPicSim::ProgramFile (class)">RPicSim::ProgramFile</a></span>
-currently only supports baseline and midrange PICs, but it should be easy
-to expand to other PICs. This is a side feature of RPicSim, and not
-required for simulation.</p>
-
-<h2 id="label-Stack+trace+will+show+slightly+wrong+values+for+PIC18+microcontrollers">Stack trace will show slightly wrong values for PIC18 microcontrollers</h2>
-
-<p><em>Type: RPicSim bug</em></p>
-
-<p>For the PIC18, <span class='object_link'><a href="RPicSim/Sim.html#stack_trace-instance_method" title="RPicSim::Sim#stack_trace (method)">RPicSim::Sim#stack_trace</a></span> will probably show values that
-are too high by one because it does not account for the fact that PIC18
-instructions take two bytes.</p>
+<p>This issue is tested in <code>spec/mplab/program_file_spec.rb</code>.</p>
 
 <h2 id="label-Cannot+detect+PIC+model+from+COF+file">Cannot detect PIC model from COF file</h2>
 
 <p><em>Type: RPicSim missing feature</em></p>
 
-<p>The MPLAB X code might allow RPicSim to detect the PIC device name from the
-COF file so that the user does not have to specify it when creating a
-<span class='object_link'><a href="RPicSim/ProgramFile.html" title="RPicSim::ProgramFile (class)">RPicSim::ProgramFile</a></span> or a subclass of <span class='object_link'><a href="RPicSim/Sim.html" title="RPicSim::Sim (class)">RPicSim::Sim</a></span>. Currently RPicSim
-requires the user to always specify the PIC device name.</p>
-
-<h2 id="label-Not+tested+on+Linux+and+Mac+OS+X">Not tested on Linux and Mac OS X</h2>
-
-<p><em>Type: RPicSim missing feature</em></p>
-
-<p>RPicSim has not been tested on Linux and Mac OS X. See
-<a href="file.SupportedOperatingSystems.html" title="Supported operating systems">Supported operating systems</a> for more
-information.</p>
+<p>Currently RPicSim requires the user to always specify the PIC device name
+when creating a <span class='object_link'><a href="RPicSim/ProgramFile.html" title="RPicSim::ProgramFile (class)">RPicSim::ProgramFile</a></span> or a subclass of <span class='object_link'><a href="RPicSim/Sim.html" title="RPicSim::Sim (class)">RPicSim::Sim</a></span>,
+even though it might be possible to get that information from the COF file.</p>
 
 <h2 id="label-Variables+defined+in+user+ID+space+are+not+read+from+the+COF+file">Variables defined in user ID space are not read from the COF file</h2>
 
@@ -200,9 +149,10 @@ information.</p>
 
 <p><em>MPLAB X version affected: all tested versions</em></p>
 
-<p>The workaround is to simply set any variables defined in user ID space to
-the correct values from Ruby before running the simulation. This issue is
-tested in <code>spec/integration/flash_variable_spec.rb</code>.</p>
+<p>If your firmware uses variables stored in user ID space, the workaround for
+this issue is to simply set any variables defined in user ID space to the
+correct values from Ruby before running the simulation. This issue is
+tested in <code>spec/integration/program_memory_variable_spec.rb</code>.</p>
 
 <h2 id="label-Simulated+firmware+cannot+write+to+the+first+user+ID+location">Simulated firmware cannot write to the first user ID location</h2>
 
@@ -211,7 +161,7 @@ tested in <code>spec/integration/flash_variable_spec.rb</code>.</p>
 <p><em>MPLAB X versions affected: 1.85, 1.90</em></p>
 
 <p>This issue is tested in
-<code>spec/integration/flash_variable_spec.rb</code>. It has been
+<code>spec/integration/program_memory_variable_spec.rb</code>. It has been
 <a href="http://www.microchip.com/forums/m743214.aspx" target="_parent" title="reported to Microchip">reported to Microchip</a> and
 was fixed in later versions.</p>
 
@@ -258,26 +208,67 @@ register) will cause the pin to start reporting the wrong output state.</p>
 
 <p><em>Type: MPLAB X bug</em></p>
 
-<p><em>MPLAB X versions affected: 1.95, 2.00</em></p>
+<p><em>MPLAB X versions affected: 1.95, 2.00, 2.05</em></p>
 
-<p>This issue is tested in <code>spec/mplab_x/memory_attach_spec.rb</code>. If
+<p>This issue is tested in <code>spec/mplab/memory_attach_spec.rb</code>. If
 you want to use the <a href="file.RamWatcher.html" title="RAM watcher">RAM watcher</a>, you should use MPLAB
 X version 1.85 or 1.90.</p>
 
-<h2 id="label-RAM+watcher+reports+a+write+to+PORTA+instead+of+to+LATA">RAM watcher reports a write to PORTA instead of to LATA</h2>
+<h2 id="label-RAM+watcher+reports+a+write+to+PORTA+and+LATA+when+LATA+is+written">RAM watcher reports a write to PORTA and LATA when LATA is written</h2>
 
 <p><em>Type: MPLAB X bug</em></p>
 
 <p><em>MPLAB X versions affected: all tested versions</em></p>
 
 <p>The <a href="file.RamWatcher.html" title="RAM watcher">RAM watcher</a>, when testing code that writes to
-LATA, might actually report it as a write to PORTA instead of LATA. This
+LATA, might actually report both a write to LATA and a write to PORTA. This
 issue has been observed on a PIC10F322 but it probably affects other PORTx
-and LATx registers.</p>
+and LATx registers on other devices.</p>
 
 <p>This issue is tested in <code>spec/integration/ram_watcher_spec.rb</code>.
 This issue could not be tested on MPLAB X versions affected by the "RAM
 watcher is useless" issue above.</p>
+
+<h2 id="label-RAM+watcher+reports+extra+writes+on+devices+where+registers+have+multiple+addresses">RAM watcher reports extra writes on devices where registers have multiple addresses</h2>
+
+<p><em>Type: RPicSim missing feature</em></p>
+
+<p><em>MPLAB X versions affected: all tested verisons</em></p>
+
+<p>On certain devices, some registers are available at multiple addresses.
+When the value of the register changes, the RAM watcher will report writes
+to each of the addresses that the register occupies, which makes the
+resulting hash large and hard to work with.</p>
+
+<p>For example, on the PIC16F1459, PCL occupies the third byte of each of the
+32 banks of RAM, so it can be accessed no matter which bank is selected.
+Whenever the program counter advances, the RAM watcher reports writes to
+all 32 addresses that PCL occupies.</p>
+
+<p>One workaround is to write a helper function that filters uninteresting
+addresses out of the hash returned by the RAM watcher.</p>
+
+<p>This issue is tested in <code>spec/integration/ram_watcher_spec.rb</code>.
+This issue could not be tested on MPLAB X versions affected by the "RAM
+watcher is useless" issue above.</p>
+
+<h2 id="label-RAM+watchers+cannot+be+garbage+collected+until+the+end+of+the+simulation">RAM watchers cannot be garbage collected until the end of the simulation</h2>
+
+<p><em>Type: RPicSim missing feature</em></p>
+
+<p><em>MPLAB X versions affected: all</em></p>
+
+<p>Any instance of <span class='object_link'><a href="RPicSim/MemoryWatcher.html" title="RPicSim::MemoryWatcher (class)">RPicSim::MemoryWatcher</a></span>, including RAM watchers, cannot be
+garbage collected until the associated <span class='object_link'><a href="RPicSim/Sim.html" title="RPicSim::Sim (class)">RPicSim::Sim</a></span> object gets garbage
+collected. This is because some internal objects managed by the Sim class
+need to hold on to a reference to the RAM watcher in order to send updates
+to it.</p>
+
+<p>Therefore, creating a large number of RAM watcher objects for a single
+simulation could cause performance problems.</p>
+
+<p>This problem could be fixed in the future by using Ruby's WeakRef class to
+make weak references.</p>
 
 <h2 id="label-Midrange+ADC+gives+incorrect+readings">Midrange ADC gives incorrect readings</h2>
 
@@ -311,9 +302,9 @@ November 2013.</p>
   
   <br/><br/>
 
-  Generated on Wed Feb 12 16:57:06 2014 by
+  Generated on Fri Mar  7 10:32:19 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.3 (ruby-1.9.3).
+  0.8.7.4 (ruby-1.9.3).
 </div>
 
   </body>

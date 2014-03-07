@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+<title>
+  File: Memories
+  
+    &mdash; Documentation by YARD 0.8.7.4
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!file.Memories.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    
+        <a href="_index.html">Index</a> &raquo;
+        
+        <a href="file.Manual.html">RPicSim manual</a> &raquo;
+    
+    <span class="title">File: Memories</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'>
+<h1 id="label-Memories">Memories</h1>
+
+<p>RPicSim uses the <span class='object_link'><a href="RPicSim/Memory.html" title="RPicSim::Memory (class)">RPicSim::Memory</a></span> class to provide access to the RAM,
+EEPROM, and program memory of the simulated device. This is useful if you
+want to interact with variables and data structures in your firmware that
+are too complex to be handled by RPicSim's <a href="file.Variables.html" title="Variables">Variables</a> feature,
+like strings, structs, and buffers.</p>
+
+<h2 id="label-RAM+and+EEPROM">RAM and EEPROM</h2>
+
+<p>To get the <span class='object_link'><a href="RPicSim/Memory.html" title="RPicSim::Memory (class)">Memory</a></span> object that represents RAM, call
+<span class='object_link'><a href="RPicSim/Sim.html#ram-instance_method" title="RPicSim::Sim#ram (method)">RPicSim::Sim#ram</a></span>. To get the <span class='object_link'><a href="RPicSim/Memory.html" title="RPicSim::Memory (class)">Memory</a></span> object that
+represents EEPROM, call <span class='object_link'><a href="RPicSim/Sim.html#eeprom-instance_method" title="RPicSim::Sim#eeprom (method)">RPicSim::Sim#eeprom</a></span>. The two main methods to use
+on these objects are:</p>
+<ul><li>
+<p><code>read_byte(address)</code>: This method takes a byte address and
+returns the value of that byte.</p>
+</li><li>
+<p><code>write_byte(address, value)</code>: This method takes a byte address
+and a value between 0 and 255, and writes the value to the specified byte.</p>
+</li></ul>
+
+<p>For example, if you are using RPicSim's <a href="file.RSpecIntegration.html" title="RSpec integration">RSpec integration</a> you can read and write from <code>ram</code> like this:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_ram'>ram</span><span class='period'>.</span><span class='id identifier rubyid_write_byte'>write_byte</span><span class='lparen'>(</span><span class='int'>0x200</span><span class='comma'>,</span> <span class='int'>0x80</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_ram'>ram</span><span class='period'>.</span><span class='id identifier rubyid_read_byte'>read_byte</span><span class='lparen'>(</span><span class='int'>0x200</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span> <span class='int'>0x80</span></code></pre>
+
+<h2 id="label-Program+memory">Program memory</h2>
+
+<p>To get the <span class='object_link'><a href="RPicSim/Memory.html" title="RPicSim::Memory (class)">Memory</a></span> object that represents program memory,
+call <span class='object_link'><a href="RPicSim/Sim.html#program_memory-instance_method" title="RPicSim::Sim#program_memory (method)">RPicSim::Sim#program_memory</a></span>. In addition to letting you access the
+main part of program memory which contains the program, this object also
+allows access to the configuration words and user ID words. The program
+memory is also known as flash, ROM, and code space.</p>
+
+<p>The program memory object behaves differently depending on whether your are
+simulating a PIC18 device or a non-PIC18 device, as described below.</p>
+
+<h3 id="label-Program+memory+on+a+non-PIC18+devices">Program memory on a non-PIC18 devices</h3>
+
+<p>On non-PIC18 devices, the program memory is divided into <em>words</em>
+that are either 12 bits wide or 14 bits wide. In RPicSim, non-PIC18 program
+memory addresses are always specified as <em>word addresses</em>. For
+example, the address 0 corresponds to the first <em>word</em>, while the
+address 1 corresponds to the second word. The <span class='object_link'><a href="RPicSim/Memory.html" title="RPicSim::Memory (class)">Memory</a></span>
+object provides two methods for reading and writing from these words:</p>
+<ul><li>
+<p><code>read_word(address)</code>: This method takes a word address and
+returns the value of that word.</p>
+</li><li>
+<p><code>write_word(address, value)</code>: This method takes a word address
+and a numerical value, and writes the value to the specified word.</p>
+</li></ul>
+
+<p>The program memory on a non-PIC18 device can also be thought of as a series
+of bytes, and it is often represented this way in HEX files. Each word can
+be thought of as two consecutive bytes, with the lower 8 bits residing in
+the first byte and upper 4 bits or 6 bits residing in the second byte. The
+valid range of values for the second byte, therefore, is limited.</p>
+
+<p>The <span class='object_link'><a href="RPicSim/Memory.html" title="RPicSim::Memory (class)">Memory</a></span> object provides two methods for reading and
+writing the least-significant bytes of the words in program memory:</p>
+<ul><li>
+<p><code>read_byte(address)</code>: This method takes a <em>word</em> address
+and returns the lower 8 bits of that word, ignoring the upper bits.</p>
+</li><li>
+<p><code>write_byte(address)</code>: This method takes a <em>word</em> address
+and a value between 0 and 255 and writes the value to the lower 8 bits of
+that word, leaving the upper bits unchanged.</p>
+</li></ul>
+
+<p>Since these methods take word addresses instead of byte addresses, they
+cannot access the upper bits of a program memory word.</p>
+
+<h3 id="label-Program+memory+on+PIC18+devices">Program memory on PIC18 devices</h3>
+
+<p>On PIC18 devices, the program memory is divided into 16-bit words. Since
+each word can hold exactly two bytes, the program memory is often treated
+as a series of bytes in development tools. In RPicSim, PIC18 program memory
+addresses are always specified as <em>byte addresses</em>.</p>
+
+<p>The <span class='object_link'><a href="RPicSim/Memory.html" title="RPicSim::Memory (class)">Memory</a></span> object provides two methods for reading and
+writing words from program memory:</p>
+<ul><li>
+<p><code>read_word(address)</code>: This method takes a byte address and
+returns the value of the 2-byte word starting at that address.</p>
+</li><li>
+<p><code>write_word(address, value)</code>: This method takes a byte address
+and a numerical value, and writes the value to the 2-byte word starting at
+the specified address.</p>
+</li></ul>
+
+<p>If you supply an odd address to <code>read_word</code> or
+<code>write_word</code>, the operation will apply to two bytes that are
+actually from two different words.</p>
+
+<p>The <span class='object_link'><a href="RPicSim/Memory.html" title="RPicSim::Memory (class)">Memory</a></span> object provides two methods for reading and
+writing bytes from program memory:</p>
+<ul><li>
+<p><code>read_byte(address)</code>: This method takes a <em>byte</em> address
+and returns the value of that byte.</p>
+</li><li>
+<p><code>write_byte(address)</code>: This method takes a <em>byte</em> address
+and a value between 0 and 255 and writes the value to that byte, leaving
+other bytes unchanged.</p>
+</li></ul>
+</div></div>
+
+    <div id="footer">
+  
+    This is part of the <a href="file.Manual.html">RPicSim manual</a>.
+  
+  <br/><br/>
+
+  Generated on Fri Mar  7 10:32:17 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.4 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

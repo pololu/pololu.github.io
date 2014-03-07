@@ -6,7 +6,7 @@
 <title>
   File: PreventingCallStackOverflow
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!" + escape(window.location.href);
+  framesUrl = "frames.html#!file.PreventingCallStackOverflow.html";
 </script>
 
 
@@ -72,11 +72,7 @@
 track of return addresses for subroutine calls. Every time a
 <code>CALL</code> instruction is executed, the return address is pushed
 onto the stack. Every time a <code>RETURN</code> or similar instruction is
-executed, the return address is popped off of the stack. The PIC datasheets
-tend to refer to this as the "stack", but in RPicSim it is known as the
-<em>call stack</em> in order to make it clear that this is the stack that
-relates to the <code>CALL</code> instruction and it is different from any
-kind of stack a C compiler might place in RAM for local variables.</p>
+executed, the return address is popped off of the stack.</p>
 
 <p>The call stack has a limited depth that depends on the device you are
 using. If your program has too many levels of nested subroutines then the
@@ -97,7 +93,7 @@ easily add this to your RSpec tests. Here is an example:</p>
     <span class='id identifier rubyid_call_stack_info'>call_stack_info</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_max_depth'>max_depth</span> <span class='id identifier rubyid_be'>be</span> <span class='op'>&lt;=</span> <span class='int'>5</span>
   <span class='kw'>end</span>
 
-  <span class='id identifier rubyid_specify'>specify</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ISR code uses no more than 2 levels</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_specify'>specify</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ISR code uses no more than 1 level</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
     <span class='id identifier rubyid_call_stack_info'>call_stack_info</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_max_depth'>max_depth</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_be'>be</span> <span class='op'>&lt;=</span> <span class='int'>1</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></code></pre>
@@ -157,10 +153,6 @@ depth at every point in the graph.</p>
 
 <h2 id="label-Limitations">Limitations</h2>
 
-<p>The code for disassembling in <span class='object_link'><a href="RPicSim/ProgramFile.html" title="RPicSim::ProgramFile (class)">RPicSim::ProgramFile</a></span> currently only works
-with the midrange and baseline PIC instruction sets. However, it should be
-easy to expand it to the other instruction sets.</p>
-
 <p>The algorithm is pessimistic:</p>
 <ul><li>
 <p>It does not try to track the runtime values of any of your program's
@@ -187,15 +179,17 @@ computed jump might be generated automatically by a C compiler.</p>
 <p>Similarly, it cannot handle jumps on devices that have paged memory. In
 order to determine where a jump actually goes, it would need to know what
 page is selected by looking at the history of the program's execution.</p>
+</li><li>
+<p>It does not account for the effect of PUSH and POP instructions on the call
+stack depth.</p>
 </li></ul>
 
-<p>This code is not suitable (yet) for any firmware that uses a computed jump
-or paged program memory.</p>
+<p>This code is not suitable (yet) for any firmware that uses a computed jump,
+paged program memory, or PUSH or POP instructions.</p>
 
 <p>This code only checks the hardware call stack; it does not check any kind
 of data stack that your compiler might use to store the values of local
-variables. Checking that kind of stack is important, but would be much
-harder.</p>
+variables.</p>
 </div></div>
 
     <div id="footer">
@@ -204,9 +198,9 @@ harder.</p>
   
   <br/><br/>
 
-  Generated on Wed Feb 12 16:57:05 2014 by
+  Generated on Fri Mar  7 10:32:18 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.3 (ruby-1.9.3).
+  0.8.7.4 (ruby-1.9.3).
 </div>
 
   </body>

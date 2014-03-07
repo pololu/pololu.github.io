@@ -6,7 +6,7 @@
 <title>
   File: Pins
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!" + escape(window.location.href);
+  framesUrl = "frames.html#!file.Pins.html";
 </script>
 
 
@@ -96,8 +96,6 @@ the names given in the PIC datasheet. For example, the PIC10F322 pin RA1
 can be referred to by many names, including <code>:RA1</code>,
 <code>:PWM2</code>, <code>:AN1</code>, and <code>:NCO1CLK</code>.</p>
 
-<p>RPicSim does not model the GND and VDD pins.</p>
-
 <h2 id="label-Pin+aliases">Pin aliases</h2>
 
 <p>To make your tests readable and protect against future schematic changes,
@@ -123,20 +121,21 @@ argument to <span class='object_link'><a href="RPicSim/Sim.html#pin-instance_met
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_pin'>pin</span><span class='lparen'>(</span><span class='symbol'>:main_output</span><span class='rparen'>)</span></code></pre>
 
-<p>Defining a pin alias also adds a "shortcut" method by the same name. This
-means that you can access the pin like this:</p>
+<p>Defining a pin alias also adds a new method by the same name. This means
+that you can access the pin like this:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_main_output'>main_output</span></code></pre>
 
-<p>The shortcuts are also available in RSpec thanks to RPicsim's
+<p>Shortcuts for these methods are also available in RSpec thanks to RPicsim's
 <a href="file.RSpecIntegration.html" title="RSpec integration">RSpec integration</a>, so you can simply write
-<code>main_output</code> in any of your RSpec examples:</p>
+<code>main_output</code> instead of <code>sim.main_output</code> in any of
+your RSpec examples:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>drives the main output high</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
   <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_main_output'>main_output</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_driving_high'>be_driving_high</span>
 <span class='kw'>end</span></code></pre>
 
-<p>Note that since the shortcuts are available in many places, your pin names
+<p>Note that since these methods are available in many places, your pin names
 might conflict with names defined in other places.</p>
 
 <h2 id="label-Pin+methods">Pin methods</h2>
@@ -181,8 +180,8 @@ to the compiled COF file and defines some pin aliases:</p>
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rpicsim/rspec</span><span class='tstring_end'>'</span></span>
 
 <span class='kw'>class</span> <span class='const'>PinMirror</span> <span class='op'>&lt;</span> <span class='const'>RPicSim</span><span class='op'>::</span><span class='const'>Pic</span>
-  <span class='id identifier rubyid_device_is'>device_is</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PIC10F322</span><span class='tstring_end'>&quot;</span></span>
-  <span class='id identifier rubyid_filename_is'>filename_is</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_dirname'>dirname</span><span class='lparen'>(</span><span class='kw'>__FILE__</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>../firmware/dist/firmware.cof</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_use_device'>use_device</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PIC10F322</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_use_file'>use_file</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_dirname'>dirname</span><span class='lparen'>(</span><span class='kw'>__FILE__</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>../firmware/dist/firmware.cof</span><span class='tstring_end'>&quot;</span></span>
 
   <span class='id identifier rubyid_def_pin'>def_pin</span> <span class='symbol'>:main_input</span><span class='comma'>,</span> <span class='symbol'>:RA0</span>
   <span class='id identifier rubyid_def_pin'>def_pin</span> <span class='symbol'>:main_output</span><span class='comma'>,</span> <span class='symbol'>:RA1</span>
@@ -230,9 +229,9 @@ device enough time to react to the change on its input.</p>
   
   <br/><br/>
 
-  Generated on Wed Feb 12 16:57:04 2014 by
+  Generated on Fri Mar  7 10:32:17 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.3 (ruby-1.9.3).
+  0.8.7.4 (ruby-1.9.3).
 </div>
 
   </body>

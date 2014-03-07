@@ -6,7 +6,7 @@
 <title>
   File: Labels
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!" + escape(window.location.href);
+  framesUrl = "frames.html#!file.Labels.html";
 </script>
 
 
@@ -74,9 +74,9 @@ stores a <span class='object_link'><a href="RPicSim/Label.html" title="RPicSim::
 
 <p>For an assembly program, RPicSim labels correspond to any assembly label
 defined in code space. These will usually correspond to subroutines and
-goto targets but could also be variables stored in flash. In firmware
-assembled by MPASM, all labels are exported publicly by default, so they
-will all be available to RPicSim.</p>
+goto targets but could also be variables stored in program memory. In
+firmware assembled by MPASM, all labels are exported publicly by default,
+so they will all be available to RPicSim.</p>
 
 <p>For a C program, RPicSim labels usually correspond to functions.</p>
 
@@ -89,7 +89,7 @@ the label as the first argument:</p>
 </span></code></pre>
 
 <p>C compilers will generally put an underscore at the beginning of any labels
-they generate. For example, to get the address of a C function named
+they generate. Therefore, to get the address of a C function named
 <code>foo</code>, you might have to access a label named <code>_foo</code>
 using code like this:</p>
 
@@ -98,11 +98,11 @@ using code like this:</p>
 <p>If RPicSim cannot find the label you want to use, you might troubleshoot it
 by printing out a list of all the known labels:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_program_file'>program_file</span><span class='period'>.</span><span class='id identifier rubyid_labels'>labels</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span></code></pre>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_program_file'>program_file</span><span class='period'>.</span><span class='id identifier rubyid_labels'>labels</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span></code></pre>
 
 <h2 id="label-Using+a+Label+object">Using a Label object</h2>
 
-<p>You can basically only do three things with a Label object:</p>
+<p>There are three main things you can do with a Label object:</p>
 <ul><li>
 <p>Get its name by calling <span class='object_link'><a href="RPicSim/Label.html#name-instance_method" title="RPicSim::Label#name (method)">RPicSim::Label#name</a></span>.</p>
 </li><li>
@@ -119,9 +119,9 @@ by printing out a list of all the known labels:</p>
   
   <br/><br/>
 
-  Generated on Wed Feb 12 16:57:04 2014 by
+  Generated on Fri Mar  7 10:32:17 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.3 (ruby-1.9.3).
+  0.8.7.4 (ruby-1.9.3).
 </div>
 
   </body>

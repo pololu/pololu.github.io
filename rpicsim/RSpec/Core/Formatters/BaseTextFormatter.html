@@ -6,7 +6,7 @@
 <title>
   Class: RSpec::Core::Formatters::BaseTextFormatter
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../../';
-  framesUrl = "../../../frames.html#!" + escape(window.location.href);
+  framesUrl = "../../../frames.html#!RSpec/Core/Formatters/BaseTextFormatter.html";
 </script>
 
 
@@ -302,7 +302,7 @@ simulation stack trace was recorded.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rpicsim/rspec/sim_diagnostics.rb', line 24</span>
 
-<span class='kw'>alias</span> <span class='id identifier rubyid_dump_backtrace_without_sim_diagnostics'>dump_backtrace_without_sim_diagnostics</span> <span class='id identifier rubyid_dump_backtrace'>dump_backtrace</span></pre>
+<span class='id identifier rubyid_alias_method'>alias_method</span> <span class='symbol'>:dump_backtrace_without_sim_diagnostics</span><span class='comma'>,</span> <span class='symbol'>:dump_backtrace</span></pre>
     </td>
   </tr>
 </table>
@@ -334,7 +334,7 @@ simulation stack trace was recorded.</p>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dump_sim_cycle_count'>dump_sim_cycle_count</span><span class='lparen'>(</span><span class='id identifier rubyid_example'>example</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_cycle_count'>cycle_count</span> <span class='op'>=</span> <span class='id identifier rubyid_example'>example</span><span class='period'>.</span><span class='id identifier rubyid_metadata'>metadata</span><span class='lbracket'>[</span><span class='symbol'>:sim_cycle_count</span><span class='rbracket'>]</span> <span class='kw'>or</span> <span class='kw'>return</span>
-  <span class='id identifier rubyid_output'>output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_long_padding'>long_padding</span>
+  <span class='id identifier rubyid_output'>output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span>
   <span class='id identifier rubyid_output'>output</span><span class='period'>.</span><span class='id identifier rubyid_printf'>printf</span> <span class='id identifier rubyid_long_padding'>long_padding</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Simulation cycle count: %d\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_cycle_count'>cycle_count</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -414,8 +414,8 @@ appropriate indentation.</p>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dump_sim_stack_trace'>dump_sim_stack_trace</span><span class='lparen'>(</span><span class='id identifier rubyid_example'>example</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_sim_stack_trace'>sim_stack_trace</span> <span class='op'>=</span> <span class='id identifier rubyid_example'>example</span><span class='period'>.</span><span class='id identifier rubyid_metadata'>metadata</span><span class='lbracket'>[</span><span class='symbol'>:sim_stack_trace</span><span class='rbracket'>]</span> <span class='kw'>or</span> <span class='kw'>return</span>
-  <span class='id identifier rubyid_output'>output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_long_padding'>long_padding</span>
-  <span class='id identifier rubyid_output'>output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_long_padding'>long_padding</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Simulation stack trace:</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_output'>output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span>
+  <span class='id identifier rubyid_output'>output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_long_padding'>long_padding</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Simulation stack trace:</span><span class='tstring_end'>'</span></span>
   <span class='id identifier rubyid_sim_stack_trace'>sim_stack_trace</span><span class='period'>.</span><span class='id identifier rubyid_output'>output</span><span class='lparen'>(</span><span class='id identifier rubyid_output'>output</span><span class='comma'>,</span> <span class='id identifier rubyid_long_padding'>long_padding</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -431,9 +431,9 @@ appropriate indentation.</p>
   
   <br/><br/>
 
-  Generated on Wed Feb 12 16:57:09 2014 by
+  Generated on Fri Mar  7 10:32:22 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.3 (ruby-1.9.3).
+  0.8.7.4 (ruby-1.9.3).
 </div>
 
   </body>
