@@ -254,17 +254,13 @@
 15
 16
 17
-18
-19
-20</pre>
+18</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rpicsim/mplab/mplab_disassembler.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_disassemble'>disassemble</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='rparen'>)</span>
-  <span class='comment'># To avoid showing a large, difficult to understand Java trace, we
-</span>  <span class='comment'># catch the InvalidInstructionException here.
-</span>  <span class='kw'>begin</span>
+  <span class='kw'>begin</span>
     <span class='id identifier rubyid_instr'>instr</span> <span class='op'>=</span> <span class='ivar'>@disasm</span><span class='period'>.</span><span class='const'>Disassemble</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>rescue</span> <span class='const'>Java</span><span class='op'>::</span><span class='const'>ComMicrochipMplabMdbcoreDisasm</span><span class='op'>::</span><span class='const'>InvalidInstructionException</span>
     <span class='comment'># The instruction is invalid.
@@ -285,7 +281,7 @@
   
   <br/><br/>
 
-  Generated on Fri Mar  7 10:32:22 2014 by
+  Generated on Mon Mar 17 12:27:10 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-1.9.3).
 </div>
