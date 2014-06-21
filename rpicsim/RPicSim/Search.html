@@ -178,7 +178,7 @@ backwards in order to find code_paths for a given instruction.</p>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_depth_first_search_simple'>depth_first_search_simple</span><span class='lparen'>(</span><span class='id identifier rubyid_root_nodes'>root_nodes</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_unprocessed_nodes'>unprocessed_nodes</span> <span class='op'>=</span> <span class='id identifier rubyid_root_nodes'>root_nodes</span><span class='period'>.</span><span class='id identifier rubyid_reverse'>reverse</span>
-  <span class='kw'>while</span> <span class='op'>!</span><span class='id identifier rubyid_unprocessed_nodes'>unprocessed_nodes</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+  <span class='kw'>until</span> <span class='id identifier rubyid_unprocessed_nodes'>unprocessed_nodes</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
     <span class='id identifier rubyid_node'>node</span> <span class='op'>=</span> <span class='id identifier rubyid_unprocessed_nodes'>unprocessed_nodes</span><span class='period'>.</span><span class='id identifier rubyid_pop'>pop</span>
     <span class='id identifier rubyid_nodes'>nodes</span> <span class='op'>=</span> <span class='kw'>yield</span> <span class='id identifier rubyid_node'>node</span>
     <span class='id identifier rubyid_unprocessed_nodes'>unprocessed_nodes</span><span class='period'>.</span><span class='id identifier rubyid_concat'>concat</span><span class='lparen'>(</span><span class='id identifier rubyid_nodes'>nodes</span><span class='period'>.</span><span class='id identifier rubyid_reverse'>reverse</span><span class='rparen'>)</span>
@@ -197,7 +197,7 @@ backwards in order to find code_paths for a given instruction.</p>
   
   <br/><br/>
 
-  Generated on Mon Mar 17 13:11:41 2014 by
+  Generated on Fri Jun 20 21:56:48 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-1.9.3).
 </div>

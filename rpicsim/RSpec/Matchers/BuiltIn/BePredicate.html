@@ -102,7 +102,8 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>We override some parts of RSpec to provide better error messages. Instead
+<p>We override some parts of RSpec to provide better error messages. This is
+only needed for RSpec 2.x, since th messages improved in RSpec 3.x Instead
 of 'expected driving_high? to return true, got false' RSpec will actually
 tell us what object it called driving_high on.</p>
 
@@ -144,7 +145,9 @@ tell us what object it called driving_high on.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>RSpec 2.x.</p>
+</div></span>
   
 </li>
 
@@ -189,21 +192,32 @@ tell us what object it called driving_high on.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>RSpec 2.x</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-5
-6
-7</pre>
+9
+10
+11</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/rspec/be_predicate.rb', line 5</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/rspec/be_predicate.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_failure_message_for_should'>failure_message_for_should</span>
-  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>expected </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_actual'>actual</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_content'>.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_predicate'>predicate</span><span class='rbrace'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_args_to_s'>args_to_s</span><span class='rbrace'>}</span><span class='tstring_content'> to return true, got </span><span class='embexpr_beg'>#{</span><span class='ivar'>@result</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>expected `</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_actual'>actual</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_content'>.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_predicate'>predicate</span><span class='rbrace'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_args_to_s'>args_to_s</span><span class='rbrace'>}</span><span class='tstring_content'>` to return true, got </span><span class='embexpr_beg'>#{</span><span class='ivar'>@result</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -225,15 +239,15 @@ tell us what object it called driving_high on.</p>
       <pre class="lines">
 
 
-9
-10
-11</pre>
+13
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/rspec/be_predicate.rb', line 9</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/rspec/be_predicate.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_failure_message_for_should_not'>failure_message_for_should_not</span>
-  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>expected </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_actual'>actual</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_content'>.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_predicate'>predicate</span><span class='rbrace'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_args_to_s'>args_to_s</span><span class='rbrace'>}</span><span class='tstring_content'> to return false, got </span><span class='embexpr_beg'>#{</span><span class='ivar'>@result</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>expected `</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_actual'>actual</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_content'>.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_predicate'>predicate</span><span class='rbrace'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_args_to_s'>args_to_s</span><span class='rbrace'>}</span><span class='tstring_content'>` to return false, got </span><span class='embexpr_beg'>#{</span><span class='ivar'>@result</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -248,7 +262,7 @@ tell us what object it called driving_high on.</p>
   
   <br/><br/>
 
-  Generated on Mon Mar 17 13:11:44 2014 by
+  Generated on Fri Jun 20 21:56:56 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-1.9.3).
 </div>

@@ -283,15 +283,15 @@ as a method on instances of your class and also in your RSpec tests.</p>
       <pre class="lines">
 
 
+47
+48
 49
 50
 51
-52
-53
-54</pre>
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 47</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_def_pin'>def_pin</span><span class='lparen'>(</span><span class='id identifier rubyid_our_name'>our_name</span><span class='comma'>,</span> <span class='id identifier rubyid_datasheet_name'>datasheet_name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_our_name'>our_name</span> <span class='op'>=</span> <span class='id identifier rubyid_our_name'>our_name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
@@ -407,20 +407,20 @@ thing in your tests. This option is ignored if +:address is specified.</p>
       <pre class="lines">
 
 
+73
+74
 75
 76
 77
 78
 79
 80
-81
-82
-83</pre>
+81</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 75</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 73</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_def_var'>def_var</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_def_var'>def_var</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='ivar'>@variable_set</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
     <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>The device and filename need to be specified before defining variables.</span><span class='tstring_end'>'</span></span>
   <span class='kw'>end</span>
@@ -480,13 +480,13 @@ thing in your tests. This option is ignored if +:address is specified.</p>
       <pre class="lines">
 
 
+26
+27
 28
-29
-30
-31</pre>
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_use_device'>use_device</span><span class='lparen'>(</span><span class='id identifier rubyid_device'>device</span><span class='rparen'>)</span>
   <span class='ivar'>@device</span> <span class='op'>=</span> <span class='id identifier rubyid_device'>device</span>
@@ -526,18 +526,18 @@ this.</p>
       <pre class="lines">
 
 
+34
+35
 36
 37
-38
-39
-40</pre>
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 34</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_use_file'>use_file</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The device needs to be specified before filename (e.g. 'use_device \&quot;PIC10F322\&quot;')</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='ivar'>@device</span>
-  <span class='ivar'>@filename</span> <span class='op'>=</span> <span class='id identifier rubyid_filename'>filename</span>
+  <span class='ivar'>@filename</span> <span class='op'>=</span> <span class='id identifier rubyid_filename'>filename</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
   <span class='id identifier rubyid_load_program_file'>load_program_file</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -553,7 +553,7 @@ this.</p>
   
   <br/><br/>
 
-  Generated on Mon Mar 17 13:11:41 2014 by
+  Generated on Fri Jun 20 21:56:47 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-1.9.3).
 </div>

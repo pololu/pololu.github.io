@@ -208,7 +208,7 @@ register) will cause the pin to start reporting the wrong output state.</p>
 
 <p><em>Type: MPLAB X bug</em></p>
 
-<p><em>MPLAB X versions affected: 1.95, 2.00, 2.05</em></p>
+<p><em>MPLAB X versions affected: 1.95 and later</em></p>
 
 <p>This issue is tested in <code>spec/mplab/memory_attach_spec.rb</code>. If
 you want to use the <a href="file.RamWatcher.html" title="RAM watcher">RAM watcher</a>, you should use MPLAB
@@ -294,6 +294,14 @@ any voltage other than 0 V will result in an ADC reading of 255.</p>
 <code>spec/integration/adc_midrange_spec.rb</code>. The bad modulus issue
 was <a href="http://www.microchip.com/forums/m760886.aspx" target="_parent" title="reported to Microchip">reported to Microchip</a> in
 November 2013.</p>
+
+<h2 id="label-Variables+from+XC8+are+not+correctly+identified">Variables from XC8 are not correctly identified</h2>
+
+<p>RAM variables in programs using the XC8 compiler are often misidentified as
+being in program memory, and you need to get their address using
+<span class='object_link'><a href="RPicSim/ProgramFile.html#symbols_in_program_memory-instance_method" title="RPicSim::ProgramFile#symbols_in_program_memory (method)">RPicSim::ProgramFile#symbols_in_program_memory</a></span>. Some variables are not be
+identified at all, and you would have to write code to get their addresses
+from the SYM file.</p>
 </div></div>
 
     <div id="footer">
@@ -302,7 +310,7 @@ November 2013.</p>
   
   <br/><br/>
 
-  Generated on Mon Mar 17 13:11:41 2014 by
+  Generated on Fri Jun 20 21:56:46 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-1.9.3).
 </div>
