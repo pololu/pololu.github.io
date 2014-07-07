@@ -6,7 +6,7 @@
 <title>
   Class: Memory
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!" + escape(window.location.href);
+  framesUrl = "frames.html#!Memory.html";
 </script>
 
 
@@ -99,35 +99,7 @@
 </dl>
 <div class="clear"></div>
 
-<h2>Overview</h2><div class="docstring">
-  <div class="discussion">
-    
-<p>This object allows read and write access to the current data stored in a
-memory space of the simulated device. Instances are usually retrieved by
-calling Sim#ram, Sim#program_memory, or Sim#eeprom.</p>
 
-<p>The behavior of <code>read_word</code> and <code>write_word</code> differs
-depending on what kind of Memory it represents, as shown in the table
-below:</p>
-
-<pre class="code ruby"><code class="ruby">Memory type                Address type   Read/write chunk
-RAM and EEPROM:            Byte address   1 byte (8 bits)
-PIC18 program memory:      Byte address   1 word (16 bits)
-Non-PIC18 program memory:  Word address   1 word (12 or 14 bits)</code></pre>
-
-<p>The <code>read_byte</code> and <code>write_byte</code> methods use the same
-type of address as <code>read_word</code> and <code>write_word</code>, but
-they can only read and write from the lower 8 bits of the word. For RAM and
-EEPROM, <code>read_byte</code> and <code>write_byte</code> are the same as
-<code>read_word</code> and <code>write_word</code>.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
 
 
 
@@ -162,7 +134,8 @@ EEPROM, <code>read_byte</code> and <code>write_byte</code> are the same as
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A new instance of Memory.</p>
+<p>This object allows read and write access to the current data stored in a
+memory space of the simulated device.</p>
 </div></span>
   
 </li>
@@ -193,51 +166,7 @@ EEPROM, <code>read_byte</code> and <code>write_byte</code> are the same as
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#read_byte-instance_method" title="#read_byte (instance method)">- (Object) <strong>read_byte</strong>(address) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#read_word-instance_method" title="#read_word (instance method)">- (Object) <strong>read_word</strong>(address) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#write_byte-instance_method" title="#write_byte (instance method)">- (Object) <strong>write_byte</strong>(address, value) </a>
     
 
     
@@ -296,7 +225,16 @@ EEPROM, <code>read_byte</code> and <code>write_byte</code> are the same as
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns a new instance of Memory</p>
+<p>This object allows read and write access to the current data stored in a
+memory space of the simulated device.</p>
+
+<p>The behavior of this class differs depending on what kind of Memory it
+represents, as shown in the table below:</p>
+
+<pre class="code ruby"><code class="ruby">                   Address type   Read/write chunk
+Any type of RAM:   Byte address   1 byte (8 bits)
+PIC18 code space:  Byte address   1 word (16 bits)
+Other code space:  Word address   1 word (12 or 14 bits)</code></pre>
 
 
   </div>
@@ -325,12 +263,12 @@ EEPROM, <code>read_byte</code> and <code>write_byte</code> are the same as
       <pre class="lines">
 
 
-21
-22
-23</pre>
+14
+15
+16</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 14</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_mplab_memory'>mplab_memory</span><span class='rparen'>)</span>
   <span class='ivar'>@mplab_memory</span> <span class='op'>=</span> <span class='id identifier rubyid_mplab_memory'>mplab_memory</span>
@@ -384,45 +322,15 @@ EEPROM, <code>read_byte</code> and <code>write_byte</code> are the same as
       <pre class="lines">
 
 
-41
-42
-43</pre>
+26
+27
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_is_valid_address?'>is_valid_address?</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='rparen'>)</span>
   <span class='ivar'>@mplab_memory</span><span class='period'>.</span><span class='id identifier rubyid_is_valid_address?'>is_valid_address?</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="read_byte-instance_method">
-  
-    - (<tt>Object</tt>) <strong>read_byte</strong>(address) 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-25
-26
-27</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 25</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_read_byte'>read_byte</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='rparen'>)</span>
-  <span class='ivar'>@mplab_memory</span><span class='period'>.</span><span class='id identifier rubyid_read_byte'>read_byte</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -444,45 +352,15 @@ EEPROM, <code>read_byte</code> and <code>write_byte</code> are the same as
       <pre class="lines">
 
 
-33
-34
-35</pre>
+22
+23
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 22</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_read_word'>read_word</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='rparen'>)</span>
   <span class='ivar'>@mplab_memory</span><span class='period'>.</span><span class='id identifier rubyid_read_word'>read_word</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="write_byte-instance_method">
-  
-    - (<tt>Object</tt>) <strong>write_byte</strong>(address, value) 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-29
-30
-31</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 29</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_write_byte'>write_byte</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
-  <span class='ivar'>@mplab_memory</span><span class='period'>.</span><span class='id identifier rubyid_write_byte'>write_byte</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -504,12 +382,12 @@ EEPROM, <code>read_byte</code> and <code>write_byte</code> are the same as
       <pre class="lines">
 
 
-37
-38
-39</pre>
+18
+19
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 18</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_write_word'>write_word</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
   <span class='ivar'>@mplab_memory</span><span class='period'>.</span><span class='id identifier rubyid_write_word'>write_word</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
@@ -527,9 +405,9 @@ EEPROM, <code>read_byte</code> and <code>write_byte</code> are the same as
   
   <br/><br/>
 
-  Generated on Tue Mar  4 15:31:33 2014 by
+  Generated on Sun Mar  2 12:22:45 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.3 (ruby-1.9.3).
+  0.8.7.4 (ruby-1.9.3).
 </div>
 
   </body>

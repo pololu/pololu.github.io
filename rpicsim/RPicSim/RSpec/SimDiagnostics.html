@@ -1,0 +1,383 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: RPicSim::RSpec::SimDiagnostics
+  
+    &mdash; Documentation by YARD 0.8.7.4
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../';
+  framesUrl = "../../frames.html#!RPicSim/RSpec/SimDiagnostics.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (S)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../RPicSim.html" title="RPicSim (module)">RPicSim</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../RSpec.html" title="RPicSim::RSpec (module)">RSpec</a></span></span>
+     &raquo; 
+    <span class="title">SimDiagnostics</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: RPicSim::RSpec::SimDiagnostics
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/rpicsim/rspec/sim_diagnostics.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>If an example fails, store some diagnostic information about the state of
+the simulation so we can print it later.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#store_diagnostics-class_method" title="store_diagnostics (class method)">+ (Object) <strong>store_diagnostics</strong>(example, sim) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#write_cycle_count-class_method" title="write_cycle_count (class method)">+ (Object) <strong>write_cycle_count</strong>(example, output, padding) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#write_diagnostics-class_method" title="write_diagnostics (class method)">+ (Object) <strong>write_diagnostics</strong>(example, output, padding) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#write_sim_stack_trace-class_method" title="write_sim_stack_trace (class method)">+ (Object) <strong>write_sim_stack_trace</strong>(example, output, padding) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Looks inside the metadata for the given RSpec example to see if a
+simulation stack trace was recorded.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="store_diagnostics-class_method">
+  
+    + (<tt>Object</tt>) <strong>store_diagnostics</strong>(example, sim) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5
+6
+7
+8
+9
+10
+11
+12</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/rspec/sim_diagnostics.rb', line 5</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_store_diagnostics'>store_diagnostics</span><span class='lparen'>(</span><span class='id identifier rubyid_example'>example</span><span class='comma'>,</span> <span class='id identifier rubyid_sim'>sim</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span> <span class='symbol'>:cycle_count</span>
+    <span class='id identifier rubyid_example'>example</span><span class='period'>.</span><span class='id identifier rubyid_metadata'>metadata</span><span class='lbracket'>[</span><span class='symbol'>:sim_cycle_count</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_cycle_count'>cycle_count</span>
+  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span> <span class='symbol'>:stack_trace</span>
+    <span class='id identifier rubyid_example'>example</span><span class='period'>.</span><span class='id identifier rubyid_metadata'>metadata</span><span class='lbracket'>[</span><span class='symbol'>:sim_stack_trace</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_stack_trace'>stack_trace</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="write_cycle_count-class_method">
+  
+    + (<tt>Object</tt>) <strong>write_cycle_count</strong>(example, output, padding) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+29
+30
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/rspec/sim_diagnostics.rb', line 29</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_write_cycle_count'>write_cycle_count</span><span class='lparen'>(</span><span class='id identifier rubyid_example'>example</span><span class='comma'>,</span> <span class='id identifier rubyid_output'>output</span><span class='comma'>,</span> <span class='id identifier rubyid_padding'>padding</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_cycle_count'>cycle_count</span> <span class='op'>=</span> <span class='id identifier rubyid_example'>example</span><span class='period'>.</span><span class='id identifier rubyid_metadata'>metadata</span><span class='lbracket'>[</span><span class='symbol'>:sim_cycle_count</span><span class='rbracket'>]</span> <span class='kw'>or</span> <span class='kw'>return</span>
+  <span class='id identifier rubyid_output'>output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span>
+  <span class='id identifier rubyid_output'>output</span><span class='period'>.</span><span class='id identifier rubyid_printf'>printf</span> <span class='id identifier rubyid_padding'>padding</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Simulation cycle count: %d\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_cycle_count'>cycle_count</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="write_diagnostics-class_method">
+  
+    + (<tt>Object</tt>) <strong>write_diagnostics</strong>(example, output, padding) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14
+15
+16
+17</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/rspec/sim_diagnostics.rb', line 14</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_write_diagnostics'>write_diagnostics</span><span class='lparen'>(</span><span class='id identifier rubyid_example'>example</span><span class='comma'>,</span> <span class='id identifier rubyid_output'>output</span><span class='comma'>,</span> <span class='id identifier rubyid_padding'>padding</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_write_cycle_count'>write_cycle_count</span><span class='lparen'>(</span><span class='id identifier rubyid_example'>example</span><span class='comma'>,</span> <span class='id identifier rubyid_output'>output</span><span class='comma'>,</span> <span class='id identifier rubyid_padding'>padding</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_write_sim_stack_trace'>write_sim_stack_trace</span><span class='lparen'>(</span><span class='id identifier rubyid_example'>example</span><span class='comma'>,</span> <span class='id identifier rubyid_output'>output</span><span class='comma'>,</span> <span class='id identifier rubyid_padding'>padding</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="write_sim_stack_trace-class_method">
+  
+    + (<tt>Object</tt>) <strong>write_sim_stack_trace</strong>(example, output, padding) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Looks inside the metadata for the given RSpec example to see if a
+simulation stack trace was recorded.  If so, it outputs it with the
+appropriate indentation.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+22
+23
+24
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/rspec/sim_diagnostics.rb', line 22</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_write_sim_stack_trace'>write_sim_stack_trace</span><span class='lparen'>(</span><span class='id identifier rubyid_example'>example</span><span class='comma'>,</span> <span class='id identifier rubyid_output'>output</span><span class='comma'>,</span> <span class='id identifier rubyid_padding'>padding</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_sim_stack_trace'>sim_stack_trace</span> <span class='op'>=</span> <span class='id identifier rubyid_example'>example</span><span class='period'>.</span><span class='id identifier rubyid_metadata'>metadata</span><span class='lbracket'>[</span><span class='symbol'>:sim_stack_trace</span><span class='rbracket'>]</span> <span class='kw'>or</span> <span class='kw'>return</span>
+  <span class='id identifier rubyid_output'>output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span>
+  <span class='id identifier rubyid_output'>output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_padding'>padding</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Simulation stack trace:</span><span class='tstring_end'>'</span></span>
+  <span class='id identifier rubyid_sim_stack_trace'>sim_stack_trace</span><span class='period'>.</span><span class='id identifier rubyid_output'>output</span><span class='lparen'>(</span><span class='id identifier rubyid_output'>output</span><span class='comma'>,</span> <span class='id identifier rubyid_padding'>padding</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  
+  <br/><br/>
+
+  Generated on Fri Jun 20 21:56:49 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.4 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

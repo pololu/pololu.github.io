@@ -301,15 +301,15 @@
       <pre class="lines">
 
 
-313
-314
-315
-316
 317
-318</pre>
+318
+319
+320
+321
+322</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 313</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 317</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_previous_instruction'>previous_instruction</span><span class='comma'>,</span> <span class='id identifier rubyid_next_address'>next_address</span><span class='comma'>,</span> <span class='id identifier rubyid_instruction_store'>instruction_store</span><span class='comma'>,</span> <span class='id identifier rubyid_attrs'>attrs</span><span class='rparen'>)</span>
   <span class='ivar'>@previous_instruction</span> <span class='op'>=</span> <span class='id identifier rubyid_previous_instruction'>previous_instruction</span>
@@ -355,12 +355,12 @@
       <pre class="lines">
 
 
-311
-312
-313</pre>
+315
+316
+317</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 311</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 315</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_next_address'>next_address</span>
   <span class='ivar'>@next_address</span>
@@ -398,12 +398,12 @@
       <pre class="lines">
 
 
-310
-311
-312</pre>
+314
+315
+316</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 310</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 314</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_previous_instruction'>previous_instruction</span>
   <span class='ivar'>@previous_instruction</span>
@@ -435,12 +435,12 @@
       <pre class="lines">
 
 
-328
-329
-330</pre>
+332
+333
+334</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 328</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 332</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_call_depth_change'>call_depth_change</span>
   <span class='ivar'>@attrs</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:call_depth_change</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
@@ -465,12 +465,12 @@
       <pre class="lines">
 
 
-320
-321
-322</pre>
+324
+325
+326</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 320</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 324</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_next_instruction'>next_instruction</span>
   <span class='ivar'>@next_instruction</span> <span class='op'>||=</span> <span class='ivar'>@instruction_store</span><span class='period'>.</span><span class='id identifier rubyid_instruction'>instruction</span><span class='lparen'>(</span><span class='id identifier rubyid_next_address'>next_address</span><span class='rparen'>)</span>
@@ -517,12 +517,12 @@
       <pre class="lines">
 
 
-324
-325
-326</pre>
+328
+329
+330</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 324</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/instruction.rb', line 328</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_non_local?'>non_local?</span>
   <span class='ivar'>@attrs</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:non_local</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span>
@@ -540,7 +540,7 @@
   
   <br/><br/>
 
-  Generated on Mon Mar 17 13:11:43 2014 by
+  Generated on Fri Jun 20 21:56:53 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-1.9.3).
 </div>
