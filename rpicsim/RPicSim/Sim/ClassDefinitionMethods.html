@@ -141,6 +141,30 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#def_symbol-instance_method" title="#def_symbol (instance method)">- (Object) <strong>def_symbol</strong>(name, address, memory_type = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Define a symbol.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#def_var-instance_method" title="#def_var (instance method)">- (Object) <strong>def_var</strong>(name, type, opts = {}) </a>
     
 
@@ -157,6 +181,30 @@
   
     <span class="summary_desc"><div class='inline'>
 <p>Define a variable.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#import_symbols-instance_method" title="#import_symbols (instance method)">- (Object) <strong>import_symbols</strong>(symbol_source) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Specifies additional symbols to use in the simulation.</p>
 </div></span>
   
 </li>
@@ -283,21 +331,67 @@ as a method on instances of your class and also in your RSpec tests.</p>
       <pre class="lines">
 
 
-47
-48
-49
-50
-51
-52</pre>
+69
+70
+71
+72
+73
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 47</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 69</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_def_pin'>def_pin</span><span class='lparen'>(</span><span class='id identifier rubyid_our_name'>our_name</span><span class='comma'>,</span> <span class='id identifier rubyid_datasheet_name'>datasheet_name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_our_name'>our_name</span> <span class='op'>=</span> <span class='id identifier rubyid_our_name'>our_name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
   <span class='ivar'>@pin_aliases</span><span class='lbracket'>[</span><span class='id identifier rubyid_our_name'>our_name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_datasheet_name'>datasheet_name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
 
   <span class='kw'>self</span><span class='op'>::</span><span class='const'>Shortcuts</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='symbol'>:define_method</span><span class='comma'>,</span> <span class='id identifier rubyid_our_name'>our_name</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_pin'>pin</span> <span class='id identifier rubyid_our_name'>our_name</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="def_symbol-instance_method">
+  
+    - (<tt>Object</tt>) <strong>def_symbol</strong>(name, address, memory_type = nil) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Define a symbol. Normally symbols are loaded by <span class='object_link'><a href="#use_file-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#use_file (method)">#use_file</a></span> or
+<span class='object_link'><a href="#import_symbols-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#import_symbols (method)">#import_symbols</a></span>, but you can this method allows for adding additional
+symbols one at a time.</p>
+
+<p>See <span class='object_link'><a href="../ProgramFile.html#def_symbol-instance_method" title="RPicSim::ProgramFile#def_symbol (method)">ProgramFile#def_symbol</a></span> for details about the parameters this
+method takes.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+58
+59
+60</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 58</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_def_symbol'>def_symbol</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_address'>address</span><span class='comma'>,</span> <span class='id identifier rubyid_memory_type'>memory_type</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_program_file'>program_file</span><span class='period'>.</span><span class='id identifier rubyid_def_symbol'>def_symbol</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_address'>address</span><span class='comma'>,</span> <span class='id identifier rubyid_memory_type'>memory_type</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -407,18 +501,18 @@ thing in your tests. This option is ignored if +:address is specified.</p>
       <pre class="lines">
 
 
-73
-74
-75
-76
-77
-78
-79
-80
-81</pre>
+95
+96
+97
+98
+99
+100
+101
+102
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 73</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 95</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_def_var'>def_var</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='ivar'>@variable_set</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -428,6 +522,53 @@ thing in your tests. This option is ignored if +:address is specified.</p>
   <span class='ivar'>@variable_set</span><span class='period'>.</span><span class='id identifier rubyid_def_var'>def_var</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
 
   <span class='kw'>self</span><span class='op'>::</span><span class='const'>Shortcuts</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='symbol'>:define_method</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_var'>var</span> <span class='id identifier rubyid_name'>name</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="import_symbols-instance_method">
+  
+    - (<tt>Object</tt>) <strong>import_symbols</strong>(symbol_source) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Specifies additional symbols to use in the simulation.  Symbols might be
+loaded from the program file when you call <span class='object_link'><a href="#use_file-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#use_file (method)">#use_file</a></span>, but if those
+symbols are not sufficient then you can call this method to incorporate
+another source of symbols.</p>
+
+<p>See <span class='object_link'><a href="../ProgramFile.html#import_symbols-instance_method" title="RPicSim::ProgramFile#import_symbols (method)">ProgramFile#import_symbols</a></span> for details on what the parameter
+should be.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+48
+49
+50</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 48</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_import_symbols'>import_symbols</span><span class='lparen'>(</span><span class='id identifier rubyid_symbol_source'>symbol_source</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_program_file'>program_file</span><span class='period'>.</span><span class='id identifier rubyid_import_symbols'>import_symbols</span><span class='lparen'>(</span><span class='id identifier rubyid_symbol_source'>symbol_source</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -510,8 +651,8 @@ thing in your tests. This option is ignored if +:address is specified.</p>
   <div class="discussion">
     
 <p>Specifies the path to the firmware file.  The file can be a HEX or COF
-file, but COF is recommended so that you can access label addresses and
-other debugging information. You must call <span class='object_link'><a href="#use_device-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#use_device (method)">#use_device</a></span> before calling
+file, but COF is recommended so that you can access symbol/label addresses
+and other debugging information. You must call <span class='object_link'><a href="#use_device-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#use_device (method)">#use_device</a></span> before calling
 this.</p>
 
 
@@ -526,14 +667,14 @@ this.</p>
       <pre class="lines">
 
 
-34
 35
 36
 37
-38</pre>
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_use_file'>use_file</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The device needs to be specified before filename (e.g. 'use_device \&quot;PIC10F322\&quot;')</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='ivar'>@device</span>
@@ -553,7 +694,7 @@ this.</p>
   
   <br/><br/>
 
-  Generated on Fri Jun 20 21:56:47 2014 by
+  Generated on Wed Jul 30 13:19:56 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-1.9.3).
 </div>

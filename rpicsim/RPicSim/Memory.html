@@ -110,7 +110,7 @@ a <span class='object_link'><a href="Sim.html" title="RPicSim::Sim (class)">Sim<
 depending on what kind of Memory is being used, as shown in the table
 below:</p>
 
-<pre class="code ruby"><code class="ruby">Memory type                Address type   Read/write chunk
+<pre class="code ruby"><code class="ruby">Memory type                Address type   Read/write chunk for word methods
 RAM and EEPROM:            Byte address   1 byte (8 bits)
 PIC18 program memory:      Byte address   1 word (16 bits)
 Non-PIC18 program memory:  Word address   1 word (12 or 14 bits)</code></pre>
@@ -174,7 +174,7 @@ bits of the word, if there are any, are left unchanged. For RAM and EEPROM,
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#read_byte-instance_method" title="#read_byte (instance method)">- (Object) <strong>read_byte</strong>(address) </a>
+      <a href="#read_byte-instance_method" title="#read_byte (instance method)">- (Integer) <strong>read_byte</strong>(address) </a>
     
 
     
@@ -188,7 +188,9 @@ bits of the word, if there are any, are left unchanged. For RAM and EEPROM,
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Reads the byte in memory at the specified address.</p>
+</div></span>
   
 </li>
 
@@ -196,7 +198,7 @@ bits of the word, if there are any, are left unchanged. For RAM and EEPROM,
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#read_word-instance_method" title="#read_word (instance method)">- (Object) <strong>read_word</strong>(address) </a>
+      <a href="#read_bytes-instance_method" title="#read_bytes (instance method)">- (Array(Integer)) <strong>read_bytes</strong>(address, size) </a>
     
 
     
@@ -210,7 +212,34 @@ bits of the word, if there are any, are left unchanged. For RAM and EEPROM,
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Reads a series of bytes from the simulated memory using
+<code>read_byte</code> and returns them as an array.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#read_word-instance_method" title="#read_word (instance method)">- (Integer) <strong>read_word</strong>(address) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Reads the word in memory at the specified address.</p>
+</div></span>
   
 </li>
 
@@ -232,7 +261,9 @@ bits of the word, if there are any, are left unchanged. For RAM and EEPROM,
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Returns true if the specified address is valid.</p>
+</div></span>
   
 </li>
 
@@ -254,7 +285,33 @@ bits of the word, if there are any, are left unchanged. For RAM and EEPROM,
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Writes the given integer to the byte in memory at the specified address.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#write_bytes-instance_method" title="#write_bytes (instance method)">- (Object) <strong>write_bytes</strong>(address, bytes) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Writes a series of bytes to the simulated memory.</p>
+</div></span>
   
 </li>
 
@@ -276,7 +333,9 @@ bits of the word, if there are any, are left unchanged. For RAM and EEPROM,
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Writes the given integer to the word in memory at the specified address.</p>
+</div></span>
   
 </li>
 
@@ -353,24 +412,63 @@ bits of the word, if there are any, are left unchanged. For RAM and EEPROM,
       <div class="method_details first">
   <h3 class="signature first" id="read_byte-instance_method">
   
-    - (<tt>Object</tt>) <strong>read_byte</strong>(address) 
+    - (<tt>Integer</tt>) <strong>read_byte</strong>(address) 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Reads the byte in memory at the specified address.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>address</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-29
-30
-31</pre>
+33
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_read_byte'>read_byte</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='rparen'>)</span>
   <span class='ivar'>@mplab_memory</span><span class='period'>.</span><span class='id identifier rubyid_read_byte'>read_byte</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='rparen'>)</span>
@@ -381,26 +479,156 @@ bits of the word, if there are any, are left unchanged. For RAM and EEPROM,
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="read_word-instance_method">
+  <h3 class="signature " id="read_bytes-instance_method">
   
-    - (<tt>Object</tt>) <strong>read_word</strong>(address) 
-  
-
+    - (<tt>Array(Integer)</tt>) <strong>read_bytes</strong>(address, size) 
   
 
   
-</h3><table class="source_code">
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Reads a series of bytes from the simulated memory using
+<code>read_byte</code> and returns them as an array.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>address</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The address of the first byte to read.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>size</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The number of bytes to read.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array(Integer)</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-37
-38
-39</pre>
+72
+73
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 72</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_read_bytes'>read_bytes</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='comma'>,</span> <span class='id identifier rubyid_size'>size</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_size'>size</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span> <span class='id identifier rubyid_read_byte'>read_byte</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span> <span class='op'>+</span> <span class='id identifier rubyid_i'>i</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="read_word-instance_method">
+  
+    - (<tt>Integer</tt>) <strong>read_word</strong>(address) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Reads the word in memory at the specified address.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>address</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+48
+49
+50</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 48</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_read_word'>read_word</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='rparen'>)</span>
   <span class='ivar'>@mplab_memory</span><span class='period'>.</span><span class='id identifier rubyid_read_word'>read_word</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='rparen'>)</span>
@@ -422,11 +650,28 @@ bits of the word, if there are any, are left unchanged. For RAM and EEPROM,
 </h3><div class="docstring">
   <div class="discussion">
     
+<p>Returns true if the specified address is valid.</p>
+
 
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
+    <li>
+      
+        <span class='name'>address</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
 <p class="tag_title">Returns:</p>
 <ul class="return">
   
@@ -436,6 +681,11 @@ bits of the word, if there are any, are left unchanged. For RAM and EEPROM,
         <span class='type'>(<tt>Boolean</tt>)</span>
       
       
+      
+        &mdash;
+        <div class='inline'>
+<p>true or false</p>
+</div>
       
     </li>
   
@@ -447,12 +697,12 @@ bits of the word, if there are any, are left unchanged. For RAM and EEPROM,
       <pre class="lines">
 
 
-45
-46
-47</pre>
+62
+63
+64</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 62</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_valid_address?'>valid_address?</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='rparen'>)</span>
   <span class='ivar'>@mplab_memory</span><span class='period'>.</span><span class='id identifier rubyid_valid_address?'>valid_address?</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='rparen'>)</span>
@@ -471,21 +721,134 @@ bits of the word, if there are any, are left unchanged. For RAM and EEPROM,
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Writes the given integer to the byte in memory at the specified address.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>address</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>value</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-33
-34
-35</pre>
+41
+42
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_write_byte'>write_byte</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
   <span class='ivar'>@mplab_memory</span><span class='period'>.</span><span class='id identifier rubyid_write_byte'>write_byte</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="write_bytes-instance_method">
+  
+    - (<tt>Object</tt>) <strong>write_bytes</strong>(address, bytes) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Writes a series of bytes to the simulated memory.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>address</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>bytes</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Array of integers or a string.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+80
+81
+82
+83
+84</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 80</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_write_bytes'>write_bytes</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='comma'>,</span> <span class='id identifier rubyid_bytes'>bytes</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_bytes'>bytes</span> <span class='op'>=</span> <span class='id identifier rubyid_bytes'>bytes</span><span class='period'>.</span><span class='id identifier rubyid_bytes'>bytes</span> <span class='kw'>if</span> <span class='id identifier rubyid_bytes'>bytes</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>String</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_bytes'>bytes</span><span class='period'>.</span><span class='id identifier rubyid_each_with_index'>each_with_index</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_b'>b</span><span class='comma'>,</span> <span class='id identifier rubyid_i'>i</span><span class='op'>|</span> <span class='id identifier rubyid_write_byte'>write_byte</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span> <span class='op'>+</span> <span class='id identifier rubyid_i'>i</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='kw'>nil</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -501,18 +864,55 @@ bits of the word, if there are any, are left unchanged. For RAM and EEPROM,
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Writes the given integer to the word in memory at the specified address.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>address</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>value</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-41
-42
-43</pre>
+55
+56
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 55</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_write_word'>write_word</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
   <span class='ivar'>@mplab_memory</span><span class='period'>.</span><span class='id identifier rubyid_write_word'>write_word</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
@@ -530,7 +930,7 @@ bits of the word, if there are any, are left unchanged. For RAM and EEPROM,
   
   <br/><br/>
 
-  Generated on Fri Jun 20 21:56:52 2014 by
+  Generated on Wed Jul 30 13:19:57 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-1.9.3).
 </div>

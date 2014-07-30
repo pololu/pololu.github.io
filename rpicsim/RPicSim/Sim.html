@@ -256,6 +256,36 @@ bytes in the simulated RAM.</p>
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#stack_memory-instance_method" title="#stack_memory (instance method)">- (Memory) <strong>stack_memory</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a <span class='object_link'><a href="Memory.html" title="RPicSim::Memory (class)">Memory</a></span> object that allows direct reading and writing of the
+bytes in the simulated hardware call stack.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#stack_pointer-instance_method" title="#stack_pointer (instance method)">- (StackPointer) <strong>stack_pointer</strong> </a>
     
 
@@ -348,7 +378,7 @@ consistently across all PIC devices.</p>
   
   
   <h3 class="inherited">Attributes included from <span class='object_link'><a href="Sim/ClassMethods.html" title="RPicSim::Sim::ClassMethods (module)">ClassMethods</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Sim/ClassMethods.html#labels-instance_method" title="RPicSim::Sim::ClassMethods#labels (method)">#labels</a></span>, <span class='object_link'><a href="Sim/ClassMethods.html#pin_aliases-instance_method" title="RPicSim::Sim::ClassMethods#pin_aliases (method)">#pin_aliases</a></span>, <span class='object_link'><a href="Sim/ClassMethods.html#variable_set-instance_method" title="RPicSim::Sim::ClassMethods#variable_set (method)">#variable_set</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Sim/ClassMethods.html#pin_aliases-instance_method" title="RPicSim::Sim::ClassMethods#pin_aliases (method)">#pin_aliases</a></span>, <span class='object_link'><a href="Sim/ClassMethods.html#variable_set-instance_method" title="RPicSim::Sim::ClassMethods#variable_set (method)">#variable_set</a></span></p>
 
 
   
@@ -572,6 +602,31 @@ defined.</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>Returns a <span class='object_link'><a href="Label.html" title="RPicSim::Label (class)">Label</a></span> object if a program label by that name is found.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#labels-instance_method" title="#labels (instance method)">- (Object) <strong>labels</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a hash that associates label names as Ruby symbols to <span class='object_link'><a href="Label.html" title="RPicSim::Label (class)">Label</a></span>
+objects.</p>
 </div></span>
   
 </li>
@@ -1029,7 +1084,7 @@ simulation.</p>
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="Sim/ClassDefinitionMethods.html" title="RPicSim::Sim::ClassDefinitionMethods (module)">ClassDefinitionMethods</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Sim/ClassDefinitionMethods.html#def_pin-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#def_pin (method)">def_pin</a></span>, <span class='object_link'><a href="Sim/ClassDefinitionMethods.html#def_var-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#def_var (method)">def_var</a></span>, <span class='object_link'><a href="Sim/ClassDefinitionMethods.html#use_device-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#use_device (method)">use_device</a></span>, <span class='object_link'><a href="Sim/ClassDefinitionMethods.html#use_file-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#use_file (method)">use_file</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Sim/ClassDefinitionMethods.html#def_pin-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#def_pin (method)">def_pin</a></span>, <span class='object_link'><a href="Sim/ClassDefinitionMethods.html#def_symbol-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#def_symbol (method)">def_symbol</a></span>, <span class='object_link'><a href="Sim/ClassDefinitionMethods.html#def_var-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#def_var (method)">def_var</a></span>, <span class='object_link'><a href="Sim/ClassDefinitionMethods.html#import_symbols-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#import_symbols (method)">import_symbols</a></span>, <span class='object_link'><a href="Sim/ClassDefinitionMethods.html#use_device-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#use_device (method)">use_device</a></span>, <span class='object_link'><a href="Sim/ClassDefinitionMethods.html#use_file-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#use_file (method)">use_file</a></span></p>
 
   
   
@@ -1066,26 +1121,26 @@ defined.</p>
       <pre class="lines">
 
 
-228
-229
-230
-231
-232
-233
-234
-235
-236
-237
-238
-239
-240
-241
-242
-243
-244</pre>
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 228</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 266</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
   <span class='ivar'>@assembly</span> <span class='op'>=</span> <span class='const'>Mplab</span><span class='op'>::</span><span class='const'>MplabAssembly</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_device'>device</span><span class='rparen'>)</span>
@@ -1156,12 +1211,12 @@ bytes in the simulated EEPROM.</p>
       <pre class="lines">
 
 
-213
-214
-215</pre>
+246
+247
+248</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 213</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 246</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_eeprom'>eeprom</span>
   <span class='ivar'>@eeprom</span>
@@ -1213,12 +1268,12 @@ current address in program space that is being executed.</p>
       <pre class="lines">
 
 
-179
-180
-181</pre>
+212
+213
+214</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 179</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 212</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pc'>pc</span>
   <span class='ivar'>@pc</span>
@@ -1271,12 +1326,12 @@ also contains the configuration words and the user IDs.</p>
       <pre class="lines">
 
 
-208
-209
-210</pre>
+241
+242
+243</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 208</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 241</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_program_memory'>program_memory</span>
   <span class='ivar'>@program_memory</span>
@@ -1328,15 +1383,72 @@ bytes in the simulated RAM.</p>
       <pre class="lines">
 
 
-201
-202
-203</pre>
+234
+235
+236</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 201</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 234</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ram'>ram</span>
   <span class='ivar'>@ram</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="stack_memory-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Memory.html" title="RPicSim::Memory (class)">Memory</a></span></tt>) <strong>stack_memory</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a <span class='object_link'><a href="Memory.html" title="RPicSim::Memory (class)">Memory</a></span> object that allows direct reading and writing of the
+bytes in the simulated hardware call stack.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Memory.html" title="RPicSim::Memory (class)">Memory</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+251
+252
+253</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 251</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_stack_memory'>stack_memory</span>
+  <span class='ivar'>@stack_memory</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1386,12 +1498,12 @@ the stack is empty and it points to the first unused space in the stack.</p>
       <pre class="lines">
 
 
-196
-197
-198</pre>
+229
+230
+231</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 196</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 229</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stack_pointer'>stack_pointer</span>
   <span class='ivar'>@stack_pointer</span>
@@ -1443,12 +1555,12 @@ You can use this to read and write the value of the stack pointer.</p>
       <pre class="lines">
 
 
-189
-190
-191</pre>
+222
+223
+224</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 189</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 222</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stkptr'>stkptr</span>
   <span class='ivar'>@stkptr</span>
@@ -1500,12 +1612,12 @@ read and write the value of the W register.</p>
       <pre class="lines">
 
 
-184
-185
-186</pre>
+217
+218
+219</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 184</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 217</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_wreg'>wreg</span>
   <span class='ivar'>@wreg</span>
@@ -1598,37 +1710,37 @@ address.</p>
       <pre class="lines">
 
 
-598
-599
-600
-601
-602
-603
-604
-605
-606
-607
-608
-609
-610
-611
-612
-613
-614
-615
-616
-617
-618
-619
-620
-621
-622
-623
-624
-625</pre>
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 598</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 641</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_convert_condition_to_proc'>convert_condition_to_proc</span><span class='lparen'>(</span><span class='id identifier rubyid_c'>c</span><span class='rparen'>)</span>
   <span class='kw'>case</span> <span class='id identifier rubyid_c'>c</span>
@@ -1702,12 +1814,12 @@ address.</p>
       <pre class="lines">
 
 
-341
-342
-343</pre>
+384
+385
+386</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 341</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 384</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cycle_count'>cycle_count</span>
   <span class='ivar'>@simulator</span><span class='period'>.</span><span class='id identifier rubyid_stopwatch_value'>stopwatch_value</span>
@@ -1756,12 +1868,12 @@ address.</p>
       <pre class="lines">
 
 
-217
-218
-219</pre>
+255
+256
+257</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 217</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 255</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_device'>device</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_device'>device</span>
@@ -1798,12 +1910,12 @@ the simulation takes a step, the provided block will be called.</p>
       <pre class="lines">
 
 
-347
-348
-349</pre>
+390
+391
+392</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 347</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 390</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_every_step'>every_step</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_proc'>proc</span><span class='rparen'>)</span>
   <span class='ivar'>@step_callbacks</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_proc'>proc</span>
@@ -1852,12 +1964,12 @@ the simulation takes a step, the provided block will be called.</p>
       <pre class="lines">
 
 
-223
-224
-225</pre>
+261
+262
+263</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 223</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 261</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_filename'>filename</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_filename'>filename</span>
@@ -1913,12 +2025,12 @@ the simulation takes a step, the provided block will be called.</p>
       <pre class="lines">
 
 
-461
-462
-463</pre>
+504
+505
+506</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 461</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 504</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_goto'>goto</span><span class='lparen'>(</span><span class='id identifier rubyid_location'>location</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_pc'>pc</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span class='id identifier rubyid_location_address'>location_address</span><span class='lparen'>(</span><span class='id identifier rubyid_location'>location</span><span class='rparen'>)</span>
@@ -1943,12 +2055,12 @@ the simulation takes a step, the provided block will be called.</p>
       <pre class="lines">
 
 
-579
-580
-581</pre>
+622
+623
+624</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 579</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 622</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inspect'>inspect</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#&lt;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='rbrace'>}</span><span class='tstring_content'>:0x%x, </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_pc_description'>pc_description</span><span class='rbrace'>}</span><span class='tstring_content'>, stack_pointer = </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_stack_pointer'>stack_pointer</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span><span class='rbrace'>}</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='id identifier rubyid_object_id'>object_id</span>
@@ -1999,15 +2111,57 @@ compiler, you will probably need to prefix the name with an underscore.</p>
       <pre class="lines">
 
 
-335
-336
-337</pre>
+373
+374
+375</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 335</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 373</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_label'>label</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_program_file'>program_file</span><span class='period'>.</span><span class='id identifier rubyid_label'>label</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="labels-instance_method">
+  
+    - (<tt>Object</tt>) <strong>labels</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a hash that associates label names as Ruby symbols to <span class='object_link'><a href="Label.html" title="RPicSim::Label (class)">Label</a></span>
+objects.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+378
+379
+380</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 378</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_labels'>labels</span>
+  <span class='id identifier rubyid_program_file'>program_file</span><span class='period'>.</span><span class='id identifier rubyid_labels'>labels</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2081,16 +2235,16 @@ helper for processing the main argument to <span class='object_link'><a href="#g
       <pre class="lines">
 
 
-451
-452
-453
-454
-455
-456
-457</pre>
+494
+495
+496
+497
+498
+499
+500</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 451</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 494</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_location_address'>location_address</span><span class='lparen'>(</span><span class='id identifier rubyid_location'>location</span><span class='rparen'>)</span>
   <span class='kw'>case</span> <span class='id identifier rubyid_location'>location</span>
@@ -2144,12 +2298,12 @@ changes to RAM.  For more information, see <a href="../file.RamWatcher.html" tit
       <pre class="lines">
 
 
-630
-631
-632</pre>
+673
+674
+675</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 630</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 673</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_new_ram_watcher'>new_ram_watcher</span>
   <span class='const'>MemoryWatcher</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='ivar'>@simulator</span><span class='period'>.</span><span class='id identifier rubyid_fr_memory'>fr_memory</span><span class='comma'>,</span> <span class='id identifier rubyid_ram_vars'>ram_vars</span> <span class='op'>+</span> <span class='id identifier rubyid_sfr_vars'>sfr_vars</span><span class='rparen'>)</span>
@@ -2186,12 +2340,12 @@ counter is currently using the symbol table.</p>
       <pre class="lines">
 
 
-518
-519
-520</pre>
+561
+562
+563</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 518</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 561</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pc_description'>pc_description</span>
   <span class='id identifier rubyid_program_file'>program_file</span><span class='period'>.</span><span class='id identifier rubyid_address_description'>address_description</span><span class='lparen'>(</span><span class='id identifier rubyid_pc'>pc</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
@@ -2262,12 +2416,12 @@ exception.</p>
       <pre class="lines">
 
 
-310
-311
-312</pre>
+348
+349
+350</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 310</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 348</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pin'>pin</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='ivar'>@pins_by_name</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span> <span class='kw'>or</span> <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Cannot find pin named '</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>'.</span><span class='tstring_end'>&quot;</span></span>
@@ -2317,12 +2471,12 @@ simulated.</p>
       <pre class="lines">
 
 
-640
-641
-642</pre>
+683
+684
+685</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 640</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 683</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_program_file'>program_file</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_program_file'>program_file</span>
@@ -2393,13 +2547,13 @@ cannot be found, this method raises an exception.</p>
       <pre class="lines">
 
 
-319
-320
-321
-322</pre>
+357
+358
+359
+360</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 319</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 357</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_reg'>reg</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
@@ -2439,19 +2593,19 @@ to skip it.</p>
       <pre class="lines">
 
 
-505
-506
-507
-508
-509
-510
-511
-512
-513
-514</pre>
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 505</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 548</span>
 
 <span class='kw'>def</span> <span class='kw'>return</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_stack_pointer'>stack_pointer</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>==</span> <span class='int'>0</span>
@@ -2511,12 +2665,12 @@ can run one cycle longer than desired.</p>
       <pre class="lines">
 
 
-490
-491
-492</pre>
+533
+534
+535</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 490</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 533</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run_cycles'>run_cycles</span><span class='lparen'>(</span><span class='id identifier rubyid_num_cycles'>num_cycles</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_run_to_cycle_count'>run_to_cycle_count</span> <span class='id identifier rubyid_cycle_count'>cycle_count</span> <span class='op'>+</span> <span class='id identifier rubyid_num_cycles'>num_cycles</span>
@@ -2585,13 +2739,13 @@ can run one cycle longer than desired.</p>
       <pre class="lines">
 
 
-362
-363
-364
-365</pre>
+405
+406
+407
+408</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 362</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 405</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run_steps'>run_steps</span><span class='lparen'>(</span><span class='id identifier rubyid_step_count'>step_count</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_step_count'>step_count</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_step'>step</span> <span class='rbrace'>}</span>
@@ -2678,14 +2832,14 @@ instructions.</p>
       <pre class="lines">
 
 
-480
-481
-482
-483
-484</pre>
+523
+524
+525
+526
+527</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 480</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 523</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run_subroutine'>run_subroutine</span><span class='lparen'>(</span><span class='id identifier rubyid_location'>location</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_stack_push'>stack_push</span> <span class='id identifier rubyid_pc'>pc</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span>
@@ -2805,56 +2959,56 @@ cannot be used at the same time as <code>cycle_limit</code>.</p>
       <pre class="lines">
 
 
-396
-397
-398
-399
-400
-401
-402
-403
-404
-405
-406
-407
-408
-409
-410
-411
-412
-413
-414
-415
-416
-417
-418
-419
-420
-421
-422
-423
-424
-425
-426
-427
-428
-429
-430
-431
-432
-433
-434
-435
-436
-437
-438
 439
 440
 441
-442</pre>
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 396</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 439</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run_to'>run_to</span><span class='lparen'>(</span><span class='id identifier rubyid_conditions'>conditions</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_conditions'>conditions</span> <span class='op'>=</span> <span class='const'>Array</span><span class='lparen'>(</span><span class='id identifier rubyid_conditions'>conditions</span><span class='rparen'>)</span>
@@ -2950,12 +3104,12 @@ the given cycle count.</p>
       <pre class="lines">
 
 
-497
-498
-499</pre>
+540
+541
+542</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 497</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 540</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run_to_cycle_count'>run_to_cycle_count</span><span class='lparen'>(</span><span class='id identifier rubyid_count'>count</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_step'>step</span> <span class='kw'>while</span> <span class='id identifier rubyid_cycle_count'>cycle_count</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_count'>count</span>
@@ -2980,12 +3134,12 @@ the given cycle count.</p>
       <pre class="lines">
 
 
-634
-635
-636</pre>
+677
+678
+679</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 634</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 677</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_shortcuts'>shortcuts</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='op'>::</span><span class='const'>Shortcuts</span>
@@ -3039,14 +3193,14 @@ the given cycle count.</p>
       <pre class="lines">
 
 
-535
-536
-537
-538
-539</pre>
+578
+579
+580
+581
+582</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 535</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 578</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stack_contents'>stack_contents</span>
   <span class='lparen'>(</span><span class='int'>0</span><span class='op'>...</span><span class='id identifier rubyid_stack_pointer'>stack_pointer</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span>
@@ -3084,18 +3238,18 @@ the given cycle count.</p>
       <pre class="lines">
 
 
-523
-524
-525
-526
-527
-528
-529
-530
-531</pre>
+566
+567
+568
+569
+570
+571
+572
+573
+574</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 523</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 566</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stack_push'>stack_push</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='op'>!</span><span class='ivar'>@stack_memory</span><span class='period'>.</span><span class='id identifier rubyid_valid_address?'>valid_address?</span><span class='lparen'>(</span><span class='id identifier rubyid_stack_pointer'>stack_pointer</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
@@ -3152,22 +3306,22 @@ your code is running and why.</p>
       <pre class="lines">
 
 
-545
-546
-547
-548
-549
-550
-551
-552
-553
-554
-555
-556
-557</pre>
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 545</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 588</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stack_trace'>stack_trace</span>
   <span class='comment'># The stack stores return addresses, not call addresses.
@@ -3231,14 +3385,14 @@ your code is running and why.</p>
       <pre class="lines">
 
 
-353
-354
-355
-356
-357</pre>
+396
+397
+398
+399
+400</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 353</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 396</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_step'>step</span>
   <span class='ivar'>@assembly</span><span class='period'>.</span><span class='id identifier rubyid_debugger_step'>debugger_step</span>
@@ -3290,12 +3444,12 @@ variable cannot be found, this method raises an exception.</p>
       <pre class="lines">
 
 
-327
-328
-329</pre>
+365
+366
+367</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 327</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 365</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_var'>var</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='ivar'>@vars</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span> <span class='kw'>or</span> <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Cannot find var named '</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>'.</span><span class='tstring_end'>&quot;</span></span>
@@ -3313,7 +3467,7 @@ variable cannot be found, this method raises an exception.</p>
   
   <br/><br/>
 
-  Generated on Fri Jun 20 21:56:51 2014 by
+  Generated on Wed Jul 30 13:19:57 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-1.9.3).
 </div>

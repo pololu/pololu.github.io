@@ -302,6 +302,18 @@ being in program memory, and you need to get their address using
 <span class='object_link'><a href="RPicSim/ProgramFile.html#symbols_in_program_memory-instance_method" title="RPicSim::ProgramFile#symbols_in_program_memory (method)">RPicSim::ProgramFile#symbols_in_program_memory</a></span>. Some variables are not be
 identified at all, and you would have to write code to get their addresses
 from the SYM file.</p>
+
+<h2 id="label-Cannot+read+the+top+byte+of+PIC18+flash+memory">Cannot read the top byte of PIC18 flash memory</h2>
+
+<p><em>Type: MPLAB X bug</em></p>
+
+<p><em>MPLAB X versions affected: all tested verions</em></p>
+
+<p>Attempting to read from the top (last) byte of program memory will cause an
+exception because the top address is not considered to be valid. For
+example, you cannot use <code>program_memory.read_byte(0x7FFF)</code> on a
+PIC18F25K50 simulation. One workaround is to use <code>read_word</code>
+instead. This seems to only affect PIC18 devices.</p>
 </div></div>
 
     <div id="footer">
@@ -310,7 +322,7 @@ from the SYM file.</p>
   
   <br/><br/>
 
-  Generated on Fri Jun 20 21:56:46 2014 by
+  Generated on Wed Jul 30 13:19:56 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-1.9.3).
 </div>

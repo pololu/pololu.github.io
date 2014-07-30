@@ -168,35 +168,6 @@ the constructor.</p>
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#labels-instance_method" title="#labels (instance method)">- (Object) <strong>labels</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-      <span class="note title readonly">readonly</span>
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>A hash that associates label names as symbols to <span class='object_link'><a href="../Label.html" title="RPicSim::Label (class)">Label</a></span> objects.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#pin_aliases-instance_method" title="#pin_aliases (instance method)">- (Object) <strong>pin_aliases</strong> </a>
     
 
@@ -288,6 +259,66 @@ defined with <span class='object_link'><a href="ClassDefinitionMethods.html#def_
 
 
 
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#label-instance_method" title="#label (instance method)">- (Label) <strong>label</strong>(name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a <span class='object_link'><a href="../Label.html" title="RPicSim::Label (class)">Label</a></span> object if a program label by that name is found.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#labels-instance_method" title="#labels (instance method)">- (Object) <strong>labels</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a hash that associates label names as Ruby symbols to <span class='object_link'><a href="../Label.html" title="RPicSim::Label (class)">Label</a></span>
+objects.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
 
   <div id="instance_attr_details" class="attr_details">
     <h2>Instance Attribute Details</h2>
@@ -320,12 +351,12 @@ defined with <span class='object_link'><a href="ClassDefinitionMethods.html#def_
       <pre class="lines">
 
 
-87
-88
-89</pre>
+109
+110
+111</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 87</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 109</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_device'>device</span>
   <span class='ivar'>@device</span>
@@ -364,58 +395,15 @@ the constructor.</p>
       <pre class="lines">
 
 
-91
-92
-93</pre>
+113
+114
+115</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 91</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 113</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_filename'>filename</span>
   <span class='ivar'>@filename</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id=""></span>
-      <div class="method_details ">
-  <h3 class="signature " id="labels-instance_method">
-  
-    - (<tt>Object</tt>) <strong>labels</strong>  <span class="extras">(readonly)</span>
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>A hash that associates label names as symbols to <span class='object_link'><a href="../Label.html" title="RPicSim::Label (class)">Label</a></span> objects.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-102
-103
-104</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 102</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_labels'>labels</span>
-  <span class='ivar'>@labels</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -452,12 +440,12 @@ datasheet pin names (like :RB3).  These aliases are defined by
       <pre class="lines">
 
 
-95
-96
-97</pre>
+117
+118
+119</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 95</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 117</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pin_aliases'>pin_aliases</span>
   <span class='ivar'>@pin_aliases</span>
@@ -495,12 +483,12 @@ datasheet pin names (like :RB3).  These aliases are defined by
       <pre class="lines">
 
 
-105
-106
-107</pre>
+124
+125
+126</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 105</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 124</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_program_file'>program_file</span>
   <span class='ivar'>@program_file</span>
@@ -539,12 +527,12 @@ defined with <span class='object_link'><a href="ClassDefinitionMethods.html#def_
       <pre class="lines">
 
 
-99
-100
-101</pre>
+121
+122
+123</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 99</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 121</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_variable_set'>variable_set</span>
   <span class='ivar'>@variable_set</span>
@@ -557,13 +545,117 @@ defined with <span class='object_link'><a href="ClassDefinitionMethods.html#def_
   </div>
 
 
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="label-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Label.html" title="RPicSim::Label (class)">Label</a></span></tt>) <strong>label</strong>(name) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a <span class='object_link'><a href="../Label.html" title="RPicSim::Label (class)">Label</a></span> object if a program label by that name is found. The name
+is specified in the code that defined the label.  If you are using a C
+compiler, you will probably need to prefix the name with an underscore.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Label.html" title="RPicSim::Label (class)">Label</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+135
+136
+137</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 135</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_label'>label</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_program_file'>program_file</span><span class='period'>.</span><span class='id identifier rubyid_label'>label</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="labels-instance_method">
+  
+    - (<tt>Object</tt>) <strong>labels</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a hash that associates label names as Ruby symbols to <span class='object_link'><a href="../Label.html" title="RPicSim::Label (class)">Label</a></span>
+objects.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+127
+128
+129</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 127</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_labels'>labels</span>
+  <span class='id identifier rubyid_program_file'>program_file</span><span class='period'>.</span><span class='id identifier rubyid_labels'>labels</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
 </div>
 
     <div id="footer">
   
   <br/><br/>
 
-  Generated on Fri Jun 20 21:56:48 2014 by
+  Generated on Wed Jul 30 13:19:56 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-1.9.3).
 </div>
