@@ -195,14 +195,15 @@ return true even if the pin is actually driving high.</p>
 
 <p><em>Type: MPLAB X bug</em></p>
 
-<p><em>MPLAB X versions affected: all tested versions</em></p>
+<p><em>MPLAB X versions affected: 1.85 through 2.10</em></p>
 
 <p>Even if you set up the pin properly (working around all the issues above)
 and get <span class='object_link'><a href="RPicSim/Pin.html#driving_high%3F-instance_method" title="RPicSim::Pin#driving_high? (method)">RPicSim::Pin#driving_high?</a></span> to return true, a <code>bcf</code>
 instruction on the pin's TRISx bit (or probably any write to the TRISx
 register) will cause the pin to start reporting the wrong output state.</p>
 
-<p>This issue is tested in <code>spec/integration/pin_spec.rb</code>.</p>
+<p>This issue is tested in <code>spec/integration/pin_spec.rb</code>, and was
+fixed in MPLAB X v2.15.</p>
 
 <h2 id="label-RAM+watcher+is+useless+because+all+of+RAM+seems+to+change+on+every+step">RAM watcher is useless because all of RAM seems to change on every step</h2>
 
@@ -322,7 +323,7 @@ instead. This seems to only affect PIC18 devices.</p>
   
   <br/><br/>
 
-  Generated on Wed Jul 30 13:19:56 2014 by
+  Generated on Sun Sep 14 11:33:21 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-1.9.3).
 </div>

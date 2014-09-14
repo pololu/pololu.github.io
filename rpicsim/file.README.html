@@ -4,9 +4,9 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>
-  File: Introduction
+  File: README
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!file.Introduction.html";
+  framesUrl = "frames.html#!top-level-namespace.html";
 </script>
 
 
@@ -36,7 +36,7 @@
         
         <a href="file.Manual.html">RPicSim manual</a> &raquo;
     
-    <span class="title">File: Introduction</span>
+    <span class="title">File: README</span>
   
 
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
@@ -66,10 +66,11 @@
     <iframe id="search_frame"></iframe>
 
     <div id="content"><div id='filecontents'>
-<h1 id="label-RPicSim%3A+Ruby+PIC%C2%AE+simulator+interface">RPicSim: Ruby PIC® simulator interface</h1>
+<h1 id="label-RPicSim%3A+Ruby+PIC%3Csup%3E%C2%AE%3C%2Fsup%3E+simulator+interface">RPicSim: Ruby PIC&lt;sup&gt;®&lt;/sup&gt; simulator interface</h1>
 
-<p>The RPicSim library provides an interface to the MPLAB® X PIC® simulator
-that allows you to write simulator-based automated tests of PIC firmware.
+<p>The RPicSim library provides an interface to the
+MPLAB&lt;sup&gt;®&lt;/sup&gt; X PIC&lt;sup&gt;®&lt;/sup&gt; simulator that
+allows you to write simulator-based automated tests of PIC firmware.
 RPicSim is written in the <a href="http://ruby-lang.org">Ruby language</a>
 and runs on <a href="http://jruby.org">JRuby</a>. It can be used in any
 type of JRuby application, and it has bindings that make it especially
@@ -89,7 +90,8 @@ output on the device’s pins:</p>
   <span class='id identifier rubyid_main_input'>main_input</span><span class='period'>.</span><span class='id identifier rubyid_set'>set</span> <span class='kw'>true</span>
   <span class='id identifier rubyid_run_cycles'>run_cycles</span> <span class='int'>10</span>
   <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_main_output'>main_output</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_driving_high'>be_driving_high</span>
-<span class='kw'>end</span></code></pre>
+<span class='kw'>end</span>
+</code></pre>
 
 <p>Here is an example unit test written with RPicSim that tests a single
 subroutine in the firmware:</p>
@@ -99,7 +101,8 @@ subroutine in the firmware:</p>
   <span class='id identifier rubyid_addend2'>addend2</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span class='int'>22</span>
   <span class='id identifier rubyid_run_subroutine'>run_subroutine</span> <span class='symbol'>:addition</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>100</span>
   <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_sum'>sum</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span> <span class='int'>92</span>
-<span class='kw'>end</span></code></pre>
+<span class='kw'>end</span>
+</code></pre>
 
 <p>Simulator-based testing has many advantages over testing in hardware:</p>
 <ul><li>
@@ -136,10 +139,10 @@ RPicSim, run:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_jgem'>jgem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_rpicsim'>rpicsim</span></code></pre>
 
-<p>RPicSim has been tested with MPLAB X v1.85, v1.90, v1.95, v2.00, v2.05,
-v2.10, v2.15, and v2.20. However, it uses a lot of undocumented and
-internal features of the Microchip Java libraries, so it will probably need
-to be updated as new versions of MPLAB X are released.</p>
+<p>RPicSim has been tested with MPLAB X v1.85, v1.90, v1.95, v2.00, and v2.05.
+However, it uses a lot of undocumented and internal features of the
+Microchip Java libraries, so it will probably need to be updated as new
+versions of MPLAB X are released.</p>
 
 <p>RPicSim is not intended to replace formal specifications, code reviews, and
 rigorous testing of your firmware on actual hardware. RPicSim is just
@@ -149,8 +152,11 @@ another tool that can make it easier to write and test the firmware.</p>
 Technology Incorporated. RPicSim is not written, supported, or endorsed by
 Microchip.</p>
 
-<p>This page is part of <a href="file.Manual.html" title="the RPicSim manual">the RPicSim manual</a>. For API
-documentation, click the “Index” link at the top of this page.</p>
+<p>&lt;github&gt;For complete documentation, see the <a
+href="http://pololu.github.io/rpicsim/_index.html">RPicSim API
+documentation</a> and the <a
+href="http://pololu.github.io/rpicsim/file.Manual.html">RPicSim
+manual</a>&gt;</p>
 </div></div>
 
     <div id="footer">
@@ -159,9 +165,9 @@ documentation, click the “Index” link at the top of this page.</p>
   
   <br/><br/>
 
-  Generated on Sun Sep 14 11:33:17 2014 by
+  Generated on Sun Mar  2 10:56:55 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-1.9.3).
+  0.8.7.3 (ruby-1.9.3).
 </div>
 
   </body>
