@@ -122,7 +122,7 @@ ways.</p>
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#address_increment-instance_method" title="#address_increment (instance method)">- (Object) <strong>address_increment</strong> </a>
+      <a href="#device-instance_method" title="#device (instance method)">- (String) <strong>device</strong> </a>
     
 
     
@@ -142,7 +142,7 @@ ways.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute address_increment.</p>
+<p>The name of the device the file is for (e.g. "PIC10F322").</p>
 </div></span>
   
 </li>
@@ -151,7 +151,7 @@ ways.</p>
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#device-instance_method" title="#device (instance method)">- (Object) <strong>device</strong> </a>
+      <a href="#filename-instance_method" title="#filename (instance method)">- (String) <strong>filename</strong> </a>
     
 
     
@@ -170,38 +170,7 @@ ways.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute device.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#filename-instance_method" title="#filename (instance method)">- (Object) <strong>filename</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-      <span class="note title readonly">readonly</span>
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute filename.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -351,31 +320,6 @@ in program memory.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#instruction-instance_method" title="#instruction (instance method)">- (Instruction) <strong>instruction</strong>(address) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Gets an <span class='object_link'><a href="Instruction.html" title="RPicSim::Instruction (class)">Instruction</a></span> object representing the PIC instruction at the given
-address in program memory.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#label-instance_method" title="#label (instance method)">- (Label) <strong>label</strong>(name) </a>
     
 
@@ -400,7 +344,7 @@ address in program memory.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#symbols-instance_method" title="#symbols (instance method)">- (Object) <strong>symbols</strong> </a>
+      <a href="#symbols-instance_method" title="#symbols (instance method)">- (Hash) <strong>symbols</strong> </a>
     
 
     
@@ -424,7 +368,7 @@ address in program memory.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#symbols_in_eeprom-instance_method" title="#symbols_in_eeprom (instance method)">- (Object) <strong>symbols_in_eeprom</strong> </a>
+      <a href="#symbols_in_eeprom-instance_method" title="#symbols_in_eeprom (instance method)">- (Hash) <strong>symbols_in_eeprom</strong> </a>
     
 
     
@@ -448,7 +392,7 @@ address in program memory.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#symbols_in_program_memory-instance_method" title="#symbols_in_program_memory (instance method)">- (Object) <strong>symbols_in_program_memory</strong> </a>
+      <a href="#symbols_in_program_memory-instance_method" title="#symbols_in_program_memory (instance method)">- (Hash) <strong>symbols_in_program_memory</strong> </a>
     
 
     
@@ -472,7 +416,7 @@ address in program memory.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#symbols_in_ram-instance_method" title="#symbols_in_ram (instance method)">- (Object) <strong>symbols_in_ram</strong> </a>
+      <a href="#symbols_in_ram-instance_method" title="#symbols_in_ram (instance method)">- (Hash) <strong>symbols_in_ram</strong> </a>
     
 
     
@@ -561,14 +505,6 @@ address in program memory.</p>
       <pre class="lines">
 
 
-21
-22
-23
-24
-25
-26
-27
-28
 29
 30
 31
@@ -587,10 +523,16 @@ address in program memory.</p>
 44
 45
 46
-47</pre>
+47
+48
+49
+50
+51
+52
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/program_file.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/program_file.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='comma'>,</span> <span class='id identifier rubyid_device'>device</span><span class='rparen'>)</span>
   <span class='ivar'>@filename</span> <span class='op'>=</span> <span class='id identifier rubyid_filename'>filename</span>
@@ -601,8 +543,6 @@ address in program memory.</p>
   <span class='ivar'>@assembly</span> <span class='op'>=</span> <span class='const'>Mplab</span><span class='op'>::</span><span class='const'>MplabAssembly</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_device'>device</span><span class='rparen'>)</span>
   <span class='ivar'>@assembly</span><span class='period'>.</span><span class='id identifier rubyid_load_file'>load_file</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
   <span class='ivar'>@address_increment</span> <span class='op'>=</span> <span class='ivar'>@assembly</span><span class='period'>.</span><span class='id identifier rubyid_device_info'>device_info</span><span class='period'>.</span><span class='id identifier rubyid_code_address_increment'>code_address_increment</span>
-
-  <span class='ivar'>@instructions</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
 
   <span class='ivar'>@labels</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
 
@@ -632,9 +572,9 @@ address in program memory.</p>
       
       <span id=""></span>
       <div class="method_details first">
-  <h3 class="signature first" id="address_increment-instance_method">
+  <h3 class="signature first" id="device-instance_method">
   
-    - (<tt>Object</tt>) <strong>address_increment</strong>  <span class="extras">(readonly)</span>
+    - (<tt>String</tt>) <strong>device</strong>  <span class="extras">(readonly)</span>
   
 
   
@@ -643,56 +583,26 @@ address in program memory.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute address_increment</p>
+<p>The name of the device the file is for (e.g. "PIC10F322").</p>
 
 
   </div>
 </div>
 <div class="tags">
   
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-17
-18
-19</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/program_file.rb', line 17</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_address_increment'>address_increment</span>
-  <span class='ivar'>@address_increment</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
       
-      <span id=""></span>
-      <div class="method_details ">
-  <h3 class="signature " id="device-instance_method">
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
   
-    - (<tt>Object</tt>) <strong>device</strong>  <span class="extras">(readonly)</span>
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Returns the value of attribute device</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -700,12 +610,12 @@ address in program memory.</p>
       <pre class="lines">
 
 
-15
-16
-17</pre>
+22
+23
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/program_file.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/program_file.rb', line 22</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_device'>device</span>
   <span class='ivar'>@device</span>
@@ -720,7 +630,7 @@ address in program memory.</p>
       <div class="method_details ">
   <h3 class="signature " id="filename-instance_method">
   
-    - (<tt>Object</tt>) <strong>filename</strong>  <span class="extras">(readonly)</span>
+    - (<tt>String</tt>) <strong>filename</strong>  <span class="extras">(readonly)</span>
   
 
   
@@ -729,13 +639,24 @@ address in program memory.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute filename</p>
-
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -743,12 +664,12 @@ address in program memory.</p>
       <pre class="lines">
 
 
-14
-15
-16</pre>
+17
+18
+19</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/program_file.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/program_file.rb', line 17</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_filename'>filename</span>
   <span class='ivar'>@filename</span>
@@ -800,12 +721,12 @@ addresses.</p>
       <pre class="lines">
 
 
-129
-130
-131</pre>
+144
+145
+146</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/program_file.rb', line 129</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/program_file.rb', line 144</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_labels'>labels</span>
   <span class='ivar'>@labels</span>
@@ -882,22 +803,22 @@ in program memory.</p>
       <pre class="lines">
 
 
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160</pre>
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/program_file.rb', line 148</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/program_file.rb', line 164</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_address_description'>address_description</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_desc'>desc</span> <span class='op'>=</span> <span class='id identifier rubyid_address'>address</span> <span class='op'>&lt;</span> <span class='int'>0</span> <span class='op'>?</span> <span class='id identifier rubyid_address'>address</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>:</span> <span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>0x%04x</span><span class='tstring_end'>'</span></span> <span class='op'>%</span> <span class='lbracket'>[</span><span class='id identifier rubyid_address'>address</span><span class='rbracket'>]</span><span class='rparen'>)</span>
@@ -998,12 +919,12 @@ in program memory.</p>
       <pre class="lines">
 
 
-82
-83
-84</pre>
+88
+89
+90</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/program_file.rb', line 82</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/program_file.rb', line 88</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_def_symbol'>def_symbol</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_address'>address</span><span class='comma'>,</span> <span class='id identifier rubyid_memory_type'>memory_type</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='ivar'>@symbol_set</span><span class='period'>.</span><span class='id identifier rubyid_def_symbol'>def_symbol</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_address'>address</span><span class='comma'>,</span> <span class='id identifier rubyid_memory_type'>memory_type</span>
@@ -1046,12 +967,6 @@ and the values are addresses (as integers).</p>
       <pre class="lines">
 
 
-57
-58
-59
-60
-61
-62
 63
 64
 65
@@ -1062,10 +977,16 @@ and the values are addresses (as integers).</p>
 70
 71
 72
-73</pre>
+73
+74
+75
+76
+77
+78
+79</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/program_file.rb', line 57</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/program_file.rb', line 63</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_import_symbols'>import_symbols</span><span class='lparen'>(</span><span class='id identifier rubyid_symbol_source'>symbol_source</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_symbol_source'>symbol_source</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:symbols</span><span class='rparen'>)</span>
@@ -1083,76 +1004,6 @@ and the values are addresses (as integers).</p>
   <span class='kw'>if</span> <span class='id identifier rubyid_symbol_source'>symbol_source</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:symbols_in_eeprom</span><span class='rparen'>)</span>
     <span class='ivar'>@symbol_set</span><span class='period'>.</span><span class='id identifier rubyid_def_symbols'>def_symbols</span> <span class='id identifier rubyid_symbol_source'>symbol_source</span><span class='period'>.</span><span class='id identifier rubyid_symbols_in_eeprom'>symbols_in_eeprom</span><span class='comma'>,</span> <span class='symbol'>:eeprom</span>
   <span class='kw'>end</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="instruction-instance_method">
-  
-    - (<tt><span class='object_link'><a href="Instruction.html" title="RPicSim::Instruction (class)">Instruction</a></span></tt>) <strong>instruction</strong>(address) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Gets an <span class='object_link'><a href="Instruction.html" title="RPicSim::Instruction (class)">Instruction</a></span> object representing the PIC instruction at the given
-address in program memory.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>address</span>
-      
-      
-        <span class='type'>(<tt>Integer</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt><span class='object_link'><a href="Instruction.html" title="RPicSim::Instruction (class)">Instruction</a></span></tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-166
-167
-168</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/program_file.rb', line 166</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_instruction'>instruction</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='rparen'>)</span>
-  <span class='ivar'>@instructions</span><span class='lbracket'>[</span><span class='id identifier rubyid_address'>address</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='id identifier rubyid_make_instruction'>make_instruction</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1200,17 +1051,17 @@ compiler, you will probably need to prefix the name with an underscore.</p>
       <pre class="lines">
 
 
-135
-136
-137
-138
-139
-140
-141
-142</pre>
+151
+152
+153
+154
+155
+156
+157
+158</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/program_file.rb', line 135</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/program_file.rb', line 151</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_label'>label</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
@@ -1228,7 +1079,7 @@ compiler, you will probably need to prefix the name with an underscore.</p>
       <div class="method_details ">
   <h3 class="signature " id="symbols-instance_method">
   
-    - (<tt>Object</tt>) <strong>symbols</strong> 
+    - (<tt>Hash</tt>) <strong>symbols</strong> 
   
 
   
@@ -1251,6 +1102,19 @@ new symbols are defined.</p>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -1258,12 +1122,12 @@ new symbols are defined.</p>
       <pre class="lines">
 
 
-93
-94
-95</pre>
+101
+102
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/program_file.rb', line 93</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/program_file.rb', line 101</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_symbols'>symbols</span>
   <span class='ivar'>@symbol_set</span><span class='period'>.</span><span class='id identifier rubyid_symbols'>symbols</span>
@@ -1276,7 +1140,7 @@ new symbols are defined.</p>
       <div class="method_details ">
   <h3 class="signature " id="symbols_in_eeprom-instance_method">
   
-    - (<tt>Object</tt>) <strong>symbols_in_eeprom</strong> 
+    - (<tt>Hash</tt>) <strong>symbols_in_eeprom</strong> 
   
 
   
@@ -1297,6 +1161,19 @@ new symbols are defined.</p>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -1304,12 +1181,12 @@ new symbols are defined.</p>
       <pre class="lines">
 
 
-123
-124
-125</pre>
+137
+138
+139</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/program_file.rb', line 123</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/program_file.rb', line 137</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_symbols_in_eeprom'>symbols_in_eeprom</span>
   <span class='ivar'>@symbol_set</span><span class='period'>.</span><span class='id identifier rubyid_symbols_in_memory'>symbols_in_memory</span><span class='lparen'>(</span><span class='symbol'>:eeprom</span><span class='rparen'>)</span>
@@ -1322,7 +1199,7 @@ new symbols are defined.</p>
       <div class="method_details ">
   <h3 class="signature " id="symbols_in_program_memory-instance_method">
   
-    - (<tt>Object</tt>) <strong>symbols_in_program_memory</strong> 
+    - (<tt>Hash</tt>) <strong>symbols_in_program_memory</strong> 
   
 
   
@@ -1343,6 +1220,19 @@ new symbols are defined.</p>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -1350,12 +1240,12 @@ new symbols are defined.</p>
       <pre class="lines">
 
 
-113
-114
-115</pre>
+125
+126
+127</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/program_file.rb', line 113</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/program_file.rb', line 125</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_symbols_in_program_memory'>symbols_in_program_memory</span>
   <span class='ivar'>@symbol_set</span><span class='period'>.</span><span class='id identifier rubyid_symbols_in_memory'>symbols_in_memory</span><span class='lparen'>(</span><span class='symbol'>:program_memory</span><span class='rparen'>)</span>
@@ -1368,7 +1258,7 @@ new symbols are defined.</p>
       <div class="method_details ">
   <h3 class="signature " id="symbols_in_ram-instance_method">
   
-    - (<tt>Object</tt>) <strong>symbols_in_ram</strong> 
+    - (<tt>Hash</tt>) <strong>symbols_in_ram</strong> 
   
 
   
@@ -1389,6 +1279,19 @@ new symbols are defined.</p>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -1396,12 +1299,12 @@ new symbols are defined.</p>
       <pre class="lines">
 
 
-103
-104
-105</pre>
+113
+114
+115</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/program_file.rb', line 103</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/program_file.rb', line 113</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_symbols_in_ram'>symbols_in_ram</span>
   <span class='ivar'>@symbol_set</span><span class='period'>.</span><span class='id identifier rubyid_symbols_in_memory'>symbols_in_memory</span><span class='lparen'>(</span><span class='symbol'>:ram</span><span class='rparen'>)</span>
@@ -1419,7 +1322,7 @@ new symbols are defined.</p>
   
   <br/><br/>
 
-  Generated on Sun Sep 14 11:33:24 2014 by
+  Generated on Wed Sep 17 12:55:49 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-1.9.3).
 </div>

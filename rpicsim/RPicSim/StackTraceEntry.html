@@ -99,7 +99,18 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Represents an entry in a <span class='object_link'><a href="StackTrace.html" title="RPicSim::StackTrace (class)">StackTrace</a></span>.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
 
 
@@ -109,7 +120,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#address-instance_method" title="#address (instance method)">- (Object) <strong>address</strong> </a>
+      <a href="#address-instance_method" title="#address (instance method)">- (Integer) <strong>address</strong> </a>
     
 
     
@@ -128,9 +139,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute address.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -138,7 +147,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#description-instance_method" title="#description (instance method)">- (Object) <strong>description</strong> </a>
+      <a href="#description-instance_method" title="#description (instance method)">- (String) <strong>description</strong> </a>
     
 
     
@@ -157,9 +166,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute description.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -180,33 +187,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (StackTraceEntry) <strong>initialize</strong>(address, description) </a>
-    
-
-    
-  </span>
-  
-  
-    <span class="note title constructor">constructor</span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of StackTraceEntry.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#to_s-instance_method" title="#to_s (instance method)">- (Object) <strong>to_s</strong> </a>
+      <a href="#to_s-instance_method" title="#to_s (instance method)">- (String) <strong>to_s</strong> </a>
     
 
     
@@ -228,53 +209,6 @@
     </ul>
   
 
-<div id="constructor_details" class="method_details_list">
-  <h2>Constructor Details</h2>
-  
-    <div class="method_details first">
-  <h3 class="signature first" id="initialize-instance_method">
-  
-    - (<tt><span class='object_link'><a href="" title="RPicSim::StackTraceEntry (class)">StackTraceEntry</a></span></tt>) <strong>initialize</strong>(address, description) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Returns a new instance of StackTraceEntry</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-23
-24
-25
-26</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/stack_trace.rb', line 23</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='comma'>,</span> <span class='id identifier rubyid_description'>description</span><span class='rparen'>)</span>
-  <span class='ivar'>@address</span> <span class='op'>=</span> <span class='id identifier rubyid_address'>address</span>
-  <span class='ivar'>@description</span> <span class='op'>=</span> <span class='id identifier rubyid_description'>description</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-  
-</div>
 
   <div id="instance_attr_details" class="attr_details">
     <h2>Instance Attribute Details</h2>
@@ -284,7 +218,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="address-instance_method">
   
-    - (<tt>Object</tt>) <strong>address</strong>  <span class="extras">(readonly)</span>
+    - (<tt>Integer</tt>) <strong>address</strong>  <span class="extras">(readonly)</span>
   
 
   
@@ -293,13 +227,24 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute address</p>
-
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -307,12 +252,12 @@
       <pre class="lines">
 
 
-21
-22
-23</pre>
+47
+48
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/stack_trace.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/stack_trace.rb', line 47</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_address'>address</span>
   <span class='ivar'>@address</span>
@@ -327,7 +272,7 @@
       <div class="method_details ">
   <h3 class="signature " id="description-instance_method">
   
-    - (<tt>Object</tt>) <strong>description</strong>  <span class="extras">(readonly)</span>
+    - (<tt>String</tt>) <strong>description</strong>  <span class="extras">(readonly)</span>
   
 
   
@@ -336,13 +281,24 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute description</p>
-
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -350,12 +306,12 @@
       <pre class="lines">
 
 
-21
-22
-23</pre>
+50
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/stack_trace.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/stack_trace.rb', line 50</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_description'>description</span>
   <span class='ivar'>@description</span>
@@ -375,24 +331,46 @@
       <div class="method_details first">
   <h3 class="signature first" id="to_s-instance_method">
   
-    - (<tt>Object</tt>) <strong>to_s</strong> 
+    - (<tt>String</tt>) <strong>to_s</strong> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-28
-29
-30</pre>
+59
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/stack_trace.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/stack_trace.rb', line 59</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
   <span class='id identifier rubyid_description'>description</span>
@@ -410,7 +388,7 @@
   
   <br/><br/>
 
-  Generated on Sun Sep 14 11:33:24 2014 by
+  Generated on Wed Sep 17 12:55:48 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-1.9.3).
 </div>

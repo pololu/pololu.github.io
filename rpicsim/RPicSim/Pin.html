@@ -179,32 +179,6 @@ driving low.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Pin) <strong>initialize</strong>(mplab_pin) </a>
-    
-
-    
-  </span>
-  
-  
-    <span class="note title constructor">constructor</span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Initializes a new Pin object to wrap the given MplabPin.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#input%3F-instance_method" title="#input? (instance method)">- (Boolean) <strong>input?</strong> </a>
     
 
@@ -229,7 +203,7 @@ driving low.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#inspect-instance_method" title="#inspect (instance method)">- (Object) <strong>inspect</strong> </a>
+      <a href="#inspect-instance_method" title="#inspect (instance method)">- (String) <strong>inspect</strong> </a>
     
 
     
@@ -251,7 +225,7 @@ driving low.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#names-instance_method" title="#names (instance method)">- (Object) <strong>names</strong> </a>
+      <a href="#names-instance_method" title="#names (instance method)">- (String) <strong>names</strong> </a>
     
 
     
@@ -324,7 +298,7 @@ driving low.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#to_s-instance_method" title="#to_s (instance method)">- (Object) <strong>to_s</strong> </a>
+      <a href="#to_s-instance_method" title="#to_s (instance method)">- (String) <strong>to_s</strong> </a>
     
 
     
@@ -346,81 +320,6 @@ driving low.</p>
     </ul>
   
 
-<div id="constructor_details" class="method_details_list">
-  <h2>Constructor Details</h2>
-  
-    <div class="method_details first">
-  <h3 class="signature first" id="initialize-instance_method">
-  
-    - (<tt><span class='object_link'><a href="" title="RPicSim::Pin (class)">Pin</a></span></tt>) <strong>initialize</strong>(mplab_pin) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Initializes a new Pin object to wrap the given MplabPin.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>mplab_pin</span>
-      
-      
-        <span class='type'>(<tt><span class='object_link'><a href="Mplab/MplabPin.html" title="RPicSim::Mplab::MplabPin (class)">Mplab::MplabPin</a></span></tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Raises:</p>
-<ul class="raise">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>ArgumentError</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-8
-9
-10
-11</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/pin.rb', line 8</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_mplab_pin'>mplab_pin</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>mplab_pin is nil</span><span class='tstring_end'>'</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_mplab_pin'>mplab_pin</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-  <span class='ivar'>@mplab_pin</span> <span class='op'>=</span> <span class='id identifier rubyid_mplab_pin'>mplab_pin</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-  
-</div>
 
 
   <div id="instance_method_details" class="method_details_list">
@@ -467,12 +366,12 @@ driving high.</p>
       <pre class="lines">
 
 
-37
-38
-39</pre>
+41
+42
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/pin.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/pin.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_driving_high?'>driving_high?</span>
   <span class='id identifier rubyid_output?'>output?</span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@mplab_pin</span><span class='period'>.</span><span class='id identifier rubyid_high?'>high?</span>
@@ -522,12 +421,12 @@ driving low.</p>
       <pre class="lines">
 
 
-43
-44
-45</pre>
+47
+48
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/pin.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/pin.rb', line 47</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_driving_low?'>driving_low?</span>
   <span class='id identifier rubyid_output?'>output?</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='ivar'>@mplab_pin</span><span class='period'>.</span><span class='id identifier rubyid_high?'>high?</span>
@@ -576,12 +475,12 @@ driving low.</p>
       <pre class="lines">
 
 
-31
-32
-33</pre>
+35
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/pin.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/pin.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_input?'>input?</span>
   <span class='op'>!</span><span class='ivar'>@mplab_pin</span><span class='period'>.</span><span class='id identifier rubyid_output?'>output?</span>
@@ -594,24 +493,46 @@ driving low.</p>
       <div class="method_details ">
   <h3 class="signature " id="inspect-instance_method">
   
-    - (<tt>Object</tt>) <strong>inspect</strong> 
+    - (<tt>String</tt>) <strong>inspect</strong> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-57
-58
-59</pre>
+64
+65
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/pin.rb', line 57</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/pin.rb', line 64</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inspect'>inspect</span>
   <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>#&lt;%s %s&gt;</span><span class='tstring_end'>'</span></span> <span class='op'>%</span> <span class='lbracket'>[</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='comma'>,</span> <span class='id identifier rubyid_to_s'>to_s</span><span class='rbracket'>]</span>
@@ -624,7 +545,7 @@ driving low.</p>
       <div class="method_details ">
   <h3 class="signature " id="names-instance_method">
   
-    - (<tt>Object</tt>) <strong>names</strong> 
+    - (<tt>String</tt>) <strong>names</strong> 
   
 
   
@@ -641,6 +562,19 @@ driving low.</p>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -648,12 +582,12 @@ driving low.</p>
       <pre class="lines">
 
 
-49
-50
-51</pre>
+54
+55
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/pin.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/pin.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_names'>names</span>
   <span class='ivar'>@mplab_pin</span><span class='period'>.</span><span class='id identifier rubyid_names'>names</span>
@@ -702,12 +636,12 @@ driving low.</p>
       <pre class="lines">
 
 
-26
-27
-28</pre>
+30
+31
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/pin.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/pin.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_output?'>output?</span>
   <span class='ivar'>@mplab_pin</span><span class='period'>.</span><span class='id identifier rubyid_output?'>output?</span>
@@ -745,17 +679,17 @@ values (e.g. Float or Integer) correspond to analog voltages.</p>
       <pre class="lines">
 
 
-16
-17
-18
-19
 20
 21
 22
-23</pre>
+23
+24
+25
+26
+27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/pin.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/pin.rb', line 20</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_set'>set</span><span class='lparen'>(</span><span class='id identifier rubyid_state'>state</span><span class='rparen'>)</span>
   <span class='kw'>case</span> <span class='id identifier rubyid_state'>state</span>
@@ -773,24 +707,46 @@ values (e.g. Float or Integer) correspond to analog voltages.</p>
       <div class="method_details ">
   <h3 class="signature " id="to_s-instance_method">
   
-    - (<tt>Object</tt>) <strong>to_s</strong> 
+    - (<tt>String</tt>) <strong>to_s</strong> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-53
-54
-55</pre>
+59
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/pin.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/pin.rb', line 59</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
   <span class='ivar'>@mplab_pin</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span>
@@ -808,7 +764,7 @@ values (e.g. Float or Integer) correspond to analog voltages.</p>
   
   <br/><br/>
 
-  Generated on Sun Sep 14 11:33:22 2014 by
+  Generated on Wed Sep 17 12:55:46 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-1.9.3).
 </div>

@@ -331,15 +331,15 @@ as a method on instances of your class and also in your RSpec tests.</p>
       <pre class="lines">
 
 
-69
-70
-71
 72
 73
-74</pre>
+74
+75
+76
+77</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 69</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 72</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_def_pin'>def_pin</span><span class='lparen'>(</span><span class='id identifier rubyid_our_name'>our_name</span><span class='comma'>,</span> <span class='id identifier rubyid_datasheet_name'>datasheet_name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_our_name'>our_name</span> <span class='op'>=</span> <span class='id identifier rubyid_our_name'>our_name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
@@ -365,8 +365,8 @@ as a method on instances of your class and also in your RSpec tests.</p>
   <div class="discussion">
     
 <p>Define a symbol. Normally symbols are loaded by <span class='object_link'><a href="#use_file-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#use_file (method)">#use_file</a></span> or
-<span class='object_link'><a href="#import_symbols-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#import_symbols (method)">#import_symbols</a></span>, but you can this method allows for adding additional
-symbols one at a time.</p>
+<span class='object_link'><a href="#import_symbols-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#import_symbols (method)">#import_symbols</a></span>, but this method allows for adding additional symbols one
+at a time.</p>
 
 <p>See <span class='object_link'><a href="../ProgramFile.html#def_symbol-instance_method" title="RPicSim::ProgramFile#def_symbol (method)">ProgramFile#def_symbol</a></span> for details about the parameters this
 method takes.</p>
@@ -383,12 +383,12 @@ method takes.</p>
       <pre class="lines">
 
 
-58
-59
-60</pre>
+61
+62
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 58</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 61</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_def_symbol'>def_symbol</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_address'>address</span><span class='comma'>,</span> <span class='id identifier rubyid_memory_type'>memory_type</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_program_file'>program_file</span><span class='period'>.</span><span class='id identifier rubyid_def_symbol'>def_symbol</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_address'>address</span><span class='comma'>,</span> <span class='id identifier rubyid_memory_type'>memory_type</span>
@@ -501,18 +501,18 @@ thing in your tests. This option is ignored if +:address is specified.</p>
       <pre class="lines">
 
 
-95
-96
-97
 98
 99
 100
 101
 102
-103</pre>
+103
+104
+105
+106</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 95</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 98</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_def_var'>def_var</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='ivar'>@variable_set</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -560,12 +560,12 @@ should be.</p>
       <pre class="lines">
 
 
-48
-49
-50</pre>
+51
+52
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 51</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_import_symbols'>import_symbols</span><span class='lparen'>(</span><span class='id identifier rubyid_symbol_source'>symbol_source</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_program_file'>program_file</span><span class='period'>.</span><span class='id identifier rubyid_import_symbols'>import_symbols</span><span class='lparen'>(</span><span class='id identifier rubyid_symbol_source'>symbol_source</span><span class='rparen'>)</span>
@@ -621,13 +621,13 @@ should be.</p>
       <pre class="lines">
 
 
-26
-27
-28
-29</pre>
+29
+30
+31
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_use_device'>use_device</span><span class='lparen'>(</span><span class='id identifier rubyid_device'>device</span><span class='rparen'>)</span>
   <span class='ivar'>@device</span> <span class='op'>=</span> <span class='id identifier rubyid_device'>device</span>
@@ -667,14 +667,14 @@ this.</p>
       <pre class="lines">
 
 
-35
-36
-37
 38
-39</pre>
+39
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_use_file'>use_file</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The device needs to be specified before filename (e.g. 'use_device \&quot;PIC10F322\&quot;')</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='ivar'>@device</span>
@@ -694,7 +694,7 @@ this.</p>
   
   <br/><br/>
 
-  Generated on Sun Sep 14 11:33:21 2014 by
+  Generated on Wed Sep 17 12:55:45 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-1.9.3).
 </div>

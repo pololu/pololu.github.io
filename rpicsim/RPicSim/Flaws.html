@@ -84,7 +84,20 @@
 </dl>
 <div class="clear"></div>
 
-<h2>Defined Under Namespace</h2>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>This module stores knowledge about flaw in RPicSim, usually due to bugs or
+limitation of the MPLAB X classes we are using.  See <a href="../file.KnownIssues.html" title="KnownIssues">KnownIssues</a>
+for more details.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><h2>Defined Under Namespace</h2>
 <p class="children">
   
     
@@ -112,7 +125,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#%5B%5D-class_method" title="[] (class method)">+ (Object) <strong>[]</strong>(name) </a>
+      <a href="#%5B%5D-class_method" title="[] (class method)">+ (Flaw) <strong>[]</strong>(name) </a>
     
 
     
@@ -126,29 +139,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#add-class_method" title="add (class method)">+ (Object) <strong>add</strong>(name) {|flaw| ... }</a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the <span class='object_link'><a href="Flaws/Flaw.html" title="RPicSim::Flaws::Flaw (class)">Flaw</a></span> with the specified name.</p>
+</div></span>
   
 </li>
 
@@ -165,37 +158,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="[]-class_method">
   
-    + (<tt>Object</tt>) <strong>[]</strong>(name) 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-42
-43
-44</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/flaws.rb', line 42</span>
-
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='op'>[]</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
-  <span class='ivar'>@flaw_hash</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_effect'>effect</span> <span class='const'>Mplab</span><span class='period'>.</span><span class='id identifier rubyid_version'>version</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="add-class_method">
-  
-    + (<tt>Object</tt>) <strong>add</strong>(name) {|flaw| ... }
+    + (<tt><span class='object_link'><a href="Flaws/Flaw.html" title="RPicSim::Flaws::Flaw (class)">Flaw</a></span></tt>) <strong>[]</strong>(name) 
   
 
   
@@ -204,18 +167,40 @@
 </h3><div class="docstring">
   <div class="discussion">
     
+<p>Returns the <span class='object_link'><a href="Flaws/Flaw.html" title="RPicSim::Flaws::Flaw (class)">Flaw</a></span> with the specified name.</p>
+
 
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
-<p class="tag_title">Yields:</p>
-<ul class="yield">
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The name of the flaw.  The names are listed in <code>flaws.rb</code>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
   
     <li>
       
       
-        <span class='type'>(<tt>flaw</tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="Flaws/Flaw.html" title="RPicSim::Flaws::Flaw (class)">Flaw</a></span></tt>)</span>
       
       
       
@@ -229,17 +214,15 @@
       <pre class="lines">
 
 
-46
-47
-48
-49</pre>
+55
+56
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/flaws.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/flaws.rb', line 55</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
-  <span class='ivar'>@flaw_hash</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_flaw'>flaw</span> <span class='op'>=</span> <span class='const'>Flaw</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
-  <span class='kw'>yield</span> <span class='id identifier rubyid_flaw'>flaw</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='op'>[]</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='ivar'>@flaw_hash</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_effect'>effect</span> <span class='const'>Mplab</span><span class='period'>.</span><span class='id identifier rubyid_version'>version</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -254,7 +237,7 @@
   
   <br/><br/>
 
-  Generated on Sun Sep 14 11:33:22 2014 by
+  Generated on Wed Sep 17 12:55:45 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-1.9.3).
 </div>

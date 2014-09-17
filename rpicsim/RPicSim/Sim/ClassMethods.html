@@ -224,36 +224,6 @@ datasheet pin names (like :RB3).</p>
 </li>
 
     
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#variable_set-instance_method" title="#variable_set (instance method)">- (Object) <strong>variable_set</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-      <span class="note title readonly">readonly</span>
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>A <span class='object_link'><a href="../VariableSet.html" title="RPicSim::VariableSet (class)">VariableSet</a></span> that holds information about all the variables that were
-defined with <span class='object_link'><a href="ClassDefinitionMethods.html#def_var-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#def_var (method)">def_var</a></span>.</p>
-</div></span>
-  
-</li>
-
-    
   </ul>
 
 
@@ -351,12 +321,12 @@ objects.</p>
       <pre class="lines">
 
 
-109
-110
-111</pre>
+112
+113
+114</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 109</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 112</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_device'>device</span>
   <span class='ivar'>@device</span>
@@ -395,12 +365,12 @@ the constructor.</p>
       <pre class="lines">
 
 
-113
-114
-115</pre>
+116
+117
+118</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 113</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 116</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_filename'>filename</span>
   <span class='ivar'>@filename</span>
@@ -440,12 +410,12 @@ datasheet pin names (like :RB3).  These aliases are defined by
       <pre class="lines">
 
 
-117
-118
-119</pre>
+120
+121
+122</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 117</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 120</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pin_aliases'>pin_aliases</span>
   <span class='ivar'>@pin_aliases</span>
@@ -483,59 +453,15 @@ datasheet pin names (like :RB3).  These aliases are defined by
       <pre class="lines">
 
 
-124
-125
-126</pre>
+128
+129
+130</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 124</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 128</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_program_file'>program_file</span>
   <span class='ivar'>@program_file</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id=""></span>
-      <div class="method_details ">
-  <h3 class="signature " id="variable_set-instance_method">
-  
-    - (<tt>Object</tt>) <strong>variable_set</strong>  <span class="extras">(readonly)</span>
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>A <span class='object_link'><a href="../VariableSet.html" title="RPicSim::VariableSet (class)">VariableSet</a></span> that holds information about all the variables that were
-defined with <span class='object_link'><a href="ClassDefinitionMethods.html#def_var-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#def_var (method)">def_var</a></span>.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-121
-122
-123</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 121</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_variable_set'>variable_set</span>
-  <span class='ivar'>@variable_set</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -590,12 +516,12 @@ compiler, you will probably need to prefix the name with an underscore.</p>
       <pre class="lines">
 
 
-135
-136
-137</pre>
+139
+140
+141</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 135</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 139</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_label'>label</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_program_file'>program_file</span><span class='period'>.</span><span class='id identifier rubyid_label'>label</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
@@ -632,12 +558,12 @@ objects.</p>
       <pre class="lines">
 
 
-127
-128
-129</pre>
+131
+132
+133</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 127</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 131</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_labels'>labels</span>
   <span class='id identifier rubyid_program_file'>program_file</span><span class='period'>.</span><span class='id identifier rubyid_labels'>labels</span>
@@ -655,7 +581,7 @@ objects.</p>
   
   <br/><br/>
 
-  Generated on Sun Sep 14 11:33:21 2014 by
+  Generated on Wed Sep 17 12:55:45 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-1.9.3).
 </div>

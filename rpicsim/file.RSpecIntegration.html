@@ -82,7 +82,29 @@ have the RSpec integration enabled.</p>
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rpicsim/rspec</span><span class='tstring_end'>'</span></span>
 </code></pre>
 
-<p>The features that this gives you are documented below.</p>
+<p>That gives you all the features that are documented below.</p>
+
+<h3 id="label-Fine-grained+configuration">Fine-grained configuration</h3>
+
+<p>Alternatively, if you just want a subset of the features described here,
+you can use any combination of the snippets below:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='comment'># Persistent expectations that can be stored and checked later
+</span><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rpicsim/rspec/persistent_expectations</span><span class='tstring_end'>'</span></span>
+<span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span> <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_include'>include</span> <span class='const'>RPicSim</span><span class='op'>::</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>PersistentExpectations</span> <span class='rbrace'>}</span>
+</code></pre>
+<!-- separate -->
+<pre class="code ruby"><code class="ruby"><span class='comment'># Helper methods, including persistent expectations
+</span><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rpicsim/rspec/helpers</span><span class='tstring_end'>'</span></span>
+</code></pre>
+<!-- separate -->
+<pre class="code ruby"><code class="ruby"><span class='comment'># Show debug info from sim if a spec fails
+</span><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rpicsim/rspec/sim_diagnostics</span><span class='tstring_end'>'</span></span>
+</code></pre>
+<!-- separate -->
+<pre class="code ruby"><code class="ruby"><span class='comment'># Better error messages for RSpec 2.x
+</span><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rpicsim/rspec/be_predicate</span><span class='tstring_end'>'</span></span>
+</code></pre>
 
 <h2 id="label-Helper+methods">Helper methods</h2>
 
@@ -209,7 +231,7 @@ help.</p>
   
   <br/><br/>
 
-  Generated on Sun Sep 14 11:33:20 2014 by
+  Generated on Wed Sep 17 12:55:42 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-1.9.3).
 </div>

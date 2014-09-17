@@ -130,33 +130,7 @@ device architecture you are simulating.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (StackPointer) <strong>initialize</strong>(stkptr) </a>
-    
-
-    
-  </span>
-  
-  
-    <span class="note title constructor">constructor</span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Initializes the StackPointer object.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#value-instance_method" title="#value (instance method)">- (Object) <strong>value</strong> </a>
+      <a href="#value-instance_method" title="#value (instance method)">- (Integer) <strong>value</strong> </a>
     
 
     
@@ -200,75 +174,6 @@ device architecture you are simulating.</p>
     </ul>
   
 
-<div id="constructor_details" class="method_details_list">
-  <h2>Constructor Details</h2>
-  
-    <div class="method_details first">
-  <h3 class="signature first" id="initialize-instance_method">
-  
-    - (<tt><span class='object_link'><a href="" title="RPicSim::StackPointer (class)">StackPointer</a></span></tt>) <strong>initialize</strong>(stkptr) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Initializes the StackPointer object. This be called when the call stack is
-empty, because this object uses the initial value of stkptr to deduce how
-it works.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>stkptr</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>The STKPTR register of the simulation.</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-11
-12
-13
-14</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/stack_pointer.rb', line 11</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_stkptr'>stkptr</span><span class='rparen'>)</span>
-  <span class='ivar'>@stkptr</span> <span class='op'>=</span> <span class='id identifier rubyid_stkptr'>stkptr</span>
-  <span class='ivar'>@stkptr_initial_value</span> <span class='op'>=</span> <span class='ivar'>@stkptr</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-  
-</div>
 
 
   <div id="instance_method_details" class="method_details_list">
@@ -278,33 +183,55 @@ it works.</p>
       <div class="method_details first">
   <h3 class="signature first" id="value-instance_method">
   
-    - (<tt>Object</tt>) <strong>value</strong> 
+    - (<tt>Integer</tt>) <strong>value</strong> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-16
-17
-18
-19
-20
 21
 22
 23
 24
 25
 26
-27</pre>
+27
+28
+29
+30
+31
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/stack_pointer.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/stack_pointer.rb', line 21</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_value'>value</span>
   <span class='kw'>if</span> <span class='ivar'>@stkptr_initial_value</span> <span class='op'>&gt;</span> <span class='int'>0</span>
@@ -332,26 +259,50 @@ it works.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>value</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-29
-30
-31
-32
-33
-34
 35
 36
 37
 38
-39</pre>
+39
+40
+41
+42
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/stack_pointer.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/stack_pointer.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_value='>value=</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
   <span class='ivar'>@stkptr</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='ivar'>@stkptr_initial_value</span> <span class='op'>&gt;</span> <span class='int'>0</span>
@@ -377,7 +328,7 @@ it works.</p>
   
   <br/><br/>
 
-  Generated on Sun Sep 14 11:33:24 2014 by
+  Generated on Wed Sep 17 12:55:49 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-1.9.3).
 </div>

@@ -99,7 +99,20 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Instances of this class represents a variable in the memory of the
+simulated microcontroller.  This class provides methods for reading,
+writing, and getting address of the variable.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
 
 
@@ -117,58 +130,12 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#address-instance_method" title="#address (instance method)">- (Object) <strong>address</strong> </a>
+      <a href="#address-instance_method" title="#address (instance method)">- (Integer) <strong>address</strong> </a>
     
 
     
   </span>
   
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#addresses-instance_method" title="#addresses (instance method)">- (Object) <strong>addresses</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Variable) <strong>initialize</strong>(storage) </a>
-    
-
-    
-  </span>
-  
-  
-    <span class="note title constructor">constructor</span>
   
   
   
@@ -178,7 +145,31 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Creates a new Variable object.</p>
+<p>The main (lowest) address of this variable.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#addresses-instance_method" title="#addresses (instance method)">- (Array(Integer)) <strong>addresses</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The addresses in memory occupied by this variable.</p>
 </div></span>
   
 </li>
@@ -236,7 +227,7 @@ read-only bits.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#name-instance_method" title="#name (instance method)">- (Object) <strong>name</strong> </a>
+      <a href="#name-instance_method" title="#name (instance method)">- (Symbol) <strong>name</strong> </a>
     
 
     
@@ -250,7 +241,9 @@ read-only bits.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>The name of the variable.</p>
+</div></span>
   
 </li>
 
@@ -258,7 +251,7 @@ read-only bits.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#to_s-instance_method" title="#to_s (instance method)">- (Object) <strong>to_s</strong> </a>
+      <a href="#to_s-instance_method" title="#to_s (instance method)">- (String) <strong>to_s</strong> </a>
     
 
     
@@ -328,71 +321,6 @@ read-only bits.</p>
     </ul>
   
 
-<div id="constructor_details" class="method_details_list">
-  <h2>Constructor Details</h2>
-  
-    <div class="method_details first">
-  <h3 class="signature first" id="initialize-instance_method">
-  
-    - (<tt><span class='object_link'><a href="" title="RPicSim::Variable (class)">Variable</a></span></tt>) <strong>initialize</strong>(storage) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Creates a new Variable object.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>storage</span>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>The internal storage for the variable.</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-5
-6
-7</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 5</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_storage'>storage</span><span class='rparen'>)</span>
-  <span class='ivar'>@storage</span> <span class='op'>=</span> <span class='id identifier rubyid_storage'>storage</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-  
-</div>
 
 
   <div id="instance_method_details" class="method_details_list">
@@ -402,24 +330,48 @@ read-only bits.</p>
       <div class="method_details first">
   <h3 class="signature first" id="address-instance_method">
   
-    - (<tt>Object</tt>) <strong>address</strong> 
+    - (<tt>Integer</tt>) <strong>address</strong> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The main (lowest) address of this variable.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-42
-43
-44</pre>
+54
+55
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 42</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_address'>address</span>
   <span class='ivar'>@storage</span><span class='period'>.</span><span class='id identifier rubyid_address'>address</span>
@@ -432,24 +384,48 @@ read-only bits.</p>
       <div class="method_details ">
   <h3 class="signature " id="addresses-instance_method">
   
-    - (<tt>Object</tt>) <strong>addresses</strong> 
+    - (<tt>Array(Integer)</tt>) <strong>addresses</strong> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The addresses in memory occupied by this variable.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array(Integer)</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-38
-39
-40</pre>
+48
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 48</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_addresses'>addresses</span>
   <span class='ivar'>@storage</span><span class='period'>.</span><span class='id identifier rubyid_addresses'>addresses</span>
@@ -486,12 +462,12 @@ some types of variables, this is the same as <span class='object_link'><a href="
       <pre class="lines">
 
 
-30
-31
-32</pre>
+37
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_memory_value'>memory_value</span>
   <span class='ivar'>@storage</span><span class='period'>.</span><span class='id identifier rubyid_memory_value'>memory_value</span>
@@ -528,12 +504,12 @@ read-only bits. For some types of variables, this is the same as <span class='ob
       <pre class="lines">
 
 
-24
-25
-26</pre>
+31
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_memory_value='>memory_value=</span><span class='lparen'>(</span><span class='id identifier rubyid_val'>val</span><span class='rparen'>)</span>
   <span class='ivar'>@storage</span><span class='period'>.</span><span class='id identifier rubyid_memory_value'>memory_value</span> <span class='op'>=</span> <span class='id identifier rubyid_val'>val</span>
@@ -546,24 +522,48 @@ read-only bits. For some types of variables, this is the same as <span class='ob
       <div class="method_details ">
   <h3 class="signature " id="name-instance_method">
   
-    - (<tt>Object</tt>) <strong>name</strong> 
+    - (<tt>Symbol</tt>) <strong>name</strong> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The name of the variable.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-46
-47
-48</pre>
+60
+61
+62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 60</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_name'>name</span>
   <span class='ivar'>@storage</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span>
@@ -576,24 +576,46 @@ read-only bits. For some types of variables, this is the same as <span class='ob
       <div class="method_details ">
   <h3 class="signature " id="to_s-instance_method">
   
-    - (<tt>Object</tt>) <strong>to_s</strong> 
+    - (<tt>String</tt>) <strong>to_s</strong> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-34
-35
-36</pre>
+42
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
   <span class='ivar'>@storage</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
@@ -642,12 +664,12 @@ read-only bits. For some types of variables, this is the same as <span class='ob
       <pre class="lines">
 
 
-11
-12
-13</pre>
+18
+19
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 11</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 18</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_value'>value</span>
   <span class='ivar'>@storage</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span>
@@ -696,12 +718,12 @@ read-only bits. For some types of variables, this is the same as <span class='ob
       <pre class="lines">
 
 
-17
-18
-19</pre>
+24
+25
+26</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 17</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/variable.rb', line 24</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_value='>value=</span><span class='lparen'>(</span><span class='id identifier rubyid_val'>val</span><span class='rparen'>)</span>
   <span class='ivar'>@storage</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span class='id identifier rubyid_val'>val</span>
@@ -719,7 +741,7 @@ read-only bits. For some types of variables, this is the same as <span class='ob
   
   <br/><br/>
 
-  Generated on Sun Sep 14 11:33:23 2014 by
+  Generated on Wed Sep 17 12:55:48 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-1.9.3).
 </div>

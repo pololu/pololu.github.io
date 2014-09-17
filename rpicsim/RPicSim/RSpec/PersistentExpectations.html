@@ -106,6 +106,8 @@ sure that the object stays in the state you are expecting it to.</p>
 </span><span class='kw'>end</span>
 </code></pre>
 
+<p>For more information, see <a href="../../file.PersistentExpectations.html" title="PersistentExpectations">PersistentExpectations</a>.</p>
+
 
   </div>
 </div>
@@ -236,23 +238,19 @@ raises an error.</p>
       <pre class="lines">
 
 
-27
-28
-29
-30
 31
 32
 33
-34</pre>
+34
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/rspec/persistent_expectations.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/rspec/persistent_expectations.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_check_expectations'>check_expectations</span>
   <span class='id identifier rubyid_expectations'>expectations</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_subject'>subject</span><span class='comma'>,</span> <span class='id identifier rubyid_matcher'>matcher</span><span class='op'>|</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_matcher'>matcher</span>
-      <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_subject'>subject</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_matcher'>matcher</span>
-    <span class='kw'>end</span>
+    <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_subject'>subject</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_matcher'>matcher</span> <span class='kw'>if</span> <span class='id identifier rubyid_matcher'>matcher</span>
   <span class='kw'>end</span>
   <span class='kw'>nil</span>
 <span class='kw'>end</span></pre>
@@ -302,12 +300,12 @@ object.</p>
       <pre class="lines">
 
 
-21
-22
-23</pre>
+25
+26
+27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/rspec/persistent_expectations.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/rspec/persistent_expectations.rb', line 25</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_expectations'>expectations</span>
   <span class='ivar'>@expectations</span> <span class='op'>||=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
@@ -358,8 +356,6 @@ and freely mixed with other calls to `expecting`.</p>
       <pre class="lines">
 
 
-53
-54
 55
 56
 57
@@ -370,10 +366,12 @@ and freely mixed with other calls to `expecting`.</p>
 62
 63
 64
-65</pre>
+65
+66
+67</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/rspec/persistent_expectations.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/rspec/persistent_expectations.rb', line 55</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_expecting'>expecting</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
@@ -401,7 +399,7 @@ and freely mixed with other calls to `expecting`.</p>
   
   <br/><br/>
 
-  Generated on Sun Sep 14 11:33:22 2014 by
+  Generated on Wed Sep 17 12:55:46 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-1.9.3).
 </div>

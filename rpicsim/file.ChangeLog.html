@@ -68,6 +68,31 @@
     <div id="content"><div id='filecontents'>
 <h1 id="label-Change+log">Change log</h1>
 
+<h2 id="label-1.0.0">1.0.0</h2>
+
+<p>Released on 2014-09-17.</p>
+<ul><li>
+<p>Major improvements to the documentation. Mainly, the public API of RPicSim
+has been defined, and everything not in the public API is now hidden from
+the documentation. Doing this allows us to follow <a
+href="http://semver.org/spec/v2.0.0.html">Semantic Versioning</a> from now
+on.</p>
+</li><li>
+<p>MemoryWatcher: Adds WREG and BSR to the default list of registers to
+ignore.</p>
+</li><li>
+<p>Removed all disassembly and static analysis features, since they could be
+better implemented in a different gem that doesn't depend on any Microchip
+code:</p>
+<ul><li>
+<p>Removed RPicSim::ProgramFile#instruction</p>
+</li><li>
+<p>Removed RPicSim::CallStackInfo</p>
+</li><li>
+<p>Removed RPicSim::Instruction</p>
+</li></ul>
+</li></ul>
+
 <h2 id="label-0.4.0">0.4.0</h2>
 
 <p>Released on 2014-07-30.</p>
@@ -177,7 +202,7 @@ compatibility or writing complete change logs.</p>
   
   <br/><br/>
 
-  Generated on Sun Sep 14 11:33:17 2014 by
+  Generated on Wed Sep 17 12:55:38 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-1.9.3).
 </div>

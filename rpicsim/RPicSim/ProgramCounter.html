@@ -155,7 +155,7 @@ microcontroller.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#value-instance_method" title="#value (instance method)">- (Object) <strong>value</strong> </a>
+      <a href="#value-instance_method" title="#value (instance method)">- (Integer) <strong>value</strong> </a>
     
 
     
@@ -243,12 +243,12 @@ microcontroller.</p>
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/program_counter.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/program_counter.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_processor'>processor</span><span class='rparen'>)</span>
   <span class='ivar'>@processor</span> <span class='op'>=</span> <span class='id identifier rubyid_processor'>processor</span>
@@ -268,24 +268,46 @@ microcontroller.</p>
       <div class="method_details first">
   <h3 class="signature first" id="value-instance_method">
   
-    - (<tt>Object</tt>) <strong>value</strong> 
+    - (<tt>Integer</tt>) <strong>value</strong> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-10
-11
-12</pre>
+13
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/program_counter.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/program_counter.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_value'>value</span>
   <span class='ivar'>@processor</span><span class='period'>.</span><span class='id identifier rubyid_get_pc'>get_pc</span>
@@ -304,18 +326,42 @@ microcontroller.</p>
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>val</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-14
-15
-16</pre>
+18
+19
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/program_counter.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/program_counter.rb', line 18</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_value='>value=</span><span class='lparen'>(</span><span class='id identifier rubyid_val'>val</span><span class='rparen'>)</span>
   <span class='ivar'>@processor</span><span class='period'>.</span><span class='id identifier rubyid_set_pc'>set_pc</span><span class='lparen'>(</span><span class='id identifier rubyid_val'>val</span><span class='rparen'>)</span>
@@ -333,7 +379,7 @@ microcontroller.</p>
   
   <br/><br/>
 
-  Generated on Sun Sep 14 11:33:25 2014 by
+  Generated on Wed Sep 17 12:55:49 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-1.9.3).
 </div>

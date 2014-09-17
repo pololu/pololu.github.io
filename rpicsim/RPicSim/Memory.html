@@ -148,32 +148,6 @@ bits of the word, if there are any, are left unchanged. For RAM and EEPROM,
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Memory) <strong>initialize</strong>(mplab_memory) </a>
-    
-
-    
-  </span>
-  
-  
-    <span class="note title constructor">constructor</span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of Memory.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#read_byte-instance_method" title="#read_byte (instance method)">- (Integer) <strong>read_byte</strong>(address) </a>
     
 
@@ -343,66 +317,6 @@ bits of the word, if there are any, are left unchanged. For RAM and EEPROM,
     </ul>
   
 
-<div id="constructor_details" class="method_details_list">
-  <h2>Constructor Details</h2>
-  
-    <div class="method_details first">
-  <h3 class="signature first" id="initialize-instance_method">
-  
-    - (<tt><span class='object_link'><a href="" title="RPicSim::Memory (class)">Memory</a></span></tt>) <strong>initialize</strong>(mplab_memory) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Returns a new instance of Memory</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>mplab_memory</span>
-      
-      
-        <span class='type'>(<tt>Mplab::Memory</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-25
-26
-27</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 25</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_mplab_memory'>mplab_memory</span><span class='rparen'>)</span>
-  <span class='ivar'>@mplab_memory</span> <span class='op'>=</span> <span class='id identifier rubyid_mplab_memory'>mplab_memory</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-  
-</div>
 
 
   <div id="instance_method_details" class="method_details_list">
@@ -463,12 +377,12 @@ bits of the word, if there are any, are left unchanged. For RAM and EEPROM,
       <pre class="lines">
 
 
-33
-34
-35</pre>
+37
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_read_byte'>read_byte</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='rparen'>)</span>
   <span class='ivar'>@mplab_memory</span><span class='period'>.</span><span class='id identifier rubyid_read_byte'>read_byte</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='rparen'>)</span>
@@ -554,12 +468,12 @@ bits of the word, if there are any, are left unchanged. For RAM and EEPROM,
       <pre class="lines">
 
 
-72
-73
-74</pre>
+76
+77
+78</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 72</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 76</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_read_bytes'>read_bytes</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='comma'>,</span> <span class='id identifier rubyid_size'>size</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_size'>size</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span> <span class='id identifier rubyid_read_byte'>read_byte</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span> <span class='op'>+</span> <span class='id identifier rubyid_i'>i</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
@@ -623,12 +537,12 @@ bits of the word, if there are any, are left unchanged. For RAM and EEPROM,
       <pre class="lines">
 
 
-48
-49
-50</pre>
+52
+53
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_read_word'>read_word</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='rparen'>)</span>
   <span class='ivar'>@mplab_memory</span><span class='period'>.</span><span class='id identifier rubyid_read_word'>read_word</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='rparen'>)</span>
@@ -697,12 +611,12 @@ bits of the word, if there are any, are left unchanged. For RAM and EEPROM,
       <pre class="lines">
 
 
-62
-63
-64</pre>
+66
+67
+68</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 66</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_valid_address?'>valid_address?</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='rparen'>)</span>
   <span class='ivar'>@mplab_memory</span><span class='period'>.</span><span class='id identifier rubyid_valid_address?'>valid_address?</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='rparen'>)</span>
@@ -764,12 +678,12 @@ bits of the word, if there are any, are left unchanged. For RAM and EEPROM,
       <pre class="lines">
 
 
-41
-42
-43</pre>
+45
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_write_byte'>write_byte</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
   <span class='ivar'>@mplab_memory</span><span class='period'>.</span><span class='id identifier rubyid_write_byte'>write_byte</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
@@ -836,14 +750,14 @@ bits of the word, if there are any, are left unchanged. For RAM and EEPROM,
       <pre class="lines">
 
 
-80
-81
-82
-83
-84</pre>
+84
+85
+86
+87
+88</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 80</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 84</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_write_bytes'>write_bytes</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='comma'>,</span> <span class='id identifier rubyid_bytes'>bytes</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_bytes'>bytes</span> <span class='op'>=</span> <span class='id identifier rubyid_bytes'>bytes</span><span class='period'>.</span><span class='id identifier rubyid_bytes'>bytes</span> <span class='kw'>if</span> <span class='id identifier rubyid_bytes'>bytes</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>String</span><span class='rparen'>)</span>
@@ -907,12 +821,12 @@ bits of the word, if there are any, are left unchanged. For RAM and EEPROM,
       <pre class="lines">
 
 
-55
-56
-57</pre>
+59
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/memory.rb', line 59</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_write_word'>write_word</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
   <span class='ivar'>@mplab_memory</span><span class='period'>.</span><span class='id identifier rubyid_write_word'>write_word</span><span class='lparen'>(</span><span class='id identifier rubyid_address'>address</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
@@ -930,7 +844,7 @@ bits of the word, if there are any, are left unchanged. For RAM and EEPROM,
   
   <br/><br/>
 
-  Generated on Sun Sep 14 11:33:23 2014 by
+  Generated on Wed Sep 17 12:55:48 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-1.9.3).
 </div>
