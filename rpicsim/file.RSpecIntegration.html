@@ -76,8 +76,8 @@ have the RSpec integration enabled.</p>
 
 <h2 id="label-Turning+on+RSpec+integration">Turning on RSpec integration</h2>
 
-<p>To enable the RSpec integration, simply put this line in your
-<code>spec_helper.rb</code>:</p>
+<p>To load RPicSim and enable its RSpec integration, simply put this line in
+your <code>spec_helper.rb</code>:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rpicsim/rspec</span><span class='tstring_end'>'</span></span>
 </code></pre>
@@ -104,6 +104,11 @@ you can use any combination of the snippets below:</p>
 <!-- separate -->
 <pre class="code ruby"><code class="ruby"><span class='comment'># Better error messages for RSpec 2.x
 </span><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rpicsim/rspec/be_predicate</span><span class='tstring_end'>'</span></span>
+</code></pre>
+
+<p>You will also need to load RPicSim itself by writing:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rpicsim</span><span class='tstring_end'>'</span></span>
 </code></pre>
 
 <h2 id="label-Helper+methods">Helper methods</h2>
@@ -231,7 +236,7 @@ help.</p>
   
   <br/><br/>
 
-  Generated on Wed Sep 17 12:55:42 2014 by
+  Generated on Fri Sep 19 10:51:45 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-1.9.3).
 </div>

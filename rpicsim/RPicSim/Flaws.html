@@ -125,7 +125,7 @@ for more details.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#%5B%5D-class_method" title="[] (class method)">+ (Flaw) <strong>[]</strong>(name) </a>
+      <a href="#%5B%5D-class_method" title="[] (class method)">+ (Object) <strong>[]</strong>(name) </a>
     
 
     
@@ -140,7 +140,8 @@ for more details.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Returns the <span class='object_link'><a href="Flaws/Flaw.html" title="RPicSim::Flaws::Flaw (class)">Flaw</a></span> with the specified name.</p>
+<p>Returns the effect of the flaw with the specified name for the currently
+loaded version of MPLAB X.</p>
 </div></span>
   
 </li>
@@ -158,7 +159,7 @@ for more details.</p>
       <div class="method_details first">
   <h3 class="signature first" id="[]-class_method">
   
-    + (<tt><span class='object_link'><a href="Flaws/Flaw.html" title="RPicSim::Flaws::Flaw (class)">Flaw</a></span></tt>) <strong>[]</strong>(name) 
+    + (<tt>Object</tt>) <strong>[]</strong>(name) 
   
 
   
@@ -167,7 +168,12 @@ for more details.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the <span class='object_link'><a href="Flaws/Flaw.html" title="RPicSim::Flaws::Flaw (class)">Flaw</a></span> with the specified name.</p>
+<p>Returns the effect of the flaw with the specified name for the currently
+loaded version of MPLAB X.</p>
+
+<p>The names and effects are listed in <code>flaws.rb</code>.</p>
+
+<p>The returned value will usually be a boolean, but sometimes a Symbol.</p>
 
 
   </div>
@@ -187,26 +193,13 @@ for more details.</p>
       
         &mdash;
         <div class='inline'>
-<p>The name of the flaw.  The names are listed in <code>flaws.rb</code>.</p>
+<p>The name of the flaw.</p>
 </div>
       
     </li>
   
 </ul>
 
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt><span class='object_link'><a href="Flaws/Flaw.html" title="RPicSim::Flaws::Flaw (class)">Flaw</a></span></tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
 
 </div><table class="source_code">
   <tr>
@@ -214,12 +207,12 @@ for more details.</p>
       <pre class="lines">
 
 
-55
-56
-57</pre>
+60
+61
+62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rpicsim/flaws.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'lib/rpicsim/flaws.rb', line 60</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='op'>[]</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='ivar'>@flaw_hash</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_effect'>effect</span> <span class='const'>Mplab</span><span class='period'>.</span><span class='id identifier rubyid_version'>version</span>
@@ -237,7 +230,7 @@ for more details.</p>
   
   <br/><br/>
 
-  Generated on Wed Sep 17 12:55:45 2014 by
+  Generated on Fri Sep 19 10:51:47 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-1.9.3).
 </div>

@@ -135,6 +135,32 @@ installed on any drive other than the C drive.</p>
 
 <p>This issue is tested in <code>spec/mplab/program_file_spec.rb</code>.</p>
 
+<h2 id="label-MPLAB+X+writes+log+files+to+the+current+directory">MPLAB X writes log files to the current directory</h2>
+
+<p><em>Type: MPLAB X issue</em></p>
+
+<p><em>MPLAB X versions affected: 2.20 and later</em></p>
+
+<p>Starting with MPLAB X v2.20, the MPLAB X code writes log files to the
+current working directory. These files have names that start with
+"MPLABXLog.xml". Unfortunately, these files cannot be deleted from the same
+Ruby process that runs RPicSim, because MPLAB X keeps handles open to the
+files and we have not found a way to close those handles.</p>
+
+<p>If you are using Rake to run your specs, you can enhance the spec task so
+that it removes the files after running the specs:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='comment'># After running specs, clean up the log files that MPLAB X makes.
+</span><span class='const'>Rake</span><span class='op'>::</span><span class='const'>Task</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>spec</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_enhance'>enhance</span> <span class='kw'>do</span>
+  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_rm'>rm</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_glob'>glob</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>MPLABXLog.xml*</span><span class='tstring_end'>'</span></span>
+<span class='kw'>end</span></code></pre>
+
+<p>These files are created as soon as the com.microchip.mplab.logger.Logger
+class is loaded by the JVM. It might be possible to replace the
+implementation of that class in order to avoid creating the files.</p>
+
+<p>This issue is tested in <code>spec/mplab/log_file_spec.rb</code>.</p>
+
 <h2 id="label-Cannot+detect+PIC+model+from+COF+file">Cannot detect PIC model from COF file</h2>
 
 <p><em>Type: RPicSim missing feature</em></p>
@@ -323,7 +349,7 @@ instead. This seems to only affect PIC18 devices.</p>
   
   <br/><br/>
 
-  Generated on Wed Sep 17 12:55:44 2014 by
+  Generated on Fri Sep 19 10:51:46 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-1.9.3).
 </div>
