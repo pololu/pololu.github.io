@@ -2,6 +2,6 @@
 # so that we can have underscores in our HTML file names.
 
 echo -n 'include: ['
-find . -name '_*.html' | awk "{printf \"'%s', \", \$NF}"
+find . -name '_*.html' | awk -F/ "{printf \"'%s', \", \$NF}"
 echo ]
 
