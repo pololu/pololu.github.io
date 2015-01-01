@@ -43,6 +43,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -69,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,11 +84,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">AStar32U4Prime library Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Version: 1.0.0<br />
- Release date: 2014 Dec 11<br />
+<div class="textblock"><p>Version: 1.1.0<br />
+ Release date: 2014 Dec 31<br />
  <a href="http://www.pololu.com/">www.pololu.com</a></p>
 <h2>Summary</h2>
-<p>This is a C++ library for the Arduino IDE that helps access the on-board hardware of the A-Star 32U4 Prime, which is a programmable controller from Pololu based on the ATmega32U4. You can program the A-Star 32U4 Prime directly from the Arduino IDE without using this library, but this library makes it easy to:</p>
+<p>This is a C++ library for the Arduino IDE that helps access the on-board hardware of the <a href="http://www.pololu.com/category/165/a-star-32u4-prime">A-Star 32U4 Prime</a>, which is a family of programmable controllers from Pololu based on the ATmega32U4. You can program the A-Star 32U4 Prime directly from the Arduino IDE without using this library, but this library makes it easy to:</p>
 <ul>
 <li>display information on the LCD</li>
 <li>play sounds and music on the buzzer</li>
@@ -112,7 +113,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li><a class="el" href="_a_star32_u4_prime_8h.html#a22e68694b618fe149ed42d76e96597ca" title="Turns the green user LED (TX) on or off. ">ledGreen()</a></li>
 <li><a class="el" href="_a_star32_u4_prime_8h.html#ae6ec5117b26ffaaa1b81c8c8b34426e1" title="Turns the red user LED (RX) on or off. ">ledRed()</a></li>
 <li><a class="el" href="_a_star32_u4_prime_8h.html#a7528cb14b314ccde63c94049402d01c6" title="Turns the yellow user LED on pin 13 on or off. ">ledYellow()</a></li>
-<li><a class="el" href="_a_star32_u4_prime_8h.html#a043505afa78c02cc8caae0521c8cfa8a" title="Reads the battery voltage and returns it in millivolts. ">readBatteryMillivolts()</a></li>
+<li><a class="el" href="_a_star32_u4_prime_8h.html#acb84fb4e1a6980db0a7eea6487958593" title="Reads the battery voltage for an A-Star 32U4 Prime LV and returns it in millivolts. ">readBatteryMillivoltsLV()</a></li>
+<li><a class="el" href="_a_star32_u4_prime_8h.html#ab4006e57c2c8475f68ad4a5ea7dbdc2a" title="Reads the battery voltage for an A-Star 32U4 Prime SV and returns it in millivolts. ">readBatteryMillivoltsSV()</a></li>
 <li><a class="el" href="_a_star32_u4_prime_8h.html#acf21c49681fe010784b631551ab921f3" title="Returns true if USB power is detected. ">usbPowerPresent()</a></li>
 </ul>
 <h2>Component libraries</h2>
@@ -131,12 +133,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>For complete documentation, see <a href="https://pololu.github.io/a-star-32u4-prime">https://pololu.github.io/a-star-32u4-prime</a>. If you are already on that page, then click on the links in the "Classes and functions" section above.</p>
 <h2>Version history</h2>
 <ul>
+<li>1.1.0 (2014 Dec 31): Added support for the A-Star 32U4 Prime SV.</li>
 <li>1.0.0 (2014 Dec 11): Original release. </li>
 </ul>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 12 2014 17:01:47 for AStar32U4Prime library by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 31 2014 16:35:45 for AStar32U4Prime library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

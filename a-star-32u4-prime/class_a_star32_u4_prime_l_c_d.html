@@ -43,6 +43,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -76,7 +77,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -178,6 +179,7 @@ Public Member Functions</h2></td></tr>
 <p>This library is similar to the Arduino <a href="http://arduino.cc/en/Reference/LiquidCrystal">LiquidCrystal library</a>, but it has some extra features needed on the A-Star 32U4 Prime:</p>
 <ul>
 <li>This class disables USB interrupts temporarily while writing to the LCD so that the USB interrupts will not change the RXLED and TXLED pins, which double as LCD data lines.</li>
+<li>This class disables the AVR's hardware SPI module temporarily so that it can use the PB3/MISO/DB4 pin as an output to control the LCD.</li>
 <li>This class restores the RS, DB4, DB5, DB6, and DB7 pins to their previous states when it is done using them so that those pins can also be used for other purposes such as controlling LEDs.</li>
 </ul>
 <p>This class assumes that you are using the default pin mapping that you would get by simply connecting an LCD to the 2x7 LCD connector on the A-Star 32U4 Prime:</p>
@@ -193,7 +195,7 @@ Public Member Functions</h2></td></tr>
 <p>This class inherits from the Arduino Print class, so you can call the <code>print()</code> function on it with a variety of arguments. See the <a href="http://arduino.cc/en/Serial/Print">Arduino print() documentation</a> for more information.</p>
 <p>For detailed information about HD44780 LCD interface, including what characters can be displayed, see the <a href="http://www.pololu.com/file/0J72/HD44780.pdf">HD44780 datasheet</a>. </p>
 
-<p>Definition at line <a class="el" href="_a_star32_u4_prime_l_c_d_8h_source.html#l00053">53</a> of file <a class="el" href="_a_star32_u4_prime_l_c_d_8h_source.html">AStar32U4PrimeLCD.h</a>.</p>
+<p>Definition at line <a class="el" href="_a_star32_u4_prime_l_c_d_8h_source.html#l00055">55</a> of file <a class="el" href="_a_star32_u4_prime_l_c_d_8h_source.html">AStar32U4PrimeLCD.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="ad5104d9651fd95704d1ae192073b0d61"></a>
 <div class="memitem">
@@ -599,7 +601,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="class_pololu_h_d44780_base.html#a9c2a2e0dfb089a6c21aa12a6a5299750">PololuHD44780Base</a>.</p>
 
-<p>Definition at line <a class="el" href="_a_star32_u4_prime_l_c_d_8h_source.html#l00060">60</a> of file <a class="el" href="_a_star32_u4_prime_l_c_d_8h_source.html">AStar32U4PrimeLCD.h</a>.</p>
+<p>Definition at line <a class="el" href="_a_star32_u4_prime_l_c_d_8h_source.html#l00062">62</a> of file <a class="el" href="_a_star32_u4_prime_l_c_d_8h_source.html">AStar32U4PrimeLCD.h</a>.</p>
 
 </div>
 </div>
@@ -1018,7 +1020,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="class_pololu_h_d44780_base.html#a004d5adb9e7c3cc546c6b0ed427dec7b">PololuHD44780Base</a>.</p>
 
-<p>Definition at line <a class="el" href="_a_star32_u4_prime_l_c_d_8h_source.html#l00065">65</a> of file <a class="el" href="_a_star32_u4_prime_l_c_d_8h_source.html">AStar32U4PrimeLCD.h</a>.</p>
+<p>Definition at line <a class="el" href="_a_star32_u4_prime_l_c_d_8h_source.html#l00067">67</a> of file <a class="el" href="_a_star32_u4_prime_l_c_d_8h_source.html">AStar32U4PrimeLCD.h</a>.</p>
 
 </div>
 </div>
@@ -1136,7 +1138,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 12 2014 17:01:47 for AStar32U4Prime library by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 31 2014 16:35:44 for AStar32U4Prime library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

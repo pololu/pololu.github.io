@@ -43,6 +43,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -74,7 +75,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -115,8 +116,13 @@ Functions</h2></td></tr>
 <tr class="memitem:acf21c49681fe010784b631551ab921f3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_star32_u4_prime_8h.html#acf21c49681fe010784b631551ab921f3">usbPowerPresent</a> ()</td></tr>
 <tr class="memdesc:acf21c49681fe010784b631551ab921f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if USB power is detected.  <a href="#acf21c49681fe010784b631551ab921f3">More...</a><br /></td></tr>
 <tr class="separator:acf21c49681fe010784b631551ab921f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb84fb4e1a6980db0a7eea6487958593"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_star32_u4_prime_8h.html#acb84fb4e1a6980db0a7eea6487958593">readBatteryMillivoltsLV</a> (uint8_t pin=A1)</td></tr>
+<tr class="memdesc:acb84fb4e1a6980db0a7eea6487958593"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the battery voltage for an A-Star 32U4 Prime LV and returns it in millivolts.  <a href="#acb84fb4e1a6980db0a7eea6487958593">More...</a><br /></td></tr>
+<tr class="separator:acb84fb4e1a6980db0a7eea6487958593"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4006e57c2c8475f68ad4a5ea7dbdc2a"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_star32_u4_prime_8h.html#ab4006e57c2c8475f68ad4a5ea7dbdc2a">readBatteryMillivoltsSV</a> (uint8_t pin=A1)</td></tr>
+<tr class="memdesc:ab4006e57c2c8475f68ad4a5ea7dbdc2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the battery voltage for an A-Star 32U4 Prime SV and returns it in millivolts.  <a href="#ab4006e57c2c8475f68ad4a5ea7dbdc2a">More...</a><br /></td></tr>
+<tr class="separator:ab4006e57c2c8475f68ad4a5ea7dbdc2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a043505afa78c02cc8caae0521c8cfa8a"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_a_star32_u4_prime_8h.html#a043505afa78c02cc8caae0521c8cfa8a">readBatteryMillivolts</a> (uint8_t pin=A1)</td></tr>
-<tr class="memdesc:a043505afa78c02cc8caae0521c8cfa8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the battery voltage and returns it in millivolts.  <a href="#a043505afa78c02cc8caae0521c8cfa8a">More...</a><br /></td></tr>
 <tr class="separator:a043505afa78c02cc8caae0521c8cfa8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -249,17 +255,83 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000001">Deprecated:</a></b></dt><dd>This function is deprecated and is only here for backwards compatibility. We recommend using <a class="el" href="_a_star32_u4_prime_8h.html#acb84fb4e1a6980db0a7eea6487958593" title="Reads the battery voltage for an A-Star 32U4 Prime LV and returns it in millivolts. ">readBatteryMillivoltsLV()</a> instead. </dd></dl>
 
-<p>Reads the battery voltage and returns it in millivolts. </p>
-<p>This function performs an analog reading and uses it to compute the voltage on the A-Star 32U4's VIN pin in millivolts. This only works if the specified pin (A1 by default) has been connected to BATLEV.</p>
+<p>Definition at line <a class="el" href="_a_star32_u4_prime_8h_source.html#l00128">128</a> of file <a class="el" href="_a_star32_u4_prime_8h_source.html">AStar32U4Prime.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acb84fb4e1a6980db0a7eea6487958593"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t readBatteryMillivoltsLV </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>pin</em> = <code>A1</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reads the battery voltage for an A-Star 32U4 Prime LV and returns it in millivolts. </p>
+<p>This function performs an analog reading and uses it to compute the voltage on the A-Star 32U4 Prime LV's VIN pin in millivolts. This only works if the specified pin (A1 by default) has been connected to BATLEV.</p>
+<p>This function is only meant to be run on the A-Star 32U4 Prime LV (the blue board) and will give incorrect results on other versions.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pin</td><td>The pin number to read. This argument is passed on to analogRead. The default value is <code>A1</code>. </td></tr>
+    <tr><td class="paramname">pin</td><td>The pin number to read. This argument is passed on to analogRead. The default value is <code>A1</code>.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="_a_star32_u4_prime_8h.html#ab4006e57c2c8475f68ad4a5ea7dbdc2a" title="Reads the battery voltage for an A-Star 32U4 Prime SV and returns it in millivolts. ">readBatteryMillivoltsSV()</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_a_star32_u4_prime_8h_source.html#l00073">73</a> of file <a class="el" href="_a_star32_u4_prime_8h_source.html">AStar32U4Prime.h</a>.</p>
+<p>Definition at line <a class="el" href="_a_star32_u4_prime_8h_source.html#l00078">78</a> of file <a class="el" href="_a_star32_u4_prime_8h_source.html">AStar32U4Prime.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab4006e57c2c8475f68ad4a5ea7dbdc2a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t readBatteryMillivoltsSV </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>pin</em> = <code>A1</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reads the battery voltage for an A-Star 32U4 Prime SV and returns it in millivolts. </p>
+<p>This function performs an analog reading and uses it to compute the voltage on the A-Star 32U4 Prime SV's VIN pin in millivolts. This only works if the specified pin (A1 by default) has been connected to BATLEV.</p>
+<p>This function is only meant to be run on the A-Star 32U4 Prime SV (the green board) and will give incorrect results on other versions.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td>The pin number to read. This argument is passed on to analogRead. The default value is <code>A1</code>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="_a_star32_u4_prime_8h.html#acb84fb4e1a6980db0a7eea6487958593" title="Reads the battery voltage for an A-Star 32U4 Prime LV and returns it in millivolts. ">readBatteryMillivoltsLV()</a> </dd></dl>
+
+<p>Definition at line <a class="el" href="_a_star32_u4_prime_8h_source.html#l00109">109</a> of file <a class="el" href="_a_star32_u4_prime_8h_source.html">AStar32U4Prime.h</a>.</p>
 
 </div>
 </div>
@@ -295,7 +367,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 12 2014 17:01:47 for AStar32U4Prime library by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 31 2014 16:35:44 for AStar32U4Prime library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
