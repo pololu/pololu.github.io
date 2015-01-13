@@ -43,6 +43,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -75,7 +76,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -91,13 +92,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;# AStar32U4Prime library</div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;Version: 1.0.0&lt;br/&gt;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;Release date: 2014 Dec 11&lt;br/&gt;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;Version: 1.1.0&lt;br/&gt;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;Release date: 2014 Dec 31&lt;br/&gt;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;[www.pololu.com](http://www.pololu.com/)</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;## Summary</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;This is a C++ library for the Arduino IDE that helps access the on-board hardware of the A-Star 32U4 Prime, which is a programmable controller from Pololu based on the ATmega32U4.  You can program the A-Star 32U4 Prime directly from the Arduino IDE without using this library, but this library makes it easy to:</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;This is a C++ library for the Arduino IDE that helps access the on-board hardware of the [A-Star 32U4 Prime](http://www.pololu.com/category/165/a-star-32u4-prime), which is a family of programmable controllers from Pololu based on the ATmega32U4.  You can program the A-Star 32U4 Prime directly from the Arduino IDE without using this library, but this library makes it easy to:</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;* display information on the LCD</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;* play sounds and music on the buzzer</div>
@@ -129,38 +130,40 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;* ledGreen()</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;* ledRed()</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;* ledYellow()</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;* readBatteryMillivolts()</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;* usbPowerPresent()</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;## Component libraries</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;This library also includes copies of several other Arduino libraries inside it which are used to help implement the classes and functions above:</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;* [FastGPIO](https://github.com/pololu/fastgpio-arduino)</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;* [PololuBuzzer](https://github.com/pololu/pololu-buzzer-arduino)</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;* [PololuHD44780](https://github.com/pololu/pololu-hd44780-arduino)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;* [Pushbutton](https://github.com/pololu/pushbutton-arduino)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;* [USBPause](https://github.com/pololu/usb-pause-arduino)</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;The Pushbutton and FastGPIO libraries are generally useful and you might want to use them directly in your sketch.  You can use these libraries automatically without any extra installation steps and without needing to add any extra `#include` lines to your sketch.</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;You should avoid adding extra `#include` lines such as `#include &lt;Pushbutton.h&gt;` because then the Arduino IDE might try to use the standalone %Pushbutton library (if you previously installed it), and it would conflict with the copy of the Pushbutton code included in the AStar32U4Prime library.  The only `#include` line needed to access all features of this library is:</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;~~~{.cpp}</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;#include &lt;AStar32U4Prime.h&gt;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;~~~</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;## Documentation</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;For complete documentation, see https://pololu.github.io/a-star-32u4-prime.  If you are already on that page, then click on the links in the &quot;Classes and functions&quot; section above.</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;## Version history</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;* 1.0.0 (2014 Dec 11): Original release.</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;* readBatteryMillivoltsLV()</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;* readBatteryMillivoltsSV()</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;* usbPowerPresent()</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;## Component libraries</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;This library also includes copies of several other Arduino libraries inside it which are used to help implement the classes and functions above:</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;* [FastGPIO](https://github.com/pololu/fastgpio-arduino)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;* [PololuBuzzer](https://github.com/pololu/pololu-buzzer-arduino)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;* [PololuHD44780](https://github.com/pololu/pololu-hd44780-arduino)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;* [Pushbutton](https://github.com/pololu/pushbutton-arduino)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;* [USBPause](https://github.com/pololu/usb-pause-arduino)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;The Pushbutton and FastGPIO libraries are generally useful and you might want to use them directly in your sketch.  You can use these libraries automatically without any extra installation steps and without needing to add any extra `#include` lines to your sketch.</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;You should avoid adding extra `#include` lines such as `#include &lt;Pushbutton.h&gt;` because then the Arduino IDE might try to use the standalone %Pushbutton library (if you previously installed it), and it would conflict with the copy of the Pushbutton code included in the AStar32U4Prime library.  The only `#include` line needed to access all features of this library is:</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;~~~{.cpp}</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;#include &lt;AStar32U4Prime.h&gt;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;~~~</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;## Documentation</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;For complete documentation, see https://pololu.github.io/a-star-32u4-prime.  If you are already on that page, then click on the links in the &quot;Classes and functions&quot; section above.</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;## Version history</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;* 1.1.0 (2014 Dec 31): Added support for the A-Star 32U4 Prime SV.</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;* 1.0.0 (2014 Dec 11): Original release.</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 12 2014 17:01:47 for AStar32U4Prime library by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 31 2014 16:35:44 for AStar32U4Prime library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

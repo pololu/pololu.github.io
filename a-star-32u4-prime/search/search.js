@@ -12,7 +12,8 @@ var indexSectionsWithContent =
   2: "afpsu",
   3: "abcdghilnprsuw",
   4: "s",
-  5: "adpsz"
+  5: "adpsz",
+  6: "d"
 };
 
 var indexSectionNames =
@@ -22,7 +23,8 @@ var indexSectionNames =
   2: "files",
   3: "functions",
   4: "variables",
-  5: "defines"
+  5: "defines",
+  6: "pages"
 };
 
 function convertToId(search)

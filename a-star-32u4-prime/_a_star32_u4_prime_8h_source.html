@@ -43,6 +43,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -75,7 +76,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -121,25 +122,50 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">return</span> USBSTA &gt;&gt; VBUS &amp; 1;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="_a_star32_u4_prime_8h.html#a043505afa78c02cc8caae0521c8cfa8a">   73</a></span>&#160;<span class="keyword">inline</span> uint16_t <a class="code" href="_a_star32_u4_prime_8h.html#a043505afa78c02cc8caae0521c8cfa8a">readBatteryMillivolts</a>(uint8_t pin = A1)</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">const</span> uint8_t sampleCount = 8;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    uint16_t sum = 0;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">for</span> (uint8_t i = 0; i &lt; sampleCount; i++)</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        sum += analogRead(pin);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="comment">// VBAT = 3 * millivolt reading = 3 * raw * 5000/1024</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="comment">//      = raw * 1875 / 128</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="comment">// The 63 below makes it so that we round to the nearest</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="comment">// whole number instead of always rounding down.</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">return</span> ((uint32_t)(sum / sampleCount) * 1875 + 63) / 128;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="_a_star32_u4_prime_8h.html#acb84fb4e1a6980db0a7eea6487958593">   78</a></span>&#160;<span class="keyword">inline</span> uint16_t <a class="code" href="_a_star32_u4_prime_8h.html#acb84fb4e1a6980db0a7eea6487958593">readBatteryMillivoltsLV</a>(uint8_t pin = A1)</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;{</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">const</span> uint8_t sampleCount = 8;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    uint16_t sum = 0;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">for</span> (uint8_t i = 0; i &lt; sampleCount; i++)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        sum += analogRead(pin);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">// VBAT = 3 * millivolt reading = 3 * raw * 5000/1024</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="comment">//      = raw * 1875 / 128</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="comment">// The correction number below makes it so that we round to the nearest</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment">// whole number instead of always rounding down.</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keyword">const</span> uint16_t correction = 64 * sampleCount - 1;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">return</span> ((uint32_t)sum * 1875 + correction) / (128 * sampleCount);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="_a_star32_u4_prime_8h.html#ab4006e57c2c8475f68ad4a5ea7dbdc2a">  109</a></span>&#160;<span class="keyword">inline</span> uint16_t <a class="code" href="_a_star32_u4_prime_8h.html#ab4006e57c2c8475f68ad4a5ea7dbdc2a">readBatteryMillivoltsSV</a>(uint8_t pin = A1)</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;{</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keyword">const</span> uint8_t sampleCount = 8;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    uint16_t sum = 0;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">for</span> (uint8_t i = 0; i &lt; sampleCount; i++)</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    {</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        sum += analogRead(pin);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    }</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="comment">// VBAT = 8 * millivolt reading = 8 * raw * 5000/1024</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="comment">//      = raw * 625 / 16</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="comment">// The correction number below makes it so that we round to the nearest</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="comment">// whole number instead of always rounding down.</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keyword">const</span> uint16_t correction = 8 * sampleCount - 1;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordflow">return</span> ((uint32_t)sum * 625 + correction) / (16 * sampleCount);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;}</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="_a_star32_u4_prime_8h.html#a043505afa78c02cc8caae0521c8cfa8a">  128</a></span>&#160;<span class="keyword">inline</span> uint16_t <a class="code" href="_a_star32_u4_prime_8h.html#a043505afa78c02cc8caae0521c8cfa8a">readBatteryMillivolts</a>(uint8_t pin = A1)</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;{</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="_a_star32_u4_prime_8h.html#acb84fb4e1a6980db0a7eea6487958593">readBatteryMillivoltsLV</a>(pin);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;}</div>
 <div class="ttc" id="_a_star32_u4_prime_8h_html_a7528cb14b314ccde63c94049402d01c6"><div class="ttname"><a href="_a_star32_u4_prime_8h.html#a7528cb14b314ccde63c94049402d01c6">ledYellow</a></div><div class="ttdeci">void ledYellow(bool on)</div><div class="ttdoc">Turns the yellow user LED on pin 13 on or off. </div><div class="ttdef"><b>Definition:</b> <a href="_a_star32_u4_prime_8h_source.html#l00034">AStar32U4Prime.h:34</a></div></div>
 <div class="ttc" id="class_fast_g_p_i_o_1_1_pin_html_a87fb88b3ea6343db0e4a06f579a10249"><div class="ttname"><a href="class_fast_g_p_i_o_1_1_pin.html#a87fb88b3ea6343db0e4a06f579a10249">FastGPIO::Pin::setOutput</a></div><div class="ttdeci">static void setOutput(bool value) __attribute__((always_inline))</div><div class="ttdoc">Sets the pin as an output. </div><div class="ttdef"><b>Definition:</b> <a href="_fast_g_p_i_o_8h_source.html#l00260">FastGPIO.h:260</a></div></div>
+<div class="ttc" id="_a_star32_u4_prime_8h_html_ab4006e57c2c8475f68ad4a5ea7dbdc2a"><div class="ttname"><a href="_a_star32_u4_prime_8h.html#ab4006e57c2c8475f68ad4a5ea7dbdc2a">readBatteryMillivoltsSV</a></div><div class="ttdeci">uint16_t readBatteryMillivoltsSV(uint8_t pin=A1)</div><div class="ttdoc">Reads the battery voltage for an A-Star 32U4 Prime SV and returns it in millivolts. </div><div class="ttdef"><b>Definition:</b> <a href="_a_star32_u4_prime_8h_source.html#l00109">AStar32U4Prime.h:109</a></div></div>
+<div class="ttc" id="_a_star32_u4_prime_8h_html_acb84fb4e1a6980db0a7eea6487958593"><div class="ttname"><a href="_a_star32_u4_prime_8h.html#acb84fb4e1a6980db0a7eea6487958593">readBatteryMillivoltsLV</a></div><div class="ttdeci">uint16_t readBatteryMillivoltsLV(uint8_t pin=A1)</div><div class="ttdoc">Reads the battery voltage for an A-Star 32U4 Prime LV and returns it in millivolts. </div><div class="ttdef"><b>Definition:</b> <a href="_a_star32_u4_prime_8h_source.html#l00078">AStar32U4Prime.h:78</a></div></div>
 <div class="ttc" id="_a_star32_u4_prime_l_c_d_8h_html"><div class="ttname"><a href="_a_star32_u4_prime_l_c_d_8h.html">AStar32U4PrimeLCD.h</a></div></div>
-<div class="ttc" id="_a_star32_u4_prime_8h_html_a043505afa78c02cc8caae0521c8cfa8a"><div class="ttname"><a href="_a_star32_u4_prime_8h.html#a043505afa78c02cc8caae0521c8cfa8a">readBatteryMillivolts</a></div><div class="ttdeci">uint16_t readBatteryMillivolts(uint8_t pin=A1)</div><div class="ttdoc">Reads the battery voltage and returns it in millivolts. </div><div class="ttdef"><b>Definition:</b> <a href="_a_star32_u4_prime_8h_source.html#l00073">AStar32U4Prime.h:73</a></div></div>
+<div class="ttc" id="_a_star32_u4_prime_8h_html_a043505afa78c02cc8caae0521c8cfa8a"><div class="ttname"><a href="_a_star32_u4_prime_8h.html#a043505afa78c02cc8caae0521c8cfa8a">readBatteryMillivolts</a></div><div class="ttdeci">uint16_t readBatteryMillivolts(uint8_t pin=A1)</div><div class="ttdef"><b>Definition:</b> <a href="_a_star32_u4_prime_8h_source.html#l00128">AStar32U4Prime.h:128</a></div></div>
 <div class="ttc" id="_fast_g_p_i_o_8h_html"><div class="ttname"><a href="_fast_g_p_i_o_8h.html">FastGPIO.h</a></div></div>
 <div class="ttc" id="_a_star32_u4_prime_8h_html_acf21c49681fe010784b631551ab921f3"><div class="ttname"><a href="_a_star32_u4_prime_8h.html#acf21c49681fe010784b631551ab921f3">usbPowerPresent</a></div><div class="ttdeci">bool usbPowerPresent()</div><div class="ttdoc">Returns true if USB power is detected. </div><div class="ttdef"><b>Definition:</b> <a href="_a_star32_u4_prime_8h_source.html#l00059">AStar32U4Prime.h:59</a></div></div>
 <div class="ttc" id="_pushbutton_8h_html"><div class="ttname"><a href="_pushbutton_8h.html">Pushbutton.h</a></div></div>
@@ -150,7 +176,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 12 2014 17:01:47 for AStar32U4Prime library by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 31 2014 16:35:44 for AStar32U4Prime library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
