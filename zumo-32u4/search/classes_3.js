@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['usbpause',['USBPause',['../class_u_s_b_pause.html',1,'']]]
+  ['remotedecoder',['RemoteDecoder',['../class_remote_decoder.html',1,'']]]
 ];
