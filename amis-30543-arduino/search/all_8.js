@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['setcurrentmilliamps',['setCurrentMilliamps',['../class_a_m_i_s30543.html#a57bc03956b8553ed48cf98ec85896a5a',1,'AMIS30543']]],
+  ['setdirection',['setDirection',['../class_a_m_i_s30543.html#a079b878385124d80356b2554e9234a60',1,'AMIS30543']]],
+  ['setpwmfrequencydefault',['setPwmFrequencyDefault',['../class_a_m_i_s30543.html#ab3931708c4d056f136f52cabf674aa27',1,'AMIS30543']]],
+  ['setpwmfrequencydouble',['setPwmFrequencyDouble',['../class_a_m_i_s30543.html#a256b758ee93c9bf6051390ed3b583507',1,'AMIS30543']]],
+  ['setpwmjitteroff',['setPwmJitterOff',['../class_a_m_i_s30543.html#a0aaac448a52b6bfa5f1b1a7aaf7123d6',1,'AMIS30543']]],
+  ['setpwmjitteron',['setPwmJitterOn',['../class_a_m_i_s30543.html#a1ae2656b6031acc5d3566333efbea10f',1,'AMIS30543']]],
+  ['setpwmslope',['setPwmSlope',['../class_a_m_i_s30543.html#a1283c3ef95306f2c064804e7776d70d6',1,'AMIS30543']]],
+  ['setslagaindefault',['setSlaGainDefault',['../class_a_m_i_s30543.html#afb90c478bdc24c33c4db22662cd32ab6',1,'AMIS30543']]],
+  ['setslagainhalf',['setSlaGainHalf',['../class_a_m_i_s30543.html#a30a577c65a39906c338a42e5b5ebc71b',1,'AMIS30543']]],
+  ['setslatransparencyoff',['setSlaTransparencyOff',['../class_a_m_i_s30543.html#a1c02f78ec2cc9215604b0044ad9b49c1',1,'AMIS30543']]],
+  ['setslatransparencyon',['setSlaTransparencyOn',['../class_a_m_i_s30543.html#a2b150b870ca22b01709241fd51e3c7c8',1,'AMIS30543']]],
+  ['setstepmode',['setStepMode',['../class_a_m_i_s30543.html#aca1389f2db68313ac91ac266ac489fa9',1,'AMIS30543']]],
+  ['sleep',['sleep',['../class_a_m_i_s30543.html#a8be20318daab299f45838e5806e8875b',1,'AMIS30543']]],
+  ['sleepstop',['sleepStop',['../class_a_m_i_s30543.html#a1b36edf75b72ba19dbe436dccb46d6b8',1,'AMIS30543']]],
+  ['stepmode',['stepMode',['../class_a_m_i_s30543.html#aa19ea6c14b66853f489edb261b53e63a',1,'AMIS30543']]],
+  ['steponfallingedge',['stepOnFallingEdge',['../class_a_m_i_s30543.html#aeddea05fc561e4615c75ca9b1f75f397',1,'AMIS30543']]],
+  ['steponrisingedge',['stepOnRisingEdge',['../class_a_m_i_s30543.html#a24b3f4b423331865119095bf04cee847',1,'AMIS30543']]]
+];
