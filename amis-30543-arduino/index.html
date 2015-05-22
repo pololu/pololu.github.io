@@ -103,10 +103,9 @@ Arduino MISO    - driver DO
 Arduino GND     - driver GND
 </pre><p>The DO pin is only needed if you want to read information back from the stepper driver. The DIR pin is also optional and not used in every example.</p>
 <p>The SPI pins (MOSI, MISO, and SCK) on Arduino-compatible boards are sometimes not labeled. You should refer to the documentation for your particular board to find the locations of these pins.</p>
-<p>On the <a href="https://www.pololu.com/product/2191">Arduino Uno</a>, <a href="https://www.pololu.com/product/2192">Arduino Leonardo</a>, and the <a href="https://www.pololu.com/category/149/a-star-programmable-controllers">A-Star 32U4 controllers</a>, the SPI pins (SCK, MOSI, and MISO) can be found on the 6-pin ISP header.</p>
-<p>The <a href="https://www.pololu.com/product/2191">Arduino Uno</a> has additional access points for the SPI pins: pin 11 is MOSI, pin 12 is MISO, and pin 13 is SCK.</p>
+<p>On the <a href="https://www.pololu.com/product/2191">Arduino Uno</a>, <a href="https://www.pololu.com/product/2192">Arduino Leonardo</a>, and the <a href="https://www.pololu.com/category/149/a-star-programmable-controllers">A-Star 32U4 controllers</a>, the SPI pins (SCK, MOSI, and MISO) can be found on the 6-pin ISP header. The <a href="https://www.pololu.com/product/2191">Arduino Uno</a> has additional access points for the SPI pins: pin 11 is MOSI, pin 12 is MISO, and pin 13 is SCK.</p>
 <h3>Software</h3>
-<p>If you are using version 1.6.2 or later of the <a href="http://www.arduino.cc/en/Main/Software">Arduino IDE</a>, you can use the Library Manager to install this library:</p>
+<p>If you are using version 1.6.2 or later of the <a href="http://www.arduino.cc/en/Main/Software">Arduino software (IDE)</a>, you can use the Library Manager to install this library:</p>
 <ol type="1">
 <li>In the Arduino IDE, open the "Sketch" menu, select "Include Library", then "Manage Libraries...".</li>
 <li>Search for "AMIS30543".</li>
@@ -117,7 +116,7 @@ Arduino GND     - driver GND
 <ol type="1">
 <li>Download the <a href="https://github.com/pololu/amis-30543-arduino/releases">latest release archive from GitHub</a> and decompress it.</li>
 <li>Rename the folder "amis-30543-arduino-xxxx" to "AMIS30543".</li>
-<li>Drag the "AMIS30543" folder into the "libraries" directory inside your Arduino sketchbook directory. You can view your sketchbook location by opening the **"File"** menu and selecting **"Preferences"** in the Arduino IDE. If there is not already a "libraries" folder in that location, you should make the folder yourself.</li>
+<li>Drag the "AMIS30543" folder into the "libraries" directory inside your Arduino sketchbook directory. You can view your sketchbook location by opening the "File" menu and selecting "Preferences" in the Arduino IDE. If there is not already a "libraries" folder in that location, you should make the folder yourself.</li>
 <li>After installing the library, restart the Arduino IDE.</li>
 </ol>
 <h2>Examples</h2>
@@ -143,7 +142,7 @@ Arduino GND     - driver GND
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu May 21 2015 20:39:04 for AMIS30543 library by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 21 2015 21:03:10 for AMIS30543 library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

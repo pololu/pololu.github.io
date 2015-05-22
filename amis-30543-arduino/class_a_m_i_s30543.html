@@ -511,7 +511,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>cr3</b></td></tr>
 <p>The return value is a 16-bit unsigned integer that has one bit for each status flag. You can simply compare the return value to 0 to see if any of the status flags are set, or you can use the logical and operator (<code>&amp;</code>) and the <a class="el" href="class_a_m_i_s30543.html#a1b21a3cf0a5a20f28ab4d701ab2ee3fc">latchedStatusFlag</a> enum to check individual flags.</p>
 <p>WARNING: Calling this function clears the latched error bits in SR1 and SR2, which might allow the motor driver outputs to reactivate. The AMIS-30543 datasheet says "successive reading the SPI Status Registers 1 and 2 in case of a short circuit condition, may lead to damage to the drivers". </p>
 
-<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00528">528</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
+<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00531">531</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
 
 </div>
 </div>
@@ -549,7 +549,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>cr3</b></td></tr>
 <div class="line"></div>
 <div class="line">}</div>
 </div><!-- fragment --> 
-<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00510">510</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
+<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00513">513</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
 
 </div>
 </div>
@@ -605,7 +605,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>cr3</b></td></tr>
 </div><div class="memdoc">
 <p>Reads a status register and returns the lower 7 bits (the parity bit is set to 0 in the return value). </p>
 
-<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00541">541</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
+<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00544">544</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
 
 </div>
 </div>
@@ -715,7 +715,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>cr3</b></td></tr>
 </div><div class="memdoc">
 <p>Clears the PWMF bit, which sets the PWM frequency to its default value (22.8 kHz). </p>
 
-<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00415">415</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
+<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00418">418</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
 
 </div>
 </div>
@@ -741,7 +741,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>cr3</b></td></tr>
 </div><div class="memdoc">
 <p>Sets the PWMF bit to 1, which doubles the PWM frequency (45.6 kHz) . </p>
 
-<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00407">407</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
+<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00410">410</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
 
 </div>
 </div>
@@ -767,7 +767,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>cr3</b></td></tr>
 </div><div class="memdoc">
 <p>Clears the PWMJ bit, which disables artificial jittering in the PWM signal used to control the current to each coil. This is the default setting. </p>
 
-<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00432">432</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
+<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00435">435</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
 
 </div>
 </div>
@@ -793,7 +793,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>cr3</b></td></tr>
 </div><div class="memdoc">
 <p>Sets the PWMJ bit, which enables artificial jittering in the PWM signal used to control the current to each coil. </p>
 
-<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00423">423</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
+<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00426">426</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
 
 </div>
 </div>
@@ -820,7 +820,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>cr3</b></td></tr>
 </div><div class="memdoc">
 <p>This sets the EMC[1:0] bits, which determine how long it takes the PWM signal to rise or fall. Valid values are 0 through 3. Higher values correspond to longer rise and fall times. </p>
 
-<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00441">441</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
+<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00444">444</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
 
 </div>
 </div>
@@ -847,7 +847,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>cr3</b></td></tr>
 <p>Clears the SLAG bit, which configures the signal on SLA pin to have a gain of 0.5 (the default).</p>
 <p>Please read the note about this function in <a class="el" href="_r_e_a_d_m_e_8md_source.html">README.md</a>. </p>
 
-<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00451">451</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
+<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00454">454</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
 
 </div>
 </div>
@@ -874,7 +874,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>cr3</b></td></tr>
 <p>Sets the SLAG bit to 1, which configures the signal on SLA pin to have a gain of 0.25 (half of the default).</p>
 <p>Please read the note about this function in <a class="el" href="_r_e_a_d_m_e_8md_source.html">README.md</a>. </p>
 
-<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00461">461</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
+<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00464">464</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
 
 </div>
 </div>
@@ -901,7 +901,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>cr3</b></td></tr>
 <p>Set the SLAT bit to 0 (the default), which disables transparency on the SLA pin. See the AMIS-30543 datasheet for more information.</p>
 <p>Please read the note about this function in <a class="el" href="_r_e_a_d_m_e_8md_source.html">README.md</a>. </p>
 
-<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00471">471</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
+<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00474">474</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
 
 </div>
 </div>
@@ -928,7 +928,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>cr3</b></td></tr>
 <p>Sets the SLAT bit to 1, which enables transparency on the SLA pin. See the AMIS-30543 datasheet for more information.</p>
 <p>Please read the note about this function in <a class="el" href="_r_e_a_d_m_e_8md_source.html">README.md</a>. </p>
 
-<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00481">481</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
+<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00484">484</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
 
 </div>
 </div>
@@ -955,9 +955,10 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>cr3</b></td></tr>
 </div><div class="memdoc">
 <p>Configures the driver to have the specified stepping mode.</p>
 <p>This affects many things about the performance of the motor, including how much the output moves for each step taken and how much current flows through the coils in each stepping position.</p>
+<p>The argument to this function should be one of the members of the <a class="el" href="class_a_m_i_s30543.html#aa19ea6c14b66853f489edb261b53e63a">stepMode</a> enum.</p>
 <p>If an invalid stepping mode is passed to this function, then it selects 1/32 micro-step, which is the driver's default. </p>
 
-<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00337">337</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
+<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00340">340</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
 
 </div>
 </div>
@@ -986,7 +987,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>cr3</b></td></tr>
 <p>You can call <a class="el" href="class_a_m_i_s30543.html#a1b36edf75b72ba19dbe436dccb46d6b8">sleepStop()</a> to disable sleep mode.</p>
 <p>Please read the note about this function in <a class="el" href="_r_e_a_d_m_e_8md_source.html">README.md</a>. </p>
 
-<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00374">374</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
+<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00377">377</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
 
 </div>
 </div>
@@ -1013,7 +1014,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>cr3</b></td></tr>
 <p>Sets the SLP bit 0, disabling sleep mode.</p>
 <p>Please read the note about this function in <a class="el" href="_r_e_a_d_m_e_8md_source.html">README.md</a>. </p>
 
-<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00383">383</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
+<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00386">386</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
 
 </div>
 </div>
@@ -1039,7 +1040,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>cr3</b></td></tr>
 </div><div class="memdoc">
 <p>Sets the value of the NXTP configuration bit to 1, which means that new steps are triggered by a falling edge on the NXT/STEP pin. </p>
 
-<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00400">400</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
+<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00403">403</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
 
 </div>
 </div>
@@ -1065,7 +1066,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>cr3</b></td></tr>
 </div><div class="memdoc">
 <p>Sets the value of the NXTP configuration bit to 0, which means that new steps are triggered by a rising edge on the NXT/STEP pin. This is the default behavior. </p>
 
-<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00392">392</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
+<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00395">395</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
 
 </div>
 </div>
@@ -1119,7 +1120,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>cr3</b></td></tr>
 </div><div class="memdoc">
 <p>Writes the cached value of the CR0 register to the device. </p>
 
-<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00556">556</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
+<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00559">559</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
 
 </div>
 </div>
@@ -1145,7 +1146,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>cr3</b></td></tr>
 </div><div class="memdoc">
 <p>Writes the cached value of the CR1 register to the device. </p>
 
-<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00562">562</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
+<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00565">565</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
 
 </div>
 </div>
@@ -1171,7 +1172,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>cr3</b></td></tr>
 </div><div class="memdoc">
 <p>Writes the cached value of the CR3 register to the device. </p>
 
-<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00568">568</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
+<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00571">571</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
 
 </div>
 </div>
@@ -1197,7 +1198,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>cr3</b></td></tr>
 </div><div class="memdoc">
 <p>Writes the cached value of the WR register to the device. </p>
 
-<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00550">550</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
+<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00553">553</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
 
 </div>
 </div>
@@ -1213,7 +1214,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>cr3</b></td></tr>
 </div><div class="memdoc">
 <p>This object handles all the communication with the AMIS-30543. It is only marked as public for the purpose of testing this library; you should not use it in your code. </p>
 
-<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00577">577</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
+<p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00580">580</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
 
 </div>
 </div>
@@ -1223,7 +1224,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>cr3</b></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu May 21 2015 20:32:58 for AMIS30543 library by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 21 2015 21:03:10 for AMIS30543 library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>
