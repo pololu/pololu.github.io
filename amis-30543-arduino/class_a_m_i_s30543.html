@@ -574,7 +574,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>cr3</b></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Reads the current microstepping position, which is a number between 0 and 511.</p>
-<p>The different positions and their corresponding coil values are listed in Table 9 of the AMIS 30543 datasheet.</p>
+<p>The different positions and their corresponding coil values are listed in Table 9 of the AMIS-30543 datasheet.</p>
 <p>The lower two bits of this return value might be inaccurate if the step pin is being toggled while this function runs (e.g. from an interrupt or a PWM signal).</p>
 <p>Our tests indicated that the return value of this function might be wrong if you read it within 25 microseconds of commanding the driver to take a step. Therefore we recommend delaying for at least 100 microseconds after taking a step and before calling this function. </p>
 
@@ -658,7 +658,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>cr3</b></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Sets the per-coil current limit equal to the highest available setting that is less than the given current, in units of milliamps.</p>
-<p>Refer to Table 13 of the AMIS 30543 datasheet to see which current limits are available. </p>
+<p>Refer to Table 13 of the AMIS-30543 datasheet to see which current limits are available. </p>
 
 <p>Definition at line <a class="el" href="_a_m_i_s30543_8h_source.html#l00247">247</a> of file <a class="el" href="_a_m_i_s30543_8h_source.html">AMIS30543.h</a>.</p>
 
@@ -1224,7 +1224,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>cr3</b></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu May 21 2015 21:03:10 for AMIS30543 library by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue May 26 2015 12:50:48 for AMIS30543 library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

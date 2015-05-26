@@ -84,8 +84,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">AMIS30543 library Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Version: 1.0.0<br />
- Release date: 2015 May 21<br />
+<div class="textblock"><p>Version: 1.1.0<br />
+ Release date: 2015 May 26<br />
  <a href="https://www.pololu.com/">www.pololu.com</a></p>
 <h2>Summary</h2>
 <p>This is a C++ library for the Arduino IDE that helps interface with an <a href="https://www.pololu.com/product/2970">AMIS-30543 micro-stepping stepper motor driver</a>. It uses the <a href="http://www.arduino.cc/en/Reference/SPI">Arduino SPI</a> library to communicate with the SPI interface (CS, DO, DI, and CLK) of the AMIS-30543.</p>
@@ -94,14 +94,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h2>Getting started</h2>
 <h3>Hardware</h3>
 <p>An <a href="https://www.pololu.com/product/2970">AMIS-30543 carrier</a> can be purchased from Pololu's website. Before continuing, careful reading of the <a href="https://www.pololu.com/product/2970">product page</a> as well as the AMIS-30543 datasheet is recommended.</p>
-<p>You will need to connect your motor, motor power, and IOREF as described on the product page. You should also make the following connections between the Arduino and the driver: </p><pre class="fragment">Arduino pin 6   - driver DIR
-Arduino pin 5   - driver STEP
+<p>You will need to connect your motor, motor power, and IOREF as described on the product page. You should also make the following connections between the Arduino and the driver: </p><pre class="fragment">Arduino pin 2   - driver DIR
+Arduino pin 3   - driver STEP
 Arduino pin 4   - driver CS
 Arduino SCK     - driver CLK
 Arduino MOSI    - driver DI
 Arduino MISO    - driver DO
 Arduino GND     - driver GND
-</pre><p>The DO pin is only needed if you want to read information back from the stepper driver. The DIR pin is also optional and not used in every example.</p>
+</pre><p>The DO pin is only needed if you want to read information back from the stepper driver. Since the direction of the motor can be changed using the SPI interface, the DIR pin is also optional and not used in every example.</p>
 <p>The SPI pins (MOSI, MISO, and SCK) on Arduino-compatible boards are sometimes not labeled. You should refer to the documentation for your particular board to find the locations of these pins.</p>
 <p>On the <a href="https://www.pololu.com/product/2191">Arduino Uno</a>, <a href="https://www.pololu.com/product/2192">Arduino Leonardo</a>, and the <a href="https://www.pololu.com/category/149/a-star-programmable-controllers">A-Star 32U4 controllers</a>, the SPI pins (SCK, MOSI, and MISO) can be found on the 6-pin ISP header. The <a href="https://www.pololu.com/product/2191">Arduino Uno</a> has additional access points for the SPI pins: pin 11 is MOSI, pin 12 is MISO, and pin 13 is SCK.</p>
 <h3>Software</h3>
@@ -137,12 +137,13 @@ Arduino GND     - driver GND
 <p>An open coil condition is only detected after a motor output PWM signal has been at a 100% duty cycle for 200 milliseconds. Therefore, to detect an open coil, you will need to step the motor sufficiently slowly or you will need to pause the motor's movement for at least 200 ms occasionally. When you pause, you should be sure to pause at a step position where the desired currents in both coils are non-zero. Also, after detecting an open coil, you should avoid stepping the motor until the problem is resolved and the status flags change back to 0. Taking steps during an open coil condition will usually cause the driver to stop detecting the open coil condition and clear the OPENX and OPENY bits.</p>
 <h2>Version history</h2>
 <ul>
+<li>1.1.0 (2015 May 26): Added an example that uses the <a href="http://www.airspayce.com/mikem/arduino/AccelStepper/">AccelStepper</a> library. Moved the DIR and STEP pins in the examples to pins 2 and 3.</li>
 <li>1.0.0 (2015 May 21): Original release. </li>
 </ul>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu May 21 2015 21:03:10 for AMIS30543 library by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue May 26 2015 12:50:48 for AMIS30543 library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

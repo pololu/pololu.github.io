@@ -91,8 +91,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;# AMIS-30543 library for Arduino</div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;Version: 1.0.0&lt;br/&gt;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;Release date: 2015 May 21&lt;br/&gt;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;Version: 1.1.0&lt;br/&gt;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;Release date: 2015 May 26&lt;br/&gt;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;[www.pololu.com](https://www.pololu.com/)</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;## Summary</div>
@@ -111,15 +111,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;You will need to connect your motor, motor power, and IOREF as described on the product page.  You should also make the following connections between the Arduino and the driver:</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    Arduino pin 6   - driver DIR</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    Arduino pin 5   - driver STEP</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    Arduino pin 2   - driver DIR</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    Arduino pin 3   - driver STEP</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    Arduino pin 4   - driver CS</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    Arduino SCK     - driver CLK</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    Arduino MOSI    - driver DI</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    Arduino MISO    - driver DO</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    Arduino GND     - driver GND</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;The DO pin is only needed if you want to read information back from the stepper driver.  The DIR pin is also optional and not used in every example.</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;The DO pin is only needed if you want to read information back from the stepper driver.  Since the direction of the motor can be changed using the SPI interface, the DIR pin is also optional and not used in every example.</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;The SPI pins (MOSI, MISO, and SCK) on Arduino-compatible boards are sometimes not labeled.  You should refer to the documentation for your particular board to find the locations of these pins.</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
@@ -182,11 +182,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;## Version history</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;* 1.0.0 (2015 May 21): Original release.</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;* 1.1.0 (2015 May 26): Added an example that uses the [AccelStepper](http://www.airspayce.com/mikem/arduino/AccelStepper/) library.  Moved the DIR and STEP pins in the examples to pins 2 and 3.</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;* 1.0.0 (2015 May 21): Original release.</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu May 21 2015 21:03:10 for AMIS30543 library by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue May 26 2015 12:50:48 for AMIS30543 library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>
