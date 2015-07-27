@@ -6,7 +6,7 @@
 <title>
   Module: RPicSim::Sim::ClassDefinitionMethods
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -300,8 +300,9 @@
         &mdash;
         <div class='inline'>
 <p>Specifies what you would like to call the pin. A method with this name will
-be added to your class’s <code>Shortcuts</code> module so it is available
-as a method on instances of your class and also in your RSpec tests.</p>
+be added to your class&#39;s <code>Shortcuts</code> module so it is
+available as a method on instances of your class and also in your RSpec
+tests.</p>
 </div>
       
     </li>
@@ -431,7 +432,7 @@ method takes.</p>
         &mdash;
         <div class='inline'>
 <p>Specifies what you would like to call the variable. A method with this name
-will be added to your class’s <code>Shortcuts</code> module so it is
+will be added to your class&#39;s <code>Shortcuts</code> module so it is
 available as a method on instances of your class and also in your RSpec
 tests. The method will return a <span class='object_link'><a href="../Variable.html" title="RPicSim::Variable (class)">Variable</a></span> object that you can use to read
 or write the value of the actual variable in the simulation.</p>
@@ -516,7 +517,7 @@ thing in your tests. This option is ignored if +:address is specified.</p>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_def_var'>def_var</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='ivar'>@variable_set</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>The device and filename need to be specified before defining variables.</span><span class='tstring_end'>'</span></span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>The device and filename need to be specified before defining variables.</span><span class='tstring_end'>&#39;</span></span>
   <span class='kw'>end</span>
 
   <span class='ivar'>@variable_set</span><span class='period'>.</span><span class='id identifier rubyid_def_var'>def_var</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
@@ -677,7 +678,7 @@ this.</p>
       <pre class="code"><span class="info file"># File 'lib/rpicsim/sim.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_use_file'>use_file</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The device needs to be specified before filename (e.g. 'use_device \&quot;PIC10F322\&quot;')</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='ivar'>@device</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The device needs to be specified before filename (e.g. &#39;use_device \&quot;PIC10F322\&quot;&#39;)</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='ivar'>@device</span>
   <span class='ivar'>@filename</span> <span class='op'>=</span> <span class='id identifier rubyid_filename'>filename</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
   <span class='id identifier rubyid_load_program_file'>load_program_file</span>
 <span class='kw'>end</span></pre>
@@ -694,9 +695,9 @@ this.</p>
   
   <br/><br/>
 
-  Generated on Fri Sep 19 10:51:46 2014 by
+  Generated on Mon Jul 27 13:59:28 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-1.9.3).
+  0.8.7.6 (ruby-2.2.2).
 </div>
 
   </body>

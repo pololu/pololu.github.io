@@ -2,11 +2,11 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>
   File: PersistentExpectations
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -81,9 +81,9 @@ of the simulation. It will not catch any accidental glitches on the main
 output pin that occur at a later time.</p>
 
 <p>RPicSim helps to address this by adding a new feature to RSpec examples
-called "persistent expectations". Persistent expectations are implemented
+called “persistent expectations”. Persistent expectations are implemented
 in the module <span class='object_link'><a href="RPicSim/RSpec/PersistentExpectations.html" title="RPicSim::RSpec::PersistentExpectations (module)">RPicSim::RSpec::PersistentExpectations</a></span>, which is part of
-RPicSim's <a href="file.RSpecIntegration.html" title="RSpec integration">RSpec integration</a>.</p>
+RPicSim&#39;s <a href="file.RSpecIntegration.html" title="RSpec integration">RSpec integration</a>.</p>
 
 <h2 id="label-Usage">Usage</h2>
 
@@ -127,9 +127,10 @@ added, but they will be checked after every step of the simulation. You can
 also check them at any time by calling <code>check_expecations</code>
 inside your RSPec example.</p>
 
-<p>Persistent expectations, when combined with RSpec's <code>satisfy</code>
-matcher, are very powerful. If <code>counter</code> is a <span class='object_link'><a href="RPicSim/Variable.html" title="RPicSim::Variable (class)">variable</a></span> in your simulation, you could use this code to ensure that
-<code>counter</code> never goes above 120:</p>
+<p>Persistent expectations, when combined with RSpec&#39;s
+<code>satisfy</code> matcher, are very powerful. If <code>counter</code> is
+a <span class='object_link'><a href="RPicSim/Variable.html" title="RPicSim::Variable (class)">variable</a></span> in your simulation, you could use this code
+to ensure that <code>counter</code> never goes above 120:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expecting'>expecting</span> <span class='id identifier rubyid_counter'>counter</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_satisfy'>satisfy</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span> <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>&lt;=</span> <span class='int'>120</span> <span class='rbrace'>}</span>
 </code></pre>
@@ -166,8 +167,8 @@ after the main input goes high:</p>
 
 <p>In the above example, we removed the persistent expectation on
 <code>main_output</code> temporarily because the device was in a
-transitionary period and we didn't know exactly when the transition would
-happen. We chose to stop monitoring the pin for the duration of the
+transitionary period and we didn&#39;t know exactly when the transition
+would happen. We chose to stop monitoring the pin for the duration of the
 transition and then start monitoring it later, at which point we expect the
 pin to be in its new state. We can rewrite that using block arguments
 instead of explicitly clearing the expectation:</p>
@@ -233,9 +234,9 @@ you want to use it.</p>
   
   <br/><br/>
 
-  Generated on Fri Sep 19 10:51:45 2014 by
+  Generated on Mon Jul 27 13:59:27 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-1.9.3).
+  0.8.7.6 (ruby-2.2.2).
 </div>
 
   </body>

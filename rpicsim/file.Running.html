@@ -2,11 +2,11 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>
   File: Running
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -88,7 +88,7 @@ of <span class='object_link'><a href="RPicSim/Sim.html" title="RPicSim::Sim (cla
 <p><span class='object_link'><a href="RPicSim/Sim.html#goto-instance_method" title="RPicSim::Sim#goto (method)">goto</a></span></p>
 </li></ul>
 
-<p>Each of these methods has a delegator provided by RPicSim's
+<p>Each of these methods has a delegator provided by RPicSim&#39;s
 <a href="file.RSpecIntegration.html" title="RSpec integration">RSpec integration</a>, so in your RSpec examples you
 can just call them by writing something like <code>step</code> and that
 will have the same effect as <code>sim.step</code>. This applies to all the
@@ -112,7 +112,7 @@ order to actually run the simulation.</p>
 <h2 id="label-Running+for+a+set+time">Running for a set time</h2>
 
 <p>RPicSim provides several different ways to run the simulation for a set
-amount of "time".</p>
+amount of “time”.</p>
 
 <p>The <span class='object_link'><a href="RPicSim/Sim.html#run_steps-instance_method" title="RPicSim::Sim#run_steps (method)">run_steps</a></span> method just runs the
 <code>step</code> method the specified number of times:</p>
@@ -155,11 +155,11 @@ which limits how the long simulation can run, in order to avoid an
 accidental infinite loop in your tests. If the limit is exceeded, an
 exception is raised.</p>
 
-<p>For example, to run to a label named "apple":</p>
+<p>For example, to run to a label named “apple”:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_run_to'>run_to</span> <span class='symbol'>:apple</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>100</span></code></pre>
 
-<p>To run until either the "step2" label is reached or the current subroutine
+<p>To run until either the “step2” label is reached or the current subroutine
 returns:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_run_to'>run_to</span> <span class='lbracket'>[</span> <span class='symbol'>:step2</span><span class='comma'>,</span> <span class='symbol'>:return</span> <span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>200</span></code></pre>
@@ -191,8 +191,8 @@ the condition that was met. This can be helpful in tests:</p>
 <p>It is possible to use <span class='object_link'><a href="RPicSim/Sim.html#goto-instance_method" title="RPicSim::Sim#goto (method)">RPicSim::Sim#goto</a></span> and <span class='object_link'><a href="RPicSim/Sim.html#run_to-instance_method" title="RPicSim::Sim#run_to (method)">RPicSim::Sim#run_to</a></span>
 together to just run a small piece of the firmware without regard for the
 rest. This can be useful for unit tests. For example, this code moves the
-devices's program counter to point to the address of the "loopStart" label
-and then runs the simulation until it reaches loopEnd:</p>
+devices&#39;s program counter to point to the address of the “loopStart”
+label and then runs the simulation until it reaches loopEnd:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_goto'>goto</span> <span class='symbol'>:loopStart</span>
 <span class='id identifier rubyid_run_to'>run_to</span> <span class='symbol'>:loopEnd</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>400</span></code></pre>
@@ -230,9 +230,9 @@ those subroutines, you can read and write RAM as described in the
   
   <br/><br/>
 
-  Generated on Fri Sep 19 10:51:44 2014 by
+  Generated on Mon Jul 27 13:59:25 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-1.9.3).
+  0.8.7.6 (ruby-2.2.2).
 </div>
 
   </body>

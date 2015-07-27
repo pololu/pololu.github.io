@@ -2,11 +2,11 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>
   File: Debugging
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -83,13 +83,13 @@ Failures:
   1) FooWidget when exposed to 1.5 ms pulses behaves correctly
      Failure/Error: run_cycles 1500*4
        expected INTCON to satisfy block
-     # ./lib/rpicsim/rspec/persistent_expectations.rb:29:in `check_expectations'
-     # ./lib/rpicsim/rspec/persistent_expectations.rb:27:in `check_expectations'
-     # ./lib/rpicsim/rspec/helpers.rb:25:in `start_sim'
-     # ./lib/rpicsim/sim.rb:574:in `step'
-     # ./lib/rpicsim/sim.rb:716:in `run_to_cycle_count'
-     # ./lib/rpicsim/sim.rb:708:in `run_cycles'
-     # ./spec/foo_widget_spec.rb:10:in `(root)'
+     # ./lib/rpicsim/rspec/persistent_expectations.rb:29:in `check_expectations&#39;
+     # ./lib/rpicsim/rspec/persistent_expectations.rb:27:in `check_expectations&#39;
+     # ./lib/rpicsim/rspec/helpers.rb:25:in `start_sim&#39;
+     # ./lib/rpicsim/sim.rb:574:in `step&#39;
+     # ./lib/rpicsim/sim.rb:716:in `run_to_cycle_count&#39;
+     # ./lib/rpicsim/sim.rb:708:in `run_cycles&#39;
+     # ./spec/foo_widget_spec.rb:10:in `(root)&#39;
 
      Simulation cycle count: 78963
 
@@ -129,8 +129,9 @@ appropriate point in the RSpec example that is failing:</p>
 
 <p>This code runs until the cycle count of the simulation is 78950, and then
 it starts printing debugging information for the next 100 steps. This
-example prints a friendly description of the program counter's value and
-the current value of WREG, but it could be changed to print other things.</p>
+example prints a friendly description of the program counter&#39;s value
+and the current value of WREG, but it could be changed to print other
+things.</p>
 
 <h2 id="label-Interactive+debugging">Interactive debugging</h2>
 
@@ -146,7 +147,7 @@ thing (Ripl, PRY, and IRB).</p>
 <p>In the test that is failing, choose the point where you want to start the
 interactive session and insert this code:</p>
 
-<pre class="code plain"><code class="plain">require 'ruby-debug'; debugger
+<pre class="code plain"><code class="plain">require &#39;ruby-debug&#39;; debugger
 </code></pre>
 
 <p>For best results when using the debugger, you need to provide the
@@ -178,9 +179,9 @@ nil
   
   <br/><br/>
 
-  Generated on Fri Sep 19 10:51:46 2014 by
+  Generated on Mon Jul 27 13:59:27 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-1.9.3).
+  0.8.7.6 (ruby-2.2.2).
 </div>
 
   </body>

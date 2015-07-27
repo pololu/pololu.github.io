@@ -2,11 +2,11 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>
   File: Variables
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -107,7 +107,7 @@ This means that you can access the variable like this:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_counter'>counter</span></code></pre>
 
-<p>A shortcut is also available in RSpec thanks to RPicsim's
+<p>A shortcut is also available in RSpec thanks to RPicsim&#39;s
 <a href="file.RSpecIntegration.html" title="RSpec integration">RSpec integration</a>, so you can simply write
 <code>counter</code> in any of your RSpec examples:</p>
 
@@ -119,8 +119,8 @@ This means that you can access the variable like this:</p>
 variable. This is required. For the full list of allowed types, see
 <span class='object_link'><a href="RPicSim/Sim/ClassDefinitionMethods.html#def_var-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#def_var (method)">RPicSim::Sim::ClassDefinitionMethods#def_var</a></span>.</p>
 
-<p>In the example above, RPicSim will look in your firmware's COF file for a
-RAM symbol named "counter" and it will use that as the address for the
+<p>In the example above, RPicSim will look in your firmware&#39;s COF file for
+a RAM symbol named “counter” and it will use that as the address for the
 variable, so you do not need to specify the address yourself.</p>
 
 <p>You can use the <code>symbol</code> option to specify what symbol in the
@@ -175,16 +175,15 @@ Ruby without changing the bits that make those words be RETLW instructions.</p>
 <h2 id="label-Accessing+special+function+registers">Accessing special function registers</h2>
 
 <p>The Special Function Registers (SFRs) on a microcontroller enable the
-firmware to interact with the microcontroller's peripherals and talk to the
-outside world. The <span class='object_link'><a href="RPicSim/Sim.html#reg-instance_method" title="RPicSim::Sim#reg (method)">RPicSim::Sim#reg</a></span> method can be called on your
+firmware to interact with the microcontroller&#39;s peripherals and talk to
+the outside world. The <span class='object_link'><a href="RPicSim/Sim.html#reg-instance_method" title="RPicSim::Sim#reg (method)">RPicSim::Sim#reg</a></span> method can be called on your
 simulation object to retrieve a <span class='object_link'><a href="RPicSim/Variable.html" title="RPicSim::Variable (class)">RPicSim::Variable</a></span> object:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_reg'>reg</span><span class='lparen'>(</span><span class='symbol'>:LATA</span><span class='rparen'>)</span>  <span class='comment'># =&gt; returns a Variable object
 </span></code></pre>
 
-<p>If you are using RPicSim's <a href="file.RSpecIntegration.html" title="RSpec integration">RSpec integration</a>,
-the <code>reg</code> method inside an example automatically redirects to
-the <code>@sim</code> object:</p>
+<p>If you are using RPicSim&#39;s <a href="file.RSpecIntegration.html" title="RSpec integration">RSpec integration</a>, the <code>reg</code> method inside an example automatically
+redirects to the <code>@sim</code> object:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>works</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
   <span class='id identifier rubyid_reg'>reg</span><span class='lparen'>(</span><span class='symbol'>:LATA</span><span class='rparen'>)</span>  <span class='comment'># =&gt; returns a Variable object
@@ -193,9 +192,9 @@ the <code>@sim</code> object:</p>
 
 <p>The first argument of <span class='object_link'><a href="RPicSim/Sim.html#reg-instance_method" title="RPicSim::Sim#reg (method)">RPicSim::Sim#reg</a></span> should be a symbol containing the
 name of the SFR. The name comes from the MPLAB X code, but we expect it to
-match the name given in the microcontroller's datasheet.</p>
+match the name given in the microcontroller&#39;s datasheet.</p>
 
-<p>Note that the MPLAB X code considers "SFRs" to only be the special
+<p>Note that the MPLAB X code considers “SFRs” to only be the special
 registers that have an address in memory. The special registers without a
 memory address are called Non-Memory-Mapped Registers (NMMRs). For example,
 on some chips, WREG and STKPTR are NMMRs. You can access NMMRs in exactly
@@ -266,7 +265,7 @@ addition  ; 16-bit addition routine:  z = x + y
 <p>In <code>spec/spec_helper.rb</code>, we make a simulation class that points
 to the compiled COF file and defines the variables:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rpicsim/rspec</span><span class='tstring_end'>'</span></span>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rpicsim/rspec</span><span class='tstring_end'>&#39;</span></span>
 
 <span class='kw'>class</span> <span class='const'>Addition</span> <span class='op'>&lt;</span> <span class='const'>RPicSim</span><span class='op'>::</span><span class='const'>Sim</span>
   <span class='id identifier rubyid_use_device'>use_device</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PIC10F322</span><span class='tstring_end'>&quot;</span></span>
@@ -281,7 +280,7 @@ to the compiled COF file and defines the variables:</p>
 writes to <code>x</code> and <code>y</code>, runs the <code>addition</code>
 subroutine, and checks that the correct result is stored in <code>z</code>:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>spec_helper</span><span class='tstring_end'>'</span></span>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>spec_helper</span><span class='tstring_end'>&#39;</span></span>
 
 <span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>addition routine</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
   <span class='id identifier rubyid_before'>before</span> <span class='kw'>do</span>
@@ -303,9 +302,9 @@ subroutine, and checks that the correct result is stored in <code>z</code>:</p>
   
   <br/><br/>
 
-  Generated on Fri Sep 19 10:51:45 2014 by
+  Generated on Mon Jul 27 13:59:25 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-1.9.3).
+  0.8.7.6 (ruby-2.2.2).
 </div>
 
   </body>

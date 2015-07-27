@@ -2,11 +2,11 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>
   File: DefiningSimulationClass
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -90,7 +90,7 @@ definition can be found by looking at the documentation for
 order to specify the PIC device your firmware runs on. Unfortunately,
 RPicSim cannot just detect this information from your COF file. The
 argument to <code>use_device</code> should be a simple string containing
-the official name of the PIC device, like "PIC10F322".</p>
+the official name of the PIC device, like “PIC10F322”.</p>
 
 <p>Second, call <span class='object_link'><a href="RPicSim/Sim/ClassDefinitionMethods.html#use_file-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#use_file (method)">use_file</a></span> to
 specify the path to your COF or HEX file. This must be done after calling
@@ -133,9 +133,10 @@ user placing a jumper between RA1 and GND:</p>
 </code></pre>
 
 <p>By making these <code>jumper_on</code> and <code>jumper_off</code> methods,
-we can write lots of tests that manipulate the jumper but we don't have to
-constantly worry about how the hardware jumper is implemented when writing
-or reading those tests. This makes our tests easier to read and change.</p>
+we can write lots of tests that manipulate the jumper but we don&#39;t have
+to constantly worry about how the hardware jumper is implemented when
+writing or reading those tests. This makes our tests easier to read and
+change.</p>
 
 <p>If you have an instance of the simulation class, you can call such a method
 in the usual way:</p>
@@ -149,7 +150,7 @@ simulation class. For example:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_sim'>sim</span> <span class='op'>=</span> <span class='const'>MySim</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span></code></pre>
 
-<p>However, if you are using RSpec and RPicSim's <a href="file.RSpecIntegration.html" title="RSpec Integration">RSpec Integration</a>, then you should not create a new instance yourself.
+<p>However, if you are using RSpec and RPicSim&#39;s <a href="file.RSpecIntegration.html" title="RSpec Integration">RSpec Integration</a>, then you should not create a new instance yourself.
 Instead, make a before hook that calls <span class='object_link'><a href="RPicSim/RSpec/Helpers.html#start_sim-instance_method" title="RPicSim::RSpec::Helpers#start_sim (method)">start_sim</a></span>. This will start the simulation for you and use it to make some
 other methods and features available in your examples. After running
 <span class='object_link'><a href="RPicSim/RSpec/Helpers.html#start_sim-instance_method" title="RPicSim::RSpec::Helpers#start_sim (method)">start_sim</a></span>, you will be able to access
@@ -174,9 +175,9 @@ your simulation object using the method <code>sim</code>.</p>
   
   <br/><br/>
 
-  Generated on Fri Sep 19 10:51:44 2014 by
+  Generated on Mon Jul 27 13:59:25 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-1.9.3).
+  0.8.7.6 (ruby-2.2.2).
 </div>
 
   </body>

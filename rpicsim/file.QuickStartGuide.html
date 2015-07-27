@@ -2,11 +2,11 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>
   File: QuickStartGuide
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -92,11 +92,11 @@ from <a href="http://rubygems.org/">RubyGems.org</a>.</p>
 <h2 id="label-Setting+up+your+directories">Setting up your directories</h2>
 
 <p>You should set up your PIC development environment so that it creates a COF
-or HEX file inside a directory named "dist". The file does not need to be
-at the top level of "dist"; it can be in any subdirectory inside "dist".
+or HEX file inside a directory named “dist”. The file does not need to be
+at the top level of “dist”; it can be in any subdirectory inside “dist”.
 This requirement is due to a limitation in the MPLAB X code.</p>
 
-<p>Next, make a directory called "spec" for the tests you are going to write.
+<p>Next, make a directory called “spec” for the tests you are going to write.
 You can put that directory anywhere, but my preferred directory structure
 looks like this:</p>
 
@@ -110,12 +110,12 @@ looks like this:</p>
 
 <h2 id="label-Writing+your+first+test">Writing your first test</h2>
 
-<p>The convention for RSpec is that all the specs live in the "spec" directory
+<p>The convention for RSpec is that all the specs live in the “spec” directory
 and have a name ending with <code>_spec.rb</code>. In the spec directory,
 create a file named <code>firmware_spec.rb</code>. You can rename it later.
 In <code>firmware_spec.rb</code>, write:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>spec_helper</span><span class='tstring_end'>'</span></span>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>spec_helper</span><span class='tstring_end'>&#39;</span></span>
 
 <span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>the firmware</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
   <span class='id identifier rubyid_before'>before</span> <span class='kw'>do</span>
@@ -146,7 +146,7 @@ what they are doing but just need a quick reminder of how to get started.</p>
 make a new file named <code>spec_helper.rb</code> in the <code>spec</code>
 directory. In <code>spec/spec_helper.rb</code>, write:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rpicsim/rspec</span><span class='tstring_end'>'</span></span>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rpicsim/rspec</span><span class='tstring_end'>&#39;</span></span>
 
 <span class='kw'>class</span> <span class='const'>MySim</span> <span class='op'>&lt;</span> <span class='const'>RPicSim</span><span class='op'>::</span><span class='const'>Sim</span>
   <span class='id identifier rubyid_use_device'>use_device</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PIC10F322</span><span class='tstring_end'>&quot;</span></span>
@@ -161,7 +161,7 @@ convenient access to the variables, functions, and labels defined in the
 firmware.</p>
 
 <p>Eventually you should rename the <code>MySim</code> class to something more
-specific, such as the concatenation of the project name with "Sim".</p>
+specific, such as the concatenation of the project name with “Sim”.</p>
 
 <p>To run the spec, go to your shell and run the command <code>rspec</code>
 from the directory that contains <code>spec</code>. In the example
@@ -189,9 +189,9 @@ sections of <a href="file.Manual.html" title="this manual">this manual</a>.</p>
   
   <br/><br/>
 
-  Generated on Fri Sep 19 10:51:44 2014 by
+  Generated on Mon Jul 27 13:59:24 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-1.9.3).
+  0.8.7.6 (ruby-2.2.2).
 </div>
 
   </body>

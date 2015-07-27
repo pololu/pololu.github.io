@@ -2,11 +2,11 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>
   File: KnownIssues
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -85,7 +85,7 @@ that could affect users of RPicSim.</p>
 
 <p>Internal issues that have been successfully worked around are not listed
 here, but might be found in the RPicSim specs by searching for the word
-"flaw".</p>
+“flaw”.</p>
 
 <p>There are almost certainly many issues that have not been found yet.</p>
 
@@ -95,17 +95,17 @@ here, but might be found in the RPicSim specs by searching for the word
 
 <p>Be sure to check the Device Support table to see if your device is properly
 supported by the MPLAB X simulator. The table can be found in your MPLAB X
-installation folder under "<code>docs/Device Support.htm</code>". The
-<em>SIMISA</em> column probably stands for "Simulator (instruction set and
-architecture)" while the <em>SIMP</em> column probably stands for
-"Simulator (peripherals)".</p>
+installation folder under “<code>docs/Device Support.htm</code>”. The
+<em>SIMISA</em> column probably stands for “Simulator (instruction set and
+architecture)” while the <em>SIMP</em> column probably stands for
+“Simulator (peripherals)”.</p>
 
 <h2 id="label-Simulation+timing+is+affected+by+the+details+of+how+long+each+instruction+takes">Simulation timing is affected by the details of how long each instruction takes</h2>
 
 <p><em>Type: MPLAB X missing feature</em></p>
 
-<p>As mentioned on the <a href="file.Running.html" title="Running">Running</a> page, RPicSim's only way to
-advance the simulation is to execute an entire instruction. Some
+<p>As mentioned on the <a href="file.Running.html" title="Running">Running</a> page, RPicSim&#39;s only way
+to advance the simulation is to execute an entire instruction. Some
 instructions take two instruction cycles to run and others only take one.
 When you request RPicSim to delay for a certain number of cycles, it might
 need to delay by one cycle more than was requested since it cannot stop in
@@ -127,7 +127,7 @@ installed on any drive other than the C drive.</p>
 
 <p>This issue is tested in <code>spec/mplab/path_retrieval_spec.rb</code>.</p>
 
-<h2 id="label-Firmware+under+test+must+be+inside+a+folder+named+%22dist%22">Firmware under test must be inside a folder named "dist"</h2>
+<h2 id="label-Firmware+under+test+must+be+inside+a+folder+named+%22dist%22">Firmware under test must be inside a folder named “dist”</h2>
 
 <p><em>Type: MPLAB X bug</em></p>
 
@@ -143,7 +143,7 @@ installed on any drive other than the C drive.</p>
 
 <p>Starting with MPLAB X v2.20, the MPLAB X code writes log files to the
 current working directory. These files have names that start with
-"MPLABXLog.xml". Unfortunately, these files cannot be deleted from the same
+“MPLABXLog.xml”. Unfortunately, these files cannot be deleted from the same
 Ruby process that runs RPicSim, because MPLAB X keeps handles open to the
 files and we have not found a way to close those handles.</p>
 
@@ -151,8 +151,8 @@ files and we have not found a way to close those handles.</p>
 that it removes the files after running the specs:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='comment'># After running specs, clean up the log files that MPLAB X makes.
-</span><span class='const'>Rake</span><span class='op'>::</span><span class='const'>Task</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>spec</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_enhance'>enhance</span> <span class='kw'>do</span>
-  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_rm'>rm</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_glob'>glob</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>MPLABXLog.xml*</span><span class='tstring_end'>'</span></span>
+</span><span class='const'>Rake</span><span class='op'>::</span><span class='const'>Task</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>spec</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_enhance'>enhance</span> <span class='kw'>do</span>
+  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_rm'>rm</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_glob'>glob</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>MPLABXLog.xml*</span><span class='tstring_end'>&#39;</span></span>
 <span class='kw'>end</span></code></pre>
 
 <p>These files are created as soon as the com.microchip.mplab.logger.Logger
@@ -198,9 +198,9 @@ was fixed in later versions.</p>
 <p><em>MPLAB X versions affected: all tested versions</em></p>
 
 <p>The ANSELx bit for a real PIC pin only disables the digital input circuitry
-and should not affect the pin's use as a digital output. However, if the
-ANSELx bit is set to 1, then <span class='object_link'><a href="RPicSim/Pin.html#driving_low%3F-instance_method" title="RPicSim::Pin#driving_low? (method)">RPicSim::Pin#driving_low?</a></span> always seems to
-return true even if the pin is actually driving high.</p>
+and should not affect the pin&#39;s use as a digital output. However, if
+the ANSELx bit is set to 1, then <span class='object_link'><a href="RPicSim/Pin.html#driving_low%3F-instance_method" title="RPicSim::Pin#driving_low? (method)">RPicSim::Pin#driving_low?</a></span> always seems
+to return true even if the pin is actually driving high.</p>
 
 <p>This issue is tested in <code>spec/integration/pin_spec.rb</code>.</p>
 
@@ -210,10 +210,10 @@ return true even if the pin is actually driving high.</p>
 
 <p><em>MPLAB X versions affected: all tested versions</em></p>
 
-<p>Updating a pin's LATx bit before its clearing its TRISx bit is the proper
-way to turn on an output pin without causing glitches. However, if you set
-the two bits in that order then <span class='object_link'><a href="RPicSim/Pin.html#driving_low%3F-instance_method" title="RPicSim::Pin#driving_low? (method)">RPicSim::Pin#driving_low?</a></span> always seems to
-return true even if the pin is actually driving high.</p>
+<p>Updating a pin&#39;s LATx bit before its clearing its TRISx bit is the
+proper way to turn on an output pin without causing glitches. However, if
+you set the two bits in that order then <span class='object_link'><a href="RPicSim/Pin.html#driving_low%3F-instance_method" title="RPicSim::Pin#driving_low? (method)">RPicSim::Pin#driving_low?</a></span> always
+seems to return true even if the pin is actually driving high.</p>
 
 <p>This issue is tested in <code>spec/integration/pin_spec.rb</code>.</p>
 
@@ -225,7 +225,7 @@ return true even if the pin is actually driving high.</p>
 
 <p>Even if you set up the pin properly (working around all the issues above)
 and get <span class='object_link'><a href="RPicSim/Pin.html#driving_high%3F-instance_method" title="RPicSim::Pin#driving_high? (method)">RPicSim::Pin#driving_high?</a></span> to return true, a <code>bcf</code>
-instruction on the pin's TRISx bit (or probably any write to the TRISx
+instruction on the pin&#39;s TRISx bit (or probably any write to the TRISx
 register) will cause the pin to start reporting the wrong output state.</p>
 
 <p>This issue is tested in <code>spec/integration/pin_spec.rb</code>, and was
@@ -253,8 +253,8 @@ issue has been observed on a PIC10F322 but it probably affects other PORTx
 and LATx registers on other devices.</p>
 
 <p>This issue is tested in <code>spec/integration/ram_watcher_spec.rb</code>.
-This issue could not be tested on MPLAB X versions affected by the "RAM
-watcher is useless" issue above.</p>
+This issue could not be tested on MPLAB X versions affected by the “RAM
+watcher is useless” issue above.</p>
 
 <h2 id="label-RAM+watcher+reports+extra+writes+on+devices+where+registers+have+multiple+addresses">RAM watcher reports extra writes on devices where registers have multiple addresses</h2>
 
@@ -276,8 +276,8 @@ all 32 addresses that PCL occupies.</p>
 addresses out of the hash returned by the RAM watcher.</p>
 
 <p>This issue is tested in <code>spec/integration/ram_watcher_spec.rb</code>.
-This issue could not be tested on MPLAB X versions affected by the "RAM
-watcher is useless" issue above.</p>
+This issue could not be tested on MPLAB X versions affected by the “RAM
+watcher is useless” issue above.</p>
 
 <h2 id="label-RAM+watchers+cannot+be+garbage+collected+until+the+end+of+the+simulation">RAM watchers cannot be garbage collected until the end of the simulation</h2>
 
@@ -294,21 +294,22 @@ to it.</p>
 <p>Therefore, creating a large number of RAM watcher objects for a single
 simulation could cause performance problems.</p>
 
-<p>This problem could be fixed in the future by using Ruby's WeakRef class to
-make weak references.</p>
+<p>This problem could be fixed in the future by using Ruby&#39;s WeakRef class
+to make weak references.</p>
 
 <h2 id="label-Midrange+ADC+gives+incorrect+readings">Midrange ADC gives incorrect readings</h2>
 
 <p><em>Type: MPLAB X bug</em></p>
 
-<p><em>MPLAB X versions affected: all tested versions</em></p>
+<p><em>MPLAB X versions affected: 1.85, 1.90, 1.95, 2.00, 2.05, 2.10, 2.15,
+2.20</em></p>
 
 <p>The simulated ADC for midrange PIC microcontrollers has various issues in
 different versions of MPLAB X that make it give incorrect readings. These
 issues might affect other PIC architectures as well.</p>
 <ul><li>
-<p><strong>Bad modulus:</strong> In MPLAB X 1.90 and later, simply setting a
-pin to high with <code>pin.set(true)</code> will result in an ADC reading
+<p><strong>Bad modulus:</strong> In MPLAB X 1.90 through 2.20, simply setting
+a pin to high with <code>pin.set(true)</code> will result in an ADC reading
 of 0.  The workaround is to use <code>pin.set(4.9)</code>.  The ADC acts
 like it is using a modulus operator incorrectly as a way of limiting the
 ADC result to be between 0 and 255.</p>
@@ -320,7 +321,7 @@ any voltage other than 0 V will result in an ADC reading of 255.</p>
 <p>These issues are tested in
 <code>spec/integration/adc_midrange_spec.rb</code>. The bad modulus issue
 was <a href="http://www.microchip.com/forums/m760886.aspx" target="_parent" title="reported to Microchip">reported to Microchip</a> in
-November 2013.</p>
+November 2013. The midrange ADC seems to work correctly in MPLAB X 3.05.</p>
 
 <h2 id="label-Variables+from+XC8+are+not+correctly+identified">Variables from XC8 are not correctly identified</h2>
 
@@ -341,6 +342,32 @@ exception because the top address is not considered to be valid. For
 example, you cannot use <code>program_memory.read_byte(0x7FFF)</code> on a
 PIC18F25K50 simulation. One workaround is to use <code>read_word</code>
 instead. This seems to only affect PIC18 devices.</p>
+
+<h2 id="label-Older+versions+of+MPLAB+X+do+not+work+with+later+Java+SE+Runtime+Environments">Older versions of MPLAB X do not work with later Java SE Runtime Environments</h2>
+
+<p>MPLAB X is based on NetBeans, so older versions of it suffer from <a
+href="https://netbeans.org/bugzilla/show_bug.cgi?id=229191">Netbeans bug
+229191</a> and will not run properly on the Java SE Runtime Environment 8
+or later. If you try to use an older version of MPLAB X with a newer
+version of Java, you might get this error:</p>
+
+<pre class="code ruby"><code class="ruby">java.lang.IllegalStateException: java.lang.IllegalAccessException:
+Class org.openide.util.WeakListenerImpl$ProxyListener can not access
+a member of class org.openide.filesystems.$Proxy20 with modifiers &quot;public&quot;
+        at org.openide.util.WeakListenerImpl$ProxyListener.&lt;init&gt;(WeakListenerImpl.java:423)
+...
+</code></pre>
+
+<p>A solution is to download and install the “Java SE Runtime Environment
+7u80” from <a href="http://www.oracle.com/">Oracle</a>. JRuby uses the
+JAVA_HOME environment variable to figure out which version of Java to use,
+so you would set the JAVA_HOME environment variable to point to version 7
+for the purposes of running your tests. If you are using a shell like Bash,
+a command like the one below can be used to temporarily set the environment
+variable for the duration of one command instead of changing it globally
+for your whole system:</p>
+
+<pre class="code ruby"><code class="ruby">JAVA_HOME=&quot;C:\Program Files\Java\jre7&quot; rspec</code></pre>
 </div></div>
 
     <div id="footer">
@@ -349,9 +376,9 @@ instead. This seems to only affect PIC18 devices.</p>
   
   <br/><br/>
 
-  Generated on Fri Sep 19 10:51:46 2014 by
+  Generated on Mon Jul 27 13:59:28 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-1.9.3).
+  0.8.7.6 (ruby-2.2.2).
 </div>
 
   </body>

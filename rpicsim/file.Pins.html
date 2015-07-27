@@ -2,11 +2,11 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>
   File: Pins
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -80,7 +80,7 @@ low. If it is an input, you can set the simulated value of the input.</p>
 <h2 id="label-Getting+a+Pin+object">Getting a Pin object</h2>
 
 <p>The <span class='object_link'><a href="RPicSim/Sim.html#pin-instance_method" title="RPicSim::Sim#pin (method)">RPicSim::Sim#pin</a></span> method can be called on your simulation object to
-retrieve a <span class='object_link'><a href="RPicSim/Pin.html" title="RPicSim::Pin (class)">RPicSim::Pin</a></span> object. If you are using RPicSim's
+retrieve a <span class='object_link'><a href="RPicSim/Pin.html" title="RPicSim::Pin (class)">RPicSim::Pin</a></span> object. If you are using RPicSim&#39;s
 <a href="file.RSpecIntegration.html" title="RSpec integration">RSpec integration</a>, the <code>pin</code> method
 inside an example automatically redirects to the simulation object so you
 can use it easily like this:</p>
@@ -99,8 +99,8 @@ can be referred to by many names, including <code>:RA1</code>,
 <h2 id="label-Pin+aliases">Pin aliases</h2>
 
 <p>To make your tests readable and protect against future schematic changes,
-you should try to refer to pins by an application-specific name like "main
-output" instead of a datasheet name like RA1. RPicSim provides a feature to
+you should try to refer to pins by an application-specific name like “main
+output” instead of a datasheet name like RA1. RPicSim provides a feature to
 help you do this called a <em>pin alias</em>.</p>
 
 <p>Within your <a href="file.DefiningSimulationClass.html" title="simulation class definition">simulation class definition</a>,
@@ -126,10 +126,10 @@ that you can access the pin like this:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_main_output'>main_output</span></code></pre>
 
-<p>Shortcuts for these methods are also available in RSpec thanks to RPicsim's
-<a href="file.RSpecIntegration.html" title="RSpec integration">RSpec integration</a>, so you can simply write
-<code>main_output</code> instead of <code>sim.main_output</code> in any of
-your RSpec examples:</p>
+<p>Shortcuts for these methods are also available in RSpec thanks to
+RPicsim&#39;s <a href="file.RSpecIntegration.html" title="RSpec integration">RSpec integration</a>, so you can
+simply write <code>main_output</code> instead of
+<code>sim.main_output</code> in any of your RSpec examples:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>drives the main output high</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
   <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_main_output'>main_output</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_driving_high'>be_driving_high</span>
@@ -177,7 +177,7 @@ loopStart
 <p>In <code>spec/spec_helper.rb</code>, we make a simulation class that points
 to the compiled COF file and defines some pin aliases:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rpicsim/rspec</span><span class='tstring_end'>'</span></span>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rpicsim/rspec</span><span class='tstring_end'>&#39;</span></span>
 
 <span class='kw'>class</span> <span class='const'>PinMirror</span> <span class='op'>&lt;</span> <span class='const'>RPicSim</span><span class='op'>::</span><span class='const'>Pic</span>
   <span class='id identifier rubyid_use_device'>use_device</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PIC10F322</span><span class='tstring_end'>&quot;</span></span>
@@ -191,7 +191,7 @@ to the compiled COF file and defines some pin aliases:</p>
 <p>In <code>spec/pin_mirror_spec.rb</code>, we write a simple test that
 changes the input and makes sure that the output changes accordingly:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>spec_helper</span><span class='tstring_end'>'</span></span>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require_relative'>require_relative</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>spec_helper</span><span class='tstring_end'>&#39;</span></span>
 
 <span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PinMirror</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
   <span class='id identifier rubyid_before'>before</span> <span class='kw'>do</span>
@@ -229,9 +229,9 @@ device enough time to react to the change on its input.</p>
   
   <br/><br/>
 
-  Generated on Fri Sep 19 10:51:44 2014 by
+  Generated on Mon Jul 27 13:59:25 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-1.9.3).
+  0.8.7.6 (ruby-2.2.2).
 </div>
 
   </body>

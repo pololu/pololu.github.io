@@ -2,11 +2,11 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>
   File: RSpecIntegration
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -69,7 +69,7 @@
 <h1 id="label-RSpec+integration">RSpec integration</h1>
 
 <p>RPicSim has optional code that allows you to integrated it nicely with
-RSpec. RPicSim's RSpec integration is mainly designed to help you write
+RSpec. RPicSim&#39;s RSpec integration is mainly designed to help you write
 shorter, less verbose tests, but it also provides helpful error messages
 when a test fails. Most of the example code in this manual assumes that you
 have the RSpec integration enabled.</p>
@@ -79,7 +79,7 @@ have the RSpec integration enabled.</p>
 <p>To load RPicSim and enable its RSpec integration, simply put this line in
 your <code>spec_helper.rb</code>:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rpicsim/rspec</span><span class='tstring_end'>'</span></span>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rpicsim/rspec</span><span class='tstring_end'>&#39;</span></span>
 </code></pre>
 
 <p>That gives you all the features that are documented below.</p>
@@ -90,30 +90,30 @@ your <code>spec_helper.rb</code>:</p>
 you can use any combination of the snippets below:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='comment'># Persistent expectations that can be stored and checked later
-</span><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rpicsim/rspec/persistent_expectations</span><span class='tstring_end'>'</span></span>
+</span><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rpicsim/rspec/persistent_expectations</span><span class='tstring_end'>&#39;</span></span>
 <span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span> <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_include'>include</span> <span class='const'>RPicSim</span><span class='op'>::</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>PersistentExpectations</span> <span class='rbrace'>}</span>
 </code></pre>
 <!-- separate -->
 <pre class="code ruby"><code class="ruby"><span class='comment'># Helper methods, including persistent expectations
-</span><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rpicsim/rspec/helpers</span><span class='tstring_end'>'</span></span>
+</span><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rpicsim/rspec/helpers</span><span class='tstring_end'>&#39;</span></span>
 </code></pre>
 <!-- separate -->
 <pre class="code ruby"><code class="ruby"><span class='comment'># Show debug info from sim if a spec fails
-</span><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rpicsim/rspec/sim_diagnostics</span><span class='tstring_end'>'</span></span>
+</span><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rpicsim/rspec/sim_diagnostics</span><span class='tstring_end'>&#39;</span></span>
 </code></pre>
 <!-- separate -->
 <pre class="code ruby"><code class="ruby"><span class='comment'># Better error messages for RSpec 2.x
-</span><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rpicsim/rspec/be_predicate</span><span class='tstring_end'>'</span></span>
+</span><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rpicsim/rspec/be_predicate</span><span class='tstring_end'>&#39;</span></span>
 </code></pre>
 
 <p>You will also need to load RPicSim itself by writing:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rpicsim</span><span class='tstring_end'>'</span></span>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rpicsim</span><span class='tstring_end'>&#39;</span></span>
 </code></pre>
 
 <h2 id="label-Helper+methods">Helper methods</h2>
 
-<p>Requiring "rpicsim/rspec" causes the <span class='object_link'><a href="RPicSim/RSpec/Helpers.html" title="RPicSim::RSpec::Helpers (module)">RPicSim::RSpec::Helpers</a></span> module to
+<p>Requiring “rpicsim/rspec” causes the <span class='object_link'><a href="RPicSim/RSpec/Helpers.html" title="RPicSim::RSpec::Helpers (module)">RPicSim::RSpec::Helpers</a></span> module to
 get included (i.e. mixed in) to all of your RSpec examples.</p>
 
 <p>This module provides the <span class='object_link'><a href="RPicSim/RSpec/Helpers.html#start_sim-instance_method" title="RPicSim::RSpec::Helpers#start_sim (method)">start_sim</a></span>
@@ -185,13 +185,13 @@ Failures:
   1) FooWidget when exposed to 1.5 ms pulses behaves correctly
      Failure/Error: run_cycles 1500*4
        expected INTCON to satisfy block
-     # ./lib/rpicsim/rspec/persistent_expectations.rb:29:in `check_expectations'
-     # ./lib/rpicsim/rspec/persistent_expectations.rb:27:in `check_expectations'
-     # ./lib/rpicsim/rspec/helpers.rb:25:in `start_sim'
-     # ./lib/rpicsim/sim.rb:574:in `step'
-     # ./lib/rpicsim/sim.rb:716:in `run_to_cycle_count'
-     # ./lib/rpicsim/sim.rb:708:in `run_cycles'
-     # ./spec/foo_widget_spec.rb:10:in `(root)'
+     # ./lib/rpicsim/rspec/persistent_expectations.rb:29:in `check_expectations&#39;
+     # ./lib/rpicsim/rspec/persistent_expectations.rb:27:in `check_expectations&#39;
+     # ./lib/rpicsim/rspec/helpers.rb:25:in `start_sim&#39;
+     # ./lib/rpicsim/sim.rb:574:in `step&#39;
+     # ./lib/rpicsim/sim.rb:716:in `run_to_cycle_count&#39;
+     # ./lib/rpicsim/sim.rb:708:in `run_cycles&#39;
+     # ./spec/foo_widget_spec.rb:10:in `(root)&#39;
 
      Simulation cycle count: 78963
 
@@ -209,21 +209,21 @@ Failed examples:
 rspec ./spec/example/nice_error_spec.rb:8 # FooWidget when exposed to 1.5ms pulses behaves correctly</code></pre>
 
 <p>In this example, we had a <a href="file.PersistentExpectations.html" title="persistent expectation">persistent expectation</a> asserting something about the INTCON SFR and and at some point
-in a lengthy integration test our expectation failed. The "Simulation cycle
-count" shows us the value of <span class='object_link'><a href="RPicSim/Sim.html#cycle_count-instance_method" title="RPicSim::Sim#cycle_count (method)">RPicSim::Sim#cycle_count</a></span> at the time that
-the error happened. The "Simulation stack trace" shows us what addresses
-were on the device's call stack. (Actually, the call stack stores the
+in a lengthy integration test our expectation failed. The “Simulation cycle
+count” shows us the value of <span class='object_link'><a href="RPicSim/Sim.html#cycle_count-instance_method" title="RPicSim::Sim#cycle_count (method)">RPicSim::Sim#cycle_count</a></span> at the time that
+the error happened. The “Simulation stack trace” shows us what addresses
+were on the device&#39;s call stack. (Actually, the call stack stores the
 addresses the process will return to, but this stack trace shows the
 addresses where calls occurred, which is one or two less than the return
 address.) This information can help when you are <a href="file.Debugging.html" title="debugging">debugging</a> issues.</p>
 
 <h2 id="label-Better+RSpec+error+messages">Better RSpec error messages</h2>
 
-<p>If you are using RSpec 2.x, RPicSim also overrides some of RSpec's error
-messages to be better.</p>
+<p>If you are using RSpec 2.x, RPicSim also overrides some of RSpec&#39;s
+error messages to be better.</p>
 
-<p>For example, instead of just saying an error message like "expected
-driving_high? to return true, got false", RSpec will actually say what
+<p>For example, instead of just saying an error message like “expected
+driving_high? to return true, got false”, RSpec will actually say what
 object it called <code>driving_high?</code> on. This feature is important
 when you are using <a href="file.PersistentExpectations.html" title="persistent expectations">persistent expectations</a>
 and want to know which expectation failed, because the stack trace will not
@@ -236,9 +236,9 @@ help.</p>
   
   <br/><br/>
 
-  Generated on Fri Sep 19 10:51:45 2014 by
+  Generated on Mon Jul 27 13:59:26 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-1.9.3).
+  0.8.7.6 (ruby-2.2.2).
 </div>
 
   </body>

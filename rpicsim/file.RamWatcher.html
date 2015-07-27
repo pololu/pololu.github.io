@@ -2,11 +2,11 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>
   File: RamWatcher
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -75,13 +75,13 @@ after the code executes. However, it is also helpful to try to make sure
 that your code does not write to any other parts of memory; it should only
 write to the places that you were expecting it to write to.</p>
 
-<p>RPicSim's <em>RAM watcher</em> lets you see all the places in RAM
+<p>RPicSim&#39;s <em>RAM watcher</em> lets you see all the places in RAM
 (including SFRs) that were written by your code. It detects writes to RAM
-even if the underlying RAM value didn't change. For example, if your
+even if the underlying RAM value didn&#39;t change. For example, if your
 program runs a <code>clrf x</code> instruction, the RAM watcher will detect
 this even if <code>x</code> was already equal to 0.</p>
 
-<p>Also, it detects writes from instructions like "<code>movf x, F</code>",
+<p>Also, it detects writes from instructions like “<code>movf x, F</code>”,
 which is usually not desired. That instruction affects the STATUS register
 and allows you to see if <code>x</code> is zero, but it should not affect
 <code>x</code> if it is a normal variable in RAM. However, that instruction
@@ -94,7 +94,7 @@ the latest versions of MPLAB X have an issue that makes the RAM watcher
 useless. For more information, see <a href="file.KnownIssues.html" title="KnownIssues">KnownIssues</a>.</p>
 
 <p>To create a new RAM watcher object, call <span class='object_link'><a href="RPicSim/Sim.html#new_ram_watcher-instance_method" title="RPicSim::Sim#new_ram_watcher (method)">RPicSim::Sim#new_ram_watcher</a></span>.
-There is a shortcut for this method, so if you are using RPicSim's
+There is a shortcut for this method, so if you are using RPicSim&#39;s
 <a href="file.RSpecIntegration.html" title="RSpec integration">RSpec integration</a> then you can just write:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_ram_watcher'>ram_watcher</span> <span class='op'>=</span> <span class='id identifier rubyid_new_ram_watcher'>new_ram_watcher</span></code></pre>
@@ -155,9 +155,9 @@ and <code>STATUS</code>.</p>
   
   <br/><br/>
 
-  Generated on Fri Sep 19 10:51:45 2014 by
+  Generated on Mon Jul 27 13:59:26 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-1.9.3).
+  0.8.7.6 (ruby-2.2.2).
 </div>
 
   </body>
