@@ -7,7 +7,6 @@ var searchData=
   ['readbasicright',['readBasicRight',['../class_zumo32_u4_proximity_sensors.html#a727ec0d918736c55dfb58c4495bad068',1,'Zumo32U4ProximitySensors']]],
   ['readbatterymillivolts',['readBatteryMillivolts',['../_zumo32_u4_8h.html#a9391e187045f8f5a48546b34b6c6db25',1,'Zumo32U4.h']]],
   ['reinitialize',['reinitialize',['../class_pololu_h_d44780_base.html#a10c1c42406708172fc38b718790ba881',1,'PololuHD44780Base']]],
-  ['remotedecoder',['RemoteDecoder',['../class_remote_decoder.html',1,'']]],
   ['right',['Right',['../class_zumo32_u4_i_r_pulses.html#a5252acaa381240e6b8ca499eaf304616abc5bb22fe2cce8d4c31f297de25d5852',1,'Zumo32U4IRPulses']]],
   ['righttoleft',['rightToLeft',['../class_pololu_h_d44780_base.html#aa3f8d4ba18feb9aa0f0a2fef3c6c2b37',1,'PololuHD44780Base']]]
 ];
