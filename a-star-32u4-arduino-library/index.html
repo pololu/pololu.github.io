@@ -85,8 +85,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">AStar32U4 library Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Version: 1.0.0<br />
- Release date: 2015 August 06<br />
+<div class="textblock"><p>Version: 1.0.3<br />
+ Release date: 2015 September 15<br />
  <a href="http://www.pololu.com/">www.pololu.com</a></p>
 <h2>Summary</h2>
 <p>This is a C++ library for the Arduino IDE that helps access the on-board hardware of the <a href="http://www.pololu.com/category/149">A-Star 32U4 controllers</a>, which is a family of programmable controllers from Pololu based on the ATmega32U4. You can program an A-Star 32U4 directly from the Arduino IDE without using this library, but this library makes it easy to:</p>
@@ -110,7 +110,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>If this does not work, you can manually install the library:</p>
 <ol type="1">
 <li>Download the <a href="https://github.com/pololu/a-star-32u4-arduino-library">latest release archive from GitHub</a> and decompress it.</li>
-<li>Rename the folder "a-star-32u4-arduino-library" to "AStar32U4".</li>
+<li>Rename the folder "a-star-32u4-arduino-library-master" to "AStar32U4".</li>
 <li>Move the "AStar32U4" folder into the "libraries" directory inside your Arduino sketchbook directory. You can view your sketchbook location by opening the "File" menu and selecting "Preferences" in the Arduino IDE. If there is not already a "libraries" folder in that location, you should make the folder yourself.</li>
 <li>After installing the library, restart the Arduino IDE.</li>
 </ol>
@@ -148,6 +148,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>For complete documentation, see <a href="https://pololu.github.io/a-star-32u4-arduino-library">https://pololu.github.io/a-star-32u4-arduino-library</a>. If you are already on that page, then click on the links in the "Classes and functions" section above.</p>
 <h2>Version history</h2>
 <ul>
+<li>1.0.3 (2015 Sep 15): Fixed PrimeDemo example to display &gt;4GB SD card capacity correctly.</li>
+<li>1.0.2 (2015 Aug 31): Renamed Demo example to PrimeDemo and updated comments in examples.</li>
+<li>1.0.1 (2015 Aug 13): Corrected commented motor flip code in Motors example.</li>
 <li>1.0.0 (2015 Aug 06): Original release, adapted from version 1.1.2 of AStar32U4Prime library in a-star repository. </li>
 </ul>
 </div></div><!-- contents -->
