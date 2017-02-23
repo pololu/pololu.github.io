@@ -4,4 +4,3 @@
 echo -n 'include: ['
 find . -name '_*.html' | awk -F/ "{printf \"'%s', \", \$NF}"
 echo ]
-
