@@ -17,5 +17,5 @@ var searchData=
   ['balboa_5f32u4_5fbutton_5fb',['BALBOA_32U4_BUTTON_B',['../_balboa32_u4_buttons_8h.html#a4d046db1eaeeb4d1e913d5b202951f7a',1,'Balboa32U4Buttons.h']]],
   ['balboa_5f32u4_5fbutton_5fc',['BALBOA_32U4_BUTTON_C',['../_balboa32_u4_buttons_8h.html#aee27ee66bb05174dd7708484413e6885',1,'Balboa32U4Buttons.h']]],
   ['blink',['blink',['../class_pololu_h_d44780_base.html#ac6e255adf32d5c70c0163422b1ae8e0c',1,'PololuHD44780Base']]],
-  ['balba32u4_20library',['Balba32U4 library',['../index.html',1,'']]]
+  ['balboa32u4_20library',['Balboa32U4 library',['../index.html',1,'']]]
 ];
