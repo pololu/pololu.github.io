@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['pin',['Pin',['../class_fast_g_p_i_o_1_1_pin.html',1,'FastGPIO']]],
-  ['pinloan',['PinLoan',['../class_fast_g_p_i_o_1_1_pin_loan.html',1,'FastGPIO']]]
+  ['pin',['Pin',['../classFastGPIO_1_1Pin.html',1,'FastGPIO']]],
+  ['pinloan',['PinLoan',['../classFastGPIO_1_1PinLoan.html',1,'FastGPIO']]]
 ];
