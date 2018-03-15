@@ -1,0 +1,5 @@
+<map id="QTRSensors" name="QTRSensors">
+<area shape="rect" id="node2" href="$classQTRSensorsAnalog.html" title="(ZumoReflectanceSensorArray dependency) " alt="" coords="5,80,144,107"/>
+<area shape="rect" id="node3" href="$classQTRSensorsRC.html" title="(ZumoReflectanceSensorArray dependency) " alt="" coords="169,80,287,107"/>
+<area shape="rect" id="node4" href="$classZumoReflectanceSensorArray.html" title="Read from reflectance sensor array. " alt="" coords="129,155,327,181"/>
+</map>
