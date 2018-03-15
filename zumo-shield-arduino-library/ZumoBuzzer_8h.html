@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Pololu Zumo Shield Arduino Library: src/ZumoBuzzer.h File Reference</title>
+<title>Pololu Zumo Shield Arduino Library: ZumoBuzzer.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,26 +84,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
-</div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#define-members">Macros</a>  </div>
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
 <div class="title">ZumoBuzzer.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><div class="dynheader">
+<div class="textblock"><code>#include &lt;<a class="el" href="PololuBuzzer_8h_source.html">PololuBuzzer.h</a>&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for ZumoBuzzer.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="ZumoBuzzer_8h__incl.png" border="0" usemap="#ZumoBuzzer_8h" alt=""/></div>
+<map name="ZumoBuzzer_8h" id="ZumoBuzzer_8h">
+<area shape="rect" id="node2" href="PololuBuzzer_8h.html" title="PololuBuzzer.h" alt="" coords="7,80,118,107"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="ZumoBuzzer_8h__dep__incl.png" border="0" usemap="#src_2ZumoBuzzer_8hdep" alt=""/></div>
-<map name="src_2ZumoBuzzer_8hdep" id="src_2ZumoBuzzer_8hdep">
-<area shape="rect" id="node2" href="ZumoBuzzer_8cpp_source.html" title="src/ZumoBuzzer.cpp" alt="" coords="5,80,148,107"/>
-<area shape="rect" id="node3" href="ZumoShield_8h_source.html" title="src/ZumoShield.h" alt="" coords="172,80,296,107"/>
+<div class="center"><img src="ZumoBuzzer_8h__dep__incl.png" border="0" usemap="#ZumoBuzzer_8hdep" alt=""/></div>
+<map name="ZumoBuzzer_8hdep" id="ZumoBuzzer_8hdep">
+<area shape="rect" id="node2" href="ZumoShield_8h_source.html" title="ZumoShield.h" alt="" coords="7,80,110,107"/>
 </map>
 </div>
 </div>
@@ -112,87 +115,10 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classZumoBuzzer.html">ZumoBuzzer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Play beeps and music with buzzer.  <a href="classZumoBuzzer.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plays beeps and music on the buzzer on the Zumo 32U4.  <a href="classZumoBuzzer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:ab21c3d36aba0b8a690dce836c4e8dfcc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab21c3d36aba0b8a690dce836c4e8dfcc"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>PLAY_AUTOMATIC</b>&#160;&#160;&#160;0</td></tr>
-<tr class="separator:ab21c3d36aba0b8a690dce836c4e8dfcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f6511ed23e48635f2f8cbdf8d8e340e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2f6511ed23e48635f2f8cbdf8d8e340e"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>PLAY_CHECK</b>&#160;&#160;&#160;1</td></tr>
-<tr class="separator:a2f6511ed23e48635f2f8cbdf8d8e340e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Note Macros</div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p><a class="anchor" id="note_macros"></a></p>
-<p><em>x</em> specifies the octave of the note </p>
-</div></td></tr>
-<tr class="memitem:afe05d34c0aa72561371e5e691639b154"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afe05d34c0aa72561371e5e691639b154"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>NOTE_C</b>(x)&#160;&#160;&#160;( 0 + (x)*12)</td></tr>
-<tr class="separator:afe05d34c0aa72561371e5e691639b154"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8adae98d97f9e21a207b94bb98d6d195"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8adae98d97f9e21a207b94bb98d6d195"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>NOTE_C_SHARP</b>(x)&#160;&#160;&#160;( 1 + (x)*12)</td></tr>
-<tr class="separator:a8adae98d97f9e21a207b94bb98d6d195"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8971686e47e8f7a2b5a7cd8a4bcdd8ba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8971686e47e8f7a2b5a7cd8a4bcdd8ba"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>NOTE_D_FLAT</b>(x)&#160;&#160;&#160;( 1 + (x)*12)</td></tr>
-<tr class="separator:a8971686e47e8f7a2b5a7cd8a4bcdd8ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4804780eec5b27ba514307bbb607ea0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab4804780eec5b27ba514307bbb607ea0"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>NOTE_D</b>(x)&#160;&#160;&#160;( 2 + (x)*12)</td></tr>
-<tr class="separator:ab4804780eec5b27ba514307bbb607ea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac97aeeeb8a09ddea7ea7d822a5f19165"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac97aeeeb8a09ddea7ea7d822a5f19165"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>NOTE_D_SHARP</b>(x)&#160;&#160;&#160;( 3 + (x)*12)</td></tr>
-<tr class="separator:ac97aeeeb8a09ddea7ea7d822a5f19165"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c36767813d969ba9336ad517335016c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8c36767813d969ba9336ad517335016c"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>NOTE_E_FLAT</b>(x)&#160;&#160;&#160;( 3 + (x)*12)</td></tr>
-<tr class="separator:a8c36767813d969ba9336ad517335016c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f79f886203e49bf1b4548983ec6fad2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0f79f886203e49bf1b4548983ec6fad2"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>NOTE_E</b>(x)&#160;&#160;&#160;( 4 + (x)*12)</td></tr>
-<tr class="separator:a0f79f886203e49bf1b4548983ec6fad2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a925930e02a2c737828470fc7a9e1fbd8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a925930e02a2c737828470fc7a9e1fbd8"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>NOTE_F</b>(x)&#160;&#160;&#160;( 5 + (x)*12)</td></tr>
-<tr class="separator:a925930e02a2c737828470fc7a9e1fbd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a084bfaf45df982af05a5cda5eb8ce6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a084bfaf45df982af05a5cda5eb8ce6"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>NOTE_F_SHARP</b>(x)&#160;&#160;&#160;( 6 + (x)*12)</td></tr>
-<tr class="separator:a1a084bfaf45df982af05a5cda5eb8ce6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab30a1d4ce13ca7efbfaa1538e5ed7681"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab30a1d4ce13ca7efbfaa1538e5ed7681"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>NOTE_G_FLAT</b>(x)&#160;&#160;&#160;( 6 + (x)*12)</td></tr>
-<tr class="separator:ab30a1d4ce13ca7efbfaa1538e5ed7681"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9df839f56f9d0939a9cee3cd82373ab7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9df839f56f9d0939a9cee3cd82373ab7"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>NOTE_G</b>(x)&#160;&#160;&#160;( 7 + (x)*12)</td></tr>
-<tr class="separator:a9df839f56f9d0939a9cee3cd82373ab7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89ed0525b5d3555debfa60ae355bb8eb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a89ed0525b5d3555debfa60ae355bb8eb"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>NOTE_G_SHARP</b>(x)&#160;&#160;&#160;( 8 + (x)*12)</td></tr>
-<tr class="separator:a89ed0525b5d3555debfa60ae355bb8eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a774eb428d9ae7f030192e74a0ff2ef44"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a774eb428d9ae7f030192e74a0ff2ef44"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>NOTE_A_FLAT</b>(x)&#160;&#160;&#160;( 8 + (x)*12)</td></tr>
-<tr class="separator:a774eb428d9ae7f030192e74a0ff2ef44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a235f95f62fba0fc937a9491ba02abe0f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a235f95f62fba0fc937a9491ba02abe0f"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>NOTE_A</b>(x)&#160;&#160;&#160;( 9 + (x)*12)</td></tr>
-<tr class="separator:a235f95f62fba0fc937a9491ba02abe0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34fcfd8381128ceb4ac3c8f09e1d4e19"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a34fcfd8381128ceb4ac3c8f09e1d4e19"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>NOTE_A_SHARP</b>(x)&#160;&#160;&#160;(10 + (x)*12)</td></tr>
-<tr class="separator:a34fcfd8381128ceb4ac3c8f09e1d4e19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45328a3392757787d83f0b850c000197"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a45328a3392757787d83f0b850c000197"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>NOTE_B_FLAT</b>(x)&#160;&#160;&#160;(10 + (x)*12)</td></tr>
-<tr class="separator:a45328a3392757787d83f0b850c000197"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a7e22b3976a50b93a15f057908d59dd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8a7e22b3976a50b93a15f057908d59dd"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>NOTE_B</b>(x)&#160;&#160;&#160;(11 + (x)*12)</td></tr>
-<tr class="separator:a8a7e22b3976a50b93a15f057908d59dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adfaff86f4fd545173453d147f349e84a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adfaff86f4fd545173453d147f349e84a"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZumoBuzzer_8h.html#adfaff86f4fd545173453d147f349e84a">SILENT_NOTE</a>&#160;&#160;&#160;0xFF</td></tr>
-<tr class="memdesc:adfaff86f4fd545173453d147f349e84a"><td class="mdescLeft">&#160;</td><td class="mdescRight">silences buzzer for the note duration <br /></td></tr>
-<tr class="separator:adfaff86f4fd545173453d147f349e84a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8548d3f2b6d5fa2bcc350fad4a2c72a8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8548d3f2b6d5fa2bcc350fad4a2c72a8"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZumoBuzzer_8h.html#a8548d3f2b6d5fa2bcc350fad4a2c72a8">DIV_BY_10</a>&#160;&#160;&#160;(1 &lt;&lt; 15)</td></tr>
-<tr class="memdesc:a8548d3f2b6d5fa2bcc350fad4a2c72a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">frequency bit that indicates Hz/10<br />
- e.g. <em>frequency</em> = <code>(445 | DIV_BY_10)</code> gives a frequency of 44.5 Hz <br /></td></tr>
-<tr class="separator:a8548d3f2b6d5fa2bcc350fad4a2c72a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>See the <a class="el" href="classZumoBuzzer.html" title="Play beeps and music with buzzer. ">ZumoBuzzer</a> class reference for more information about this library. </p>
-
-<p>Definition in file <a class="el" href="ZumoBuzzer_8h_source.html">ZumoBuzzer.h</a>.</p>
-</div></div><!-- contents -->
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

@@ -1,4 +1,4 @@
 <map id="ZumoReflectanceSensorArray" name="ZumoReflectanceSensorArray">
-<area shape="rect" id="node2" href="$classQTRSensorsRC.html" title="(ZumoReflectanceSensorArray dependency) " alt="" coords="45,80,163,107"/>
-<area shape="rect" id="node3" href="$classQTRSensors.html" title="(ZumoReflectanceSensorArray dependency) " alt="" coords="55,5,153,32"/>
+<area shape="rect" id="node2" href="$classQTRSensorsRC.html" title="QTRSensorsRC" alt="" coords="45,80,163,107"/>
+<area shape="rect" id="node3" href="$classQTRSensors.html" title="QTRSensors" alt="" coords="55,5,153,32"/>
 </map>

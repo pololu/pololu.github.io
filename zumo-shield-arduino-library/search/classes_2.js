@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['zumobuzzer',['ZumoBuzzer',['../classZumoBuzzer.html',1,'']]],
-  ['zumomotors',['ZumoMotors',['../classZumoMotors.html',1,'']]],
-  ['zumoreflectancesensorarray',['ZumoReflectanceSensorArray',['../classZumoReflectanceSensorArray.html',1,'']]]
+  ['qtrsensors',['QTRSensors',['../classQTRSensors.html',1,'']]],
+  ['qtrsensorsanalog',['QTRSensorsAnalog',['../classQTRSensorsAnalog.html',1,'']]],
+  ['qtrsensorsrc',['QTRSensorsRC',['../classQTRSensorsRC.html',1,'']]]
 ];

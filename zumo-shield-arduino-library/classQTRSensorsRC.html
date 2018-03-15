@@ -98,18 +98,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">QTRSensorsRC Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p><em>(ZumoReflectanceSensorArray dependency)</em>  
- <a href="classQTRSensorsRC.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="QTRSensors_8h_source.html">QTRSensors.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for QTRSensorsRC:</div>
 <div class="dyncontent">
 <div class="center"><img src="classQTRSensorsRC__inherit__graph.png" border="0" usemap="#QTRSensorsRC_inherit__map" alt="Inheritance graph"/></div>
 <map name="QTRSensorsRC_inherit__map" id="QTRSensorsRC_inherit__map">
 <area shape="rect" id="node3" href="classZumoReflectanceSensorArray.html" title="Read from reflectance sensor array. " alt="" coords="5,155,203,181"/>
-<area shape="rect" id="node2" href="classQTRSensors.html" title="(ZumoReflectanceSensorArray dependency) " alt="" coords="55,5,153,32"/>
+<area shape="rect" id="node2" href="classQTRSensors.html" title="QTRSensors" alt="" coords="55,5,153,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -117,7 +112,7 @@ Collaboration diagram for QTRSensorsRC:</div>
 <div class="dyncontent">
 <div class="center"><img src="classQTRSensorsRC__coll__graph.png" border="0" usemap="#QTRSensorsRC_coll__map" alt="Collaboration graph"/></div>
 <map name="QTRSensorsRC_coll__map" id="QTRSensorsRC_coll__map">
-<area shape="rect" id="node2" href="classQTRSensors.html" title="(ZumoReflectanceSensorArray dependency) " alt="" coords="15,5,114,32"/>
+<area shape="rect" id="node2" href="classQTRSensors.html" title="QTRSensors" alt="" coords="15,5,114,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -188,10 +183,7 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>_maxValue</b>
 <tr class="separator:a88657f1405aa7dc840f2025b53e1a4b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><em>(ZumoReflectanceSensorArray dependency)</em> </p>
-<p>This is included in the Zumo Shield Arduino Library as a dependency for <a class="el" href="classZumoReflectanceSensorArray.html" title="Read from reflectance sensor array. ">ZumoReflectanceSensorArray</a>. If you are programming an Arduino on a Zumo, you should generally use the <a class="el" href="classZumoReflectanceSensorArray.html" title="Read from reflectance sensor array. ">ZumoReflectanceSensorArray</a> instead of using the QTRSensors library directly.</p>
-<p>For documentation specific to QTRSensors, please see the <a href="https://www.pololu.com/docs/0J19">user's guide</a> on Pololu's website. </p>
-
+<div class="textblock">
 <p>Definition at line <a class="el" href="QTRSensors_8h_source.html#l00160">160</a> of file <a class="el" href="QTRSensors_8h_source.html">QTRSensors.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="ac9840e2429c7a962977057ba154c77da"></a>
@@ -224,7 +216,7 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>_maxValue</b>
   </dd>
 </dl>
 <p>The sensor values read by this function are not returned; instead, the maximum and minimum values found over time are stored internally and used for the <code><a class="el" href="classQTRSensors.html#aa32a448ac03cd2a45d1f14f96ac4b739" title="Returns sensor readings normalized to values between 0 and 1000. ">readCalibrated()</a></code> method. You can access the calibration (i.e raw max and min sensor readings) through the public member pointers <code>calibratedMinimumOn</code>, <code>calibratedMaximumOn</code>, <code>calibratedMinimumOff</code>, and <code>calibratedMaximumOff</code>. Note that these pointers will point to arrays of length <em>numSensors</em>, as specified in the constructor, and they will only be allocated <b>after</b> <code><a class="el" href="classQTRSensors.html#ac9840e2429c7a962977057ba154c77da" title="Reads the sensors for calibration. ">calibrate()</a></code> has been called. If you only calibrate with the emitters on, the calibration arrays that hold the off values will not be allocated.</p>
-<p>The <a class="el" href="classZumoReflectanceSensorArray.html" title="Read from reflectance sensor array. ">ZumoReflectanceSensorArray</a> class inherits this function from the <a class="el" href="classQTRSensors.html" title="(ZumoReflectanceSensorArray dependency) ">QTRSensors</a> class. </p>
+<p>The <a class="el" href="classZumoReflectanceSensorArray.html" title="Read from reflectance sensor array. ">ZumoReflectanceSensorArray</a> class inherits this function from the <a class="el" href="classQTRSensors.html">QTRSensors</a> class. </p>
 
 <p>Definition at line <a class="el" href="QTRSensors_8cpp_source.html#l00147">147</a> of file <a class="el" href="QTRSensors_8cpp_source.html">QTRSensors.cpp</a>.</p>
 
@@ -253,7 +245,7 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>_maxValue</b>
 
 <p>Turns the IR LEDs off. </p>
 <p>This is mainly for use by the <code><a class="el" href="classZumoReflectanceSensorArray.html#a65339c9daf90ba1294b04aca43a58b99" title="Reads the raw sensor values into an array. ">read()</a></code> method, and calling this function before or after reading the sensors will have no effect on the readings, but you might wish to use it for testing purposes. This method will only do something if the emitter pin specified in the constructor is valid (i.e. not <code>QTR_NO_EMITTER_PIN</code>) and the corresponding connection is made.</p>
-<p>The <a class="el" href="classZumoReflectanceSensorArray.html" title="Read from reflectance sensor array. ">ZumoReflectanceSensorArray</a> class inherits this function from the <a class="el" href="classQTRSensors.html" title="(ZumoReflectanceSensorArray dependency) ">QTRSensors</a> class. </p>
+<p>The <a class="el" href="classZumoReflectanceSensorArray.html" title="Read from reflectance sensor array. ">ZumoReflectanceSensorArray</a> class inherits this function from the <a class="el" href="classQTRSensors.html">QTRSensors</a> class. </p>
 
 <p>Definition at line <a class="el" href="QTRSensors_8cpp_source.html#l00108">108</a> of file <a class="el" href="QTRSensors_8cpp_source.html">QTRSensors.cpp</a>.</p>
 
@@ -282,7 +274,7 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>_maxValue</b>
 
 <p>Turns the IR LEDs on. </p>
 <p>This is mainly for use by the <code><a class="el" href="classZumoReflectanceSensorArray.html#a65339c9daf90ba1294b04aca43a58b99" title="Reads the raw sensor values into an array. ">read()</a></code> method, and calling this function before or after reading the sensors will have no effect on the readings, but you might wish to use it for testing purposes. This method will only do something if the emitter pin specified in the constructor is valid (i.e. not <code>QTR_NO_EMITTER_PIN</code>) and the corresponding connection is made.</p>
-<p>The <a class="el" href="classZumoReflectanceSensorArray.html" title="Read from reflectance sensor array. ">ZumoReflectanceSensorArray</a> class inherits this function from the <a class="el" href="classQTRSensors.html" title="(ZumoReflectanceSensorArray dependency) ">QTRSensors</a> class. </p>
+<p>The <a class="el" href="classZumoReflectanceSensorArray.html" title="Read from reflectance sensor array. ">ZumoReflectanceSensorArray</a> class inherits this function from the <a class="el" href="classQTRSensors.html">QTRSensors</a> class. </p>
 
 <p>Definition at line <a class="el" href="QTRSensors_8cpp_source.html#l00117">117</a> of file <a class="el" href="QTRSensors_8cpp_source.html">QTRSensors.cpp</a>.</p>
 
@@ -329,7 +321,7 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>_maxValue</b>
   </dd>
 </dl>
 <p>0 corresponds to a reading that is less than or equal to the minimum value read by <code><a class="el" href="classQTRSensors.html#ac9840e2429c7a962977057ba154c77da" title="Reads the sensors for calibration. ">calibrate()</a></code> and 1000 corresponds to a reading that is greater than or equal to the maximum value. Calibration values are stored separately for each sensor, so that differences in the sensors are accounted for automatically.</p>
-<p>The <a class="el" href="classZumoReflectanceSensorArray.html" title="Read from reflectance sensor array. ">ZumoReflectanceSensorArray</a> class inherits this function from the <a class="el" href="classQTRSensors.html" title="(ZumoReflectanceSensorArray dependency) ">QTRSensors</a> class. </p>
+<p>The <a class="el" href="classZumoReflectanceSensorArray.html" title="Read from reflectance sensor array. ">ZumoReflectanceSensorArray</a> class inherits this function from the <a class="el" href="classQTRSensors.html">QTRSensors</a> class. </p>
 
 <p>Definition at line <a class="el" href="QTRSensors_8cpp_source.html#l00233">233</a> of file <a class="el" href="QTRSensors_8cpp_source.html">QTRSensors.cpp</a>.</p>
 
@@ -389,7 +381,7 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>_maxValue</b>
 </p>
 <p>As long as your sensors aren't spaced too far apart relative to the line, this returned value is designed to be monotonic, which makes it great for use in closed-loop PID control. Additionally, this method remembers where it last saw the line, so if you ever lose the line to the left or the right, its line position will continue to indicate the direction you need to go to reacquire the line. For example, if sensor 5 is your rightmost sensor and you end up completely off the line to the left, this function will continue to return 5000.</p>
 <p>By default, this function assumes a dark line (high values) on a light background (low values). If your line is light on dark, set the optional second argument <em>whiteLine</em> to true. In this case, each sensor value will be replaced by the maximum possible value minus its actual value before the averaging.</p>
-<p>The <a class="el" href="classZumoReflectanceSensorArray.html" title="Read from reflectance sensor array. ">ZumoReflectanceSensorArray</a> class inherits this function from the <a class="el" href="classQTRSensors.html" title="(ZumoReflectanceSensorArray dependency) ">QTRSensors</a> class. </p>
+<p>The <a class="el" href="classZumoReflectanceSensorArray.html" title="Read from reflectance sensor array. ">ZumoReflectanceSensorArray</a> class inherits this function from the <a class="el" href="classQTRSensors.html">QTRSensors</a> class. </p>
 
 <p>Definition at line <a class="el" href="QTRSensors_8cpp_source.html#l00313">313</a> of file <a class="el" href="QTRSensors_8cpp_source.html">QTRSensors.cpp</a>.</p>
 
@@ -418,7 +410,7 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>_maxValue</b>
 
 <p>Resets all calibration that has been done. </p>
 <p>This function discards the calibration values that have been previously recorded, resetting the min and max values.</p>
-<p>The <a class="el" href="classZumoReflectanceSensorArray.html" title="Read from reflectance sensor array. ">ZumoReflectanceSensorArray</a> class inherits this function from the <a class="el" href="classQTRSensors.html" title="(ZumoReflectanceSensorArray dependency) ">QTRSensors</a> class. </p>
+<p>The <a class="el" href="classZumoReflectanceSensorArray.html" title="Read from reflectance sensor array. ">ZumoReflectanceSensorArray</a> class inherits this function from the <a class="el" href="classQTRSensors.html">QTRSensors</a> class. </p>
 
 <p>Definition at line <a class="el" href="QTRSensors_8cpp_source.html#l00127">127</a> of file <a class="el" href="QTRSensors_8cpp_source.html">QTRSensors.cpp</a>.</p>
 
@@ -445,7 +437,7 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>_maxValue</b>
 
 <p>The calibrated maximum values measured for each sensor, with emitters off. </p>
 <p>This pointer is unallocated and set to 0 until <code><a class="el" href="classQTRSensors.html#ac9840e2429c7a962977057ba154c77da" title="Reads the sensors for calibration. ">calibrate()</a></code> is called, and then allocated to exactly the size required. Depending on the <em>readMode</em> argument to <code><a class="el" href="classQTRSensors.html#ac9840e2429c7a962977057ba154c77da" title="Reads the sensors for calibration. ">calibrate()</a></code>, only the On or Off values might be allocated, as required. This variable is made public so that you can use the calibration values for your own calculations and do things like saving them to EEPROM, performing sanity checking, etc.</p>
-<p>The <a class="el" href="classZumoReflectanceSensorArray.html" title="Read from reflectance sensor array. ">ZumoReflectanceSensorArray</a> class inherits this variable from the <a class="el" href="classQTRSensors.html" title="(ZumoReflectanceSensorArray dependency) ">QTRSensors</a> class. </p>
+<p>The <a class="el" href="classZumoReflectanceSensorArray.html" title="Read from reflectance sensor array. ">ZumoReflectanceSensorArray</a> class inherits this variable from the <a class="el" href="classQTRSensors.html">QTRSensors</a> class. </p>
 
 <p>Definition at line <a class="el" href="QTRSensors_8h_source.html#l00127">127</a> of file <a class="el" href="QTRSensors_8h_source.html">QTRSensors.h</a>.</p>
 
@@ -471,7 +463,7 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>_maxValue</b>
 
 <p>The calibrated maximum values measured for each sensor, with emitters on. </p>
 <p>This pointer is unallocated and set to 0 until <code><a class="el" href="classQTRSensors.html#ac9840e2429c7a962977057ba154c77da" title="Reads the sensors for calibration. ">calibrate()</a></code> is called, and then allocated to exactly the size required. Depending on the <em>readMode</em> argument to <code><a class="el" href="classQTRSensors.html#ac9840e2429c7a962977057ba154c77da" title="Reads the sensors for calibration. ">calibrate()</a></code>, only the On or Off values might be allocated, as required. This variable is made public so that you can use the calibration values for your own calculations and do things like saving them to EEPROM, performing sanity checking, etc.</p>
-<p>The <a class="el" href="classZumoReflectanceSensorArray.html" title="Read from reflectance sensor array. ">ZumoReflectanceSensorArray</a> class inherits this variable from the <a class="el" href="classQTRSensors.html" title="(ZumoReflectanceSensorArray dependency) ">QTRSensors</a> class. </p>
+<p>The <a class="el" href="classZumoReflectanceSensorArray.html" title="Read from reflectance sensor array. ">ZumoReflectanceSensorArray</a> class inherits this variable from the <a class="el" href="classQTRSensors.html">QTRSensors</a> class. </p>
 
 <p>Definition at line <a class="el" href="QTRSensors_8h_source.html#l00125">125</a> of file <a class="el" href="QTRSensors_8h_source.html">QTRSensors.h</a>.</p>
 
@@ -497,7 +489,7 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>_maxValue</b>
 
 <p>The calibrated minimum values measured for each sensor, with emitters off. </p>
 <p>This pointer is unallocated and set to 0 until <code><a class="el" href="classQTRSensors.html#ac9840e2429c7a962977057ba154c77da" title="Reads the sensors for calibration. ">calibrate()</a></code> is called, and then allocated to exactly the size required. Depending on the <em>readMode</em> argument to <code><a class="el" href="classQTRSensors.html#ac9840e2429c7a962977057ba154c77da" title="Reads the sensors for calibration. ">calibrate()</a></code>, only the On or Off values might be allocated, as required. This variable is made public so that you can use the calibration values for your own calculations and do things like saving them to EEPROM, performing sanity checking, etc.</p>
-<p>The <a class="el" href="classZumoReflectanceSensorArray.html" title="Read from reflectance sensor array. ">ZumoReflectanceSensorArray</a> class inherits this variable from the <a class="el" href="classQTRSensors.html" title="(ZumoReflectanceSensorArray dependency) ">QTRSensors</a> class. </p>
+<p>The <a class="el" href="classZumoReflectanceSensorArray.html" title="Read from reflectance sensor array. ">ZumoReflectanceSensorArray</a> class inherits this variable from the <a class="el" href="classQTRSensors.html">QTRSensors</a> class. </p>
 
 <p>Definition at line <a class="el" href="QTRSensors_8h_source.html#l00126">126</a> of file <a class="el" href="QTRSensors_8h_source.html">QTRSensors.h</a>.</p>
 
@@ -523,15 +515,15 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>_maxValue</b>
 
 <p>The calibrated minimum values measured for each sensor, with emitters on. </p>
 <p>This pointer is unallocated and set to 0 until <code><a class="el" href="classQTRSensors.html#ac9840e2429c7a962977057ba154c77da" title="Reads the sensors for calibration. ">calibrate()</a></code> is called, and then allocated to exactly the size required. Depending on the <em>readMode</em> argument to <code><a class="el" href="classQTRSensors.html#ac9840e2429c7a962977057ba154c77da" title="Reads the sensors for calibration. ">calibrate()</a></code>, only the On or Off values might be allocated, as required. This variable is made public so that you can use the calibration values for your own calculations and do things like saving them to EEPROM, performing sanity checking, etc.</p>
-<p>The <a class="el" href="classZumoReflectanceSensorArray.html" title="Read from reflectance sensor array. ">ZumoReflectanceSensorArray</a> class inherits this variable from the <a class="el" href="classQTRSensors.html" title="(ZumoReflectanceSensorArray dependency) ">QTRSensors</a> class. </p>
+<p>The <a class="el" href="classZumoReflectanceSensorArray.html" title="Read from reflectance sensor array. ">ZumoReflectanceSensorArray</a> class inherits this variable from the <a class="el" href="classQTRSensors.html">QTRSensors</a> class. </p>
 
 <p>Definition at line <a class="el" href="QTRSensors_8h_source.html#l00124">124</a> of file <a class="el" href="QTRSensors_8h_source.html">QTRSensors.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/<a class="el" href="QTRSensors_8h_source.html">QTRSensors.h</a></li>
-<li>src/<a class="el" href="QTRSensors_8cpp_source.html">QTRSensors.cpp</a></li>
+<li><a class="el" href="QTRSensors_8h_source.html">QTRSensors.h</a></li>
+<li><a class="el" href="QTRSensors_8cpp_source.html">QTRSensors.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

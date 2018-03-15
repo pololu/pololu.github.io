@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['qtrsensors',['QTRSensors',['../classQTRSensors.html',1,'']]],
-  ['qtrsensorsanalog',['QTRSensorsAnalog',['../classQTRSensorsAnalog.html',1,'']]],
-  ['qtrsensorsrc',['QTRSensorsRC',['../classQTRSensorsRC.html',1,'']]]
+  ['pololubuzzer',['PololuBuzzer',['../classPololuBuzzer.html',1,'']]],
+  ['pushbutton',['Pushbutton',['../classPushbutton.html',1,'']]]
 ];

@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['play',['play',['../classZumoBuzzer.html#ab32b075dce31b463b98872c90afbeccd',1,'ZumoBuzzer']]],
-  ['playcheck',['playCheck',['../classZumoBuzzer.html#a57f8bf5c3315a72d25ff52ff999f47ca',1,'ZumoBuzzer']]],
-  ['playfrequency',['playFrequency',['../classZumoBuzzer.html#a6e16b531708c37174b8d21949e0e6f82',1,'ZumoBuzzer']]],
-  ['playfromprogramspace',['playFromProgramSpace',['../classZumoBuzzer.html#aab4bfc728c6503cc4dcc4c671be6175b',1,'ZumoBuzzer']]],
-  ['playmode',['playMode',['../classZumoBuzzer.html#a41905c8f8662b17d338dc4b27db7b485',1,'ZumoBuzzer']]],
-  ['playnote',['playNote',['../classZumoBuzzer.html#a9a1ce9fa993b8d76d3e48a48a2e1b0ce',1,'ZumoBuzzer']]]
+  ['play',['play',['../classPololuBuzzer.html#a22f45ef7cdf9dc8fc54e617244368277',1,'PololuBuzzer']]],
+  ['playcheck',['playCheck',['../classPololuBuzzer.html#a427225dcc85c1e65078e4397b9890929',1,'PololuBuzzer']]],
+  ['playfrequency',['playFrequency',['../classPololuBuzzer.html#a931fafd76045ae59d4ba62c9bf90b0dc',1,'PololuBuzzer']]],
+  ['playfromprogramspace',['playFromProgramSpace',['../classPololuBuzzer.html#a07ff4e9d9f7e4f37a58e149640b61f4e',1,'PololuBuzzer']]],
+  ['playmode',['playMode',['../classPololuBuzzer.html#ab72bde97ceceef8705f1bbaeccb970db',1,'PololuBuzzer']]],
+  ['playnote',['playNote',['../classPololuBuzzer.html#a989d410dd6cdb7abfa136c3734040fb5',1,'PololuBuzzer']]]
 ];
