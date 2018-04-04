@@ -1,0 +1,4 @@
+<map id="TicBase" name="TicBase">
+<area shape="rect" id="node2" href="$classTicI2C.html" title="TicI2C" alt="" coords="5,80,67,107"/>
+<area shape="rect" id="node3" href="$classTicSerial.html" title="TicSerial" alt="" coords="91,80,165,107"/>
+</map>
