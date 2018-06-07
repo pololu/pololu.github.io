@@ -264,8 +264,8 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr class="separator:a10e816b7ff83e03d87235aea150ca9e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed5e1139520d47cd59d904dec6071be3"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJrkG2Base.html#aed5e1139520d47cd59d904dec6071be3">getEncodedHardCurrentLimitForward</a> ()</td></tr>
 <tr class="separator:aed5e1139520d47cd59d904dec6071be3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f4fe644ee13eb28b0a0c50785cf924d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJrkG2Base.html#a3f4fe644ee13eb28b0a0c50785cf924d">setEncodedHardCurrentLimitReverse</a> (uint16_t code)</td></tr>
-<tr class="separator:a3f4fe644ee13eb28b0a0c50785cf924d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32f457a53482b0ab4659325d9bfa0d38"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJrkG2Base.html#a32f457a53482b0ab4659325d9bfa0d38">setEncodedHardCurrentLimitReverse</a> (uint16_t encoded_limit)</td></tr>
+<tr class="separator:a32f457a53482b0ab4659325d9bfa0d38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace99298c95ad30b1e0366e3eef80655a"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJrkG2Base.html#ace99298c95ad30b1e0366e3eef80655a">getEncodedHardCurrentLimitReverse</a> ()</td></tr>
 <tr class="separator:ace99298c95ad30b1e0366e3eef80655a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5513c6eb363eeb66608d21dd65800079"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJrkG2Base.html#a5513c6eb363eeb66608d21dd65800079">setEncodedHardCurrentLimit</a> (uint16_t encoded_limit)</td></tr>
@@ -907,7 +907,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Gets the encoded hard current limit for driving in the reverse direction from the Jrk's RAM settings.</p>
-<p>See also <a class="el" href="classJrkG2Base.html#a3f4fe644ee13eb28b0a0c50785cf924d">setEncodedHardCurrentLimitReverse()</a>. </p>
+<p>See also <a class="el" href="classJrkG2Base.html#a32f457a53482b0ab4659325d9bfa0d38">setEncodedHardCurrentLimitReverse()</a>. </p>
 
 <p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01179">1179</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
@@ -2086,7 +2086,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Sets the encoded hard current limit for both directions in the Jrk's RAM settings.</p>
 <p>You would normally configure this setting ahead of time using the Jrk G2 Configuration Utility, but this function allows you to change it temporarily on the fly.</p>
-<p>See also <a class="el" href="classJrkG2Base.html#a10e816b7ff83e03d87235aea150ca9e2">setEncodedHardCurrentLimitForward()</a>, <a class="el" href="classJrkG2Base.html#a3f4fe644ee13eb28b0a0c50785cf924d">setEncodedHardCurrentLimitReverse()</a>, <a class="el" href="classJrkG2Base.html#ad8e0aa30583758b942af3aaec4e93431">getEncodedHardCurrentLimit()</a>, and <a class="el" href="classJrkG2Base.html#a3575735739cb05ce0120a65dcd0448c2">setSoftCurrentLimit()</a>. </p>
+<p>See also <a class="el" href="classJrkG2Base.html#a10e816b7ff83e03d87235aea150ca9e2">setEncodedHardCurrentLimitForward()</a>, <a class="el" href="classJrkG2Base.html#a32f457a53482b0ab4659325d9bfa0d38">setEncodedHardCurrentLimitReverse()</a>, <a class="el" href="classJrkG2Base.html#ad8e0aa30583758b942af3aaec4e93431">getEncodedHardCurrentLimit()</a>, and <a class="el" href="classJrkG2Base.html#a3575735739cb05ce0120a65dcd0448c2">setSoftCurrentLimit()</a>. </p>
 
 <p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01194">1194</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
@@ -2115,13 +2115,13 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Sets the encoded hard current limit for driving in the forward direction in the Jrk's RAM settings.</p>
 <p>You would normally configure this setting ahead of time using the Jrk G2 Configuration Utility, but this function allows you to change it temporarily on the fly.</p>
-<p>See also <a class="el" href="classJrkG2Base.html#aed5e1139520d47cd59d904dec6071be3">getEncodedHardCurrentLimitForward()</a> and <a class="el" href="classJrkG2Base.html#a3f4fe644ee13eb28b0a0c50785cf924d">setEncodedHardCurrentLimitReverse()</a>. </p>
+<p>See also <a class="el" href="classJrkG2Base.html#aed5e1139520d47cd59d904dec6071be3">getEncodedHardCurrentLimitForward()</a> and <a class="el" href="classJrkG2Base.html#a32f457a53482b0ab4659325d9bfa0d38">setEncodedHardCurrentLimitReverse()</a>. </p>
 
 <p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01146">1146</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a3f4fe644ee13eb28b0a0c50785cf924d"></a>
+<a class="anchor" id="a32f457a53482b0ab4659325d9bfa0d38"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -2132,7 +2132,7 @@ Protected Attributes</h2></td></tr>
           <td class="memname">void JrkG2Base::setEncodedHardCurrentLimitReverse </td>
           <td>(</td>
           <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>code</em></td><td>)</td>
+          <td class="paramname"><em>encoded_limit</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -2831,7 +2831,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Sets the target of the Jrk based on a value in the range 0 to 127.</p>
-<p>If the value is zero, then this command is equivalent to the Motor Off command. Otherwise, the value maps to a 12-bit target less than 2048.</p>
+<p>If the value is zero, then this command is equivalent to the "Stop motor" command. Otherwise, the value maps to a 12-bit target less than 2048.</p>
 <p>If the feedback mode is Analog or Tachometer, then the formula is Target = 2048 - 16 * value.</p>
 <p>If the feedback mode is None (speed control mode), then the formula is Target = 2048 - (600 / 127) * value. This means that a value of 127 will set the duty cycle target to full-speed reverse (-600).</p>
 <p>Example usage: </p><div class="fragment"><div class="line">jrkG2.setTargetLowResRev(100);</div></div><!-- fragment --><p>This function sends a "Set target low resolution reverse" command to the Jrk G2, which clears the "Awaiting command" error bit and (if the input mode is serial) will set the jrk's input and target variables.</p>
@@ -2862,7 +2862,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Turns the motor off.</p>
-<p>This function sends a "Motor off" command to the Jrk, which sets the "Awaiting command" error bit. The Jrk will respect the configured deceleration limit while decelerating to a duty cycle of 0, unless the "Awaiting command" error has been configured as a hard error. Once the duty cycle reaches zero, the Jrk will either brake or coast.</p>
+<p>This function sends a "Stop motor" command to the Jrk, which sets the "Awaiting command" error bit. The Jrk will respect the configured deceleration limit while decelerating to a duty cycle of 0, unless the "Awaiting command" error has been configured as a hard error. Once the duty cycle reaches zero, the Jrk will either brake or coast.</p>
 <p>Example usage: </p><div class="fragment"><div class="line">jrkG2.stopMotor();</div></div><!-- fragment --> 
 <p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00289">289</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 

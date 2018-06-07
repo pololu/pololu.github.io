@@ -7,7 +7,7 @@ var searchData=
   ['setderivativecoefficient',['setDerivativeCoefficient',['../classJrkG2Base.html#a77a9b44fa73d47448f2ce932dd1c8bac',1,'JrkG2Base']]],
   ['setencodedhardcurrentlimit',['setEncodedHardCurrentLimit',['../classJrkG2Base.html#a5513c6eb363eeb66608d21dd65800079',1,'JrkG2Base']]],
   ['setencodedhardcurrentlimitforward',['setEncodedHardCurrentLimitForward',['../classJrkG2Base.html#a10e816b7ff83e03d87235aea150ca9e2',1,'JrkG2Base']]],
-  ['setencodedhardcurrentlimitreverse',['setEncodedHardCurrentLimitReverse',['../classJrkG2Base.html#a3f4fe644ee13eb28b0a0c50785cf924d',1,'JrkG2Base']]],
+  ['setencodedhardcurrentlimitreverse',['setEncodedHardCurrentLimitReverse',['../classJrkG2Base.html#a32f457a53482b0ab4659325d9bfa0d38',1,'JrkG2Base']]],
   ['setintegralcoefficient',['setIntegralCoefficient',['../classJrkG2Base.html#a7378126c2f6428db38053c4da2698245',1,'JrkG2Base']]],
   ['setintegrallimit',['setIntegralLimit',['../classJrkG2Base.html#a1b1aebd1b563e1bc3bea0d5f0fe2e8f8',1,'JrkG2Base']]],
   ['setmaxacceleration',['setMaxAcceleration',['../classJrkG2Base.html#a5f1d25a199a9053ae904949e26c2778c',1,'JrkG2Base']]],
