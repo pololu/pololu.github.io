@@ -309,7 +309,7 @@ Protected Attributes</h2></td></tr>
 <div class="textblock"><p>Represents a serial connection to a Jrk G2.</p>
 <p>For the high-level commands you can use on this object, see <a class="el" href="classJrkG2Base.html">JrkG2Base</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01653">1653</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01679">1679</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a60aa2fa400e5f417b0f6a6ef7f557299"></a>
 <div class="memitem">
@@ -347,7 +347,7 @@ Protected Attributes</h2></td></tr>
 <p>The <code>deviceNumber</code> argument is optional. If it is omitted or 255, the <a class="el" href="classJrkG2Serial.html">JrkG2Serial</a> object will use the compact protocol. If it is a number between 0 and 127, it specifies the device number to use in the Pololu protocol, allowing you to control multiple Jrk controllers on a single serial bus.</p>
 <p>For example, to use the first open hardware serial port to send compact protocol commands to one Jrk, write this at the top of your sketch: </p><div class="fragment"><div class="line"><a class="code" href="classJrkG2Serial.html">JrkG2Serial</a> jrk(SERIAL_PORT_HARDWARE_OPEN);</div></div><!-- fragment --><p>For example, to use a SoftwareSerial port and send Pololu protocol commands to two different Jrk G2 controllers, write this at the top of your sketch:</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;SoftwareSerial.h&gt;</span></div><div class="line">SoftwareSerial jrkG2Serial(10, 11);</div><div class="line"><a class="code" href="classJrkG2Serial.html">JrkG2Serial</a> jrk1(jrkG2Serial, 11);</div><div class="line"><a class="code" href="classJrkG2Serial.html">JrkG2Serial</a> jrk2(jrkG2Serial, 12);</div></div><!-- fragment --> 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01685">1685</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01711">1711</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -468,7 +468,7 @@ Protected Attributes</h2></td></tr>
 <p>Gets the brake duration when switching from forward to reverse from the Jrk's RAM settings, in units of 5 ms.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#add9ead14935a673f6f7f991b2aae8cb0">setBrakeDurationForward()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01217">1217</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01239">1239</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -495,7 +495,7 @@ Protected Attributes</h2></td></tr>
 <p>Gets the brake duration when switching from reverse to forward from the Jrk's RAM settings, in units of 5 ms.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#af05c22e84e20626b450ca7a629a0715b">setBrakeDurationReverse()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01239">1239</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01261">1261</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -522,7 +522,7 @@ Protected Attributes</h2></td></tr>
 <p>Gets the "Coast when off" setting from the Jrk's RAM settings.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#a40573a8f28bd9fd6187a2e9b7d4a83a8">setCoastWhenOff()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00760">760</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00767">767</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -575,7 +575,7 @@ Protected Attributes</h2></td></tr>
 <p>Gets the number of consecutive PID periods during which current chopping due to the hard current limit has been active.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#a9379c57c17315f4a4970784a994a9cf3">getCurrentChoppingOccurrenceCount()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00670">670</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00673">673</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -600,9 +600,10 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Gets and clears the "Current chopping occurrence count" variable, which is the number of PID periods during which current chopping due to the hard current limit has been active, since the last time the variable was cleared.</p>
+<p>This command is only valid for the Jrk G2 18v19, 24v13, 18v27, and 24v21. The Jrk G2 21v3 cannot sense when current chopping occurs so this command will always return 0.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#adf761ad964f2cb1b4d9962061b6905c5">getCurrentChoppingConsecutiveCount()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00681">681</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00688">688</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -656,7 +657,7 @@ Protected Attributes</h2></td></tr>
 <p>Gets the exponent part of the derivative coefficient from the Jrk's RAM settings.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#a92b40ca8c26e6ad52451b4f01ab73bee">getDerivativeMultiplier()</a> and <a class="el" href="classJrkG2Base.html#a77a9b44fa73d47448f2ce932dd1c8bac">setDerivativeCoefficient()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00884">884</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00891">891</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -683,7 +684,7 @@ Protected Attributes</h2></td></tr>
 <p>Gets the multiplier part of the derivative coefficient from the Jrk's RAM settings.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#a042cf7f8b2e5562436bd15869d389cad">getDerivativeExponent()</a> and <a class="el" href="classJrkG2Base.html#a77a9b44fa73d47448f2ce932dd1c8bac">setDerivativeCoefficient()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00875">875</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00882">882</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -839,7 +840,7 @@ Protected Attributes</h2></td></tr>
 <p>The maximum length that can be fetched is 15 bytes.</p>
 <p>Example usage: </p><div class="fragment"><div class="line"><span class="comment">// Get the Jrk&#39;s serial device number.</span></div><div class="line">uint8_t deviceNumber;</div><div class="line">jrk.getEEPROMSettings(0x28, 1, &amp;deviceNumber);</div></div><!-- fragment --><p>For information on how the settings are encoded, see the Jrk G2 user's guide. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01333">1333</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01357">1357</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -864,9 +865,10 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Gets the encoded value representing the hardware current limit the jrk is currently using.</p>
+<p>This command is only valid for the Jrk G2 18v19, 24v13, 18v27, and 24v21. The Jrk G2 21v3 does not have a configurable hard current limit.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#a5513c6eb363eeb66608d21dd65800079">setEncodedHardCurrentLimit()</a>, <a class="el" href="classJrkG2Base.html#a3bc79029bda96bb133e18594339d201b">getCurrent()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00650">650</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00653">653</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -891,9 +893,10 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Gets the encoded hard current limit for driving in the forward direction from the Jrk's RAM settings.</p>
+<p>This command is only valid for the Jrk G2 18v19, 24v13, 18v27, and 24v21. The Jrk G2 21v3 does not have a configurable hard current limit.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#a10e816b7ff83e03d87235aea150ca9e2">setEncodedHardCurrentLimitForward()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01156">1156</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01169">1169</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -918,9 +921,10 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Gets the encoded hard current limit for driving in the reverse direction from the Jrk's RAM settings.</p>
+<p>This command is only valid for the Jrk G2 18v19, 24v13, 18v27, and 24v21. The Jrk G2 21v3 does not have a configurable hard current limit.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#a32f457a53482b0ab4659325d9bfa0d38">setEncodedHardCurrentLimitReverse()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01179">1179</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01198">1198</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -1145,7 +1149,7 @@ Protected Attributes</h2></td></tr>
 <p>Gets the exponent part of the integral coefficient from the Jrk's RAM settings.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#ad29a76a995efb84780cdee3aab547162">getIntegralMultiplier()</a> and <a class="el" href="classJrkG2Base.html#a7378126c2f6428db38053c4da2698245">setIntegralCoefficient()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00845">845</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00852">852</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -1172,7 +1176,7 @@ Protected Attributes</h2></td></tr>
 <p>Gets the integral limit from the Jrk's RAM settings.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#a1b1aebd1b563e1bc3bea0d5f0fe2e8f8">setIntegralLimit()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00933">933</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00940">940</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -1199,7 +1203,7 @@ Protected Attributes</h2></td></tr>
 <p>Gets the multiplier part of the integral coefficient from the Jrk's RAM settings.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#abc35c283ace4147a21fc26b8643ad321">getIntegralExponent()</a> and <a class="el" href="classJrkG2Base.html#a7378126c2f6428db38053c4da2698245">setIntegralCoefficient()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00836">836</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00843">843</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -1227,7 +1231,7 @@ Protected Attributes</h2></td></tr>
 <p>This can be useful for converting the <a class="el" href="classJrkG2Base.html#a60a32a5fd5553899bfcd0859abf0aa83">getRawCurrent()</a> reading into milliamps.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#a7000ae58866668f0b24200c7a29d06fb">getDutyCycle()</a>, <a class="el" href="classJrkG2Base.html#a49f336d886282e4d60bd77f58788ddd9">getDutyCycleTarget()</a>, and <a class="el" href="classJrkG2Base.html#a3bc79029bda96bb133e18594339d201b">getCurrent()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00661">661</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00664">664</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -1280,7 +1284,7 @@ Protected Attributes</h2></td></tr>
 <p>Gets the maximum acceleration in the forward direction from the Jrk's RAM settings.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#a234ffb413c1f73e37ec9993c8d37a823">setMaxAccelerationForward()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00978">978</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00985">985</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -1307,7 +1311,7 @@ Protected Attributes</h2></td></tr>
 <p>Gets the maximum acceleration in the reverse direction from the Jrk's RAM settings.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#a13f2b5ce703e4041d62d98cb1f24f137">setMaxAccelerationReverse()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01001">1001</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01008">1008</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -1334,7 +1338,7 @@ Protected Attributes</h2></td></tr>
 <p>Gets the maximum deceleration in the forward direction from the Jrk's RAM settings.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#a613232336bd882cf63552ef4ae60607e">setMaxDecelerationForward()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01038">1038</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01045">1045</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -1361,7 +1365,7 @@ Protected Attributes</h2></td></tr>
 <p>Gets the maximum deceleration in the reverse direction from the Jrk's RAM settings.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#ab7b6e97e8a9e9462f5178aefc896b2e6">setMaxDecelerationReverse()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01061">1061</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01068">1068</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -1388,7 +1392,7 @@ Protected Attributes</h2></td></tr>
 <p>Gets the maximum duty cycle in the forward direction from the Jrk's RAM settings.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#ac5d748e55f3c72e6b7912e5fa07b4d2a">setMaxDutyCycleForward()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01097">1097</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01104">1104</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -1415,7 +1419,7 @@ Protected Attributes</h2></td></tr>
 <p>Gets the maximum duty cycle in the reverse direction from the Jrk's RAM settings.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#aaa9679fcfbba5c5e6300448feebfe2b4">setMaxDutyCycleReverse()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01119">1119</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01126">1126</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -1442,7 +1446,7 @@ Protected Attributes</h2></td></tr>
 <p>Gets the maximum duty cycle while feedback is out of range from the Jrk's RAM settings.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#a8d4a6cfba8c7bf0ddeb05142148ae766">setMaxDutyCycleWhileFeedbackOutOfRange()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00955">955</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00962">962</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -1469,7 +1473,7 @@ Protected Attributes</h2></td></tr>
 <p>Gets the PID period from the Jrk's RAM settings, in milliseconds.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#ae33cfc34740cd7567f4d15b2fe5f7cba">setPIDPeriod()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00909">909</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00916">916</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -1548,7 +1552,7 @@ Protected Attributes</h2></td></tr>
 <p>Gets the exponent part of the proportional coefficient from the Jrk's RAM settings.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#a405e52af97bc3c4c19cf704a32affbda">getProportionalMultiplier()</a> and <a class="el" href="classJrkG2Base.html#a5585cd321222b33488eee5dffd176965">setProportionalCoefficient()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00806">806</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00813">813</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -1575,7 +1579,7 @@ Protected Attributes</h2></td></tr>
 <p>Gets the multiplier part of the proportional coefficient from the Jrk's RAM settings.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#a4fa017ac0e21da15f38118367e3bd757">getProportionalExponent()</a> and <a class="el" href="classJrkG2Base.html#a5585cd321222b33488eee5dffd176965">setProportionalCoefficient()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00797">797</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00804">804</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -1621,7 +1625,7 @@ Protected Attributes</h2></td></tr>
 <p>Example usage: </p><div class="fragment"><div class="line"><span class="comment">// Get the Jrk&#39;s feedback maximum setting.</span></div><div class="line">uint8_t buffer[2];</div><div class="line">jrk.getRAMSettings(0x1F, 2, buffer);</div><div class="line">uint16_t feedbackMaximum = buffer[0] + (buffer[1] &lt;&lt; 8);</div></div><!-- fragment --><p>Note that this library has several functions for reading and writing specific RAM settings, and they are easier to use than this function.</p>
 <p>For information on how the settings are encoded, see the Jrk G2 user's guide. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01355">1355</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01379">1379</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -1703,7 +1707,7 @@ Protected Attributes</h2></td></tr>
 <p>Gets the "Reset integral" setting from the Jrk's RAM settings.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#ac360713194c2aa996ff0e37c1859c509">setResetIntegral()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00724">724</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00731">731</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -1758,7 +1762,7 @@ Protected Attributes</h2></td></tr>
 <p>Gets the soft current limit when driving in the forward direction from the Jrk's RAM settings, in units of mA.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#ab469098fbd841eaede4ae17c4b94653a">setSoftCurrentLimitForward()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01274">1274</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01296">1296</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -1785,7 +1789,7 @@ Protected Attributes</h2></td></tr>
 <p>Gets the soft current limit when driving in the reverse direction from the Jrk's RAM settings, in units of mA.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#a391c85b3a0bd9a3c0dc5fb83db9ab3f4">setSoftCurrentLimitReverse()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01296">1296</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01318">1318</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -1885,7 +1889,7 @@ Protected Attributes</h2></td></tr>
 <p>The maximum length that can be fetched is 15 bytes.</p>
 <p>Example usage: </p><div class="fragment"><div class="line"><span class="comment">// Get the Jrk&#39;s last device reset and its up time.</span></div><div class="line">uint8_t buffer[5];</div><div class="line">jrk.getVariables(0x1F, 5, buffer);</div></div><!-- fragment --><p>For information on how the variables are encoded, see the Jrk G2 user's guide. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01403">1403</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01427">1427</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -1940,7 +1944,7 @@ Protected Attributes</h2></td></tr>
 <p>You would normally configure this setting ahead of time using the Jrk G2 Configuration Utility, but this function allows you to change it temporarily on the fly.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#add9ead14935a673f6f7f991b2aae8cb0">setBrakeDurationForward()</a>, <a class="el" href="classJrkG2Base.html#af05c22e84e20626b450ca7a629a0715b">setBrakeDurationReverse()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01252">1252</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01274">1274</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -1969,7 +1973,7 @@ Protected Attributes</h2></td></tr>
 <p>You would normally configure this setting ahead of time using the Jrk G2 Configuration Utility, but this function allows you to change it temporarily on the fly.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#ad346435f1eade00d9cb09ab736831d68">getBrakeDurationForward()</a> and <a class="el" href="classJrkG2Base.html#af05c22e84e20626b450ca7a629a0715b">setBrakeDurationReverse()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01208">1208</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01230">1230</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -1998,7 +2002,7 @@ Protected Attributes</h2></td></tr>
 <p>You would normally configure this setting ahead of time using the Jrk G2 Configuration Utility, but this function allows you to change it temporarily on the fly.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#a1492ce355e9d1f0c2e4418e0bcdf9d3c">getBrakeDurationReverse()</a> and <a class="el" href="classJrkG2Base.html#add9ead14935a673f6f7f991b2aae8cb0">setBrakeDurationForward()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01230">1230</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01252">1252</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -2028,7 +2032,7 @@ Protected Attributes</h2></td></tr>
 <p>You would normally configure this setting ahead of time using the Jrk G2 Configuration Utility, but this function allows you to change it temporarily on the fly.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#a6a120a4d35e3c416c6da1b177d08581f">getCoastWhenOff()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00742">742</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00749">749</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -2070,7 +2074,7 @@ Protected Attributes</h2></td></tr>
 <p>You would normally configure this setting ahead of time using the Jrk G2 Configuration Utility, but this function allows you to change it temporarily on the fly.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#a92b40ca8c26e6ad52451b4f01ab73bee">getDerivativeMultiplier()</a> and <a class="el" href="classJrkG2Base.html#a042cf7f8b2e5562436bd15869d389cad">getDerivativeExponent()</a>, as well as <a class="el" href="classJrkG2Base.html#a5585cd321222b33488eee5dffd176965">setProportionalCoefficient()</a> and <a class="el" href="classJrkG2Base.html#a7378126c2f6428db38053c4da2698245">setIntegralCoefficient()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00866">866</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00873">873</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -2097,9 +2101,10 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Sets the encoded hard current limit for both directions in the Jrk's RAM settings.</p>
 <p>You would normally configure this setting ahead of time using the Jrk G2 Configuration Utility, but this function allows you to change it temporarily on the fly.</p>
+<p>This command is only valid for the Jrk G2 18v19, 24v13, 18v27, and 24v21. The Jrk G2 21v3 does not have a configurable hard current limit.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#a10e816b7ff83e03d87235aea150ca9e2">setEncodedHardCurrentLimitForward()</a>, <a class="el" href="classJrkG2Base.html#a32f457a53482b0ab4659325d9bfa0d38">setEncodedHardCurrentLimitReverse()</a>, <a class="el" href="classJrkG2Base.html#ad8e0aa30583758b942af3aaec4e93431">getEncodedHardCurrentLimit()</a>, and <a class="el" href="classJrkG2Base.html#a3575735739cb05ce0120a65dcd0448c2">setSoftCurrentLimit()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01194">1194</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01216">1216</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -2126,9 +2131,10 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Sets the encoded hard current limit for driving in the forward direction in the Jrk's RAM settings.</p>
 <p>You would normally configure this setting ahead of time using the Jrk G2 Configuration Utility, but this function allows you to change it temporarily on the fly.</p>
+<p>This command is only valid for the Jrk G2 18v19, 24v13, 18v27, and 24v21. The Jrk G2 21v3 does not have a configurable hard current limit.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#aed5e1139520d47cd59d904dec6071be3">getEncodedHardCurrentLimitForward()</a> and <a class="el" href="classJrkG2Base.html#a32f457a53482b0ab4659325d9bfa0d38">setEncodedHardCurrentLimitReverse()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01146">1146</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01156">1156</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -2155,9 +2161,10 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Sets the encoded hard current limit for driving in the reverse direction in the Jrk's RAM settings</p>
 <p>You would normally configure this setting ahead of time using the Jrk G2 Configuration Utility, but this function allows you to change it temporarily on the fly.</p>
+<p>This command is only valid for the Jrk G2 18v19, 24v13, 18v27, and 24v21. The Jrk G2 21v3 does not have a configurable hard current limit.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#ace99298c95ad30b1e0366e3eef80655a">getEncodedHardCurrentLimitReverse()</a> and <a class="el" href="classJrkG2Base.html#a10e816b7ff83e03d87235aea150ca9e2">setEncodedHardCurrentLimitForward()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01170">1170</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01186">1186</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -2199,7 +2206,7 @@ Protected Attributes</h2></td></tr>
 <p>You would normally configure this setting ahead of time using the Jrk G2 Configuration Utility, but this function allows you to change it temporarily on the fly.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#ad29a76a995efb84780cdee3aab547162">getIntegralMultiplier()</a> and <a class="el" href="classJrkG2Base.html#abc35c283ace4147a21fc26b8643ad321">getIntegralExponent()</a>, as well as <a class="el" href="classJrkG2Base.html#a5585cd321222b33488eee5dffd176965">setProportionalCoefficient()</a> and <a class="el" href="classJrkG2Base.html#a77a9b44fa73d47448f2ce932dd1c8bac">setDerivativeCoefficient()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00827">827</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00834">834</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -2229,7 +2236,7 @@ Protected Attributes</h2></td></tr>
 <p>You would normally configure this setting ahead of time using the Jrk G2 Configuration Utility, but this function allows you to change it temporarily on the fly.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#a9b7f0b283b06c6a9370a057e7a29dcc4">getIntegralLimit()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00925">925</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00932">932</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -2258,7 +2265,7 @@ Protected Attributes</h2></td></tr>
 <p>You would normally configure this setting ahead of time using the Jrk G2 Configuration Utility, but this function allows you to change it temporarily on the fly.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#a234ffb413c1f73e37ec9993c8d37a823">setMaxAccelerationForward()</a>, <a class="el" href="classJrkG2Base.html#a13f2b5ce703e4041d62d98cb1f24f137">setMaxAccelerationReverse()</a>, <a class="el" href="classJrkG2Base.html#a2b27cffc86759d9882b8955e053f1dca">setMaxDeceleration()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01015">1015</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01022">1022</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -2287,7 +2294,7 @@ Protected Attributes</h2></td></tr>
 <p>You would normally configure this setting ahead of time using the Jrk G2 Configuration Utility, but this function allows you to change it temporarily on the fly.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#a5882d719b85c45ab7482d26d53273798">getMaxAccelerationForward()</a>, <a class="el" href="classJrkG2Base.html#a13f2b5ce703e4041d62d98cb1f24f137">setMaxAccelerationReverse()</a>, <a class="el" href="classJrkG2Base.html#a5f1d25a199a9053ae904949e26c2778c">setMaxAcceleration()</a>, and <a class="el" href="classJrkG2Base.html#a613232336bd882cf63552ef4ae60607e">setMaxDecelerationForward()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00969">969</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00976">976</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -2316,7 +2323,7 @@ Protected Attributes</h2></td></tr>
 <p>You would normally configure this setting ahead of time using the Jrk G2 Configuration Utility, but this function allows you to change it temporarily on the fly.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#af4507a0a22854816fdbb0472ee3ed07a">getMaxAccelerationReverse()</a>, <a class="el" href="classJrkG2Base.html#a234ffb413c1f73e37ec9993c8d37a823">setMaxAccelerationForward()</a>, <a class="el" href="classJrkG2Base.html#a5f1d25a199a9053ae904949e26c2778c">setMaxAcceleration()</a>, and <a class="el" href="classJrkG2Base.html#ab7b6e97e8a9e9462f5178aefc896b2e6">setMaxDecelerationReverse()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00992">992</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00999">999</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -2345,7 +2352,7 @@ Protected Attributes</h2></td></tr>
 <p>You would normally configure this setting ahead of time using the Jrk G2 Configuration Utility, but this function allows you to change it temporarily on the fly.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#a613232336bd882cf63552ef4ae60607e">setMaxDecelerationForward()</a>, <a class="el" href="classJrkG2Base.html#ab7b6e97e8a9e9462f5178aefc896b2e6">setMaxDecelerationReverse()</a>, <a class="el" href="classJrkG2Base.html#a5f1d25a199a9053ae904949e26c2778c">setMaxAcceleration()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01075">1075</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01082">1082</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -2374,7 +2381,7 @@ Protected Attributes</h2></td></tr>
 <p>You would normally configure this setting ahead of time using the Jrk G2 Configuration Utility, but this function allows you to change it temporarily on the fly.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#a2ca4d4a5bb2b293e28d5b8483f375072">getMaxDecelerationForward()</a>, <a class="el" href="classJrkG2Base.html#ab7b6e97e8a9e9462f5178aefc896b2e6">setMaxDecelerationReverse()</a>, <a class="el" href="classJrkG2Base.html#a2b27cffc86759d9882b8955e053f1dca">setMaxDeceleration()</a>, and <a class="el" href="classJrkG2Base.html#a234ffb413c1f73e37ec9993c8d37a823">setMaxAccelerationForward()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01029">1029</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01036">1036</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -2403,7 +2410,7 @@ Protected Attributes</h2></td></tr>
 <p>You would normally configure this setting ahead of time using the Jrk G2 Configuration Utility, but this function allows you to change it temporarily on the fly.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#ae9db59ecfc68034fe93e4e9ee2a96d96">getMaxDecelerationReverse()</a>, <a class="el" href="classJrkG2Base.html#a613232336bd882cf63552ef4ae60607e">setMaxDecelerationForward()</a>, <a class="el" href="classJrkG2Base.html#a2b27cffc86759d9882b8955e053f1dca">setMaxDeceleration()</a>, and <a class="el" href="classJrkG2Base.html#a13f2b5ce703e4041d62d98cb1f24f137">setMaxAccelerationReverse()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01052">1052</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01059">1059</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -2432,7 +2439,7 @@ Protected Attributes</h2></td></tr>
 <p>You would normally configure this setting ahead of time using the Jrk G2 Configuration Utility, but this function allows you to change it temporarily on the fly.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#ac5d748e55f3c72e6b7912e5fa07b4d2a">setMaxDutyCycleForward()</a>, <a class="el" href="classJrkG2Base.html#aaa9679fcfbba5c5e6300448feebfe2b4">setMaxDutyCycleReverse()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01132">1132</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01139">1139</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -2461,7 +2468,7 @@ Protected Attributes</h2></td></tr>
 <p>You would normally configure this setting ahead of time using the Jrk G2 Configuration Utility, but this function allows you to change it temporarily on the fly.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#a1ef3c93358833fa315ef50fb14b6f9b1">getMaxDutyCycleForward()</a>, <a class="el" href="classJrkG2Base.html#aaa9679fcfbba5c5e6300448feebfe2b4">setMaxDutyCycleReverse()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01088">1088</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01095">1095</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -2490,7 +2497,7 @@ Protected Attributes</h2></td></tr>
 <p>You would normally configure this setting ahead of time using the Jrk G2 Configuration Utility, but this function allows you to change it temporarily on the fly.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#aa0c9b30b8fd61e6349429921fb7c021e">getMaxDutyCycleReverse()</a>, setMaxDutyCycleForard(). </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01110">1110</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01117">1117</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -2519,7 +2526,7 @@ Protected Attributes</h2></td></tr>
 <p>You would normally configure this setting ahead of time using the Jrk G2 Configuration Utility, but this function allows you to change it temporarily on the fly.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#a99069477cdcb84a0713e6b2e276b3c25">getMaxDutyCycleWhileFeedbackOutOfRange()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00946">946</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00953">953</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -2549,7 +2556,7 @@ Protected Attributes</h2></td></tr>
 <p>You would normally configure this setting ahead of time using the Jrk G2 Configuration Utility, but this function allows you to change it temporarily on the fly.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#a30004bb43f6769e82bbb8bfdc61c82b9">getPIDPeriod()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00901">901</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00908">908</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -2591,7 +2598,7 @@ Protected Attributes</h2></td></tr>
 <p>Example usage: </p><div class="fragment"><div class="line"><span class="comment">// Set the proportional coefficient to 1.125 (9/(2^3)).</span></div><div class="line">jrk.setProportionalCoefficient(9, 3);</div></div><!-- fragment --><p>You would normally configure this setting ahead of time using the Jrk G2 Configuration Utility, but this function allows you to change it temporarily on the fly.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#a405e52af97bc3c4c19cf704a32affbda">getProportionalMultiplier()</a> and <a class="el" href="classJrkG2Base.html#a4fa017ac0e21da15f38118367e3bd757">getProportionalExponent()</a>, as well as <a class="el" href="classJrkG2Base.html#a7378126c2f6428db38053c4da2698245">setIntegralCoefficient()</a> and <a class="el" href="classJrkG2Base.html#a77a9b44fa73d47448f2ce932dd1c8bac">setDerivativeCoefficient()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00788">788</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00795">795</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -2637,7 +2644,7 @@ Protected Attributes</h2></td></tr>
 <p>Example usage: </p><div class="fragment"><div class="line"><span class="comment">// Set the Jrk&#39;s feedback maximum setting.</span></div><div class="line">uint16_t feedbackMaximum = 1234;</div><div class="line">uint8_t buffer[2];</div><div class="line">buffer[0] = feedbackMaximum &amp; 0xFF;</div><div class="line">buffer[1] = feedbackMaximum &gt;&gt; 8 &amp; 0xFF;</div><div class="line">jrk.setRAMSettings(0x1F, 2, buffer);</div></div><!-- fragment --><p>Note that this library has several functions for reading and writing specific RAM settings, and they are easier to use than this function.</p>
 <p>For information on how the settings are encoded, see the Jrk G2 user's guide. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01380">1380</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01404">1404</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -2668,7 +2675,7 @@ Protected Attributes</h2></td></tr>
 <p>You would normally configure this setting ahead of time using the Jrk G2 Configuration Utility, but this function allows you to change it temporarily on the fly.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#a391522b0c567064baab9837a0ee3c320">getResetIntegral()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00706">706</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l00713">713</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -2697,7 +2704,7 @@ Protected Attributes</h2></td></tr>
 <p>You would normally configure this setting ahead of time using the Jrk G2 Configuration Utility, but this function allows you to change it temporarily on the fly.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#ab469098fbd841eaede4ae17c4b94653a">setSoftCurrentLimitForward()</a> and <a class="el" href="classJrkG2Base.html#a391c85b3a0bd9a3c0dc5fb83db9ab3f4">setSoftCurrentLimitReverse()</a>, <a class="el" href="classJrkG2Base.html#a5513c6eb363eeb66608d21dd65800079">setEncodedHardCurrentLimit()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01310">1310</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01332">1332</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -2726,7 +2733,7 @@ Protected Attributes</h2></td></tr>
 <p>You would normally configure this setting ahead of time using the Jrk G2 Configuration Utility, but this function allows you to change it temporarily on the fly.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#a052dce767f0f77fada2788bb6bea5a69">getSoftCurrentLimitForward()</a> and <a class="el" href="classJrkG2Base.html#a391c85b3a0bd9a3c0dc5fb83db9ab3f4">setSoftCurrentLimitReverse()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01265">1265</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01287">1287</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -2755,7 +2762,7 @@ Protected Attributes</h2></td></tr>
 <p>You would normally configure this setting ahead of time using the Jrk G2 Configuration Utility, but this function allows you to change it temporarily on the fly.</p>
 <p>See also <a class="el" href="classJrkG2Base.html#a6e495496fbf4a725fe53b95976a1e259">getSoftCurrentLimitReverse()</a> and <a class="el" href="classJrkG2Base.html#ab469098fbd841eaede4ae17c4b94653a">setSoftCurrentLimitForward()</a>. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01287">1287</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01309">1309</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
@@ -2899,7 +2906,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Zero if the last communication with the device was successful, non-zero otherwise. </p>
 
-<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01413">1413</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
+<p>Definition at line <a class="el" href="JrkG2_8h_source.html#l01437">1437</a> of file <a class="el" href="JrkG2_8h_source.html">JrkG2.h</a>.</p>
 
 </div>
 </div>
