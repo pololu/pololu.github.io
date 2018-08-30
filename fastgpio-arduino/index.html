@@ -131,11 +131,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>For a full list of all the supported pins, see the "Pin number reference" section below.</p>
 <h2>Digital outputs</h2>
 <p>This example shows how to set pin 13 as an output and drive it high:</p>
-<div class="fragment"><div class="line"><a class="code" href="classFastGPIO_1_1Pin.html#a87fb88b3ea6343db0e4a06f579a10249">FastGPIO::Pin&lt;13&gt;::setOutput</a>(HIGH)</div></div><!-- fragment --><h2>Digital inputs</h2>
+<div class="fragment"><div class="line"><a class="code" href="classFastGPIO_1_1Pin.html#a87fb88b3ea6343db0e4a06f579a10249">FastGPIO::Pin&lt;13&gt;::setOutput</a>(HIGH);</div></div><!-- fragment --><h2>Digital inputs</h2>
 <p>To configure a pin as a digital input with the internal pull-up resistor disabled, run:</p>
 <div class="fragment"><div class="line"><a class="code" href="classFastGPIO_1_1Pin.html#a7f9c4ab269f04bb1ae022b4d7eed3413">FastGPIO::Pin&lt;12&gt;::setInput</a>();</div></div><!-- fragment --><p>To configure a pin as a digital input with the internal pull-up resistor enabled, run:</p>
 <div class="fragment"><div class="line"><a class="code" href="classFastGPIO_1_1Pin.html#a32eadc02b421b9b7fc92807bb3304f6e">FastGPIO::Pin&lt;12&gt;::setInputPulledUp</a>();</div></div><!-- fragment --><p>Then, to read the value of the input, you can use:</p>
-<div class="fragment"><div class="line"><span class="keywordtype">bool</span> inputHigh = <a class="code" href="classFastGPIO_1_1Pin.html#acbc38591335717f3feeed14f53b7b79c">FastGPIO::Pin&lt;12&gt;::isInputHigh</a>()</div></div><!-- fragment --><h2>Pin number reference</h2>
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> inputHigh = <a class="code" href="classFastGPIO_1_1Pin.html#acbc38591335717f3feeed14f53b7b79c">FastGPIO::Pin&lt;12&gt;::isInputHigh</a>();</div></div><!-- fragment --><h2>Pin number reference</h2>
 <h3>Pins for ATmega328PB boards</h3>
 <table class="doxtable">
 <tr>
@@ -301,8 +301,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h2>Error messages</h2>
 <p>If you specify an invalid pin number, GCC will produce error messages like this:</p>
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;warning: array subscript is above array bounds</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;warning: asm operand 0 probably doesn&#39;t match constraints</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;error: impossible constraint in &#39;asm&#39;</div></div><!-- fragment --><p>This is because the pin number is checked at compile time and must be valid.</p>
+<h2>Classes</h2>
+<p>This classes provided by this library are listed below:</p>
+<ul>
+<li><a class="el" href="classFastGPIO_1_1Pin.html">FastGPIO::Pin</a></li>
+<li><a class="el" href="classFastGPIO_1_1PinLoan.html">FastGPIO::PinLoan</a></li>
+</ul>
 <h2>Documentation</h2>
-<p>For complete documentation of this library, including many features that were not mentioned here, see <a href="https://pololu.github.io/fastgpio-arduino/_fast_g_p_i_o_8h.html">the FastGPIO.h file documentation</a> from <a href="https://pololu.github.io/fastgpio-arduino">https://pololu.github.io/fastgpio-arduino</a>.</p>
+<p>For complete documentation, see <a href="https://pololu.github.io/fastgpio-arduino">https://pololu.github.io/fastgpio-arduino</a>. If you are already on that page, then click on the links in the "Classes" section above.</p>
 <h2>Version history</h2>
 <ul>
 <li>2.1.0 (2018-02-27): Added support for the ATmega328PB.</li>
