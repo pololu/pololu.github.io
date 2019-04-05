@@ -198,7 +198,7 @@ Public Attributes</h2></td></tr>
 <p>An instance of this class represents a QTR sensor array, consisting of one or more sensors of the same type. This could be either a single QTR sensor board or multiple boards controlled as a group.</p>
 <p>See <a class="el" href="md_usage.html">Usage Notes</a> for an overview of how this library can be used and some example code. </p>
 
-<p class="definition">Definition at line <a class="el" href="_q_t_r_sensors_8h_source.html#l00081">81</a> of file <a class="el" href="_q_t_r_sensors_8h_source.html">QTRSensors.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_q_t_r_sensors_8h_source.html#l00083">83</a> of file <a class="el" href="_q_t_r_sensors_8h_source.html">QTRSensors.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a0021d844b691e1cf9e0fac2530b89c7e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0021d844b691e1cf9e0fac2530b89c7e">&#9670;&nbsp;</a></span>calibrate()</h2>
@@ -369,7 +369,7 @@ Public Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>True if this object is configured to treat the sensors as dimmable, false otherwise.</dd></dl>
 <p>See also <a class="el" href="class_q_t_r_sensors.html#a781887fb85ebb9c97df4c9e97a7be6b1" title="Specifies that the sensors are dimmable.">setDimmable()</a> and <a class="el" href="class_q_t_r_sensors.html#a80964b2b065c02c5a7153bd600aedf6d" title="Specifies that the sensors are non-dimmable.">setNonDimmable()</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_q_t_r_sensors_8h_source.html#l00295">295</a> of file <a class="el" href="_q_t_r_sensors_8h_source.html">QTRSensors.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_q_t_r_sensors_8h_source.html#l00297">297</a> of file <a class="el" href="_q_t_r_sensors_8h_source.html">QTRSensors.h</a>.</p>
 
 </div>
 </div>
@@ -400,7 +400,7 @@ Public Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>The dimming level.</dd></dl>
 <p>See also <a class="el" href="class_q_t_r_sensors.html#a33c0a5c97bb7a3546a6b30ae4baa209a" title="Sets the dimming level.">setDimmingLevel()</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_q_t_r_sensors_8h_source.html#l00320">320</a> of file <a class="el" href="_q_t_r_sensors_8h_source.html">QTRSensors.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_q_t_r_sensors_8h_source.html#l00322">322</a> of file <a class="el" href="_q_t_r_sensors_8h_source.html">QTRSensors.h</a>.</p>
 
 </div>
 </div>
@@ -432,7 +432,7 @@ Public Attributes</h2></td></tr>
 <p>This function is intended for use when there is a single emitter pin specified; you can use <a class="el" href="class_q_t_r_sensors.html#a290dab6e34c8d3e8f528ee534e6f1564" title="Returns the odd emitter control pin.">getOddEmitterPin()</a> and <a class="el" href="class_q_t_r_sensors.html#a2c8b5a943d2945c2a8aa998170d5a6c8" title="Returns the even emitter control pin.">getEvenEmitterPin()</a> instead when two are specified.</p>
 <p>See also <a class="el" href="class_q_t_r_sensors.html#a50ddff66a733e268eece669f6e48486a" title="Sets the emitter control pin for the sensors.">setEmitterPin()</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_q_t_r_sensors_8h_source.html#l00245">245</a> of file <a class="el" href="_q_t_r_sensors_8h_source.html">QTRSensors.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_q_t_r_sensors_8h_source.html#l00247">247</a> of file <a class="el" href="_q_t_r_sensors_8h_source.html">QTRSensors.h</a>.</p>
 
 </div>
 </div>
@@ -462,7 +462,7 @@ Public Attributes</h2></td></tr>
 <p>Returns the number of emitter control pins in use. </p>
 <dl class="section return"><dt>Returns</dt><dd>The number of emitter control pins previously specified (1 with <a class="el" href="class_q_t_r_sensors.html#a50ddff66a733e268eece669f6e48486a" title="Sets the emitter control pin for the sensors.">setEmitterPin()</a> or 2 with <a class="el" href="class_q_t_r_sensors.html#a6f49e24d8eaa2a59ef313c24ab722a86" title="Sets separate odd and even emitter control pins for the sensors.">setEmitterPins()</a>). If no emitter pins have been specified (the default), or if previously specified pins were released with <a class="el" href="class_q_t_r_sensors.html#af4fea64349f7d85830b41ded4aa63ce8" title="Releases emitter pin/pins that have been set.">releaseEmitterPins()</a>, this function returns 0. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_q_t_r_sensors_8h_source.html#l00233">233</a> of file <a class="el" href="_q_t_r_sensors_8h_source.html">QTRSensors.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_q_t_r_sensors_8h_source.html#l00235">235</a> of file <a class="el" href="_q_t_r_sensors_8h_source.html">QTRSensors.h</a>.</p>
 
 </div>
 </div>
@@ -494,7 +494,7 @@ Public Attributes</h2></td></tr>
 <p>This function is intended for use when there are separate odd and even emitter pins specified; you can use <a class="el" href="class_q_t_r_sensors.html#aa80468e7f337449a0f5b75152bec1e66" title="Returns the emitter control pin.">getEmitterPin()</a> instead when only one is specified.</p>
 <p>See also <a class="el" href="class_q_t_r_sensors.html#a290dab6e34c8d3e8f528ee534e6f1564" title="Returns the odd emitter control pin.">getOddEmitterPin()</a> and <a class="el" href="class_q_t_r_sensors.html#a6f49e24d8eaa2a59ef313c24ab722a86" title="Sets separate odd and even emitter control pins for the sensors.">setEmitterPins()</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_q_t_r_sensors_8h_source.html#l00269">269</a> of file <a class="el" href="_q_t_r_sensors_8h_source.html">QTRSensors.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_q_t_r_sensors_8h_source.html#l00271">271</a> of file <a class="el" href="_q_t_r_sensors_8h_source.html">QTRSensors.h</a>.</p>
 
 </div>
 </div>
@@ -526,7 +526,7 @@ Public Attributes</h2></td></tr>
 <p>This function is intended for use when there are separate odd and even emitter pins specified; you can use <a class="el" href="class_q_t_r_sensors.html#aa80468e7f337449a0f5b75152bec1e66" title="Returns the emitter control pin.">getEmitterPin()</a> instead when only one is specified.</p>
 <p>See also <a class="el" href="class_q_t_r_sensors.html#a2c8b5a943d2945c2a8aa998170d5a6c8" title="Returns the even emitter control pin.">getEvenEmitterPin()</a> and <a class="el" href="class_q_t_r_sensors.html#a6f49e24d8eaa2a59ef313c24ab722a86" title="Sets separate odd and even emitter control pins for the sensors.">setEmitterPins()</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_q_t_r_sensors_8h_source.html#l00257">257</a> of file <a class="el" href="_q_t_r_sensors_8h_source.html">QTRSensors.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_q_t_r_sensors_8h_source.html#l00259">259</a> of file <a class="el" href="_q_t_r_sensors_8h_source.html">QTRSensors.h</a>.</p>
 
 </div>
 </div>
@@ -557,7 +557,7 @@ Public Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>The samples per channel for analog sensors.</dd></dl>
 <p>See also <a class="el" href="class_q_t_r_sensors.html#a6f72b422c1cd71ab5c0df661f27a0d8b" title="Sets the number of analog readings to average per analog sensor.">setSamplesPerSensor()</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_q_t_r_sensors_8h_source.html#l00178">178</a> of file <a class="el" href="_q_t_r_sensors_8h_source.html">QTRSensors.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_q_t_r_sensors_8h_source.html#l00180">180</a> of file <a class="el" href="_q_t_r_sensors_8h_source.html">QTRSensors.h</a>.</p>
 
 </div>
 </div>
@@ -588,7 +588,7 @@ Public Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>The RC sensor timeout in microseconds.</dd></dl>
 <p>See also <a class="el" href="class_q_t_r_sensors.html#ab145ce7a7269f51b45863dafb9d61afd" title="Sets the timeout for RC sensors.">setTimeout()</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_q_t_r_sensors_8h_source.html#l00159">159</a> of file <a class="el" href="_q_t_r_sensors_8h_source.html">QTRSensors.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_q_t_r_sensors_8h_source.html#l00161">161</a> of file <a class="el" href="_q_t_r_sensors_8h_source.html">QTRSensors.h</a>.</p>
 
 </div>
 </div>
@@ -619,7 +619,7 @@ Public Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>The sensor type as a member of the <a class="el" href="_q_t_r_sensors_8h.html#a567e8f57951b4e85aad8f765b79cb71f" title="Sensor types.">QTRType</a> enum.</dd></dl>
 <p>See also <a class="el" href="class_q_t_r_sensors.html#a411f4a800c4e297a6b0ada8efece043d" title="Specifies that the sensors are RC.">setTypeRC()</a> and <a class="el" href="class_q_t_r_sensors.html#a869bfa11368f248f64d981aa583a6afe" title="Specifies that the sensor type is analog.">setTypeAnalog()</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_q_t_r_sensors_8h_source.html#l00104">104</a> of file <a class="el" href="_q_t_r_sensors_8h_source.html">QTRSensors.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_q_t_r_sensors_8h_source.html#l00106">106</a> of file <a class="el" href="_q_t_r_sensors_8h_source.html">QTRSensors.h</a>.</p>
 
 </div>
 </div>
@@ -758,7 +758,7 @@ Public Attributes</h2></td></tr>
 <p>This function is intended to detect a black (or dark-colored) line on a white (or light-colored) background. For a white line, see <a class="el" href="class_q_t_r_sensors.html#a231f1ef20c2a7ba325bdb794fc2dedf9" title="Reads the sensors, provides calibrated values, and returns an estimated white line position.">readLineWhite()</a>.</p>
 <p>See <a class="el" href="md_usage.html">Usage Notes</a> for more information and example code. </p>
 
-<p class="definition">Definition at line <a class="el" href="_q_t_r_sensors_8h_source.html#l00491">491</a> of file <a class="el" href="_q_t_r_sensors_8h_source.html">QTRSensors.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_q_t_r_sensors_8h_source.html#l00501">501</a> of file <a class="el" href="_q_t_r_sensors_8h_source.html">QTRSensors.h</a>.</p>
 
 </div>
 </div>
@@ -808,7 +808,7 @@ Public Attributes</h2></td></tr>
 <p>This function is intended to detect a white (or light-colored) line on a black (or dark-colored) background. For a black line, see <a class="el" href="class_q_t_r_sensors.html#a8f2a5239ae547928284c5f81cd7ec89c" title="Reads the sensors, provides calibrated values, and returns an estimated black line position.">readLineBlack()</a>.</p>
 <p>See <a class="el" href="md_usage.html">Usage Notes</a> for more information and example code. </p>
 
-<p class="definition">Definition at line <a class="el" href="_q_t_r_sensors_8h_source.html#l00514">514</a> of file <a class="el" href="_q_t_r_sensors_8h_source.html">QTRSensors.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_q_t_r_sensors_8h_source.html#l00526">526</a> of file <a class="el" href="_q_t_r_sensors_8h_source.html">QTRSensors.h</a>.</p>
 
 </div>
 </div>
@@ -862,7 +862,7 @@ Public Attributes</h2></td></tr>
 <p>Calling this function is optional when setting up second-generation QTR or QTRX sensors. By default, the library assumes the sensors are dimmable.</p>
 <p>For first-generation QTR sensors, see <a class="el" href="class_q_t_r_sensors.html#a80964b2b065c02c5a7153bd600aedf6d" title="Specifies that the sensors are non-dimmable.">setNonDimmable()</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_q_t_r_sensors_8h_source.html#l00278">278</a> of file <a class="el" href="_q_t_r_sensors_8h_source.html">QTRSensors.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_q_t_r_sensors_8h_source.html#l00280">280</a> of file <a class="el" href="_q_t_r_sensors_8h_source.html">QTRSensors.h</a>.</p>
 
 </div>
 </div>
@@ -996,7 +996,7 @@ Public Attributes</h2></td></tr>
 <p>Call this function to set up first-generation QTR sensors and allow them to be read slightly faster (since their emitters can be turned on and off slightly more quickly than those on dimmable sensors).</p>
 <p>See also <a class="el" href="class_q_t_r_sensors.html#a781887fb85ebb9c97df4c9e97a7be6b1" title="Specifies that the sensors are dimmable.">setDimmable()</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_q_t_r_sensors_8h_source.html#l00287">287</a> of file <a class="el" href="_q_t_r_sensors_8h_source.html">QTRSensors.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_q_t_r_sensors_8h_source.html#l00289">289</a> of file <a class="el" href="_q_t_r_sensors_8h_source.html">QTRSensors.h</a>.</p>
 
 </div>
 </div>

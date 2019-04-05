@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['noautoscroll',['noAutoscroll',['../class_pololu_h_d44780_base.html#aee80e23d270913dd2c353e7bd5408249',1,'PololuHD44780Base']]],
-  ['noblink',['noBlink',['../class_pololu_h_d44780_base.html#a301afc921881052b166e11cd45ad9696',1,'PololuHD44780Base']]],
-  ['nocursor',['noCursor',['../class_pololu_h_d44780_base.html#ab40886cf0b563a1806bc9391d00b032d',1,'PololuHD44780Base']]],
-  ['nodisplay',['noDisplay',['../class_pololu_h_d44780_base.html#abc2d4e126017565c2a0cf2aac67870a0',1,'PololuHD44780Base']]]
+  ['ledgreen',['ledGreen',['../_balboa32_u4_8h.html#a22e68694b618fe149ed42d76e96597ca',1,'Balboa32U4.h']]],
+  ['ledred',['ledRed',['../_balboa32_u4_8h.html#ae6ec5117b26ffaaa1b81c8c8b34426e1',1,'Balboa32U4.h']]],
+  ['ledyellow',['ledYellow',['../_balboa32_u4_8h.html#a7528cb14b314ccde63c94049402d01c6',1,'Balboa32U4.h']]],
+  ['lefttoright',['leftToRight',['../class_pololu_h_d44780_base.html#ada551bdb01681eb57bec325778eb38a6',1,'PololuHD44780Base']]],
+  ['loadcustomcharacter',['loadCustomCharacter',['../class_pololu_h_d44780_base.html#a73d331af44ec2e624aa0468ce13f64e4',1,'PololuHD44780Base::loadCustomCharacter(const uint8_t *picture, uint8_t number)'],['../class_pololu_h_d44780_base.html#a4f22d613433fce0e0c661a237ade9aeb',1,'PololuHD44780Base::loadCustomCharacter(const char *picture, uint8_t number)']]],
+  ['loadcustomcharacterfromram',['loadCustomCharacterFromRam',['../class_pololu_h_d44780_base.html#a72674b5466690b49b639ae2ec3e4983f',1,'PololuHD44780Base']]]
 ];

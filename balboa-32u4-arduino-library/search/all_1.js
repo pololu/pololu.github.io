@@ -11,6 +11,8 @@ var searchData=
   ['balboa32u4encoders_2eh',['Balboa32U4Encoders.h',['../_balboa32_u4_encoders_8h.html',1,'']]],
   ['balboa32u4lcd',['Balboa32U4LCD',['../class_balboa32_u4_l_c_d.html',1,'']]],
   ['balboa32u4lcd_2eh',['Balboa32U4LCD.h',['../_balboa32_u4_l_c_d_8h.html',1,'']]],
+  ['balboa32u4linesensors',['Balboa32U4LineSensors',['../class_balboa32_u4_line_sensors.html',1,'']]],
+  ['balboa32u4linesensors_2eh',['Balboa32U4LineSensors.h',['../_balboa32_u4_line_sensors_8h.html',1,'']]],
   ['balboa32u4motors',['Balboa32U4Motors',['../class_balboa32_u4_motors.html',1,'']]],
   ['balboa32u4motors_2eh',['Balboa32U4Motors.h',['../_balboa32_u4_motors_8h.html',1,'']]],
   ['balboa_5f32u4_5fbutton_5fa',['BALBOA_32U4_BUTTON_A',['../_balboa32_u4_buttons_8h.html#abd0bb5f3fda279da5c97b6d3c154593e',1,'Balboa32U4Buttons.h']]],
