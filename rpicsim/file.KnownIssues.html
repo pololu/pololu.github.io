@@ -1,12 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   File: KnownIssues
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Documentation by YARD 0.9.19
   
 </title>
 
@@ -15,9 +15,8 @@
   <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  hasFrames = window.top.frames.main ? true : false;
+  pathId = "KnownIssues";
   relpath = '';
-  framesUrl = "frames.html#!file.KnownIssues.html";
 </script>
 
 
@@ -28,8 +27,14 @@
 
   </head>
   <body>
-    <div id="header">
-      <div id="menu">
+    <div class="nav_wrap">
+      <iframe id="nav" src="file_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
   
     
         <a href="_index.html">Index</a> &raquo;
@@ -42,30 +47,23 @@
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
-      <div id="search">
+        <div id="search">
   
     <a class="full_list_link" id="class_list_link"
         href="class_list.html">
-      Class List
-    </a>
-  
-    <a class="full_list_link" id="method_list_link"
-        href="method_list.html">
-      Method List
-    </a>
-  
-    <a class="full_list_link" id="file_list_link"
-        href="file_list.html">
-      File List
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
     </a>
   
 </div>
-      <div class="clear"></div>
-    </div>
+        <div class="clear"></div>
+      </div>
 
-    <iframe id="search_frame"></iframe>
-
-    <div id="content"><div id='filecontents'>
+      <div id="content"><div id='filecontents'>
 <h1 id="label-Known+issues">Known issues</h1>
 
 <p>This page documents all the known issues RPicSim has that could affect its
@@ -127,7 +125,7 @@ installed on any drive other than the C drive.</p>
 
 <p>This issue is tested in <code>spec/mplab/path_retrieval_spec.rb</code>.</p>
 
-<h2 id="label-Firmware+under+test+must+be+inside+a+folder+named+%22dist%22">Firmware under test must be inside a folder named “dist”</h2>
+<h2 id="label-Firmware+under+test+must+be+inside+a+folder+named+-22dist-22">Firmware under test must be inside a folder named “dist”</h2>
 
 <p><em>Type: MPLAB X bug</em></p>
 
@@ -153,7 +151,8 @@ that it removes the files after running the specs:</p>
 <pre class="code ruby"><code class="ruby"><span class='comment'># After running specs, clean up the log files that MPLAB X makes.
 </span><span class='const'>Rake</span><span class='op'>::</span><span class='const'>Task</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>spec</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_enhance'>enhance</span> <span class='kw'>do</span>
   <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_rm'>rm</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_glob'>glob</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>MPLABXLog.xml*</span><span class='tstring_end'>&#39;</span></span>
-<span class='kw'>end</span></code></pre>
+<span class='kw'>end</span>
+</code></pre>
 
 <p>These files are created as soon as the com.microchip.mplab.logger.Logger
 class is loaded by the JVM. It might be possible to replace the
@@ -321,7 +320,8 @@ any voltage other than 0 V will result in an ADC reading of 255.</p>
 <p>These issues are tested in
 <code>spec/integration/adc_midrange_spec.rb</code>. The bad modulus issue
 was <a href="http://www.microchip.com/forums/m760886.aspx" target="_parent" title="reported to Microchip">reported to Microchip</a> in
-November 2013. The midrange ADC seems to work correctly in MPLAB X 3.05.</p>
+November 2013. The midrange ADC seems to work correctly in MPLAB X v3.05
+and later.</p>
 
 <h2 id="label-Variables+from+XC8+are+not+correctly+identified">Variables from XC8 are not correctly identified</h2>
 
@@ -367,19 +367,21 @@ a command like the one below can be used to temporarily set the environment
 variable for the duration of one command instead of changing it globally
 for your whole system:</p>
 
-<pre class="code ruby"><code class="ruby">JAVA_HOME=&quot;C:\Program Files\Java\jre7&quot; rspec</code></pre>
+<pre class="code ruby"><code class="ruby">JAVA_HOME=&quot;C:\Program Files\Java\jre7&quot; rspec
+</code></pre>
 </div></div>
 
-    <div id="footer">
+      <div id="footer">
   
     This is part of the <a href="file.Manual.html">RPicSim manual</a>.
   
   <br/><br/>
 
-  Generated on Mon Jul 27 13:59:28 2015 by
+  Generated on Wed Apr 17 15:05:25 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.2.2).
+  0.9.19 (ruby-2.5.3).
 </div>
 
+    </div>
   </body>
 </html>

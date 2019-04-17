@@ -1,12 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   File: DesignDecisions
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Documentation by YARD 0.9.19
   
 </title>
 
@@ -15,9 +15,8 @@
   <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  hasFrames = window.top.frames.main ? true : false;
+  pathId = "DesignDecisions";
   relpath = '';
-  framesUrl = "frames.html#!file.DesignDecisions.html";
 </script>
 
 
@@ -28,8 +27,14 @@
 
   </head>
   <body>
-    <div id="header">
-      <div id="menu">
+    <div class="nav_wrap">
+      <iframe id="nav" src="file_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
   
     
         <a href="_index.html">Index</a> &raquo;
@@ -42,33 +47,26 @@
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
-      <div id="search">
+        <div id="search">
   
     <a class="full_list_link" id="class_list_link"
         href="class_list.html">
-      Class List
-    </a>
-  
-    <a class="full_list_link" id="method_list_link"
-        href="method_list.html">
-      Method List
-    </a>
-  
-    <a class="full_list_link" id="file_list_link"
-        href="file_list.html">
-      File List
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
     </a>
   
 </div>
-      <div class="clear"></div>
-    </div>
+        <div class="clear"></div>
+      </div>
 
-    <iframe id="search_frame"></iframe>
-
-    <div id="content"><div id='filecontents'>
+      <div id="content"><div id='filecontents'>
 <h1 id="label-Design+decisions">Design decisions</h1>
 
-<h2 id="label-Why+use+JRuby%3F">Why use JRuby?</h2>
+<h2 id="label-Why+use+JRuby-3F">Why use JRuby?</h2>
 
 <p><a href="https://www.ruby-lang.org/">Ruby</a> is a great, versatile
 programming language and it is a pleasure to work in. The Ruby community
@@ -88,7 +86,7 @@ Makefiles and IDEs while you are writing your tests. Checking out your
 latest commit from version control is all that is needed to ensure you are
 running the latest tests.</p>
 
-<h2 id="label-Why+use+RPicSim+instead+of+just+accessing+the+Microchip+classes+directly%3F">Why use RPicSim instead of just accessing the Microchip classes directly?</h2>
+<h2 id="label-Why+use+RPicSim+instead+of+just+accessing+the+Microchip+classes+directly-3F">Why use RPicSim instead of just accessing the Microchip classes directly?</h2>
 
 <p>The Microchip classes are mostly undocumented and are complicated to use.
 With Ruby and RPicSim, we can have a simple, intuitive domain-specific
@@ -96,13 +94,13 @@ language (DSL) for dealing with PIC simulations. Also, by writing your
 tests with RPicSim there is some hope that you will be shielded from future
 changes in the MPLAB X code.</p>
 
-<h2 id="label-Why+use+RSpec%3F">Why use RSpec?</h2>
+<h2 id="label-Why+use+RSpec-3F">Why use RSpec?</h2>
 
 <p>RSpec provides great ways to combine code from similar tests, provides good
 error messages, and encourages you to specify exactly what you are testing.
 It is popular in the Ruby community.</p>
 
-<h2 id="label-Why+not+use+SCL%3F">Why not use SCL?</h2>
+<h2 id="label-Why+not+use+SCL-3F">Why not use SCL?</h2>
 
 <p>Microchip&#39;s <a
 href="http://www.microchip.com/forums/m111255.aspx">Stimulus Control
@@ -125,22 +123,23 @@ in the form of a few long forum posts at the top of the <a
 href="http://www.microchip.com/forums/f18.aspx">MPLAB Simulator forum</a>.</p>
 </li></ul>
 
-<h2 id="label-Why+not+use+Textile%3F">Why not use Textile?</h2>
+<h2 id="label-Why+not+use+Textile-3F">Why not use Textile?</h2>
 
 <p>Textile was not used as a markup language for the documentation because we
 could not figure out how to easily have Ruby syntax highlighting.</p>
 </div></div>
 
-    <div id="footer">
+      <div id="footer">
   
     This is part of the <a href="file.Manual.html">RPicSim manual</a>.
   
   <br/><br/>
 
-  Generated on Mon Jul 27 13:59:28 2015 by
+  Generated on Wed Apr 17 15:05:25 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.2.2).
+  0.9.19 (ruby-2.5.3).
 </div>
 
+    </div>
   </body>
 </html>

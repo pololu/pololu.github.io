@@ -1,12 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   File: Variables
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Documentation by YARD 0.9.19
   
 </title>
 
@@ -15,9 +15,8 @@
   <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  hasFrames = window.top.frames.main ? true : false;
+  pathId = "Variables";
   relpath = '';
-  framesUrl = "frames.html#!file.Variables.html";
 </script>
 
 
@@ -28,8 +27,14 @@
 
   </head>
   <body>
-    <div id="header">
-      <div id="menu">
+    <div class="nav_wrap">
+      <iframe id="nav" src="file_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
   
     
         <a href="_index.html">Index</a> &raquo;
@@ -42,30 +47,23 @@
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
-      <div id="search">
+        <div id="search">
   
     <a class="full_list_link" id="class_list_link"
         href="class_list.html">
-      Class List
-    </a>
-  
-    <a class="full_list_link" id="method_list_link"
-        href="method_list.html">
-      Method List
-    </a>
-  
-    <a class="full_list_link" id="file_list_link"
-        href="file_list.html">
-      File List
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
     </a>
   
 </div>
-      <div class="clear"></div>
-    </div>
+        <div class="clear"></div>
+      </div>
 
-    <iframe id="search_frame"></iframe>
-
-    <div id="content"><div id='filecontents'>
+      <div id="content"><div id='filecontents'>
 <h1 id="label-Variables">Variables</h1>
 
 <p>RPicSim uses the <span class='object_link'><a href="RPicSim/Variable.html" title="RPicSim::Variable (class)">RPicSim::Variable</a></span> class to let you access simulated
@@ -87,7 +85,7 @@ variable, so any variables used need to be explicitly defined in the
 <a href="file.DefiningSimulationClass.html" title="simulation class">simulation class</a> using
 <span class='object_link'><a href="RPicSim/Sim/ClassDefinitionMethods.html#def_var-instance_method" title="RPicSim::Sim::ClassDefinitionMethods#def_var (method)">def_var</a></span>. For example:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='kw'>class</span> <span class='const'>MySim</span> <span class='op'>&lt;</span> <span class='const'>RPicSim</span><span class='op'>::</span><span class='const'>Sim</span>
+<pre class="code ruby"><code class="ruby"><span class='kw'>class</span> <span class='const'>MySim</span> <span class='op'>&lt;</span> <span class='const'><span class='object_link'><a href="RPicSim.html" title="RPicSim (module)">RPicSim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="RPicSim/Sim.html" title="RPicSim::Sim (class)">Sim</a></span></span>
   <span class='comment'>#...
 </span>
   <span class='id identifier rubyid_def_var'>def_var</span> <span class='symbol'>:counter</span><span class='comma'>,</span> <span class='symbol'>:uint8</span>
@@ -100,12 +98,14 @@ variable in Ruby code. Using the example above, you could access the
 variable object by passing <code>:counter</code> as the argument to
 <span class='object_link'><a href="RPicSim/Sim.html#var-instance_method" title="RPicSim::Sim#var (method)">RPicSim::Sim#var</a></span>:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_var'>var</span><span class='lparen'>(</span><span class='symbol'>:counter</span><span class='rparen'>)</span></code></pre>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_var'>var</span><span class='lparen'>(</span><span class='symbol'>:counter</span><span class='rparen'>)</span>
+</code></pre>
 
 <p>Each variable also has a method on the simulation object by the same name.
 This means that you can access the variable like this:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_counter'>counter</span></code></pre>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_counter'>counter</span>
+</code></pre>
 
 <p>A shortcut is also available in RSpec thanks to RPicsim&#39;s
 <a href="file.RSpecIntegration.html" title="RSpec integration">RSpec integration</a>, so you can simply write
@@ -113,7 +113,8 @@ This means that you can access the variable like this:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>drives the main output high</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
   <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_counter'>counter</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span> <span class='int'>44</span>
-<span class='kw'>end</span></code></pre>
+<span class='kw'>end</span>
+</code></pre>
 
 <p>The second argument to <code>def_var</code> specifies the data type of the
 variable. This is required. For the full list of allowed types, see
@@ -126,7 +127,8 @@ variable, so you do not need to specify the address yourself.</p>
 <p>You can use the <code>symbol</code> option to specify what symbol in the
 symbol table marks the location of the variable. For example:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_def_var'>def_var</span> <span class='symbol'>:counter</span><span class='comma'>,</span> <span class='symbol'>:uint8</span><span class='comma'>,</span> <span class='label'>symbol:</span> <span class='symbol'>:_counter</span></code></pre>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_def_var'>def_var</span> <span class='symbol'>:counter</span><span class='comma'>,</span> <span class='symbol'>:uint8</span><span class='comma'>,</span> <span class='label'>symbol:</span> <span class='symbol'>:_counter</span>
+</code></pre>
 
 <p>The example above shows how you could access a variable from a C compiler
 (which will generally be prefixed with an underscore) without having to
@@ -138,18 +140,21 @@ a different thing in your tests.</p>
 the symbol table. To troubleshoot this, you might print the list of symbols
 that RPicSim found:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_program_file'>program_file</span><span class='period'>.</span><span class='id identifier rubyid_var_addresses'>var_addresses</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span></code></pre>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_sim'>sim</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_program_file'>program_file</span><span class='period'>.</span><span class='id identifier rubyid_var_addresses'>var_addresses</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span>
+</code></pre>
 
 <p>You can use the <code>address</code> option to specify an arbitrary address
 instead of using the symbol table. For example:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_def_var'>def_var</span> <span class='symbol'>:counter</span><span class='comma'>,</span> <span class='symbol'>:uint8</span><span class='comma'>,</span> <span class='label'>address:</span> <span class='int'>0x63</span></code></pre>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_def_var'>def_var</span> <span class='symbol'>:counter</span><span class='comma'>,</span> <span class='symbol'>:uint8</span><span class='comma'>,</span> <span class='label'>address:</span> <span class='int'>0x63</span>
+</code></pre>
 
 <p>Variables are assumed to be in RAM by default, but you can specify that
 they are in program memory or EEPROM using the <code>memory</code> option.</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_def_var'>def_var</span> <span class='symbol'>:settings</span><span class='comma'>,</span> <span class='symbol'>:word</span><span class='comma'>,</span> <span class='label'>memory:</span> <span class='symbol'>:program_memory</span>
-<span class='id identifier rubyid_def_var'>def_var</span> <span class='symbol'>:checksum</span><span class='comma'>,</span> <span class='symbol'>:uint16</span><span class='comma'>,</span> <span class='label'>memory:</span> <span class='symbol'>:eeprom</span></code></pre>
+<span class='id identifier rubyid_def_var'>def_var</span> <span class='symbol'>:checksum</span><span class='comma'>,</span> <span class='symbol'>:uint16</span><span class='comma'>,</span> <span class='label'>memory:</span> <span class='symbol'>:eeprom</span>
+</code></pre>
 
 <h3 id="label-Program+memory+on+non-PIC18+devices">Program memory on non-PIC18 devices</h3>
 
@@ -202,7 +207,8 @@ the same way as SFRs:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sets W to 5</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
   <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_reg'>reg</span><span class='lparen'>(</span><span class='symbol'>:WREG</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span> <span class='int'>5</span>
-<span class='kw'>end</span></code></pre>
+<span class='kw'>end</span>
+</code></pre>
 
 <h2 id="label-Using+a+variable">Using a variable</h2>
 
@@ -212,18 +218,19 @@ can read and write the value of the variable using the <code>value</code>
 attribute:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_counter'>counter</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span class='int'>0x6A</span>
-<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_counter'>counter</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span> <span class='int'>0x6A</span></code></pre>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_counter'>counter</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span> <span class='int'>0x6A</span>
+</code></pre>
 
 <h2 id="label-Protected+bits">Protected bits</h2>
 
-<p>When you write to a register with <span class='object_link'><a href="RPicSim/Variable.html#value%3D-instance_method" title="RPicSim::Variable#value= (method)">RPicSim::Variable#value=</a></span>, you are
+<p>When you write to a register with <span class='object_link'><a href="RPicSim/Variable.html#value=-instance_method" title="RPicSim::Variable#value= (method)">RPicSim::Variable#value=</a></span>, you are
 (according to our understanding of MPLAB X) writing to it in the same way
 that the simulated microcontroller would write to it. This means that some
 bits might not be writable or might have restrictions on what value can be
 written to them. For example, the TO and PD bits of the STATUS register on
 the PIC10F322 are not writable by the microcontroller.</p>
 
-<p>To get around this, you can use <span class='object_link'><a href="RPicSim/Variable.html#memory_value%3D-instance_method" title="RPicSim::Variable#memory_value= (method)">RPicSim::Variable#memory_value=</a></span> instead,
+<p>To get around this, you can use <span class='object_link'><a href="RPicSim/Variable.html#memory_value=-instance_method" title="RPicSim::Variable#memory_value= (method)">RPicSim::Variable#memory_value=</a></span> instead,
 which should allow you to write to any of the bits.</p>
 
 <h2 id="label-Peripheral+updating">Peripheral updating</h2>
@@ -260,14 +267,15 @@ addition  ; 16-bit addition routine:  z = x + y
   addwf   y + 1, W
   movwf   z + 1
   return
-  end</code></pre>
+  end
+</code></pre>
 
 <p>In <code>spec/spec_helper.rb</code>, we make a simulation class that points
 to the compiled COF file and defines the variables:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rpicsim/rspec</span><span class='tstring_end'>&#39;</span></span>
 
-<span class='kw'>class</span> <span class='const'>Addition</span> <span class='op'>&lt;</span> <span class='const'>RPicSim</span><span class='op'>::</span><span class='const'>Sim</span>
+<span class='kw'>class</span> <span class='const'>Addition</span> <span class='op'>&lt;</span> <span class='const'><span class='object_link'><a href="RPicSim.html" title="RPicSim (module)">RPicSim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="RPicSim/Sim.html" title="RPicSim::Sim (class)">Sim</a></span></span>
   <span class='id identifier rubyid_use_device'>use_device</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PIC10F322</span><span class='tstring_end'>&quot;</span></span>
   <span class='id identifier rubyid_use_file'>use_file</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_dirname'>dirname</span><span class='lparen'>(</span><span class='kw'>__FILE__</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>../firmware/dist/firmware.cof</span><span class='tstring_end'>&quot;</span></span>
   <span class='id identifier rubyid_def_var'>def_var</span> <span class='symbol'>:x</span><span class='comma'>,</span> <span class='symbol'>:uint16</span>
@@ -293,19 +301,21 @@ subroutine, and checks that the correct result is stored in <code>z</code>:</p>
     <span class='id identifier rubyid_run_subroutine'>run_subroutine</span> <span class='symbol'>:addition</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>100</span>
     <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_z'>z</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span> <span class='int'>92</span>
   <span class='kw'>end</span>
-<span class='kw'>end</span></code></pre>
+<span class='kw'>end</span>
+</code></pre>
 </div></div>
 
-    <div id="footer">
+      <div id="footer">
   
     This is part of the <a href="file.Manual.html">RPicSim manual</a>.
   
   <br/><br/>
 
-  Generated on Mon Jul 27 13:59:25 2015 by
+  Generated on Wed Apr 17 15:05:24 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.2.2).
+  0.9.19 (ruby-2.5.3).
 </div>
 
+    </div>
   </body>
 </html>

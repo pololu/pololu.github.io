@@ -1,12 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   File: QuickStartGuide
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Documentation by YARD 0.9.19
   
 </title>
 
@@ -15,9 +15,8 @@
   <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  hasFrames = window.top.frames.main ? true : false;
+  pathId = "QuickStartGuide";
   relpath = '';
-  framesUrl = "frames.html#!file.QuickStartGuide.html";
 </script>
 
 
@@ -28,8 +27,14 @@
 
   </head>
   <body>
-    <div id="header">
-      <div id="menu">
+    <div class="nav_wrap">
+      <iframe id="nav" src="file_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
   
     
         <a href="_index.html">Index</a> &raquo;
@@ -42,30 +47,23 @@
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
-      <div id="search">
+        <div id="search">
   
     <a class="full_list_link" id="class_list_link"
         href="class_list.html">
-      Class List
-    </a>
-  
-    <a class="full_list_link" id="method_list_link"
-        href="method_list.html">
-      Method List
-    </a>
-  
-    <a class="full_list_link" id="file_list_link"
-        href="file_list.html">
-      File List
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
     </a>
   
 </div>
-      <div class="clear"></div>
-    </div>
+        <div class="clear"></div>
+      </div>
 
-    <iframe id="search_frame"></iframe>
-
-    <div id="content"><div id='filecontents'>
+      <div id="content"><div id='filecontents'>
 <h1 id="label-Quick-start+guide">Quick-start guide</h1>
 
 <p>This guide should help you get started with RPicSim. It is assumed that you
@@ -106,7 +104,8 @@ looks like this:</p>
 |   `-- dist
 `-- spec
     |-- *_spec.rb
-    `-- spec_helper.rb</code></pre>
+    `-- spec_helper.rb
+</code></pre>
 
 <h2 id="label-Writing+your+first+test">Writing your first test</h2>
 
@@ -129,7 +128,8 @@ In <code>firmware_spec.rb</code>, write:</p>
       <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_pc'>pc</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_not'>to_not</span> <span class='id identifier rubyid_eq'>eq</span> <span class='id identifier rubyid_last_pc_value'>last_pc_value</span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>
-<span class='kw'>end</span></code></pre>
+<span class='kw'>end</span>
+</code></pre>
 
 <p>This sets up a dummy test that runs the simulation for 100 steps and
 verifies that the program counter (the address of the next instruction to
@@ -148,7 +148,7 @@ directory. In <code>spec/spec_helper.rb</code>, write:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rpicsim/rspec</span><span class='tstring_end'>&#39;</span></span>
 
-<span class='kw'>class</span> <span class='const'>MySim</span> <span class='op'>&lt;</span> <span class='const'>RPicSim</span><span class='op'>::</span><span class='const'>Sim</span>
+<span class='kw'>class</span> <span class='const'>MySim</span> <span class='op'>&lt;</span> <span class='const'><span class='object_link'><a href="RPicSim.html" title="RPicSim (module)">RPicSim</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="RPicSim/Sim.html" title="RPicSim::Sim (class)">Sim</a></span></span>
   <span class='id identifier rubyid_use_device'>use_device</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PIC10F322</span><span class='tstring_end'>&quot;</span></span>
   <span class='id identifier rubyid_use_file'>use_file</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_dirname'>dirname</span><span class='lparen'>(</span><span class='kw'>__FILE__</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/../firmware/dist/default/production/firmware_dir.production.cof</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span>
@@ -172,7 +172,8 @@ goes well, the output from <code>rspec</code> should look like:</p>
 <pre class="code ruby"><code class="ruby">.
 
 Finished in 0.006 seconds
-1 example, 0 failures</code></pre>
+1 example, 0 failures
+</code></pre>
 
 <p>RSpec is telling us that it found our one example that tests the program
 counter for the first 100 steps, and that it passed. You now have have an
@@ -183,16 +184,17 @@ more.</p>
 sections of <a href="file.Manual.html" title="this manual">this manual</a>.</p>
 </div></div>
 
-    <div id="footer">
+      <div id="footer">
   
     This is part of the <a href="file.Manual.html">RPicSim manual</a>.
   
   <br/><br/>
 
-  Generated on Mon Jul 27 13:59:24 2015 by
+  Generated on Wed Apr 17 15:05:23 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.2.2).
+  0.9.19 (ruby-2.5.3).
 </div>
 
+    </div>
   </body>
 </html>

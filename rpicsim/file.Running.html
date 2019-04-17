@@ -1,12 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   File: Running
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Documentation by YARD 0.9.19
   
 </title>
 
@@ -15,9 +15,8 @@
   <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  hasFrames = window.top.frames.main ? true : false;
+  pathId = "Running";
   relpath = '';
-  framesUrl = "frames.html#!file.Running.html";
 </script>
 
 
@@ -28,8 +27,14 @@
 
   </head>
   <body>
-    <div id="header">
-      <div id="menu">
+    <div class="nav_wrap">
+      <iframe id="nav" src="file_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
   
     
         <a href="_index.html">Index</a> &raquo;
@@ -42,30 +47,23 @@
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
-      <div id="search">
+        <div id="search">
   
     <a class="full_list_link" id="class_list_link"
         href="class_list.html">
-      Class List
-    </a>
-  
-    <a class="full_list_link" id="method_list_link"
-        href="method_list.html">
-      Method List
-    </a>
-  
-    <a class="full_list_link" id="file_list_link"
-        href="file_list.html">
-      File List
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
     </a>
   
 </div>
-      <div class="clear"></div>
-    </div>
+        <div class="clear"></div>
+      </div>
 
-    <iframe id="search_frame"></iframe>
-
-    <div id="content"><div id='filecontents'>
+      <div id="content"><div id='filecontents'>
 <h1 id="label-Running+the+simulation">Running the simulation</h1>
 
 <p>Any useful microcontroller simulation needs to run for some number of steps
@@ -117,19 +115,22 @@ amount of “time”.</p>
 <p>The <span class='object_link'><a href="RPicSim/Sim.html#run_steps-instance_method" title="RPicSim::Sim#run_steps (method)">run_steps</a></span> method just runs the
 <code>step</code> method the specified number of times:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_run_steps'>run_steps</span> <span class='int'>10</span>   <span class='comment'># runs the simulation for 10 steps</span></code></pre>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_run_steps'>run_steps</span> <span class='int'>10</span>   <span class='comment'># runs the simulation for 10 steps
+</span></code></pre>
 
 <p>The <span class='object_link'><a href="RPicSim/Sim.html#run_cycles-instance_method" title="RPicSim::Sim#run_cycles (method)">run_cycles</a></span> method runs the simulation until a
 certain number of instruction cycles have elapsed, using
 <span class='object_link'><a href="RPicSim/Sim.html#cycle_count-instance_method" title="RPicSim::Sim#cycle_count (method)">RPicSim::Sim#cycle_count</a></span>:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_run_cycles'>run_cycles</span> <span class='int'>20</span>  <span class='comment'># runs the simulation for approximately 20 instruction cycles</span></code></pre>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_run_cycles'>run_cycles</span> <span class='int'>20</span>  <span class='comment'># runs the simulation for approximately 20 instruction cycles
+</span></code></pre>
 
 <p>The <span class='object_link'><a href="RPicSim/Sim.html#run_to_cycle_count-instance_method" title="RPicSim::Sim#run_to_cycle_count (method)">run_to_cycle_count</a></span> method is similar
 to <code>run_cycles</code>, but it takes as an argument the total number of
 cycles since the simulation was started, and it runs up to that point:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_run_to_cycle_count'>run_to_cycle_count</span> <span class='int'>1000</span>  <span class='comment'># runs the simulation until the total cycle count is 1000</span></code></pre>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_run_to_cycle_count'>run_to_cycle_count</span> <span class='int'>1000</span>  <span class='comment'># runs the simulation until the total cycle count is 1000
+</span></code></pre>
 
 <p>Regarding time accuracy: Certain instructions take two cycles and there is
 no way to stop the simulation in the middle of an instruction, so the
@@ -157,31 +158,37 @@ exception is raised.</p>
 
 <p>For example, to run to a label named “apple”:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_run_to'>run_to</span> <span class='symbol'>:apple</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>100</span></code></pre>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_run_to'>run_to</span> <span class='symbol'>:apple</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>100</span>
+</code></pre>
 
 <p>To run until either the “step2” label is reached or the current subroutine
 returns:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_run_to'>run_to</span> <span class='lbracket'>[</span> <span class='symbol'>:step2</span><span class='comma'>,</span> <span class='symbol'>:return</span> <span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>200</span></code></pre>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_run_to'>run_to</span> <span class='lbracket'>[</span> <span class='symbol'>:step2</span><span class='comma'>,</span> <span class='symbol'>:return</span> <span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>200</span>
+</code></pre>
 
 <p>When <code>run_to</code> finishes, it will return the object representing
 the condition that was met. This can be helpful in tests:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_run_to'>run_to</span> <span class='lbracket'>[</span> <span class='symbol'>:step2</span><span class='comma'>,</span> <span class='symbol'>:return</span> <span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>200</span>
-<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span> <span class='symbol'>:step2</span></code></pre>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span> <span class='symbol'>:step2</span>
+</code></pre>
 
 <p>To run until an arbitrary condition is met:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_run_to'>run_to</span> <span class='const'>Proc</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_wreg'>wreg</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>==</span> <span class='int'>2</span> <span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>300</span></code></pre>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_run_to'>run_to</span> <span class='const'>Proc</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_wreg'>wreg</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='op'>==</span> <span class='int'>2</span> <span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>300</span>
+</code></pre>
 
 <p>To run to a particular address:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_run_to'>run_to</span> <span class='int'>0x2000</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>300</span></code></pre>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_run_to'>run_to</span> <span class='int'>0x2000</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>300</span>
+</code></pre>
 
 <p>To finish running a subroutine and assert that it takes between 10000 and
 11000 cycles to finish:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_run_to'>run_to</span> <span class='symbol'>:return</span><span class='comma'>,</span> <span class='label'>cycles:</span> <span class='int'>10000</span><span class='op'>..</span><span class='int'>11000</span></code></pre>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_run_to'>run_to</span> <span class='symbol'>:return</span><span class='comma'>,</span> <span class='label'>cycles:</span> <span class='int'>10000</span><span class='op'>..</span><span class='int'>11000</span>
+</code></pre>
 
 <p>For the complete, formal documentation of <code>run_to</code>, see
 <span class='object_link'><a href="RPicSim/Sim.html#run_to-instance_method" title="RPicSim::Sim#run_to (method)">RPicSim::Sim#run_to</a></span>.</p>
@@ -195,7 +202,8 @@ devices&#39;s program counter to point to the address of the “loopStart”
 label and then runs the simulation until it reaches loopEnd:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_goto'>goto</span> <span class='symbol'>:loopStart</span>
-<span class='id identifier rubyid_run_to'>run_to</span> <span class='symbol'>:loopEnd</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>400</span></code></pre>
+<span class='id identifier rubyid_run_to'>run_to</span> <span class='symbol'>:loopEnd</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>400</span>
+</code></pre>
 
 <h2 id="label-Running+a+subroutine+or+function">Running a subroutine or function</h2>
 
@@ -213,7 +221,8 @@ hash of options that supports the same options as <span class='object_link'><a h
 pin high:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_run_subroutine'>run_subroutine</span> <span class='symbol'>:drivePinHigh</span><span class='comma'>,</span> <span class='label'>cycle_limit:</span> <span class='int'>20</span>
-<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_main_output'>main_output</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_driving_high'>be_driving_high</span></code></pre>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_main_output'>main_output</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_driving_high'>be_driving_high</span>
+</code></pre>
 
 <p>In this example, <code>main_output</code> is a pin alias, as described in
 the <a href="file.Pins.html" title="Pins page">Pins page</a>.</p>
@@ -224,16 +233,17 @@ those subroutines, you can read and write RAM as described in the
 <a href="file.Variables.html" title="Variables page">Variables page</a>.</p>
 </div></div>
 
-    <div id="footer">
+      <div id="footer">
   
     This is part of the <a href="file.Manual.html">RPicSim manual</a>.
   
   <br/><br/>
 
-  Generated on Mon Jul 27 13:59:25 2015 by
+  Generated on Wed Apr 17 15:05:23 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.2.2).
+  0.9.19 (ruby-2.5.3).
 </div>
 
+    </div>
   </body>
 </html>
