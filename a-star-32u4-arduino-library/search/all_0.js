@@ -14,5 +14,6 @@ var searchData=
   ['astar32u4lcd_2eh',['AStar32U4LCD.h',['../_a_star32_u4_l_c_d_8h.html',1,'']]],
   ['astar32u4motors',['AStar32U4Motors',['../class_a_star32_u4_motors.html',1,'']]],
   ['astar32u4motors_2eh',['AStar32U4Motors.h',['../_a_star32_u4_motors_8h.html',1,'']]],
-  ['autoscroll',['autoscroll',['../class_pololu_h_d44780_base.html#ad5104d9651fd95704d1ae192073b0d61',1,'PololuHD44780Base']]]
+  ['autoscroll',['autoscroll',['../class_pololu_h_d44780_base.html#ad5104d9651fd95704d1ae192073b0d61',1,'PololuHD44780Base']]],
+  ['astar32u4_20library',['AStar32U4 library',['../index.html',1,'']]]
 ];

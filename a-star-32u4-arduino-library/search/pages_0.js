@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['deprecated_20list',['Deprecated List',['../deprecated.html',1,'']]]
+  ['astar32u4_20library',['AStar32U4 library',['../index.html',1,'']]]
 ];
