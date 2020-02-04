@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tic_2eh',['Tic.h',['../_tic_8h.html',1,'']]]
+  ['tic_2eh',['Tic.h',['../Tic_8h.html',1,'']]]
 ];
