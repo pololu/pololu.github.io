@@ -1,7 +1,28 @@
 var searchData=
 [
-  ['waitforbutton',['waitForButton',['../class_pushbutton_base.html#ab755065c930be0649597220316213e8a',1,'PushbuttonBase']]],
-  ['waitforpress',['waitForPress',['../class_pushbutton_base.html#a2e2787595c82ee0913ecf4c1eea4a2c8',1,'PushbuttonBase']]],
-  ['waitforrelease',['waitForRelease',['../class_pushbutton_base.html#ae5fff34b3e1ebd62fd02b99edd6bf13a',1,'PushbuttonBase']]],
-  ['write',['write',['../class_pololu_h_d44780_base.html#a1aad3b3ce5820dc910174b3c91a5d65e',1,'PololuHD44780Base::write(uint8_t c)'],['../class_pololu_h_d44780_base.html#a965028ffd2313e9eaa968348effcab81',1,'PololuHD44780Base::write(const uint8_t *buffer, size_t size)']]]
+  ['scrolldisplayleft_318',['scrollDisplayLeft',['../class_pololu_h_d44780_base.html#aada34a47663585f60b70e1d6f936f6d3',1,'PololuHD44780Base']]],
+  ['scrolldisplayright_319',['scrollDisplayRight',['../class_pololu_h_d44780_base.html#a411512707f303af75de3c5aea313bf48',1,'PololuHD44780Base']]],
+  ['send_320',['send',['../class_pololu_h_d44780_base.html#a004d5adb9e7c3cc546c6b0ed427dec7b',1,'PololuHD44780Base::send()'],['../class_pololu_h_d44780.html#a8da2db526de9f1e2314cb02c3ba6121a',1,'PololuHD44780::send()'],['../class_zumo32_u4_l_c_d.html#a219e5ae0c67b8a5fd359c397c69ab713',1,'Zumo32U4LCD::send()']]],
+  ['setbrightnesslevels_321',['setBrightnessLevels',['../class_zumo32_u4_proximity_sensors.html#a47820baf67dfa58dedb41cb7bb26dc65',1,'Zumo32U4ProximitySensors']]],
+  ['setcursor_322',['setCursor',['../class_pololu_h_d44780_base.html#aeb3377822dc672398a991f06a00312c0',1,'PololuHD44780Base']]],
+  ['setinput_323',['setInput',['../class_fast_g_p_i_o_1_1_pin.html#a7f9c4ab269f04bb1ae022b4d7eed3413',1,'FastGPIO::Pin']]],
+  ['setinputpulledup_324',['setInputPulledUp',['../class_fast_g_p_i_o_1_1_pin.html#a32eadc02b421b9b7fc92807bb3304f6e',1,'FastGPIO::Pin']]],
+  ['setleftspeed_325',['setLeftSpeed',['../class_zumo32_u4_motors.html#a59cb85c91d0425ae1a8116d4e6dab969',1,'Zumo32U4Motors']]],
+  ['setoutput_326',['setOutput',['../class_fast_g_p_i_o_1_1_pin.html#a87fb88b3ea6343db0e4a06f579a10249',1,'FastGPIO::Pin']]],
+  ['setoutputhigh_327',['setOutputHigh',['../class_fast_g_p_i_o_1_1_pin.html#aaa0032dcb76492716f477d60721a0579',1,'FastGPIO::Pin']]],
+  ['setoutputlow_328',['setOutputLow',['../class_fast_g_p_i_o_1_1_pin.html#a557f119d37b84f3f521d7cbd4cc27b21',1,'FastGPIO::Pin']]],
+  ['setoutputtoggle_329',['setOutputToggle',['../class_fast_g_p_i_o_1_1_pin.html#abbdcf0314f4e11543b70ff3a8f63bbb1',1,'FastGPIO::Pin']]],
+  ['setoutputvalue_330',['setOutputValue',['../class_fast_g_p_i_o_1_1_pin.html#a2caa56e4e3691227794a39f4b233eb67',1,'FastGPIO::Pin']]],
+  ['setoutputvaluehigh_331',['setOutputValueHigh',['../class_fast_g_p_i_o_1_1_pin.html#a69cae733ab5c400afbb2d731aa31f5f5',1,'FastGPIO::Pin']]],
+  ['setoutputvaluelow_332',['setOutputValueLow',['../class_fast_g_p_i_o_1_1_pin.html#acff357765bbc7c56564a871d1bdd4868',1,'FastGPIO::Pin']]],
+  ['setoutputvaluetoggle_333',['setOutputValueToggle',['../class_fast_g_p_i_o_1_1_pin.html#a588d0cdd8971e9a6a6939704b227f299',1,'FastGPIO::Pin']]],
+  ['setperiod_334',['setPeriod',['../class_zumo32_u4_proximity_sensors.html#ab288aeae9bcc5933cede8941b709b4fc',1,'Zumo32U4ProximitySensors']]],
+  ['setpulseofftimeus_335',['setPulseOffTimeUs',['../class_zumo32_u4_proximity_sensors.html#a4d7911aca58734a76be212de103a1387',1,'Zumo32U4ProximitySensors']]],
+  ['setpulseontimeus_336',['setPulseOnTimeUs',['../class_zumo32_u4_proximity_sensors.html#aeb626f226420976e774d93dd2a83e768',1,'Zumo32U4ProximitySensors']]],
+  ['setrightspeed_337',['setRightSpeed',['../class_zumo32_u4_motors.html#a453fe0d34efe64fc44b7021878730534',1,'Zumo32U4Motors']]],
+  ['setspeeds_338',['setSpeeds',['../class_zumo32_u4_motors.html#afdc238f045d9c919afd01f143f2fdbbb',1,'Zumo32U4Motors']]],
+  ['setstate_339',['setState',['../class_fast_g_p_i_o_1_1_pin.html#a6dae3821c6b8bcf9f3b7ac2e5114692c',1,'FastGPIO::Pin']]],
+  ['start_340',['start',['../class_zumo32_u4_i_r_pulses.html#abef1e5f17a173505c6acc0f8c0d917d9',1,'Zumo32U4IRPulses']]],
+  ['stop_341',['stop',['../class_zumo32_u4_i_r_pulses.html#a99f222656413341fc07bd8fed823027b',1,'Zumo32U4IRPulses']]],
+  ['stopplaying_342',['stopPlaying',['../class_pololu_buzzer.html#a233fe0ffe5f23582b1c55beaa718d527',1,'PololuBuzzer']]]
 ];

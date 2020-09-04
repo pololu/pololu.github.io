@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['init',['init',['../classZumoReflectanceSensorArray.html#a73e1db81cdea8116f86524eee10763c8',1,'ZumoReflectanceSensorArray::init(unsigned char emitterPin=ZUMO_SENSOR_ARRAY_DEFAULT_EMITTER_PIN)'],['../classZumoReflectanceSensorArray.html#aa6428ee034b6066dd8a6b9da85609eea',1,'ZumoReflectanceSensorArray::init(unsigned char *pins, unsigned char numSensors, unsigned int timeout=2000, unsigned char emitterPin=ZUMO_SENSOR_ARRAY_DEFAULT_EMITTER_PIN)']]],
-  ['isplaying',['isPlaying',['../classPololuBuzzer.html#a8045fdf0a144e0b71a5b223a0ef34027',1,'PololuBuzzer']]]
+  ['emittersoff_99',['emittersOff',['../class_q_t_r_sensors.html#a576f1fe1e9f2d3d2097baf79a9655134',1,'QTRSensors']]],
+  ['emitterson_100',['emittersOn',['../class_q_t_r_sensors.html#a79f5380ecdb324a7800a045c3506975f',1,'QTRSensors']]],
+  ['enabledefault_101',['enableDefault',['../class_zumo_i_m_u.html#a8ff27a8ba16ac51e1e38ef692e2c8c70',1,'ZumoIMU']]]
 ];

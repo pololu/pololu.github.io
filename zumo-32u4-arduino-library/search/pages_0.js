@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['zumo32u4_20library',['Zumo32U4 library',['../index.html',1,'']]]
+  ['deprecated_20list_388',['Deprecated List',['../deprecated.html',1,'']]]
 ];

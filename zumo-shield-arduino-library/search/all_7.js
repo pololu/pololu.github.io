@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['read',['read',['../classZumoReflectanceSensorArray.html#a65339c9daf90ba1294b04aca43a58b99',1,'ZumoReflectanceSensorArray']]],
-  ['readcalibrated',['readCalibrated',['../classQTRSensors.html#aa32a448ac03cd2a45d1f14f96ac4b739',1,'QTRSensors']]],
-  ['readline',['readLine',['../classQTRSensors.html#ac84f0b98bceae0b59d687ae82eb92718',1,'QTRSensors']]],
-  ['resetcalibration',['resetCalibration',['../classQTRSensors.html#aa840b6ef17562d41edf21ddd08e0672e',1,'QTRSensors']]]
+  ['m_28',['m',['../class_zumo_i_m_u.html#a1c14bfd3e76b12ad7e35d945ee15593b',1,'ZumoIMU']]],
+  ['magdataready_29',['magDataReady',['../class_zumo_i_m_u.html#a730bc3382cdd3a0b782fe5a6aca1d2ec',1,'ZumoIMU']]]
 ];

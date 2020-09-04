@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['emittersoff',['emittersOff',['../classQTRSensors.html#a576f1fe1e9f2d3d2097baf79a9655134',1,'QTRSensors']]],
-  ['emitterson',['emittersOn',['../classQTRSensors.html#a79f5380ecdb324a7800a045c3506975f',1,'QTRSensors']]]
+  ['calibrate_97',['calibrate',['../class_q_t_r_sensors.html#ac9840e2429c7a962977057ba154c77da',1,'QTRSensors']]],
+  ['configureforcompassheading_98',['configureForCompassHeading',['../class_zumo_i_m_u.html#ac88b135bfc1c793139fd3996e8ab1778',1,'ZumoIMU']]]
 ];
