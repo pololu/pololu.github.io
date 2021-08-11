@@ -1,12 +1,15 @@
 var searchData=
 [
-  ['getcountsandresetleft_190',['getCountsAndResetLeft',['../class_pololu3pi_plus32_u4_1_1_encoders.html#ad79fc46174a555d986aa2c887aa9d7da',1,'Pololu3piPlus32U4::Encoders']]],
-  ['getcountsandresetright_191',['getCountsAndResetRight',['../class_pololu3pi_plus32_u4_1_1_encoders.html#abae6740f01df96f05bfb90297ee0a0a9',1,'Pololu3piPlus32U4::Encoders']]],
-  ['getcountsleft_192',['getCountsLeft',['../class_pololu3pi_plus32_u4_1_1_encoders.html#ae6429e2323b0cd6b66547f9a2ebef206',1,'Pololu3piPlus32U4::Encoders']]],
-  ['getcountsright_193',['getCountsRight',['../class_pololu3pi_plus32_u4_1_1_encoders.html#aaabf2787d26e7801e42088807b48e646',1,'Pololu3piPlus32U4::Encoders']]],
-  ['getlasterror_194',['getLastError',['../class_pololu3pi_plus32_u4_1_1_i_m_u.html#a72b154b13cc489ef37e2c7c523900164',1,'Pololu3piPlus32U4::IMU']]],
-  ['gettimeout_195',['getTimeout',['../class_pololu3pi_plus32_u4_1_1_line_sensors.html#a80d13ce7deb5103fda13896789324eae',1,'Pololu3piPlus32U4::LineSensors']]],
-  ['gettype_196',['getType',['../class_pololu3pi_plus32_u4_1_1_i_m_u.html#a48537456621ab1b877c57f279ab7a40a',1,'Pololu3piPlus32U4::IMU']]],
-  ['gotoxy_197',['gotoXY',['../../pololu-hd44780-arduino/class_pololu_h_d44780_base.html#a4886df8c888669cf71675072689ace9b',1,'PololuHD44780::gotoXY()'],['../../pololu-hd44780-arduino/class_pololu_h_d44780_base.html#a4886df8c888669cf71675072689ace9b',1,'PololuHD44780Base::gotoXY()']]],
-  ['gyrodataready_198',['gyroDataReady',['../class_pololu3pi_plus32_u4_1_1_i_m_u.html#a2f040117cf7dc72a6a77c86e52851548',1,'Pololu3piPlus32U4::IMU']]]
+  ['getcountsandresetleft_238',['getCountsAndResetLeft',['../class_pololu3pi_plus32_u4_1_1_encoders.html#ad79fc46174a555d986aa2c887aa9d7da',1,'Pololu3piPlus32U4::Encoders']]],
+  ['getcountsandresetright_239',['getCountsAndResetRight',['../class_pololu3pi_plus32_u4_1_1_encoders.html#abae6740f01df96f05bfb90297ee0a0a9',1,'Pololu3piPlus32U4::Encoders']]],
+  ['getcountsleft_240',['getCountsLeft',['../class_pololu3pi_plus32_u4_1_1_encoders.html#ae6429e2323b0cd6b66547f9a2ebef206',1,'Pololu3piPlus32U4::Encoders']]],
+  ['getcountsright_241',['getCountsRight',['../class_pololu3pi_plus32_u4_1_1_encoders.html#aaabf2787d26e7801e42088807b48e646',1,'Pololu3piPlus32U4::Encoders']]],
+  ['getlasterror_242',['getLastError',['../class_pololu3pi_plus32_u4_1_1_i_m_u.html#a72b154b13cc489ef37e2c7c523900164',1,'Pololu3piPlus32U4::IMU']]],
+  ['getlinepointer_243',['getLinePointer',['../../pololu-oled-arduino/class_pololu_s_h1106_main.html#aae0e5fbfb61aeb353f371e1d4c579e60',1,'PololuSH1106::getLinePointer()'],['../../pololu-oled-arduino/class_pololu_s_h1106_main.html#aae0e5fbfb61aeb353f371e1d4c579e60',1,'PololuSH1106Main::getLinePointer()'],['../../pololu-oled-arduino/class_pololu_s_h1106_main.html#aae0e5fbfb61aeb353f371e1d4c579e60',1,'PololuSH1106Main&lt; PololuSH1106Core &gt;::getLinePointer()']]],
+  ['gettimeout_244',['getTimeout',['../class_pololu3pi_plus32_u4_1_1_line_sensors.html#a80d13ce7deb5103fda13896789324eae',1,'Pololu3piPlus32U4::LineSensors']]],
+  ['gettype_245',['getType',['../class_pololu3pi_plus32_u4_1_1_i_m_u.html#a48537456621ab1b877c57f279ab7a40a',1,'Pololu3piPlus32U4::IMU']]],
+  ['getx_246',['getX',['../../pololu-oled-arduino/class_pololu_s_h1106_main.html#ac880ec674edd27b4054f3c9befac19f3',1,'PololuSH1106::getX()'],['../../pololu-oled-arduino/class_pololu_s_h1106_main.html#ac880ec674edd27b4054f3c9befac19f3',1,'PololuSH1106Main::getX()'],['../../pololu-oled-arduino/class_pololu_s_h1106_main.html#ac880ec674edd27b4054f3c9befac19f3',1,'PololuSH1106Main&lt; PololuSH1106Core &gt;::getX()']]],
+  ['gety_247',['getY',['../../pololu-oled-arduino/class_pololu_s_h1106_main.html#a1cf2fed028acc5b0ce995a7e15025ef2',1,'PololuSH1106::getY()'],['../../pololu-oled-arduino/class_pololu_s_h1106_main.html#a1cf2fed028acc5b0ce995a7e15025ef2',1,'PololuSH1106Main::getY()'],['../../pololu-oled-arduino/class_pololu_s_h1106_main.html#a1cf2fed028acc5b0ce995a7e15025ef2',1,'PololuSH1106Main&lt; PololuSH1106Core &gt;::getY()']]],
+  ['gotoxy_248',['gotoXY',['../../pololu-hd44780-arduino/class_pololu_h_d44780_base.html#a4886df8c888669cf71675072689ace9b',1,'PololuHD44780::gotoXY()'],['../../pololu-hd44780-arduino/class_pololu_h_d44780_base.html#a4886df8c888669cf71675072689ace9b',1,'PololuHD44780Base::gotoXY()'],['../../pololu-oled-arduino/class_pololu_s_h1106_main.html#a2a890ed1b5f8d639f0f80615af7564c5',1,'PololuSH1106::gotoXY()'],['../../pololu-oled-arduino/class_pololu_s_h1106_main.html#a2a890ed1b5f8d639f0f80615af7564c5',1,'PololuSH1106Main::gotoXY()'],['../../pololu-oled-arduino/class_pololu_s_h1106_main.html#a2a890ed1b5f8d639f0f80615af7564c5',1,'PololuSH1106Main&lt; PololuSH1106Core &gt;::gotoXY()']]],
+  ['gyrodataready_249',['gyroDataReady',['../class_pololu3pi_plus32_u4_1_1_i_m_u.html#a2f040117cf7dc72a6a77c86e52851548',1,'Pololu3piPlus32U4::IMU']]]
 ];

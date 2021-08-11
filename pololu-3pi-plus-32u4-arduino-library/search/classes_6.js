@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['pololubuzzer_150',['PololuBuzzer',['../../pololu-buzzer-arduino/class_pololu_buzzer.html',1,'']]],
-  ['pololuhd44780_151',['PololuHD44780',['../../pololu-hd44780-arduino/class_pololu_h_d44780.html',1,'']]],
-  ['pololuhd44780base_152',['PololuHD44780Base',['../../pololu-hd44780-arduino/class_pololu_h_d44780_base.html',1,'']]]
+  ['oled_186',['OLED',['../class_pololu3pi_plus32_u4_1_1_o_l_e_d.html',1,'Pololu3piPlus32U4']]],
+  ['oledcore_187',['OLEDCore',['../class_pololu3pi_plus32_u4_1_1_o_l_e_d_core.html',1,'Pololu3piPlus32U4']]]
 ];
