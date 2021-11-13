@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['imu_182',['IMU',['../class_pololu3pi_plus32_u4_1_1_i_m_u.html',1,'Pololu3piPlus32U4']]]
+  ['imu_191',['IMU',['../class_pololu3pi_plus32_u4_1_1_i_m_u.html',1,'Pololu3piPlus32U4']]]
 ];

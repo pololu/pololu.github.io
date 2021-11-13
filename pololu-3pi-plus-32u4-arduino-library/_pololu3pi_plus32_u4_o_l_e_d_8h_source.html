@@ -139,55 +139,57 @@ $(function() {
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    savedStateMosi = FastGPIO::Pin&lt;mosPin&gt;::getState();</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    savedStateDc = FastGPIO::Pin&lt;dcPin&gt;::getState();</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keywordtype">void</span> sh1106TransferEnd()</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    FastGPIO::Pin&lt;mosPin&gt;::setState(savedStateMosi);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    FastGPIO::Pin&lt;dcPin&gt;::setState(savedStateDc);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="comment">// From https://github.com/pololu/usb-pause-arduino/blob/master/USBPause.h</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    UENUM = 0;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    UEIENX = savedUEIENX0;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    UENUM = savedUENUM;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    UDIEN = savedUDIEN;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  }</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="keywordtype">void</span> sh1106CommandMode()</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    FastGPIO::Pin&lt;dcPin&gt;::setOutputLow();</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  }</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keywordtype">void</span> sh1106DataMode()</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    FastGPIO::Pin&lt;dcPin&gt;::setOutputHigh();</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  }</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="keywordtype">void</span> sh1106Write(uint8_t d)</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    _P3PP_OLED_SEND_BIT(7);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    _P3PP_OLED_SEND_BIT(6);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    _P3PP_OLED_SEND_BIT(5);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    _P3PP_OLED_SEND_BIT(4);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    _P3PP_OLED_SEND_BIT(3);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    _P3PP_OLED_SEND_BIT(2);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    _P3PP_OLED_SEND_BIT(1);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    _P3PP_OLED_SEND_BIT(0);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  }</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  uint8_t savedStateMosi, savedStateDc;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  uint8_t savedUDIEN, savedUENUM, savedUEIENX0;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;};</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
-<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="class_pololu3pi_plus32_u4_1_1_o_l_e_d.html">  120</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_pololu3pi_plus32_u4_1_1_o_l_e_d.html">OLED</a> : <span class="keyword">public</span> <a class="codeRef" href="../pololu-oled-arduino/class_pololu_s_h1106_main.html">PololuSH1106Main</a>&lt;OLEDCore&gt;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;{</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;};</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;}</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    FastGPIO::Pin&lt;mosPin&gt;::setOutputLow();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <span class="keywordtype">void</span> sh1106TransferEnd()</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    FastGPIO::Pin&lt;mosPin&gt;::setState(savedStateMosi);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    FastGPIO::Pin&lt;dcPin&gt;::setState(savedStateDc);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="comment">// From https://github.com/pololu/usb-pause-arduino/blob/master/USBPause.h</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    UENUM = 0;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    UEIENX = savedUEIENX0;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    UENUM = savedUENUM;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    UDIEN = savedUDIEN;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keywordtype">void</span> sh1106CommandMode()</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    FastGPIO::Pin&lt;dcPin&gt;::setOutputLow();</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="keywordtype">void</span> sh1106DataMode()</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  {</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    FastGPIO::Pin&lt;dcPin&gt;::setOutputHigh();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <span class="keywordtype">void</span> sh1106Write(uint8_t d)</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    _P3PP_OLED_SEND_BIT(7);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    _P3PP_OLED_SEND_BIT(6);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    _P3PP_OLED_SEND_BIT(5);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    _P3PP_OLED_SEND_BIT(4);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    _P3PP_OLED_SEND_BIT(3);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    _P3PP_OLED_SEND_BIT(2);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    _P3PP_OLED_SEND_BIT(1);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    _P3PP_OLED_SEND_BIT(0);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  }</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  uint8_t savedStateMosi, savedStateDc;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  uint8_t savedUDIEN, savedUENUM, savedUEIENX0;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;};</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="class_pololu3pi_plus32_u4_1_1_o_l_e_d.html">  122</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_pololu3pi_plus32_u4_1_1_o_l_e_d.html">OLED</a> : <span class="keyword">public</span> <a class="codeRef" href="../pololu-oled-arduino/class_pololu_s_h1106_main.html">PololuSH1106Main</a>&lt;OLEDCore&gt;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;{</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;};</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;}</div>
 <div class="ttc" id="a_pololu_s_h1106_main_8h.html_html"><div class="ttname"><a href="../pololu-oled-arduino/_pololu_s_h1106_main_8h.html">PololuSH1106Main.h</a></div></div>
 <div class="ttc" id="aclass_pololu3pi_plus32_u4_1_1_o_l_e_d_core_html"><div class="ttname"><a href="class_pololu3pi_plus32_u4_1_1_o_l_e_d_core.html">Pololu3piPlus32U4::OLEDCore</a></div><div class="ttdoc">Low-level functions for writing data to the SH1106 OLED on the Pololu 3pi+ 32U4 OLED robot.</div><div class="ttdef"><b>Definition:</b> <a href="_pololu3pi_plus32_u4_o_l_e_d_8h_source.html#l00033">Pololu3piPlus32U4OLED.h:34</a></div></div>
-<div class="ttc" id="aclass_pololu3pi_plus32_u4_1_1_o_l_e_d_html"><div class="ttname"><a href="class_pololu3pi_plus32_u4_1_1_o_l_e_d.html">Pololu3piPlus32U4::OLED</a></div><div class="ttdoc">Makes it easy to show text and graphics on the SH1106 OLED of the Pololu 3pi+ 32U4 OLED robot.</div><div class="ttdef"><b>Definition:</b> <a href="_pololu3pi_plus32_u4_o_l_e_d_8h_source.html#l00120">Pololu3piPlus32U4OLED.h:121</a></div></div>
+<div class="ttc" id="aclass_pololu3pi_plus32_u4_1_1_o_l_e_d_html"><div class="ttname"><a href="class_pololu3pi_plus32_u4_1_1_o_l_e_d.html">Pololu3piPlus32U4::OLED</a></div><div class="ttdoc">Makes it easy to show text and graphics on the SH1106 OLED of the Pololu 3pi+ 32U4 OLED robot.</div><div class="ttdef"><b>Definition:</b> <a href="_pololu3pi_plus32_u4_o_l_e_d_8h_source.html#l00122">Pololu3piPlus32U4OLED.h:123</a></div></div>
 <div class="ttc" id="aclass_pololu_s_h1106_main_html"><div class="ttname"><a href="../pololu-oled-arduino/class_pololu_s_h1106_main.html">PololuSH1106Main</a></div></div>
 <div class="ttc" id="anamespace_pololu3pi_plus32_u4_html"><div class="ttname"><a href="namespace_pololu3pi_plus32_u4.html">Pololu3piPlus32U4</a></div><div class="ttdoc">Top-level namespace for the Pololu3piPlus32U4 library.</div><div class="ttdef"><b>Definition:</b> <a href="_pololu3pi_plus32_u4_8h_source.html#l00027">Pololu3piPlus32U4.h:28</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
