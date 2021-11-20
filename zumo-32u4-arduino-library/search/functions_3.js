@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['display_256',['display',['../class_pololu_h_d44780_base.html#af5dd1e137bfe9310a418924b7483fcdf',1,'PololuHD44780Base']]]
+  ['display_263',['display',['../../pololu-hd44780-arduino/class_pololu_h_d44780_base.html#af5dd1e137bfe9310a418924b7483fcdf',1,'PololuHD44780::display()'],['../../pololu-hd44780-arduino/class_pololu_h_d44780_base.html#af5dd1e137bfe9310a418924b7483fcdf',1,'PololuHD44780Base::display()'],['../../pololu-oled-arduino/class_pololu_s_h1106_main.html#a707e94f45beec33466047fa7804a8c96',1,'PololuSH1106::display()'],['../../pololu-oled-arduino/class_pololu_s_h1106_main.html#a707e94f45beec33466047fa7804a8c96',1,'PololuSH1106Main::display()'],['../../pololu-oled-arduino/class_pololu_s_h1106_main.html#a707e94f45beec33466047fa7804a8c96',1,'PololuSH1106Main&lt; PololuSH1106Core &gt;::display()']]],
+  ['displaypartial_264',['displayPartial',['../../pololu-oled-arduino/class_pololu_s_h1106_main.html#ab552ccfcf5d8515a957e57e4f1d81e47',1,'PololuSH1106::displayPartial()'],['../../pololu-oled-arduino/class_pololu_s_h1106_main.html#ab552ccfcf5d8515a957e57e4f1d81e47',1,'PololuSH1106Main::displayPartial()'],['../../pololu-oled-arduino/class_pololu_s_h1106_main.html#ab552ccfcf5d8515a957e57e4f1d81e47',1,'PololuSH1106Main&lt; PololuSH1106Core &gt;::displayPartial()']]]
 ];

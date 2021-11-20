@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['qtrsensors_202',['QTRSensors',['../class_q_t_r_sensors.html',1,'']]],
-  ['qtrsensorsanalog_203',['QTRSensorsAnalog',['../class_q_t_r_sensors_analog.html',1,'']]],
-  ['qtrsensorsrc_204',['QTRSensorsRC',['../class_q_t_r_sensors_r_c.html',1,'']]]
+  ['vector_209',['vector',['../struct_zumo32_u4_i_m_u_1_1vector.html',1,'Zumo32U4IMU']]],
+  ['vector_3c_20int16_5ft_20_3e_210',['vector&lt; int16_t &gt;',['../struct_zumo32_u4_i_m_u_1_1vector.html',1,'Zumo32U4IMU']]]
 ];

@@ -1,17 +1,19 @@
 var searchData=
 [
-  ['g_37',['g',['../class_zumo32_u4_i_m_u.html#a6870acdcde72d4f3ec2bd70088641e4e',1,'Zumo32U4IMU']]],
-  ['getcountsandresetleft_38',['getCountsAndResetLeft',['../class_zumo32_u4_encoders.html#a9b212103e652d1edb9d622381c303497',1,'Zumo32U4Encoders']]],
-  ['getcountsandresetright_39',['getCountsAndResetRight',['../class_zumo32_u4_encoders.html#a613358c24dbc997cb9fee36d66bbf2ba',1,'Zumo32U4Encoders']]],
-  ['getcountsleft_40',['getCountsLeft',['../class_zumo32_u4_encoders.html#a142d33610a12b209e257c1635b2daae6',1,'Zumo32U4Encoders']]],
-  ['getcountsright_41',['getCountsRight',['../class_zumo32_u4_encoders.html#ad570df0c84cbb719dc975233b4f65756',1,'Zumo32U4Encoders']]],
-  ['getlasterror_42',['getLastError',['../class_zumo32_u4_i_m_u.html#ad00f3ac13787ecb7cc0c3b7d4428fd5b',1,'Zumo32U4IMU']]],
-  ['getnumbrightnesslevels_43',['getNumBrightnessLevels',['../class_zumo32_u4_proximity_sensors.html#ab6cf32a103b2eafb16ad051ca499db48',1,'Zumo32U4ProximitySensors']]],
-  ['getnumsensors_44',['getNumSensors',['../class_zumo32_u4_proximity_sensors.html#abf645921ec976cf1b657fccc50b123a1',1,'Zumo32U4ProximitySensors']]],
-  ['getsingledebouncedpress_45',['getSingleDebouncedPress',['../class_pushbutton_base.html#a93953875c8b1c5f69dec3984774de296',1,'PushbuttonBase']]],
-  ['getsingledebouncedrelease_46',['getSingleDebouncedRelease',['../class_pushbutton_base.html#ae568f5db0e8804247e0dcab72a311d42',1,'PushbuttonBase']]],
-  ['getstate_47',['getState',['../class_fast_g_p_i_o_1_1_pin.html#a79035949bafe62634210dd41486dba2c',1,'FastGPIO::Pin']]],
-  ['gettype_48',['getType',['../class_zumo32_u4_i_m_u.html#a936427abfbed839c5669746d274427bd',1,'Zumo32U4IMU']]],
-  ['gotoxy_49',['gotoXY',['../class_pololu_h_d44780_base.html#a4886df8c888669cf71675072689ace9b',1,'PololuHD44780Base']]],
-  ['gyrodataready_50',['gyroDataReady',['../class_zumo32_u4_i_m_u.html#a82a4b99d45afb0b5008e32213fa2e0cc',1,'Zumo32U4IMU']]]
+  ['g_34',['g',['../class_zumo32_u4_i_m_u.html#a6870acdcde72d4f3ec2bd70088641e4e',1,'Zumo32U4IMU']]],
+  ['getcountsandresetleft_35',['getCountsAndResetLeft',['../class_zumo32_u4_encoders.html#a9b212103e652d1edb9d622381c303497',1,'Zumo32U4Encoders']]],
+  ['getcountsandresetright_36',['getCountsAndResetRight',['../class_zumo32_u4_encoders.html#a613358c24dbc997cb9fee36d66bbf2ba',1,'Zumo32U4Encoders']]],
+  ['getcountsleft_37',['getCountsLeft',['../class_zumo32_u4_encoders.html#a142d33610a12b209e257c1635b2daae6',1,'Zumo32U4Encoders']]],
+  ['getcountsright_38',['getCountsRight',['../class_zumo32_u4_encoders.html#ad570df0c84cbb719dc975233b4f65756',1,'Zumo32U4Encoders']]],
+  ['getlasterror_39',['getLastError',['../class_zumo32_u4_i_m_u.html#ad00f3ac13787ecb7cc0c3b7d4428fd5b',1,'Zumo32U4IMU']]],
+  ['getlinepointer_40',['getLinePointer',['../../pololu-oled-arduino/class_pololu_s_h1106_main.html#aae0e5fbfb61aeb353f371e1d4c579e60',1,'PololuSH1106::getLinePointer()'],['../../pololu-oled-arduino/class_pololu_s_h1106_main.html#aae0e5fbfb61aeb353f371e1d4c579e60',1,'PololuSH1106Main::getLinePointer()'],['../../pololu-oled-arduino/class_pololu_s_h1106_main.html#aae0e5fbfb61aeb353f371e1d4c579e60',1,'PololuSH1106Main&lt; PololuSH1106Core &gt;::getLinePointer()']]],
+  ['getnumbrightnesslevels_41',['getNumBrightnessLevels',['../class_zumo32_u4_proximity_sensors.html#ab6cf32a103b2eafb16ad051ca499db48',1,'Zumo32U4ProximitySensors']]],
+  ['getnumsensors_42',['getNumSensors',['../class_zumo32_u4_proximity_sensors.html#abf645921ec976cf1b657fccc50b123a1',1,'Zumo32U4ProximitySensors']]],
+  ['getsingledebouncedpress_43',['getSingleDebouncedPress',['../../pushbutton-arduino/class_pushbutton_base.html#a93953875c8b1c5f69dec3984774de296',1,'Pushbutton::getSingleDebouncedPress()'],['../../pushbutton-arduino/class_pushbutton_base.html#a93953875c8b1c5f69dec3984774de296',1,'PushbuttonBase::getSingleDebouncedPress()']]],
+  ['getsingledebouncedrelease_44',['getSingleDebouncedRelease',['../../pushbutton-arduino/class_pushbutton_base.html#ae568f5db0e8804247e0dcab72a311d42',1,'Pushbutton::getSingleDebouncedRelease()'],['../../pushbutton-arduino/class_pushbutton_base.html#ae568f5db0e8804247e0dcab72a311d42',1,'PushbuttonBase::getSingleDebouncedRelease()']]],
+  ['gettype_45',['getType',['../class_zumo32_u4_i_m_u.html#a936427abfbed839c5669746d274427bd',1,'Zumo32U4IMU']]],
+  ['getx_46',['getX',['../../pololu-oled-arduino/class_pololu_s_h1106_main.html#ac880ec674edd27b4054f3c9befac19f3',1,'PololuSH1106::getX()'],['../../pololu-oled-arduino/class_pololu_s_h1106_main.html#ac880ec674edd27b4054f3c9befac19f3',1,'PololuSH1106Main::getX()'],['../../pololu-oled-arduino/class_pololu_s_h1106_main.html#ac880ec674edd27b4054f3c9befac19f3',1,'PololuSH1106Main&lt; PololuSH1106Core &gt;::getX()']]],
+  ['gety_47',['getY',['../../pololu-oled-arduino/class_pololu_s_h1106_main.html#a1cf2fed028acc5b0ce995a7e15025ef2',1,'PololuSH1106::getY()'],['../../pololu-oled-arduino/class_pololu_s_h1106_main.html#a1cf2fed028acc5b0ce995a7e15025ef2',1,'PololuSH1106Main::getY()'],['../../pololu-oled-arduino/class_pololu_s_h1106_main.html#a1cf2fed028acc5b0ce995a7e15025ef2',1,'PololuSH1106Main&lt; PololuSH1106Core &gt;::getY()']]],
+  ['gotoxy_48',['gotoXY',['../../pololu-hd44780-arduino/class_pololu_h_d44780_base.html#a4886df8c888669cf71675072689ace9b',1,'PololuHD44780::gotoXY()'],['../../pololu-hd44780-arduino/class_pololu_h_d44780_base.html#a4886df8c888669cf71675072689ace9b',1,'PololuHD44780Base::gotoXY()'],['../../pololu-oled-arduino/class_pololu_s_h1106_main.html#a2a890ed1b5f8d639f0f80615af7564c5',1,'PololuSH1106::gotoXY()'],['../../pololu-oled-arduino/class_pololu_s_h1106_main.html#a2a890ed1b5f8d639f0f80615af7564c5',1,'PololuSH1106Main::gotoXY()'],['../../pololu-oled-arduino/class_pololu_s_h1106_main.html#a2a890ed1b5f8d639f0f80615af7564c5',1,'PololuSH1106Main&lt; PololuSH1106Core &gt;::gotoXY()']]],
+  ['gyrodataready_49',['gyroDataReady',['../class_zumo32_u4_i_m_u.html#a82a4b99d45afb0b5008e32213fa2e0cc',1,'Zumo32U4IMU']]]
 ];
