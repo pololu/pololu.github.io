@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['motoroni2c',['MotoronI2C',['../classmotoron_1_1MotoronI2C.html',1,'motoron']]]
+  ['currentsensetype_0',['CurrentSenseType',['../classmotoron_1_1_current_sense_type.html',1,'motoron']]]
 ];
