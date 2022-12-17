@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['writeeeprom_0',['writeEeprom',['../class_motoron_i2_c.html#a5f87b5bf7034af57468aa84b2439ec14',1,'MotoronI2C']]],
-  ['writeeepromdevicenumber_1',['writeEepromDeviceNumber',['../class_motoron_i2_c.html#a88e6453b0bca2b9389216bece526d795',1,'MotoronI2C']]]
+  ['use14bitdevicenumber_0',['use14BitDeviceNumber',['../class_motoron_serial.html#ac6fa4206666d58ab9692a270ad23358a',1,'MotoronSerial']]],
+  ['use7bitdevicenumber_1',['use7BitDeviceNumber',['../class_motoron_serial.html#a3379430b9b43987235cfa263cfd27e9c',1,'MotoronSerial']]]
 ];

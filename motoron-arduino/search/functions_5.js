@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['readeeprom_0',['readEeprom',['../class_motoron_i2_c.html#a2ecd3a9bca76c82a0e6a46d682ae66fe',1,'MotoronI2C']]],
-  ['readeepromdevicenumber_1',['readEepromDeviceNumber',['../class_motoron_i2_c.html#a414fc2700d3a01125e9305ace23948f1',1,'MotoronI2C']]],
-  ['reinitialize_2',['reinitialize',['../class_motoron_i2_c.html#a10e2ca0801e42019fd609f92f764222d',1,'MotoronI2C']]],
-  ['reset_3',['reset',['../class_motoron_i2_c.html#a3b79695c0276178ca36b1c051c7efc2c',1,'MotoronI2C']]],
-  ['resetcommandtimeout_4',['resetCommandTimeout',['../class_motoron_i2_c.html#a89dc7d2360a51c33b6030e704347612d',1,'MotoronI2C']]]
+  ['readeeprom_0',['readEeprom',['../class_motoron_base.html#ae51c73006ee7b85f77e3201995615ac6',1,'MotoronBase']]],
+  ['readeepromdevicenumber_1',['readEepromDeviceNumber',['../class_motoron_base.html#a78f09454b5df936283f046d2371fed47',1,'MotoronBase']]],
+  ['reinitialize_2',['reinitialize',['../class_motoron_base.html#aecdd96e6914acf037a09033b44ccbb2a',1,'MotoronBase']]],
+  ['reset_3',['reset',['../class_motoron_base.html#a8b1c0421d77380252c78b691d34d6f47',1,'MotoronBase']]],
+  ['resetcommandtimeout_4',['resetCommandTimeout',['../class_motoron_base.html#a9fbe5fdee9d6b46e7d6966209b2888e8',1,'MotoronBase']]]
 ];
