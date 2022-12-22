@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['enable_5fcrc_0',['enable_crc',['../classmotoron_1_1_motoron_i2_c.html#ae0c1b08e08be871da828c280fb3072d4',1,'motoron::MotoronI2C']]],
-  ['enable_5fcrc_5ffor_5fcommands_1',['enable_crc_for_commands',['../classmotoron_1_1_motoron_i2_c.html#aca5a56abf1e96e07c069c1bd01e46149',1,'motoron::MotoronI2C']]],
-  ['enable_5fcrc_5ffor_5fresponses_2',['enable_crc_for_responses',['../classmotoron_1_1_motoron_i2_c.html#a7d0a306f8cd25da3e614484665b3d3e4',1,'motoron::MotoronI2C']]],
-  ['enable_5fi2c_5fgeneral_5fcall_3',['enable_i2c_general_call',['../classmotoron_1_1_motoron_i2_c.html#a0277bab38610263e36a2b575bfd3dd07',1,'motoron::MotoronI2C']]]
+  ['enable_5fcrc_0',['enable_crc',['../classmotoron_1_1_motoron_base.html#a0b6244380181c33fd825007340073c99',1,'motoron.MotoronBase.enable_crc(self)'],['../classmotoron_1_1_motoron_base.html#a0b6244380181c33fd825007340073c99',1,'motoron.MotoronBase.enable_crc(self)']]],
+  ['enable_5fcrc_5ffor_5fcommands_1',['enable_crc_for_commands',['../classmotoron_1_1_motoron_base.html#a00b6b6c549c03299a056ceb2ab8b8df1',1,'motoron.MotoronBase.enable_crc_for_commands(self)'],['../classmotoron_1_1_motoron_base.html#a00b6b6c549c03299a056ceb2ab8b8df1',1,'motoron.MotoronBase.enable_crc_for_commands(self)']]],
+  ['enable_5fcrc_5ffor_5fresponses_2',['enable_crc_for_responses',['../classmotoron_1_1_motoron_base.html#a4bf1d54470904863e803eae995608769',1,'motoron.MotoronBase.enable_crc_for_responses(self)'],['../classmotoron_1_1_motoron_base.html#a4bf1d54470904863e803eae995608769',1,'motoron.MotoronBase.enable_crc_for_responses(self)']]],
+  ['enable_5fi2c_5fgeneral_5fcall_3',['enable_i2c_general_call',['../classmotoron_1_1_motoron_base.html#a49659ed6f2d972aefae42798cbb10e30',1,'motoron.MotoronBase.enable_i2c_general_call(self)'],['../classmotoron_1_1_motoron_base.html#a49659ed6f2d972aefae42798cbb10e30',1,'motoron.MotoronBase.enable_i2c_general_call(self)']]],
+  ['expect_5f7bit_5fresponses_4',['expect_7bit_responses',['../classmotoron_1_1_motoron_serial.html#a2f39a962a10a93d629b8e4a1cebf45f8',1,'motoron.MotoronSerial.expect_7bit_responses(self)'],['../classmotoron_1_1_motoron_serial.html#a2f39a962a10a93d629b8e4a1cebf45f8',1,'motoron.MotoronSerial.expect_7bit_responses(self)']]],
+  ['expect_5f8bit_5fresponses_5',['expect_8bit_responses',['../classmotoron_1_1_motoron_serial.html#a8596c75fface63a7347535add147426d',1,'motoron.MotoronSerial.expect_8bit_responses(self)'],['../classmotoron_1_1_motoron_serial.html#a8596c75fface63a7347535add147426d',1,'motoron.MotoronSerial.expect_8bit_responses(self)']]]
 ];
