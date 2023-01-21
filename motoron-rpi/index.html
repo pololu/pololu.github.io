@@ -85,6 +85,8 @@ Summary</h1>
 <p >This is a Python 3 library that helps interface with <a href="https://pololu.com/motoron">Motoron motor controllers</a> using I&sup2;C or UART serial.</p>
 <p >It supports the following Motoron controllers:</p>
 <ul>
+<li><a href="https://www.pololu.com/product/5061">Motoron M1T256 Single I&sup2;C Motor Controller</a></li>
+<li><a href="https://www.pololu.com/product/5063">Motoron M1U256 Single Serial Motor Controller</a></li>
 <li><a href="https://www.pololu.com/product/5065">Motoron M2T256 Dual I&sup2;C Motor Controller</a></li>
 <li><a href="https://www.pololu.com/product/5067">Motoron M2U256 Dual Serial Motor Controller</a></li>
 <li><a href="https://www.pololu.com/category/290">Motoron M3S256 Triple Motor Controller Shield for Arduino</a></li>
@@ -94,7 +96,7 @@ Summary</h1>
 </ul>
 <h1><a class="anchor" id="autotoc_md2"></a>
 Supported platforms</h1>
-<p >This library is designed to run on a Raspberry Pi and also works on other systems as long as they have Python 3 and either the <a href="https://github.com/kplindegaard/smbus2">smbus2</a> library (for I&sup2;C) or the <a href="https://github.com/pyserial/pyserial/">pySerial</a> library (for UART serial). The smbus2 library generally only works on single-board Linux machines with an I&sup;C bus. The pySerial library works on a wide variety of platforms.</p>
+<p >This library is designed to run on a Raspberry Pi and also works on other systems as long as they have Python 3 and either the <a href="https://github.com/kplindegaard/smbus2">smbus2</a> library (for I&sup2;C) or the <a href="https://github.com/pyserial/pyserial/">pySerial</a> library (for UART serial). The smbus2 library generally only works on single-board Linux machines with an I&sup2;C bus. The pySerial library works on a wide variety of platforms.</p>
 <p >This library does <b>not</b> support Python 2.</p>
 <h1><a class="anchor" id="autotoc_md3"></a>
 Getting started</h1>
@@ -149,7 +151,7 @@ Command timeout</h1>
 <h1><a class="anchor" id="autotoc_md13"></a>
 Version history</h1>
 <ul>
-<li>1.2.0 (2022-12-23): Added support for the <a href="https://www.pololu.com/product/5065">M2T256</a> and <a href="https://www.pololu.com/product/5067">M2U256</a> motorons.</li>
+<li>1.2.0 (2022-12-23): Added support for the <a href="https://www.pololu.com/product/5065">M2T256</a> and <a href="https://www.pololu.com/product/5067">M2U256</a> motorons. This version also supports the later-released <a href="https://www.pololu.com/product/5061">M1T256</a> and <a href="https://www.pololu.com/product/5063">M1U256</a>.</li>
 <li>1.1.0 (2022-08-05): Added support for the <a href="https://www.pololu.com/category/291">M2S</a> and <a href="https://www.pololu.com/category/293">M2H</a> Motorons.</li>
 <li>1.0.0 (2022-05-13): Original release. </li>
 </ul>
