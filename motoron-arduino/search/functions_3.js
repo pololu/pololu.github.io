@@ -51,5 +51,5 @@ var searchData=
   ['getvar8_48',['getVar8',['../class_motoron_base.html#ad9eccb421ae561adc19f56f7337ce5fb',1,'MotoronBase']]],
   ['getvariables_49',['getVariables',['../class_motoron_base.html#a6b893d854749baf25a3a3a66193cb2f9',1,'MotoronBase']]],
   ['getvinvoltage_50',['getVinVoltage',['../class_motoron_base.html#a4d22a57a7a2e7bce98323328e30eb195',1,'MotoronBase']]],
-  ['getvinvoltagemv_51',['getVinVoltageMv',['../class_motoron_base.html#a36b66e62035f22aaec89773b4f423fd7',1,'MotoronBase']]]
+  ['getvinvoltagemv_51',['getVinVoltageMv',['../class_motoron_base.html#a582db998cc979dd53a9913a038388c9b',1,'MotoronBase']]]
 ];
