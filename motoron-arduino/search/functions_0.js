@@ -8,5 +8,6 @@ var searchData=
   ['clearresetflag_5',['clearResetFlag',['../class_motoron_base.html#ab56af52d60307d39e4abd5d260c6243f',1,'MotoronBase']]],
   ['clearuartfaults_6',['clearUARTFaults',['../class_motoron_base.html#a24cbe1a69fda2c81971e867217cb3d95',1,'MotoronBase']]],
   ['coastnow_7',['coastNow',['../class_motoron_base.html#a376733426221a417452aad436d5b32ed',1,'MotoronBase']]],
-  ['currentsenseunitsmilliamps_8',['currentSenseUnitsMilliamps',['../class_motoron_base.html#abc3b0c462be742f9e7610c9dbc9ad3f0',1,'MotoronBase']]]
+  ['currentsenseunitsmicroamps_8',['currentSenseUnitsMicroamps',['../class_motoron_base.html#a44fb90f1bec66bd5f349734d138b4f5d',1,'MotoronBase']]],
+  ['currentsenseunitsmilliamps_9',['currentSenseUnitsMilliamps',['../class_motoron_base.html#abc3b0c462be742f9e7610c9dbc9ad3f0',1,'MotoronBase']]]
 ];
