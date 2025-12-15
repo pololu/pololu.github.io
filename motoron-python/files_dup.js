@@ -1,0 +1,28 @@
+var files_dup =
+[
+    [ "build", "dir_4fef79e7177ba769987a8da36c892c5f.html", "dir_4fef79e7177ba769987a8da36c892c5f" ],
+    [ "motoron.py", "motoron_8py.html", "motoron_8py" ],
+    [ "motoron_protocol.py", "motoron__protocol_8py.html", "motoron__protocol_8py" ],
+    [ "i2c_careful_example.py", "i2c__careful__example_8py_source.html", null ],
+    [ "i2c_current_sense_calibrate_example.py", "i2c__current__sense__calibrate__example_8py_source.html", null ],
+    [ "i2c_robust_example.py", "i2c__robust__example_8py_source.html", null ],
+    [ "i2c_set_addresses_example.py", "i2c__set__addresses__example_8py_source.html", null ],
+    [ "i2c_simple_example.py", "i2c__simple__example_8py_source.html", null ],
+    [ "i2c_simple_multi_example.py", "i2c__simple__multi__example_8py_source.html", null ],
+    [ "i2c_simple_no_library_example.py", "i2c__simple__no__library__example_8py_source.html", null ],
+    [ "mpy_i2c_careful_example.py", "mpy__i2c__careful__example_8py_source.html", null ],
+    [ "mpy_i2c_robust_example.py", "mpy__i2c__robust__example_8py_source.html", null ],
+    [ "mpy_i2c_simple_example.py", "mpy__i2c__simple__example_8py_source.html", null ],
+    [ "mpy_i2c_simple_no_library_example.py", "mpy__i2c__simple__no__library__example_8py_source.html", null ],
+    [ "mpy_uart_careful_example.py", "mpy__uart__careful__example_8py_source.html", null ],
+    [ "mpy_uart_robust_example.py", "mpy__uart__robust__example_8py_source.html", null ],
+    [ "mpy_uart_simple_example.py", "mpy__uart__simple__example_8py_source.html", null ],
+    [ "mpy_uart_simple_no_library_example.py", "mpy__uart__simple__no__library__example_8py_source.html", null ],
+    [ "rs485_careful_example.py", "rs485__careful__example_8py_source.html", null ],
+    [ "serial_careful_example.py", "serial__careful__example_8py_source.html", null ],
+    [ "serial_robust_example.py", "serial__robust__example_8py_source.html", null ],
+    [ "serial_setup_example.py", "serial__setup__example_8py_source.html", null ],
+    [ "serial_simple_example.py", "serial__simple__example_8py_source.html", null ],
+    [ "serial_simple_multi_example.py", "serial__simple__multi__example_8py_source.html", null ],
+    [ "serial_simple_no_library_example.py", "serial__simple__no__library__example_8py_source.html", null ]
+];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['motoron_20motor_20controller_20library_20for_20python_2fmicropython_0',['Motoron Motor Controller library for Python/MicroPython',['../index.html',1,'']]]
+  ['a_20virtual_20environment_0',['Alternative installation without a virtual environment',['../index.html#autotoc_md4',1,'']]],
+  ['alternative_20installation_20without_20a_20virtual_20environment_1',['Alternative installation without a virtual environment',['../index.html#autotoc_md4',1,'']]]
 ];
